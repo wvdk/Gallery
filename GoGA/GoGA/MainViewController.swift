@@ -28,17 +28,3 @@ class MainViewController: UIViewController {
     }
 
 }
-
-public protocol WithProtocol {}
-
-extension NSObject: WithProtocol {}
-
-extension WithProtocol where Self: NSObject {
-    
-    public func with(closure: (Self) -> Void) {
-        closure(self)
-    }
-    
-}
-
-
