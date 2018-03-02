@@ -20,6 +20,8 @@ class MainViewController: UIViewController {
         
         tableView.with { it in
             view.addSubview(it)
+            it.delegate = self
+            it.dataSource = self
             it.translatesAutoresizingMaskIntoConstraints = false
             it.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             it.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -28,4 +30,20 @@ class MainViewController: UIViewController {
         }
     }
 
+}
+
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+
+        cell.textLabel?.text = "Hello world"
+        
+        return cell
+    }
+    
 }
