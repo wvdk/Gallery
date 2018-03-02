@@ -1,5 +1,4 @@
-# GoGA
-Gallery of Generative Art
+# Gallery of Generative Art
 
 The primary motivation for this app is to act as a platform to make goofy programatic art.
 
