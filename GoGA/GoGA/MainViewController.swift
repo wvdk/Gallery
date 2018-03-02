@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ArtKit
 
 class MainViewController: UIViewController {
 
