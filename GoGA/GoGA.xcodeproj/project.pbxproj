@@ -16,6 +16,7 @@
 		DE293FAE20490E1100444EB8 /* ArtKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit.framework */; };
 		DE293FAF20490E1100444EB8 /* ArtKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE293FB420490E2000444EB8 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */; };
+		DE2AEFB0204B0F6900C65CA4 /* ArtPieceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		DE293FA720490E1100444EB8 /* ArtKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArtKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE293FA920490E1100444EB8 /* ArtKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtKit.h; sourceTree = "<group>"; };
 		DE293FAA20490E1100444EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				DE293F8E2048F30300444EB8 /* AppDelegate.swift */,
 				DE293F902048F30300444EB8 /* MainViewController.swift */,
+				DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */,
 				8929F4F1204AD54C000E5179 /* IDGenerator.swift */,
 				DE293F952048F30300444EB8 /* Assets.xcassets */,
 				DE293F972048F30300444EB8 /* LaunchScreen.storyboard */,
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE2AEFB0204B0F6900C65CA4 /* ArtPieceDetailViewController.swift in Sources */,
 				DE293F912048F30300444EB8 /* MainViewController.swift in Sources */,
 				8929F4F2204AD54C000E5179 /* IDGenerator.swift in Sources */,
 				DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */,
