@@ -45,13 +45,15 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return MasterList.pieces.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
 
-        cell.textLabel?.text = "Hello world - \(generateUniqueID())"
+        let piece = MasterList.pieces[indexPath.row]
+        
+        cell.textLabel?.text = piece.id
         
         return cell
     }
