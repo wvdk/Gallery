@@ -12,6 +12,8 @@ import ArtKit
 class MainViewController: UIViewController {
 
     let tableView = UITableView()
+    private let idGenerator = IDGenerator()
+    private var idList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,14 @@ class MainViewController: UIViewController {
         }
     }
 
+    fileprivate func generateUniqueID() -> String {
+        let id = idGenerator.generate(digits: 3, letters: 1)
+        guard idList.contains(id) else {
+            idList.append(id)
+            return id
+        }
+        return generateUniqueID()
+    }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -41,9 +51,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
 
-        cell.textLabel?.text = "Hello world"
+        cell.textLabel?.text = "Hello world - \(generateUniqueID())"
         
         return cell
     }
-    
 }
