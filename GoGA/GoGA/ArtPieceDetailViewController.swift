@@ -10,4 +10,10 @@ import UIKit
 
 class ArtPieceDetailViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+     
+        view.backgroundColor = .blue
+    }
+    
 }

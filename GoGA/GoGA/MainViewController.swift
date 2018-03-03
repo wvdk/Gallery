@@ -55,4 +55,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let artPiceDetailViewController = ArtPieceDetailViewController()
+        
+        present(artPiceDetailViewController, animated: true, completion: nil)
+    }
 }
