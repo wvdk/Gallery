@@ -1,5 +1,5 @@
 //
-//  Helpers.swift
+//  NSObject+Extensions.swift
 //  GoGA
 //
 //  Created by Wesley Van der Klomp on 3/1/18.
