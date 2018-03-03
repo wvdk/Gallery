@@ -13,9 +13,9 @@ struct MasterList {
 
     static let pieces = [
         Piece(id: "a.000a", author: "wvdk", date: Date()),
-        Piece(id: "a.000a", author: "wvdk", date: Date()),
-        Piece(id: "a.000a", author: "wvdk", date: Date()),
-        Piece(id: "a.000a", author: "wvdk", date: Date())
+        Piece(id: "a.001a", author: "wvdk", date: Date()),
+        Piece(id: "a.002a", author: "wvdk", date: Date()),
+        Piece(id: "a.003a", author: "wvdk", date: Date())
     ]
     
 }
