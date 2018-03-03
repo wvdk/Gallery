@@ -10,10 +10,27 @@ import UIKit
 
 class ArtPieceDetailViewController: UIViewController {
     
+    let backButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        view.backgroundColor = .blue
+        backButton.with { it in
+            view.addSubview(it)
+            it.translatesAutoresizingMaskIntoConstraints = false
+            it.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+            it.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+            it.widthAnchor.constraint(equalToConstant: 45).isActive = true
+            it.heightAnchor.constraint(equalToConstant: 45).isActive = true
+            it.backgroundColor = .red
+            it.addTarget(self, action: #selector(close), for: .touchUpInside)
+        }
+        
+        view.backgroundColor = .gray
+    }
+    
+    @objc func close() {
+        dismiss(animated: true, completion: nil)
     }
     
 }
