@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8929F4F2204AD54C000E5179 /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929F4F1204AD54C000E5179 /* IDGenerator.swift */; };
 		DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F8E2048F30300444EB8 /* AppDelegate.swift */; };
 		DE293F912048F30300444EB8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F902048F30300444EB8 /* MainViewController.swift */; };
 		DE293F962048F30300444EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE293F952048F30300444EB8 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8929F4F1204AD54C000E5179 /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
 		DE293F8B2048F30300444EB8 /* GoGA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE293F8E2048F30300444EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE293F902048F30300444EB8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				DE293F8E2048F30300444EB8 /* AppDelegate.swift */,
 				DE293F902048F30300444EB8 /* MainViewController.swift */,
+				8929F4F1204AD54C000E5179 /* IDGenerator.swift */,
 				DE293FA020490D7700444EB8 /* Helpers.swift */,
 				DE293F952048F30300444EB8 /* Assets.xcassets */,
 				DE293F972048F30300444EB8 /* LaunchScreen.storyboard */,
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE293F912048F30300444EB8 /* MainViewController.swift in Sources */,
+				8929F4F2204AD54C000E5179 /* IDGenerator.swift in Sources */,
 				DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,7 +379,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+                DEVELOPMENT_TEAM = B2HHR6H4K6;
 				INFOPLIST_FILE = GoGA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -392,7 +396,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+                DEVELOPMENT_TEAM = B2HHR6H4K6;
 				INFOPLIST_FILE = GoGA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
