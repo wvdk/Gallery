@@ -59,7 +59,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let piece = MasterList.pieces[indexPath.row]
         
-        cell.titleLabel.text = piece.id
+        cell.idLabel.text = piece.id
         
         return cell
     }
