@@ -10,11 +10,30 @@ import UIKit
 
 class ArtPieceTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    static let identifier = "artPieceTableViewCell"
+    var artPieceImageView = UIImageView()
+    var idLabel = UILabel()
+    var titleLabel = UILabel()
 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configureView()
+    }
+    
+    func configureView() {
+//        backgroundColor = .white
+        
+        contentView.addSubview(artPieceImageView)
+        
+        contentView.addSubview(idLabel)
+        
+        contentView.addSubview(titleLabel)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

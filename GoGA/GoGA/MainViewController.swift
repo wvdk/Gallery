@@ -11,6 +11,10 @@ import ArtKit
 
 class MainViewController: UIViewController {
 
+    fileprivate enum Constants {
+        static let tableViewCellHight: CGFloat = 150.0
+    }
+    
     let tableView = UITableView()
     private let idGenerator = IDGenerator()
     private var idList = [String]()
@@ -24,11 +28,13 @@ class MainViewController: UIViewController {
             view.addSubview(it)
             it.delegate = self
             it.dataSource = self
+            it.register(ArtPieceTableViewCell.self, forCellReuseIdentifier: ArtPieceTableViewCell.identifier)
             it.translatesAutoresizingMaskIntoConstraints = false
             it.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             it.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
             it.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             it.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            it.separatorStyle = UITableViewCellSeparatorStyle.none
         }
     }
 
@@ -49,11 +55,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: ArtPieceTableViewCell.identifier) as! ArtPieceTableViewCell
+        
         let piece = MasterList.pieces[indexPath.row]
         
-        cell.textLabel?.text = piece.id
+        cell.titleLabel.text = piece.id
         
         return cell
     }
@@ -62,5 +68,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let artPiceDetailViewController = ArtPieceDetailViewController()
         
         present(artPiceDetailViewController, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.tableViewCellHight
     }
 }
