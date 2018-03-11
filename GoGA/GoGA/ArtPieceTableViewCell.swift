@@ -10,6 +10,12 @@ import UIKit
 
 class ArtPieceTableViewCell: UITableViewCell {
 
+    fileprivate enum Constants {
+        static let cellCornerRadius: CGFloat = 5.0
+        static let artPieceImageViewLengthRatio: CGFloat = 950.0 / 1024.0
+        static let artPieceImageViewHeight: CGFloat = 120.0
+    }
+    
     static let identifier = "artPieceTableViewCell"
     var artPieceImageView = UIImageView()
     var idLabel = UILabel()
@@ -25,11 +31,27 @@ class ArtPieceTableViewCell: UITableViewCell {
     }
     
     func configureView() {
-//        backgroundColor = .white
+//        backgroundColor = .black
         
-        contentView.addSubview(artPieceImageView)
+//        artPieceImageView.with { it in
+//            contentView.addSubview(it)
+//            it.backgroundColor = .red
+//            it.layer.cornerRadius = Constants.cellCornerRadius
+////            it.layer.shadowOffset = CGSize(width: 4.0, height: 5.0)
+////            it.layer.shadowRadius = 4.0
+////            it.translatesAutoresizingMaskIntoConstraints = false
+//            it.frame.size = CGSize(width: self.frame.size.width * Constants.artPieceImageViewLengthRatio,
+//                                   height: Constants.artPieceImageViewHeight)
+//            it.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+////            it.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+//        }
         
-        contentView.addSubview(idLabel)
+        
+        idLabel.with { it in
+            contentView.addSubview(idLabel)
+            it.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+            it.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        }
         
         contentView.addSubview(titleLabel)
     }
