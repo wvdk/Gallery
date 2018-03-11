@@ -12,7 +12,7 @@ import ArtKit
 class MainViewController: UIViewController {
 
     fileprivate enum Constants {
-        static let tableViewCellHight: CGFloat = 150.0
+        static let tableViewCellHight: CGFloat = 150.0 / 768.0
     }
     
     let tableView = UITableView()
@@ -71,6 +71,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.tableViewCellHight
+        return view.frame.size.height * Constants.tableViewCellHight
     }
 }
