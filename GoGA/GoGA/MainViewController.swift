@@ -22,13 +22,14 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(r: 239, g: 239, b: 239)
         
         tableView.with { it in
             view.addSubview(it)
             it.delegate = self
             it.dataSource = self
             it.allowsSelection = false
+            it.backgroundColor = .clear
             it.register(ArtPieceTableViewCell.self, forCellReuseIdentifier: ArtPieceTableViewCell.identifier)
             it.translatesAutoresizingMaskIntoConstraints = false
             it.topAnchor.constraint(equalTo: view.topAnchor).isActive = true

@@ -25,8 +25,6 @@ class ArtPieceDetailViewController: UIViewController {
             it.backgroundColor = .red
             it.addTarget(self, action: #selector(close), for: .touchUpInside)
         }
-        
-        view.backgroundColor = .gray
     }
     
     @objc func close() {
