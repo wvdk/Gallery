@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
             view.addSubview(it)
             it.delegate = self
             it.dataSource = self
+            it.allowsSelection = false
             it.register(ArtPieceTableViewCell.self, forCellReuseIdentifier: ArtPieceTableViewCell.identifier)
             it.translatesAutoresizingMaskIntoConstraints = false
             it.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -73,4 +74,5 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.frame.size.height * Constants.tableViewCellHight
     }
+    
 }

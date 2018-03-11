@@ -27,39 +27,41 @@ class ArtPieceTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        idLabel.text = "a.000A"
+        
         configureView()
     }
     
     func configureView() {
-//        backgroundColor = .black
+        backgroundColor = .clear
         
-//        artPieceImageView.with { it in
-//            contentView.addSubview(it)
-//            it.backgroundColor = .red
-//            it.layer.cornerRadius = Constants.cellCornerRadius
-////            it.layer.shadowOffset = CGSize(width: 4.0, height: 5.0)
-////            it.layer.shadowRadius = 4.0
-////            it.translatesAutoresizingMaskIntoConstraints = false
-//            it.frame.size = CGSize(width: self.frame.size.width * Constants.artPieceImageViewLengthRatio,
-//                                   height: Constants.artPieceImageViewHeight)
-//            it.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-////            it.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-//        }
-        
+        artPieceImageView.with { it in
+            contentView.addSubview(it)
+            it.backgroundColor = .white
+            it.layer.cornerRadius = Constants.cellCornerRadius
+            it.translatesAutoresizingMaskIntoConstraints = false
+            it.image = UIImage(named: "InDevelopment")
+            it.layer.shadowOffset = CGSize(width: 4.0, height: 5.0)
+            it.layer.shadowRadius = 4.0
+            it.translatesAutoresizingMaskIntoConstraints = false
+            it.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 38).isActive = true
+            it.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -38).isActive = true
+            it.heightAnchor.constraint(equalToConstant: 120).isActive = true
+            it.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        }        
         
         idLabel.with { it in
-            contentView.addSubview(idLabel)
-            it.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
-            it.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+            contentView.addSubview(it)
+            it.translatesAutoresizingMaskIntoConstraints = false
+            it.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2 * 3)
+            it.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14).isActive = true
+            it.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+            it.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .light)
+            it.textColor = UIColor(displayP3Red: 0.54, green: 0.54, blue: 0.54, alpha: 1.0)
         }
         
         contentView.addSubview(titleLabel)
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
