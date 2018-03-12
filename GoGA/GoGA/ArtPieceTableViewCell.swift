@@ -42,8 +42,10 @@ class ArtPieceTableViewCell: UITableViewCell {
             it.layer.cornerRadius = Constants.cellCornerRadius
             it.translatesAutoresizingMaskIntoConstraints = false
             it.image = UIImage(named: "InDevelopment")
-            it.layer.shadowOffset = CGSize(width: 4.0, height: 5.0)
             it.layer.shadowRadius = 4.0
+            it.layer.shadowOffset = CGSize(width: 0, height: 2)
+            it.layer.shadowColor = UIColor.black.cgColor
+            it.layer.shadowOpacity = 0.1
             it.translatesAutoresizingMaskIntoConstraints = false
             it.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 38).isActive = true
             it.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -38).isActive = true
@@ -55,7 +57,7 @@ class ArtPieceTableViewCell: UITableViewCell {
             contentView.addSubview(it)
             it.translatesAutoresizingMaskIntoConstraints = false
             it.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2 * 3)
-            it.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14).isActive = true
+            it.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
             it.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
             it.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .light)
             it.textColor = UIColor(displayP3Red: 0.54, green: 0.54, blue: 0.54, alpha: 1.0)
