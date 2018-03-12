@@ -59,7 +59,8 @@ class ArtPieceTableViewCell: UITableViewCell {
             it.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2 * 3)
             it.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
             it.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-            it.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .light)
+            it.font = UIFont(name: "SFMono-Light", size: 12.0)
+            print(UIFont.familyNames)
             it.textColor = UIColor(displayP3Red: 0.54, green: 0.54, blue: 0.54, alpha: 1.0)
         }
         
