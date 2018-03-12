@@ -9,17 +9,11 @@
 import UIKit
 
 class ArtPieceTableViewCell: UITableViewCell {
-
-    fileprivate enum Constants {
-        static let cellCornerRadius: CGFloat = 5.0
-        static let artPieceImageViewLengthRatio: CGFloat = 950.0 / 1024.0
-        static let artPieceImageViewHeight: CGFloat = 120.0
-    }
     
     static let identifier = "artPieceTableViewCell"
-    var artPieceImageView = UIImageView()
+    var previewImageView = UIImageView()
     var idLabel = UILabel()
-    var titleLabel = UILabel()
+    var nameAndDateLabel = UILabel()
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -29,6 +23,7 @@ class ArtPieceTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         idLabel.text = "a.000A"
+        nameAndDateLabel.text = "Kristina Gelzinyte, March 2018"
         
         configureView()
     }
@@ -36,10 +31,10 @@ class ArtPieceTableViewCell: UITableViewCell {
     func configureView() {
         backgroundColor = .clear
         
-        artPieceImageView.with { it in
+        previewImageView.with { it in
             contentView.addSubview(it)
             it.backgroundColor = .white
-            it.layer.cornerRadius = Constants.cellCornerRadius
+            it.layer.cornerRadius = 8.0
             it.translatesAutoresizingMaskIntoConstraints = false
             it.image = UIImage(named: "InDevelopment")
             it.layer.shadowRadius = 4.0
@@ -60,11 +55,17 @@ class ArtPieceTableViewCell: UITableViewCell {
             it.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
             it.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
             it.font = UIFont(name: "SFMono-Light", size: 12.0)
-            print(UIFont.familyNames)
             it.textColor = UIColor(displayP3Red: 0.54, green: 0.54, blue: 0.54, alpha: 1.0)
         }
         
-        contentView.addSubview(titleLabel)
+        nameAndDateLabel.with { it in
+            contentView.addSubview(it)
+            it.translatesAutoresizingMaskIntoConstraints = false
+            it.topAnchor.constraint(equalTo: previewImageView.bottomAnchor, constant: 2).isActive = true
+            it.trailingAnchor.constraint(equalTo: previewImageView.trailingAnchor, constant: -8).isActive = true
+            it.font = UIFont(name: "Avenir Next", size: 12)
+            it.textColor = UIColor(r: 94, g: 64, b: 64)
+        }
     }
 
 }
