@@ -37,6 +37,15 @@ class MainViewController: UIViewController {
             it.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             it.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             it.separatorStyle = UITableViewCellSeparatorStyle.none
+            
+            let headerView = UIView()
+            headerView.with { it in
+                it.translatesAutoresizingMaskIntoConstraints = false
+                it.backgroundColor = .blue
+                it.frame = CGRect(x: 0, y: 0, width: 0, height: 400)
+            }
+            
+            it.tableHeaderView = headerView
         }
     }
 
