@@ -37,17 +37,22 @@ class MainViewController: UIViewController {
             it.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             it.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             it.separatorStyle = UITableViewCellSeparatorStyle.none
-            
-            let headerView = UIView()
-            headerView.with { it in
-                it.translatesAutoresizingMaskIntoConstraints = false
-                it.backgroundColor = .blue
-                it.frame = CGRect(x: 0, y: 0, width: 0, height: 400)
-            }
-            
             it.tableHeaderView = headerView
         }
     }
+    
+    lazy var headerView: UIView = {
+        let view = UIView()
+        view.frame = CGRect(x: 0, y: 0, width: 0, height: 116)
+        
+        let imageView = UIImageView(image: UIImage(named: "logo")!)
+        view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        
+        return view
+    }()
 
     fileprivate func generateUniqueID() -> String {
         let id = idGenerator.generate(digits: 3, letters: 1)
