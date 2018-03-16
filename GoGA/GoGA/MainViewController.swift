@@ -91,3 +91,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+extension ArtPieceTableViewCellDelegate {
+    
+    func openArtPiece() {
+        
+    }
+    
+}
