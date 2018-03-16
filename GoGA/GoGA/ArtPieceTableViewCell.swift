@@ -10,16 +10,25 @@ import UIKit
 
 protocol ArtPieceTableViewCellDelegate {
     
-    func openArtPiece()
+    func openArtPiece(viewController: ArtPieceDetailViewController)
     
 }
 
 class ArtPieceTableViewCell: UITableViewCell {
     
     static let identifier = "artPieceTableViewCell"
-    var previewImageView = UIImageView()
-    var idLabel = UILabel()
-    var nameAndDateLabel = UILabel()
+    var delegate: ArtPieceTableViewCellDelegate? = nil
+    var piece: Piece? = nil {
+        didSet {
+            guard let piece = piece else { return }
+            idLabel.text = piece.id
+            nameAndDateLabel.text = "\(piece.author) \(piece.date)"
+        }
+    }
+    
+    private var previewImageView = UIImageView()
+    private var idLabel = UILabel()
+    private var nameAndDateLabel = UILabel()
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -27,10 +36,7 @@ class ArtPieceTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        idLabel.text = "a.000A"
-        nameAndDateLabel.text = "Kristina Gelzinyte, March 2018"
-        
+
         configureView()
     }
     
@@ -52,6 +58,10 @@ class ArtPieceTableViewCell: UITableViewCell {
             it.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -38).isActive = true
             it.heightAnchor.constraint(equalToConstant: 120).isActive = true
             it.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+            it.addSingleTapGestureRecognizer { [weak self] _ in
+                guard let viewController = self?.piece?.viewController else { return }
+                self?.delegate?.openArtPiece(viewController: viewController)
+            }
         }        
         
         idLabel.with { it in
@@ -75,3 +85,26 @@ class ArtPieceTableViewCell: UITableViewCell {
     }
 
 }
+
+extension UIView {
+    
+    public func addSingleTapGestureRecognizer(_ action: @escaping (UITapGestureRecognizer) -> Void) {
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(UITapGestureRecognizerWithClosure(closure: action))
+    }
+
+}
+
+public class UITapGestureRecognizerWithClosure: UITapGestureRecognizer {
+    private let closure: (UITapGestureRecognizer) -> ()
+    
+    public init(closure: @escaping (UITapGestureRecognizer) -> ()) {
+        self.closure = closure
+        super.init(target: self, action: #selector(UITapGestureRecognizerWithClosure.invokeTarget(_:)))
+    }
+    
+    @objc func invokeTarget(_ recognizer: UITapGestureRecognizer) {
+        self.closure(recognizer)
+    }
+}
+

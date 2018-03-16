@@ -73,9 +73,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ArtPieceTableViewCell.identifier) as! ArtPieceTableViewCell
         
-        let piece = MasterList.pieces[indexPath.row]
-        
-        cell.idLabel.text = piece.id
+        cell.piece = MasterList.pieces[indexPath.row]
+        cell.delegate = self
         
         return cell
     }
@@ -92,10 +91,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension ArtPieceTableViewCellDelegate {
+extension MainViewController: ArtPieceTableViewCellDelegate {
     
-    func openArtPiece() {
-        
+    func openArtPiece(viewController: ArtPieceDetailViewController) {
+        present(viewController, animated: true, completion: nil)
     }
     
 }
