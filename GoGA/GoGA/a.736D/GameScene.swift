@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import ArtKit
 
 class GameScene: SKScene {
     
@@ -99,8 +100,6 @@ class GameScene: SKScene {
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: { [weak self] in
             guard let `self` = self else { return }
-//            self.clearScreen()
-            self.playClangSound()
             
             guard let delay = self.clearScreenDelay else { return }
             self.recursivelyTriggerClearScreen(after: delay)
@@ -140,20 +139,6 @@ class GameScene: SKScene {
             
             whiteRect.run(getRandomAction())
         }
-    }
-    
-    /// MARK: - Sound methods
-    
-    func playClangSound() {
-        let clangAudioNode = SKAudioNode(fileNamed: "clang.m4a")
-        
-        self.addChild(clangAudioNode)
-        
-        clangAudioNode.run(SKAction.play())
-        
-        start({
-            clangAudioNode.run(SKAction.stop())
-        }, after: 0.5)
     }
 
 }
