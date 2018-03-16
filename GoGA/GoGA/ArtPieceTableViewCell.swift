@@ -22,7 +22,7 @@ class ArtPieceTableViewCell: UITableViewCell {
         didSet {
             guard let piece = piece else { return }
             idLabel.text = piece.id
-            nameAndDateLabel.text = "\(piece.author) \(piece.date)"
+            nameAndDateLabel.text = "\(piece.author), \(piece.prettyDate)"
         }
     }
     
