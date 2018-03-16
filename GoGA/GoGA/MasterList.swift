@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 /// A master list of art pieces.
 struct MasterList {
 
     static let pieces = [
-        Piece(id: "a.736D", author: "Wes Van der Klomp", date: Date(), viewController: a736DViewController())
+        Piece(id: "a.736D", author: "Wes Van der Klomp", date: Date(), image: #imageLiteral(resourceName: "a736D.png"), viewController: a736DViewController())
     ]
     
 }
@@ -22,6 +23,7 @@ struct Piece {
     let id: String
     let author: String
     let date: Date
+    let image: UIImage
     let viewController: ArtPieceDetailViewController
     
     var prettyDate: String {
