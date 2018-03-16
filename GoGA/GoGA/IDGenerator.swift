@@ -9,10 +9,24 @@
 import Foundation
 
 struct IDGenerator {
+    
     fileprivate enum Constants {
         static let allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         static let allDigits = "0123456789"
         static let uniqueIDBeggining = "a."
+    }
+    
+
+    func generateNewArtPieceID() -> String {
+        let newId = generate(digits: 3, letters: 1)
+        
+        if (MasterList.pieces.contains { piece in
+            return piece.id == newId
+        }) {
+            return generateNewArtPieceID()
+        }
+        
+        return newId
     }
     
     func generate(digits: Int, letters: Int) -> String {
@@ -34,4 +48,5 @@ struct IDGenerator {
         }
         return randomGeneratedString
     }
+    
 }

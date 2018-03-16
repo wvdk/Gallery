@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = MainViewController()
         window?.makeKeyAndVisible()
         
+        print("Here's a fresh ID, if you happen to want one: \(IDGenerator().generateNewArtPieceID())")
+        
         return true
     }
 
