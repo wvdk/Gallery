@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol ArtPieceTableViewCellDelegate {
+    
+    func openArtPiece()
+    
+}
+
 class ArtPieceTableViewCell: UITableViewCell {
     
     static let identifier = "artPieceTableViewCell"
