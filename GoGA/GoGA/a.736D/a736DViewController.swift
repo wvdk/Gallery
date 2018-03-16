@@ -7,22 +7,26 @@
 //
 
 import UIKit
+import SpriteKit
 
 class a736DViewController: ArtPieceDetailViewController {
     
     var scene: GameScene! = nil
+    let spriteKitView = SKView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .green
-        
-        if let view = self.view as! SKView? {
-            scene = GameScene(size: view.frame.size)
-            view.presentScene(scene)
-            view.ignoresSiblingOrder = true
-            view.showsFPS = false
-            view.showsNodeCount = false
+        scene = GameScene(size: view.frame.size)
+        spriteKitView.with { it in
+            view.addSubview(it)
+            view.sendSubview(toBack: it)
+            it.frame = view.frame
+            it.presentScene(scene)
+            it.ignoresSiblingOrder = true
+            it.showsFPS = false
+            it.showsNodeCount = false
         }
     }
     
