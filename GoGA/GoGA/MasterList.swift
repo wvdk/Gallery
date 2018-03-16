@@ -12,14 +12,22 @@ import Foundation
 struct MasterList {
 
     static let pieces = [
-        Piece(id: "a.736D", author: "wvdk", date: Date(), viewController: a736DViewController())
+        Piece(id: "a.736D", author: "Wes Van der Klomp", date: Date(), viewController: a736DViewController())
     ]
     
 }
 
 struct Piece {
+    
     let id: String
     let author: String
     let date: Date
     let viewController: ArtPieceDetailViewController
+    
+    var prettyDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM yyyy"
+        return formatter.string(from: date)
+    }
+    
 }
