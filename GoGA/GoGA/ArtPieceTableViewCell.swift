@@ -86,12 +86,3 @@ class ArtPieceTableViewCell: UITableViewCell {
     }
 
 }
-
-extension UIView {
-    
-    public func addSingleTapGestureRecognizer(_ action: @escaping (UITapGestureRecognizer) -> Void) {
-        self.isUserInteractionEnabled = true
-        self.addGestureRecognizer(UITapGestureRecognizerWithClosure(closure: action))
-    }
-
-}
