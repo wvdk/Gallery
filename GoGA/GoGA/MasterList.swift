@@ -12,10 +12,7 @@ import Foundation
 struct MasterList {
 
     static let pieces = [
-        Piece(id: "a.000a", author: "wvdk", date: Date()),
-        Piece(id: "a.001a", author: "wvdk", date: Date()),
-        Piece(id: "a.002a", author: "wvdk", date: Date()),
-        Piece(id: "a.003a", author: "wvdk", date: Date())
+        Piece(id: "a.736D", author: "wvdk", date: Date(), viewController: a736DViewController())
     ]
     
 }
@@ -24,4 +21,5 @@ struct Piece {
     let id: String
     let author: String
     let date: Date
+    let viewController: ArtPieceDetailViewController
 }

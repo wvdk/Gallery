@@ -14,8 +14,7 @@ struct IDGenerator {
         static let allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         static let allDigits = "0123456789"
         static let uniqueIDBeggining = "a."
-    }
-    
+    }    
 
     func generateNewArtPieceID() -> String {
         let newId = generate(digits: 3, letters: 1)
