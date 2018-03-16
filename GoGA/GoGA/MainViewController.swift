@@ -24,6 +24,8 @@ class MainViewController: UIViewController {
         
         view.backgroundColor = UIColor(r: 239, g: 239, b: 239)
         
+        view.addSubview(headerView)
+        
         tableView.with { it in
             view.addSubview(it)
             it.delegate = self
@@ -37,7 +39,7 @@ class MainViewController: UIViewController {
             it.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             it.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             it.separatorStyle = UITableViewCellSeparatorStyle.none
-            it.tableHeaderView = headerView
+            it.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 86))
         }
     }
     
@@ -76,6 +78,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let piece = MasterList.pieces[indexPath.row]
         
         cell.idLabel.text = piece.id
+        
+         headerView.sendSubview(toBack: cell.previewImageView)
+        
         
         return cell
     }
