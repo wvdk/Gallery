@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		891C2EED205C48BA00746712 /* a736D.png in Resources */ = {isa = PBXBuildFile; fileRef = 891C2EEC205C48BA00746712 /* a736D.png */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		8929F4F2204AD54C000E5179 /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929F4F1204AD54C000E5179 /* IDGenerator.swift */; };
 		89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		891C2EEC205C48BA00746712 /* a736D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a736D.png; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		8929F4F1204AD54C000E5179 /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				DEFE243C205B744E0027696F /* a736DViewController.swift */,
 				DE332B77205B84CE00C40727 /* GameScene.swift */,
 				DE165CD2205B891F00E28C37 /* Actions.sks */,
+				891C2EEC205C48BA00746712 /* a736D.png */,
 			);
 			path = a.736D;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			files = (
 				DE293F992048F30300444EB8 /* LaunchScreen.storyboard in Resources */,
 				DE293F962048F30300444EB8 /* Assets.xcassets in Resources */,
+				891C2EED205C48BA00746712 /* a736D.png in Resources */,
 				DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */,
 				DE165CD3205B891F00E28C37 /* Actions.sks in Resources */,
 			);
