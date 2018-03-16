@@ -24,6 +24,7 @@ class ArtPieceTableViewCell: UITableViewCell {
             guard let piece = piece else { return }
             idLabel.text = piece.id
             nameAndDateLabel.text = "\(piece.author), \(piece.prettyDate)"
+            previewImageView.image = piece.image
         }
     }
     
@@ -44,12 +45,12 @@ class ArtPieceTableViewCell: UITableViewCell {
     func configureView() {
         backgroundColor = .clear
         
-        previewImageView.with { it in
+        let containerView = UIView()
+        containerView.with { it in
             contentView.addSubview(it)
+            it.clipsToBounds = false
             it.backgroundColor = .white
             it.layer.cornerRadius = 8.0
-            it.translatesAutoresizingMaskIntoConstraints = false
-            it.image = UIImage(named: "InDevelopment")
             it.layer.shadowRadius = 4.0
             it.layer.shadowOffset = CGSize(width: 0, height: 2)
             it.layer.shadowColor = UIColor.black.cgColor
@@ -59,6 +60,18 @@ class ArtPieceTableViewCell: UITableViewCell {
             it.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -38).isActive = true
             it.heightAnchor.constraint(equalToConstant: 120).isActive = true
             it.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        }
+        
+        previewImageView.with { it in
+            containerView.addSubview(it)
+            it.clipsToBounds = true
+            it.layer.cornerRadius = 8.0
+            it.contentMode = .scaleAspectFill
+            it.translatesAutoresizingMaskIntoConstraints = false
+            it.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+            it.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+            it.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
+            it.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
             it.addSingleTapGestureRecognizer { [weak self] _ in
                 guard let viewController = self?.piece?.viewController else { return }
                 self?.delegate?.openArtPiece(viewController: viewController)
