@@ -20,9 +20,7 @@ struct IDGenerator {
     func generateNewArtPieceID() -> String {
         let newId = generate(digits: 3, letters: 1)
         
-        if (MasterList.pieces.contains { piece in
-            return piece.id == newId
-        }) {
+        if (MasterList.pieces.contains { $0.id == newId }) {
             return generateNewArtPieceID()
         }
         
