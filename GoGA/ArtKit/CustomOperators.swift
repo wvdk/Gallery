@@ -14,11 +14,11 @@ precedencegroup RandomAdditionOrSubtractionPrecedence {
 
 infix operator +||-: RandomAdditionOrSubtractionPrecedence
 
-func +||- (right: Double, left: Double) -> Double {
+public func +||- (right: Double, left: Double) -> Double {
     return flipACoin() ? (right + left) : (right - left)
 }
 
-func +||- (right: Int, left: Int) -> Int {
+public func +||- (right: Int, left: Int) -> Int {
     return flipACoin() ? (right + left) : (right - left)
 }
 
