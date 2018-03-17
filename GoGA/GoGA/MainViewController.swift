@@ -78,9 +78,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.piece = MasterList.pieces[indexPath.row]
         cell.delegate = self
         
-         headerView.sendSubview(toBack: cell.previewImageView)
-        
-        
         return cell
     }
     
@@ -93,7 +90,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
     }
-    
 }
 
 extension MainViewController: ArtPieceTableViewCellDelegate {
@@ -101,5 +97,4 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
     func openArtPiece(viewController: ArtPieceDetailViewController) {
         present(viewController, animated: true, completion: nil)
     }
-    
 }
