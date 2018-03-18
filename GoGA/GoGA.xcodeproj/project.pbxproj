@@ -11,6 +11,10 @@
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		8929F4F2204AD54C000E5179 /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929F4F1204AD54C000E5179 /* IDGenerator.swift */; };
 		89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
+		89E9646D205E842A009B5420 /* a857CViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9646C205E842A009B5420 /* a857CViewController.swift */; };
+		89E96472205E85FC009B5420 /* a857CGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E96471205E85FC009B5420 /* a857CGameScene.swift */; };
+		89E96474205E87F1009B5420 /* TilePatternShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* TilePatternShader.fsh */; };
+		89E96476205E8C59009B5420 /* a857C.png in Resources */ = {isa = PBXBuildFile; fileRef = 89E96475205E8C59009B5420 /* a857C.png */; };
 		DE165CD3205B891F00E28C37 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE165CD2205B891F00E28C37 /* Actions.sks */; };
 		DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F8E2048F30300444EB8 /* AppDelegate.swift */; };
 		DE293F912048F30300444EB8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F902048F30300444EB8 /* MainViewController.swift */; };
@@ -62,6 +66,10 @@
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		8929F4F1204AD54C000E5179 /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
+		89E9646C205E842A009B5420 /* a857CViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a857CViewController.swift; sourceTree = "<group>"; };
+		89E96471205E85FC009B5420 /* a857CGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a857CGameScene.swift; sourceTree = "<group>"; };
+		89E96473205E87F1009B5420 /* TilePatternShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TilePatternShader.fsh; sourceTree = "<group>"; };
+		89E96475205E8C59009B5420 /* a857C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a857C.png; sourceTree = "<group>"; };
 		DE165CD2205B891F00E28C37 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		DE293F8B2048F30300444EB8 /* GoGA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE293F8E2048F30300444EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +113,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89E9646E205E8431009B5420 /* a.857C */ = {
+			isa = PBXGroup;
+			children = (
+				89E9646C205E842A009B5420 /* a857CViewController.swift */,
+				89E96471205E85FC009B5420 /* a857CGameScene.swift */,
+				89E96473205E87F1009B5420 /* TilePatternShader.fsh */,
+				89E96475205E8C59009B5420 /* a857C.png */,
+			);
+			path = a.857C;
+			sourceTree = "<group>";
+		};
 		DE293F822048F30300444EB8 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +145,7 @@
 		DE293F8D2048F30300444EB8 /* GoGA */ = {
 			isa = PBXGroup;
 			children = (
+				89E9646E205E8431009B5420 /* a.857C */,
 				DEFE243B205B735F0027696F /* a.736D */,
 				DE293F8E2048F30300444EB8 /* AppDelegate.swift */,
 				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
@@ -277,6 +297,8 @@
 				891C2EED205C48BA00746712 /* a736D.png in Resources */,
 				DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */,
 				DE165CD3205B891F00E28C37 /* Actions.sks in Resources */,
+				89E96474205E87F1009B5420 /* TilePatternShader.fsh in Resources */,
+				89E96476205E8C59009B5420 /* a857C.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,8 +319,10 @@
 				DEFE243D205B744E0027696F /* a736DViewController.swift in Sources */,
 				DE2AEFB0204B0F6900C65CA4 /* ArtPieceDetailViewController.swift in Sources */,
 				DE332B78205B84CE00C40727 /* GameScene.swift in Sources */,
+				89E96472205E85FC009B5420 /* a857CGameScene.swift in Sources */,
 				DE293F912048F30300444EB8 /* MainViewController.swift in Sources */,
 				8929F4F2204AD54C000E5179 /* IDGenerator.swift in Sources */,
+				89E9646D205E842A009B5420 /* a857CViewController.swift in Sources */,
 				DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */,
 				892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */,
 				DE2AEFB2204B1AB700C65CA4 /* MasterList.swift in Sources */,
