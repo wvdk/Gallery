@@ -39,6 +39,7 @@
 		DEEB709E20684F4200F4ACAD /* a586qActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEEB709D20684F4200F4ACAD /* a586qActions.sks */; };
 		DEEB70A0206850A400F4ACAD /* a586q.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEB709F206850A400F4ACAD /* a586q.png */; };
 		DEEB70A32068530B00F4ACAD /* a994tViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB70A22068530B00F4ACAD /* a994tViewController.swift */; };
+		DEEB70A52068556600F4ACAD /* a994t.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEB70A42068556600F4ACAD /* a994t.png */; };
 		DEFE243D205B744E0027696F /* a736DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE243C205B744E0027696F /* a736DViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		DEEB709D20684F4200F4ACAD /* a586qActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = a586qActions.sks; sourceTree = "<group>"; };
 		DEEB709F206850A400F4ACAD /* a586q.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a586q.png; sourceTree = "<group>"; };
 		DEEB70A22068530B00F4ACAD /* a994tViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a994tViewController.swift; sourceTree = "<group>"; };
+		DEEB70A42068556600F4ACAD /* a994t.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a994t.png; sourceTree = "<group>"; };
 		DEFE243C205B744E0027696F /* a736DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a736DViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				DEEB70A22068530B00F4ACAD /* a994tViewController.swift */,
+				DEEB70A42068556600F4ACAD /* a994t.png */,
 			);
 			path = a.994t;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEEB70A0206850A400F4ACAD /* a586q.png in Resources */,
+				DEEB70A52068556600F4ACAD /* a994t.png in Resources */,
 				DE293F992048F30300444EB8 /* LaunchScreen.storyboard in Resources */,
 				DE293F962048F30300444EB8 /* Assets.xcassets in Resources */,
 				891C2EED205C48BA00746712 /* a736D.png in Resources */,
