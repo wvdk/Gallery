@@ -12,16 +12,18 @@ import SpriteKit
 class a586qViewController: ArtPieceDetailViewController {
     
     var scene: SKScene! = nil
-    
+    let spriteKitView = SKView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let view = self.view as! SKView? {
+        scene = GameScene(size: view.frame.size)
+        spriteKitView.with { it in
             scene = PatternOneScene(size: view.frame.size)
-            view.presentScene(scene)
-            view.ignoresSiblingOrder = true
-            view.showsFPS = false
-            view.showsNodeCount = false
+            it.presentScene(scene)
+            it.ignoresSiblingOrder = true
+            it.showsFPS = false
+            it.showsNodeCount = false
         }
     }
     

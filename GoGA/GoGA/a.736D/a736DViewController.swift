@@ -17,7 +17,6 @@ class a736DViewController: ArtPieceDetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .green
         scene = GameScene(size: view.frame.size)
         spriteKitView.with { it in
             view.addSubview(it)
