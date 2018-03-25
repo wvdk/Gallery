@@ -29,4 +29,5 @@ class a857CViewController: ArtPieceDetailViewController {
             it.showsNodeCount = false
         }
     }
+    
 }
