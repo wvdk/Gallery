@@ -36,6 +36,7 @@
 		DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */; };
 		DEEB709A2068244F00F4ACAD /* a586qViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB70992068244F00F4ACAD /* a586qViewController.swift */; };
 		DEEB709C206827C700F4ACAD /* PatternOneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB709B206827C700F4ACAD /* PatternOneScene.swift */; };
+		DEEB709E20684F4200F4ACAD /* a586qActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEEB709D20684F4200F4ACAD /* a586qActions.sks */; };
 		DEFE243D205B744E0027696F /* a736DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE243C205B744E0027696F /* a736DViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Light.otf"; sourceTree = "<group>"; };
 		DEEB70992068244F00F4ACAD /* a586qViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a586qViewController.swift; sourceTree = "<group>"; };
 		DEEB709B206827C700F4ACAD /* PatternOneScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternOneScene.swift; sourceTree = "<group>"; };
+		DEEB709D20684F4200F4ACAD /* a586qActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = a586qActions.sks; sourceTree = "<group>"; };
 		DEFE243C205B744E0027696F /* a736DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a736DViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 			children = (
 				DEEB70992068244F00F4ACAD /* a586qViewController.swift */,
 				DEEB709B206827C700F4ACAD /* PatternOneScene.swift */,
+				DEEB709D20684F4200F4ACAD /* a586qActions.sks */,
 			);
 			path = a.586q;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				891C2EED205C48BA00746712 /* a736D.png in Resources */,
 				DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */,
 				DE165CD3205B891F00E28C37 /* Actions.sks in Resources */,
+				DEEB709E20684F4200F4ACAD /* a586qActions.sks in Resources */,
 				89E96474205E87F1009B5420 /* TilePatternShader.fsh in Resources */,
 				89E96476205E8C59009B5420 /* a857C.png in Resources */,
 			);

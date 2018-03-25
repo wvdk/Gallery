@@ -20,11 +20,16 @@ class a586qViewController: ArtPieceDetailViewController {
         scene = GameScene(size: view.frame.size)
         spriteKitView.with { it in
             scene = PatternOneScene(size: view.frame.size)
+            view.addSubview(it)
+            view.sendSubview(toBack: it)
+            it.frame = view.frame
             it.presentScene(scene)
             it.ignoresSiblingOrder = true
             it.showsFPS = false
             it.showsNodeCount = false
         }
+        
+        view.addSubview(spriteKitView)
     }
     
 }
