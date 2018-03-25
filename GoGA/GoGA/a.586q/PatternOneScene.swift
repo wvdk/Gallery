@@ -16,14 +16,11 @@ class PatternOneScene: SKScene {
     lazy var spinAndFade = SKAction(named: "SpinAndFade")!
     lazy var moveLeft = SKAction(named: "MoveLeft")!
     lazy var moveRight = SKAction(named: "MoveRight")!
-    let launchedSound = SKAction.playSoundFileNamed("Launched.mp3", waitForCompletion: true)
     
     /// MARK: - Lifecycle functions
     
     override func didMove(to view: SKView) {
         self.backgroundColor = .black
-        
-        self.run(launchedSound)
         
         self.recursivelyTriggerWhiteRectGeneration(after: whiteRectGenerationDelay)
     }

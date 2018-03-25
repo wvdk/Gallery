@@ -35,4 +35,10 @@ class ArtPieceDetailViewController: UIViewController {
         return true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        view.bringSubview(toFront: backButton)
+    }
+    
 }
