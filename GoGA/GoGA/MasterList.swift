@@ -13,6 +13,7 @@ import UIKit
 struct MasterList {
 
     static let pieces = [
+        Piece(id: "a.565z", author: "Wes Van der Klomp", date: Date(), image: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController()),
         Piece(id: "a.857C", author: "Kristina Gelzinyte", date: Date(), image: #imageLiteral(resourceName: "a857C.png"), viewController: a857CViewController()),
         Piece(id: "a.994t", author: "Wes Van der Klomp", date: Date(), image: #imageLiteral(resourceName: "a994t.png"), viewController: a994tViewController()),
         Piece(id: "a.586q", author: "Wes Van der Klomp", date: Date(), image: #imageLiteral(resourceName: "a586q.png"), viewController: a586qViewController()),

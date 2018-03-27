@@ -34,6 +34,7 @@
 		DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7F205B857900C40727 /* ArrayExtensions.swift */; };
 		DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */; };
 		DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */; };
+		DE50B1E52069F26A000292DE /* a565zViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50B1E42069F26A000292DE /* a565zViewController.swift */; };
 		DEEB709A2068244F00F4ACAD /* a586qViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB70992068244F00F4ACAD /* a586qViewController.swift */; };
 		DEEB709C206827C700F4ACAD /* PatternOneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB709B206827C700F4ACAD /* PatternOneScene.swift */; };
 		DEEB709E20684F4200F4ACAD /* a586qActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEEB709D20684F4200F4ACAD /* a586qActions.sks */; };
@@ -97,6 +98,7 @@
 		DE332B7F205B857900C40727 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Light.otf"; sourceTree = "<group>"; };
+		DE50B1E42069F26A000292DE /* a565zViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a565zViewController.swift; sourceTree = "<group>"; };
 		DEEB70992068244F00F4ACAD /* a586qViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a586qViewController.swift; sourceTree = "<group>"; };
 		DEEB709B206827C700F4ACAD /* PatternOneScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternOneScene.swift; sourceTree = "<group>"; };
 		DEEB709D20684F4200F4ACAD /* a586qActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = a586qActions.sks; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		DE293F8D2048F30300444EB8 /* GoGA */ = {
 			isa = PBXGroup;
 			children = (
+				DE50B1E32069F255000292DE /* a.565z */,
 				DEEB70A1206852BA00F4ACAD /* a.994t */,
 				DEEB7098206822BB00F4ACAD /* a.586q */,
 				89E9646E205E8431009B5420 /* a.857C */,
@@ -198,6 +201,14 @@
 				DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DE50B1E32069F255000292DE /* a.565z */ = {
+			isa = PBXGroup;
+			children = (
+				DE50B1E42069F26A000292DE /* a565zViewController.swift */,
+			);
+			path = a.565z;
 			sourceTree = "<group>";
 		};
 		DEEB7098206822BB00F4ACAD /* a.586q */ = {
@@ -365,6 +376,7 @@
 				892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */,
 				DEEB709C206827C700F4ACAD /* PatternOneScene.swift in Sources */,
 				DE2AEFB2204B1AB700C65CA4 /* MasterList.swift in Sources */,
+				DE50B1E52069F26A000292DE /* a565zViewController.swift in Sources */,
 				DEEB70A32068530B00F4ACAD /* a994tViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
