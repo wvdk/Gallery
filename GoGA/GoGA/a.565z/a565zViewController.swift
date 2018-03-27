@@ -24,13 +24,6 @@ class a565zViewController: ArtPieceDetailViewController {
         scene.rootNode.addChildNode(cameraNode)
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
         
-        
-        let lightNode = SCNNode()
-        lightNode.light = SCNLight()
-        lightNode.light!.type = .omni
-        lightNode.position = SCNVector3(x: 0, y: 10, z: 10)
-        scene.rootNode.addChildNode(lightNode)
-        
         sceneKitView.with { it in
             it.scene = scene
             it.allowsCameraControl = false
@@ -41,21 +34,22 @@ class a565zViewController: ArtPieceDetailViewController {
         
         scene.rootNode.addChildNode(containerNode)
         
-    
-        createSquareAt(x: 10, y: 10, z: 10)
+        createNodeAtCenter()
     }
     
-    func createSquareAt(x: Double, y: Double, z: Double) {
-        let plane = SCNPlane(width: 0.08, height: 0.08)
+    func createNodeAtCenter() {
+        let plane = SCNPlane(width: 3, height: 3)
         plane.firstMaterial?.diffuse.contents = UIColor.darkGray
         let planeNode = SCNNode(geometry: plane)
-        planeNode.position = SCNVector3(x: Float(x), y: Float(y), z: Float(z))
         
-        let rotate = SCNAction.rotate(by: 5.0, around: SCNVector3(0, 1, 0), duration: random() + 0.5)
-        let rotateForever = SCNAction.repeatForever(rotate)
-        planeNode.runAction(rotateForever)
+        planeNode.position = SCNVector3(x: containerNode.boundingBox.max.x,
+                                        y: containerNode.boundingBox.max.y,
+                                        z: Float(1))
+        
+        let action = SCNAction.scale(by: 10, duration: 10)
+        planeNode.runAction(action)
         
         containerNode.addChildNode(planeNode)
     }
- 
+    
 }
