@@ -77,13 +77,13 @@ class ArtPieceDetailViewController: UIViewController {
         
         UIView.animate(withDuration: 1.0,
                        delay: 5.0,
-                       options: UIViewAnimationOptions.curveEaseOut,
+                       options: [.curveEaseOut, .allowUserInteraction],
                        animations: { [weak self] in
-                        self?.backButton.alpha = 0
+                        self?.backButton.alpha = 0.02
                         self?.infoView.alpha = 0 },
                        
-                       completion: { finished in
-                        print("done")
+                       completion: { [weak self] _ in
+                        self?.backButton.alpha = 0
         })
     }
 }
