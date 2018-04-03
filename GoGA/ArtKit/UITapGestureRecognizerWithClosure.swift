@@ -14,9 +14,10 @@ public class UITapGestureRecognizerWithClosure: UITapGestureRecognizer {
     
     public init(closure: @escaping (UITapGestureRecognizer) -> ()) {
         self.closure = closure
-        super.init(target: self, action: #selector(UITapGestureRecognizerWithClosure.invokeTarget(_:)))
+        super.init(target: nil, action: nil)
+        self.addTarget(self, action: #selector(UITapGestureRecognizerWithClosure.invokeTarget(_:)))
     }
-    
+
     @objc func invokeTarget(_ recognizer: UITapGestureRecognizer) {
         self.closure(recognizer)
     }
