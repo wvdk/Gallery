@@ -11,6 +11,9 @@ import UIKit
 class ArtPieceDetailViewController: UIViewController {
     
     let backButton = UIButton()
+    let infoView = UIView()
+    var idLabel = UILabel()
+    var nameAndDateLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +25,39 @@ class ArtPieceDetailViewController: UIViewController {
             it.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
             it.widthAnchor.constraint(equalToConstant: 45).isActive = true
             it.heightAnchor.constraint(equalToConstant: 45).isActive = true
-            it.backgroundColor = .red
+            it.setImage(#imageLiteral(resourceName: "closeButton"), for: UIControlState.normal)
+            it.alpha = 0.75
             it.addTarget(self, action: #selector(close), for: .touchUpInside)
+        }
+        
+        infoView.with { it in
+            view.addSubview(it)
+            it.translatesAutoresizingMaskIntoConstraints = false
+            it.centerYAnchor.constraint(equalTo: backButton.centerYAnchor).isActive = true
+            it.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 70).isActive = true
+            it.widthAnchor.constraint(equalToConstant: 360).isActive = true
+            it.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            it.backgroundColor = .black
+            it.alpha = 0.7
+            it.layer.cornerRadius = 8
+        }
+        
+        idLabel.text = "my id"
+        idLabel.with { it in
+            infoView.addSubview(it)
+            it.translatesAutoresizingMaskIntoConstraints = false
+            it.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 10).isActive = true
+            it.centerYAnchor.constraint(equalTo: infoView.centerYAnchor).isActive = true
+            it.textColor = .white
+        }
+        
+        nameAndDateLabel.text = "my id"
+        nameAndDateLabel.with { it in
+            infoView.addSubview(it)
+            it.translatesAutoresizingMaskIntoConstraints = false
+            it.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -10).isActive = true
+            it.centerYAnchor.constraint(equalTo: infoView.centerYAnchor).isActive = true
+            it.textColor = .white
         }
     }
     
@@ -39,6 +73,17 @@ class ArtPieceDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         view.bringSubview(toFront: backButton)
+        view.bringSubview(toFront: infoView)
+        
+        UIView.animate(withDuration: 1.0,
+                       delay: 5.0,
+                       options: UIViewAnimationOptions.curveEaseOut,
+                       animations: { [weak self] in
+                        self?.backButton.alpha = 0
+                        self?.infoView.alpha = 0 },
+                       
+                       completion: { finished in
+                        print("done")
+        })
     }
-    
 }
