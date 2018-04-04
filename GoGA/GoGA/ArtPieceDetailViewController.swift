@@ -15,11 +15,24 @@ class ArtPieceDetailViewController: UIViewController {
     var idLabel = UILabel()
     var nameAndDateLabel = UILabel()
     
+    let artPieceInfoView = ArtPieceInfoView()
+    weak var artPieceInfoViewDelegate: ArtPieceInfoViewDelegate? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        backButton.with { it in
+        artPieceInfoView.with { it in
             view.addSubview(it)
+            it.translatesAutoresizingMaskIntoConstraints = false
+            it.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            it.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+            it.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+            it.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            it.backgroundColor = .black
+        }
+        
+        backButton.with { it in
+            artPieceInfoView.addSubview(it)
             it.translatesAutoresizingMaskIntoConstraints = false
             it.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
             it.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
@@ -31,7 +44,7 @@ class ArtPieceDetailViewController: UIViewController {
         }
         
         infoView.with { it in
-            view.addSubview(it)
+            artPieceInfoView.addSubview(it)
             it.translatesAutoresizingMaskIntoConstraints = false
             it.centerYAnchor.constraint(equalTo: backButton.centerYAnchor).isActive = true
             it.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 70).isActive = true
@@ -72,18 +85,13 @@ class ArtPieceDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        view.bringSubview(toFront: backButton)
-        view.bringSubview(toFront: infoView)
+        view.bringSubview(toFront: artPieceInfoView)
+//        view.bringSubview(toFront: infoView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        UIView.animate(withDuration: 1.0,
-                       delay: 5.0,
-                       options: [.curveEaseOut, .allowUserInteraction],
-                       animations: { [weak self] in
-                        self?.backButton.alpha = 0.02
-                        self?.infoView.alpha = 0 },
-                       
-                       completion: { [weak self] _ in
-                        self?.backButton.alpha = 0
-        })
+        self.artPieceInfoViewDelegate?.artPieceInfoViewDidAppear(animated)
     }
 }
