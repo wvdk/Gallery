@@ -8,74 +8,29 @@
 
 import UIKit
 
-class ArtPieceDetailViewController: UIViewController {
-    
-    let backButton = UIButton()
-    let infoView = UIView()
-    var idLabel = UILabel()
-    var nameAndDateLabel = UILabel()
-    
-    let artPieceInfoView = ArtPieceInfoView()
-    weak var artPieceInfoViewDelegate: ArtPieceInfoViewDelegate? = nil
+class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegate {
+
+    let artPieceInfoBarView = ArtPieceInfoBarView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        artPieceInfoView.with { it in
+    
+        artPieceInfoBarView.with { it in
             view.addSubview(it)
             it.translatesAutoresizingMaskIntoConstraints = false
             it.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
             it.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
             it.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
             it.heightAnchor.constraint(equalToConstant: 100).isActive = true
-            it.backgroundColor = .black
         }
         
-        backButton.with { it in
-            artPieceInfoView.addSubview(it)
-            it.translatesAutoresizingMaskIntoConstraints = false
-            it.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-            it.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
-            it.widthAnchor.constraint(equalToConstant: 45).isActive = true
-            it.heightAnchor.constraint(equalToConstant: 45).isActive = true
-            it.setImage(#imageLiteral(resourceName: "closeButton"), for: UIControlState.normal)
-            it.alpha = 0.75
-            it.addTarget(self, action: #selector(close), for: .touchUpInside)
-        }
+        artPieceInfoBarView.delegate = self
         
-        infoView.with { it in
-            artPieceInfoView.addSubview(it)
-            it.translatesAutoresizingMaskIntoConstraints = false
-            it.centerYAnchor.constraint(equalTo: backButton.centerYAnchor).isActive = true
-            it.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 70).isActive = true
-            it.widthAnchor.constraint(equalToConstant: 360).isActive = true
-            it.heightAnchor.constraint(equalToConstant: 30).isActive = true
-            it.backgroundColor = .black
-            it.alpha = 0.7
-            it.layer.cornerRadius = 8
-        }
-        
-        idLabel.text = "my id"
-        idLabel.with { it in
-            infoView.addSubview(it)
-            it.translatesAutoresizingMaskIntoConstraints = false
-            it.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 10).isActive = true
-            it.centerYAnchor.constraint(equalTo: infoView.centerYAnchor).isActive = true
-            it.textColor = .white
-        }
-        
-        nameAndDateLabel.text = "my id"
-        nameAndDateLabel.with { it in
-            infoView.addSubview(it)
-            it.translatesAutoresizingMaskIntoConstraints = false
-            it.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -10).isActive = true
-            it.centerYAnchor.constraint(equalTo: infoView.centerYAnchor).isActive = true
-            it.textColor = .white
-        }
+        artPieceInfoBarView.backButton.addTarget(self, action: #selector(close), for: .touchUpInside)
     }
     
     @objc func close() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)        
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -85,13 +40,16 @@ class ArtPieceDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        view.bringSubview(toFront: artPieceInfoView)
-//        view.bringSubview(toFront: infoView)
+        view.bringSubview(toFront: artPieceInfoBarView)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    func artPieceInfoViewDidAppear() {
         
-        self.artPieceInfoViewDelegate?.artPieceInfoViewDidAppear(animated)
+        artPieceInfoBarView.animateDisappearingView()
+    }
+    
+    func artPieceInfoViewWillAppear() {
+        
+        artPieceInfoBarView.animateAppearingView()
     }
 }
