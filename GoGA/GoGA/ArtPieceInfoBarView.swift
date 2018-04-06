@@ -9,9 +9,8 @@
 import UIKit
 
 protocol ArtPieceInfoBarViewDelegate: class {
-    
+
     func artPieceInfoViewWillAppear()
-    
     func artPieceInfoViewDidAppear()
 }
 
@@ -81,15 +80,23 @@ class ArtPieceInfoBarView: UIView {
         animateDisappearingView()
     }
     
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        guard self.frame.contains(point) else { return nil }
+
+        guard self.alpha > 0 else { return self }
+        
+        return super.hitTest(point, with: event)
+    }
+    
     func animateDisappearingView() {
         UIView.animate(withDuration: 1.0,
-                       delay: 2.0,
+                       delay: 5.0,
                        options: [.curveEaseOut, .allowUserInteraction],
                        animations: {
                         self.alpha = 0.02
             },
                        completion: { _ in
-//                        self.alpha = 0.01
+                        self.alpha = 0
         })
     }
     
