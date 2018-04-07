@@ -78,12 +78,14 @@ class ArtPieceInfoBarView: UIView {
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         guard self.frame.contains(point) else { return nil }
         
-        if backButton.frame.contains(point), self.alpha > 0 {
-            self.delegate?.shouldCloseArtPieceDetailViewController()
-            return backButton
-        }
-        
         if self.alpha > 0 {
+            
+            if backButton.frame.contains(point) {
+                
+                self.delegate?.shouldCloseArtPieceDetailViewController()
+                return backButton
+            }
+            
             return super.hitTest(point, with: event)
         }
         
