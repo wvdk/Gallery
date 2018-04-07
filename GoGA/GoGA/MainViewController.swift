@@ -82,9 +82,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let artPiceDetailViewController = ArtPieceDetailViewController()
+        let artPieceDetailViewController = ArtPieceDetailViewController()
         
-        present(artPiceDetailViewController, animated: true, completion: nil)
+        present(artPieceDetailViewController, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -94,7 +94,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MainViewController: ArtPieceTableViewCellDelegate {
     
-    func openArtPiece(viewController: ArtPieceDetailViewController) {
+    func openArtPiece(_ artPiece: Piece, viewController: ArtPieceDetailViewController) {
+        viewController.artPiece = artPiece
+        
         present(viewController, animated: true, completion: nil)
     }
 }

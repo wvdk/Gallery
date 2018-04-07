@@ -11,6 +11,14 @@ import UIKit
 class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegate {
 
     let artPieceInfoBarView = ArtPieceInfoBarView()
+    var artPiece: Piece? {
+        didSet {
+            guard let artPiece = artPiece else { return }
+            
+            artPieceInfoBarView.idLabel.text = artPiece.id
+            artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,7 +11,7 @@ import ArtKit
 
 protocol ArtPieceTableViewCellDelegate {
     
-    func openArtPiece(viewController: ArtPieceDetailViewController)
+    func openArtPiece(_ artPiece: Piece, viewController: ArtPieceDetailViewController)
     
 }
 
@@ -73,8 +73,8 @@ class ArtPieceTableViewCell: UITableViewCell {
             it.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
             it.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
             it.addSingleTapGestureRecognizer { [weak self] _ in
-                guard let viewController = self?.piece?.viewController else { return }
-                self?.delegate?.openArtPiece(viewController: viewController)
+                guard let piece = self?.piece, let viewController = self?.piece?.viewController else { return }
+                self?.delegate?.openArtPiece(piece, viewController: viewController)
             }
         }        
         
