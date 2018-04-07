@@ -49,8 +49,8 @@ class ArtPieceInfoBarView: UIView {
             it.translatesAutoresizingMaskIntoConstraints = false
             it.centerYAnchor.constraint(equalTo: backButton.centerYAnchor).isActive = true
             it.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 70).isActive = true
-            it.widthAnchor.constraint(equalToConstant: 360).isActive = true
             it.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            it.setContentHuggingPriority(.defaultHigh, for: .horizontal)
             it.backgroundColor = .black
             it.alpha = 0.6
             it.layer.cornerRadius = 8
@@ -63,15 +63,18 @@ class ArtPieceInfoBarView: UIView {
             it.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 10).isActive = true
             it.centerYAnchor.constraint(equalTo: infoView.centerYAnchor).isActive = true
             it.textColor = .white
+            it.font = UIFont(name: "Avenir Next", size: 14)
         }
         
         nameAndDateLabel.text = "my id"
         nameAndDateLabel.with { it in
             infoView.addSubview(it)
             it.translatesAutoresizingMaskIntoConstraints = false
+            it.leadingAnchor.constraint(greaterThanOrEqualTo: idLabel.trailingAnchor, constant: 30).isActive = true
             it.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -10).isActive = true
             it.centerYAnchor.constraint(equalTo: infoView.centerYAnchor).isActive = true
             it.textColor = .white
+            it.font = UIFont(name: "Avenir Next", size: 14)
         }
     }
 
