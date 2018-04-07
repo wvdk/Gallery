@@ -14,7 +14,7 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         artPieceInfoBarView.with { it in
             view.addSubview(it)
             it.translatesAutoresizingMaskIntoConstraints = false
@@ -25,12 +25,6 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
         }
         
         artPieceInfoBarView.delegate = self
-        
-        artPieceInfoBarView.backButton.addTarget(self, action: #selector(close), for: .touchUpInside)
-    }
-    
-    @objc func close() {
-        dismiss(animated: true, completion: nil)        
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -41,15 +35,26 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
         super.viewWillAppear(animated)
         
         view.bringSubview(toFront: artPieceInfoBarView)
+        artPieceInfoBarView.show()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        artPieceInfoBarView.show()
+        artPieceInfoBarView.animateDisappearingView()
     }
     
     func artPieceInfoViewDidAppear() {
-        
         artPieceInfoBarView.animateDisappearingView()
     }
     
     func artPieceInfoViewWillAppear() {
-        
-        artPieceInfoBarView.animateAppearingView()
+        artPieceInfoBarView.show()
+        artPieceInfoBarView.animateDisappearingView()
+    }
+    
+    func shouldCloseArtPieceDetailViewController() {
+        dismiss(animated: true, completion: nil)
     }
 }
