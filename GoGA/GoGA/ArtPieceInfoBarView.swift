@@ -12,6 +12,7 @@ protocol ArtPieceInfoBarViewDelegate: class {
 
     func artPieceInfoViewWillAppear()
     func artPieceInfoViewDidAppear()
+    func shouldCloseArtPieceDetailViewController()
 }
 
 class ArtPieceInfoBarView: UIView {
@@ -51,7 +52,7 @@ class ArtPieceInfoBarView: UIView {
             it.widthAnchor.constraint(equalToConstant: 360).isActive = true
             it.heightAnchor.constraint(equalToConstant: 30).isActive = true
             it.backgroundColor = .black
-            it.alpha = 0.7
+            it.alpha = 0.6
             it.layer.cornerRadius = 8
         }
         
@@ -73,36 +74,36 @@ class ArtPieceInfoBarView: UIView {
             it.textColor = .white
         }
     }
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-        animateDisappearingView()
-    }
-    
+
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         guard self.frame.contains(point) else { return nil }
-
-        guard self.alpha > 0 else { return self }
         
-        return super.hitTest(point, with: event)
+        if backButton.frame.contains(point), self.alpha > 0 {
+            self.delegate?.shouldCloseArtPieceDetailViewController()
+            return backButton
+        }
+        
+        if self.alpha > 0 {
+            return super.hitTest(point, with: event)
+        }
+        
+        return self
     }
     
     func animateDisappearingView() {
-        UIView.animate(withDuration: 1.0,
+        UIView.animate(withDuration: 0.5,
                        delay: 5.0,
                        options: [.curveEaseOut, .allowUserInteraction],
                        animations: {
-                        self.alpha = 0.02
+                        self.alpha = 0.03
             },
                        completion: { _ in
-                        self.alpha = 0
+                        
+                        self.alpha = 0.0
         })
     }
     
-    func animateAppearingView() {
+    func show() {
         self.alpha = 1
-        
-        animateDisappearingView()
     }
 }
