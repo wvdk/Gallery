@@ -81,15 +81,10 @@ class ArtPieceInfoBarView: UIView {
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         guard self.frame.contains(point) else { return nil }
         
-        if self.alpha > 0 {
+        if self.alpha > 0, backButton.frame.contains(point) {
             
-            if backButton.frame.contains(point) {
-                
-                self.delegate?.shouldCloseArtPieceDetailViewController()
-                return backButton
-            }
-            
-            return super.hitTest(point, with: event)
+            self.delegate?.shouldCloseArtPieceDetailViewController()
+            return backButton
         }
         
         return self
@@ -102,9 +97,10 @@ class ArtPieceInfoBarView: UIView {
                        animations: {
                         self.alpha = 0.03
             },
-                       completion: { _ in
-                        
-                        self.alpha = 0.0
+                       completion: { successful in
+                        if successful {
+                            self.alpha = 0.0
+                        }
         })
     }
     
