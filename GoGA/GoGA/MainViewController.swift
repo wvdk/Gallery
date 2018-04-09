@@ -94,9 +94,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MainViewController: ArtPieceTableViewCellDelegate {
     
-    func openArtPiece(_ artPiece: Piece, viewController: ArtPieceDetailViewController) {
-        viewController.artPiece = artPiece
+    func openArtPiece(_ artPiece: Piece) {
         
-        present(viewController, animated: true, completion: nil)
+        artPiece.viewController.artPieceInfoBarView.idLabel.text = artPiece.id
+        artPiece.viewController.artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
+        
+        present(artPiece.viewController, animated: true, completion: nil)
     }
 }
