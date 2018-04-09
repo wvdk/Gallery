@@ -13,10 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
     
-    /// Set this value to whatever you want to open to automatically (only works for debug builds of course).
-//    var openTo: ArtPieceDetailViewController? = a565zViewController()
-    var piece: Piece = Piece(id: "a565z", author: "Wes <3", date: Date(), image: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController())
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let mainViewController = MainViewController()
@@ -24,9 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         #if DEBUG
-//            if let openTo = openTo {
-                mainViewController.openArtPiece(piece, viewController: piece.viewController)
-//            }
+        
+            let piece: Piece = Piece(id: "a565z", author: "Wes <3", date: Date(), image: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController())
+            mainViewController.openArtPiece(piece)
+        
         #endif
         
         print("Here's a fresh ID, if you happen to want one: \(IDGenerator().generateNewArtPieceID())")
