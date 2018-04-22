@@ -23,6 +23,10 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(r: 239, g: 239, b: 239)
+
+        let test = UIView(frame: CGRect(x: 38, y: 116, width: 948, height: 120))
+        test.backgroundColor = .red
+        view.addSubview(test)
         
         view.addSubview(headerView)
         
@@ -64,6 +68,9 @@ class MainViewController: UIViewController {
         }
         return generateUniqueID()
     }
+    
+    var originFrame: CGRect?
+
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -80,13 +87,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let artPieceDetailViewController = ArtPieceDetailViewController()
-        
-        present(artPieceDetailViewController, animated: true, completion: nil)
-    }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
     }
@@ -94,10 +95,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MainViewController: ArtPieceTableViewCellDelegate {
     
-    func openArtPiece(_ artPiece: Piece) {
+    func openArtPiece(_ artPiece: Piece, fromView: UIView) {
         
         artPiece.viewController.artPieceInfoBarView.idLabel.text = artPiece.id
         artPiece.viewController.artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
+        
+        artPiece.viewController.originFrame = self.view.convert(fromView.bounds, from: fromView)
         
         present(artPiece.viewController, animated: true, completion: nil)
     }

@@ -11,7 +11,7 @@ import ArtKit
 
 protocol ArtPieceTableViewCellDelegate {
     
-    func openArtPiece(_ artPiece: Piece)
+    func openArtPiece(_ artPiece: Piece, fromView view: UIView)
     
 }
 
@@ -74,9 +74,9 @@ class ArtPieceTableViewCell: UITableViewCell {
             it.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
             it.addSingleTapGestureRecognizer { [weak self] _ in
                 guard let piece = self?.piece else { return }
-                self?.delegate?.openArtPiece(piece)
-            }
-        }        
+                self?.delegate?.openArtPiece(piece, fromView: it)
+            }            
+        }
         
         idLabel.with { it in
             contentView.addSubview(it)
