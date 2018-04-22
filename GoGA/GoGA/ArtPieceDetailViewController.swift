@@ -12,9 +12,14 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
 
     let artPieceInfoBarView = ArtPieceInfoBarView()
     
+    var originFrame: CGRect?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        transitioningDelegate = self
+        modalPresentationStyle = .custom
+
         artPieceInfoBarView.with { it in
             view.addSubview(it)
             it.translatesAutoresizingMaskIntoConstraints = false
@@ -56,5 +61,23 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
     
     func shouldCloseArtPieceDetailViewController() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ArtPieceDetailViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
+//        return ArtPieceDetailPresentAnimationController(withDuration: 2.5, originFrame: self.view.frame)
+
+        let defaultFrame = CGRect(x: 100, y: 100, width: 500, height: 100)
+        return ArtPieceDetailPresentAnimationController(withDuration: 15, originFrame: originFrame ?? defaultFrame)
+
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
+        //should be destination frame
+        return ArtPieceDetailDismissAnimationController(withDuration: 0.5, originFrame: self.view.frame)
     }
 }

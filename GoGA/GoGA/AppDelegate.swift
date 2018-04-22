@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         
             let piece: Piece = Piece(id: "a565z", author: "Wes <3", date: Date(), image: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController())
-            mainViewController.openArtPiece(piece)
+            mainViewController.openArtPiece(piece, fromView: a565zViewController().view)
         
         #endif
         
