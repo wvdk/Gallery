@@ -71,13 +71,13 @@ extension ArtPieceDetailViewController: UIViewControllerTransitioningDelegate {
 //        return ArtPieceDetailPresentAnimationController(withDuration: 2.5, originFrame: self.view.frame)
 
         let defaultFrame = CGRect(x: 100, y: 100, width: 500, height: 100)
-        return ArtPieceDetailPresentAnimationController(withDuration: 15, originFrame: originFrame ?? defaultFrame)
+        return ArtPieceDetailPresentAnimationController(transitionDuration: 3.5, from: originFrame ?? defaultFrame)
 
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
         //should be destination frame
-        return ArtPieceDetailDismissAnimationController(withDuration: 0.5, originFrame: self.view.frame)
+        return ArtPieceDetailDismissAnimationController(transitionDuration: 3.5, to: originFrame ?? .zero)
     }
 }
