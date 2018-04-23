@@ -32,13 +32,22 @@ class ArtPieceDetailDismissAnimationController: NSObject, UIViewControllerAnimat
         
         let scaleTransition = CGAffineTransform(scaleX: self.frame.size.width / containerView.frame.size.width,
                                                 y: self.frame.size.height / containerView.frame.size.height)
+        
         let translationTransition = CGAffineTransform(translationX: 0,
-                                                      y: containerView.frame.size.height / 2)
-                
-        UIView.animate(withDuration: self.transitionDuration, animations: { () -> Void in
-            fromView.transform = translationTransition.concatenating(scaleTransition)
-            
+                                                      y: (self.frame.size.height - containerView.frame.size.height) / 2 + self.frame.origin.y)
+        
+//        fromView.alpha = 1
+        
+        UIView.animate(withDuration: self.transitionDuration,
+                       delay: 0,
+                       options: [.allowUserInteraction, .curveEaseIn],
+                       animations: { () -> Void in
+                        
+                        fromView.transform = scaleTransition.concatenating(translationTransition)
+//                        fromView.alpha = 0
+                        
         }) { (completed: Bool) -> Void in
+            
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
     }

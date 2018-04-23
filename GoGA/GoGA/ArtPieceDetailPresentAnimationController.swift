@@ -29,18 +29,26 @@ class ArtPieceDetailPresentAnimationController: NSObject, UIViewControllerAnimat
         
         let containerView = transitionContext.containerView
         containerView.addSubview(toView)
-        
+    
         let scaleTransition = CGAffineTransform(scaleX: self.frame.size.width / containerView.frame.size.width,
                                                 y: self.frame.size.height / containerView.frame.size.height)
+        
         let translationTransition = CGAffineTransform(translationX: 0,
-                                                      y: -containerView.frame.size.height / 2 + self.frame.size.height)
+                                                      y: (self.frame.size.height - containerView.frame.size.height) / 2 + self.frame.origin.y)
+
+        toView.transform = scaleTransition.concatenating(translationTransition)
+        toView.alpha = 0
         
-        toView.transform = translationTransition.concatenating(scaleTransition)
-        
-        UIView.animate(withDuration: self.transitionDuration, animations: { () -> Void in
-            toView.transform = CGAffineTransform.identity
-            
+        UIView.animate(withDuration: self.transitionDuration,
+                       delay: 0,
+                       options: [.allowUserInteraction, .curveEaseIn],
+                       animations: { () -> Void in
+                        
+                        toView.transform = CGAffineTransform.identity
+                        toView.alpha = 1
+                        
         }) { (completed: Bool) -> Void in
+            
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
     }
