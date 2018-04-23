@@ -67,17 +67,10 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
 extension ArtPieceDetailViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-
-//        return ArtPieceDetailPresentAnimationController(withDuration: 2.5, originFrame: self.view.frame)
-
-        let defaultFrame = CGRect(x: 100, y: 100, width: 500, height: 100)
-        return ArtPieceDetailPresentAnimationController(transitionDuration: 3.5, from: originFrame ?? defaultFrame)
-
+        return ArtPieceDetailPresentAnimationController(transitionDuration: 0.5, from: originFrame ?? .zero)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-
-        //should be destination frame
-        return ArtPieceDetailDismissAnimationController(transitionDuration: 3.5, to: originFrame ?? .zero)
+        return ArtPieceDetailDismissAnimationController(transitionDuration: 0.5, to: originFrame ?? .zero)
     }
 }
