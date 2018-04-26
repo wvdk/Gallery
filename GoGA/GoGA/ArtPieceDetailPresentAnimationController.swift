@@ -41,7 +41,7 @@ class ArtPieceDetailPresentAnimationController: NSObject, UIViewControllerAnimat
         
         UIView.animate(withDuration: self.transitionDuration,
                        delay: 0,
-                       options: [.allowUserInteraction, .curveEaseIn],
+                       options: [.allowUserInteraction, .curveEaseOut],
                        animations: { () -> Void in
                         
                         toView.transform = CGAffineTransform.identity

@@ -10,6 +10,8 @@ import UIKit
 
 class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegate {
 
+    var delegate: ArtPieceDetailViewControllerDelegate? = nil
+
     let artPieceInfoBarView = ArtPieceInfoBarView()
     
     var originFrame: CGRect?
@@ -27,9 +29,8 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
             it.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
             it.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
             it.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        }
-        
-        artPieceInfoBarView.delegate = self
+            it.delegate = self
+        }        
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -60,17 +61,26 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
     }
     
     func shouldCloseArtPieceDetailViewController() {
-        dismiss(animated: true, completion: nil)
+        self.delegate?.artPieceDetailViewController(self, shouldBeDismissed: true)
     }
 }
 
 extension ArtPieceDetailViewController: UIViewControllerTransitioningDelegate {
     
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return UIPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+    
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ArtPieceDetailPresentAnimationController(transitionDuration: 0.5, from: originFrame ?? .zero)
+        return ArtPieceDetailPresentAnimationController(transitionDuration: 0.25, from: originFrame ?? .zero)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ArtPieceDetailDismissAnimationController(transitionDuration: 0.5, to: originFrame ?? .zero)
+        return ArtPieceDetailDismissAnimationController(transitionDuration: 0.25, to: originFrame ?? .zero)
     }
+}
+
+protocol ArtPieceDetailViewControllerDelegate {
+    
+    func artPieceDetailViewController(_ controller: UIViewController, shouldBeDismissed: Bool)
 }
