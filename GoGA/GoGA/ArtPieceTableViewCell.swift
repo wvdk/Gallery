@@ -97,5 +97,4 @@ class ArtPieceTableViewCell: UITableViewCell {
             it.textColor = UIColor(r: 94, g: 64, b: 64)
         }
     }
-
 }

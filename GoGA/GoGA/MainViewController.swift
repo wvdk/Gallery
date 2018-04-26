@@ -23,10 +23,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(r: 239, g: 239, b: 239)
-
-        let test = UIView(frame: CGRect(x: 38, y: 116, width: 948, height: 120))
-        test.backgroundColor = .red
-        view.addSubview(test)
         
         view.addSubview(headerView)
         
@@ -70,7 +66,6 @@ class MainViewController: UIViewController {
     }
     
     var originFrame: CGRect?
-
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -105,3 +100,11 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
         present(artPiece.viewController, animated: true, completion: nil)
     }
 }
+
+extension MainViewController: ArtPieceDetailViewControllerDelegate {
+    
+    func artPieceDetailViewController(_ controller: UIViewController, shouldBeDismissed: Bool) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
+

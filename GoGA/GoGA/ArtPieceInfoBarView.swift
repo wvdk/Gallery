@@ -12,6 +12,8 @@ protocol ArtPieceInfoBarViewDelegate: class {
 
     func artPieceInfoViewWillAppear()
     func artPieceInfoViewDidAppear()
+    
+    //needs renaming:
     func shouldCloseArtPieceDetailViewController()
 }
 
