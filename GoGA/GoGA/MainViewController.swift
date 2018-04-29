@@ -16,6 +16,9 @@ class MainViewController: UIViewController {
     }
     
     let tableView = UITableView()
+    
+    fileprivate var originFrame: CGRect?
+    
     private let idGenerator = IDGenerator()
     private var idList = [String]()
     
@@ -64,8 +67,6 @@ class MainViewController: UIViewController {
         }
         return generateUniqueID()
     }
-    
-    var originFrame: CGRect?
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -88,23 +89,25 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MainViewController: ArtPieceTableViewCellDelegate {
+extension MainViewController: ArtPieceTableViewCellDelegate, UIViewControllerTransitioningDelegate {
     
-    func openArtPiece(_ artPiece: Piece, fromView: UIView) {
+    func openArtPiece(_ artPiece: Piece, at view: UIView) {
+        originFrame = self.view.convert(view.bounds, from: view)
         
         artPiece.viewController.artPieceInfoBarView.idLabel.text = artPiece.id
         artPiece.viewController.artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
         
-        artPiece.viewController.originFrame = self.view.convert(fromView.bounds, from: fromView)
+        artPiece.viewController.modalPresentationStyle = .custom
+        artPiece.viewController.transitioningDelegate = self
         
         present(artPiece.viewController, animated: true, completion: nil)
     }
-}
-
-extension MainViewController: ArtPieceDetailViewControllerDelegate {
     
-    func artPieceDetailViewController(_ controller: UIViewController, shouldBeDismissed: Bool) {
-        controller.dismiss(animated: true, completion: nil)
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return ArtPieceDetailPresentAnimationController(transitionDuration: 0.25, transitionFrame: originFrame ?? .zero)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return ArtPieceDetailDismissAnimationController(transitionDuration: 0.25, transitionFrame: originFrame ?? .zero)
     }
 }
-

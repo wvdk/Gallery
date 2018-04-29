@@ -10,17 +10,12 @@ import UIKit
 
 class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegate {
 
-    var delegate: ArtPieceDetailViewControllerDelegate? = nil
-
     let artPieceInfoBarView = ArtPieceInfoBarView()
     
     var originFrame: CGRect?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        transitioningDelegate = self
-        modalPresentationStyle = .custom
 
         artPieceInfoBarView.with { it in
             view.addSubview(it)
@@ -61,26 +56,6 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
     }
     
     func shouldCloseArtPieceDetailViewController() {
-        self.delegate?.artPieceDetailViewController(self, shouldBeDismissed: true)
+        dismiss(animated: true, completion: nil)
     }
-}
-
-extension ArtPieceDetailViewController: UIViewControllerTransitioningDelegate {
-    
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return UIPresentationController(presentedViewController: presented, presenting: presenting)
-    }
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ArtPieceDetailPresentAnimationController(transitionDuration: 0.25, from: originFrame ?? .zero)
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ArtPieceDetailDismissAnimationController(transitionDuration: 0.25, to: originFrame ?? .zero)
-    }
-}
-
-protocol ArtPieceDetailViewControllerDelegate {
-    
-    func artPieceDetailViewController(_ controller: UIViewController, shouldBeDismissed: Bool)
 }
