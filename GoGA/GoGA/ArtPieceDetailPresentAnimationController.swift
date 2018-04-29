@@ -11,13 +11,13 @@ import UIKit
 class ArtPieceDetailPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
     var transitionDuration: TimeInterval = 0.5
-    var frame: CGRect = .zero
+    var transitionFrame: CGRect = .zero
     
-    convenience init(transitionDuration: TimeInterval, from frame: CGRect) {
+    convenience init(transitionDuration: TimeInterval, transitionFrame: CGRect) {
         self.init()
         
         self.transitionDuration = transitionDuration
-        self.frame = frame
+        self.transitionFrame = transitionFrame
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -25,27 +25,25 @@ class ArtPieceDetailPresentAnimationController: NSObject, UIViewControllerAnimat
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let toView = transitionContext.view(forKey: .to) else { return }
+        guard let toViewController = transitionContext.viewController(forKey: .to) else { return }
         
         let containerView = transitionContext.containerView
-        containerView.addSubview(toView)
-    
-        let scaleTransition = CGAffineTransform(scaleX: self.frame.size.width / containerView.frame.size.width,
-                                                y: self.frame.size.height / containerView.frame.size.height)
+        containerView.addSubview(toViewController.view)
+        
+        let scaleTransition = CGAffineTransform(scaleX: self.transitionFrame.size.width / containerView.frame.size.width,
+                                                y: self.transitionFrame.size.height / containerView.frame.size.height)
         
         let translationTransition = CGAffineTransform(translationX: 0,
-                                                      y: (self.frame.size.height - containerView.frame.size.height) / 2 + self.frame.origin.y)
+                                                      y: (self.transitionFrame.size.height - containerView.frame.size.height) / 2 + self.transitionFrame.origin.y)
 
-        toView.transform = scaleTransition.concatenating(translationTransition)
-        toView.alpha = 0
+        toViewController.view.transform = scaleTransition.concatenating(translationTransition)
         
         UIView.animate(withDuration: self.transitionDuration,
                        delay: 0,
-                       options: [.allowUserInteraction, .curveEaseOut],
+                       options: [.allowUserInteraction, .curveEaseIn],
                        animations: { () -> Void in
                         
-                        toView.transform = CGAffineTransform.identity
-                        toView.alpha = 1
+                        toViewController.view.transform = CGAffineTransform.identity
                         
         }) { (completed: Bool) -> Void in
             
