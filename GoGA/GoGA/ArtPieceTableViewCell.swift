@@ -11,7 +11,7 @@ import ArtKit
 
 protocol ArtPieceTableViewCellDelegate {
     
-    func openArtPiece(_ artPiece: Piece, at view: UIView)
+    func openArtPiece(_ artPiece: Piece, at originView: UIView)
 }
 
 class ArtPieceTableViewCell: UITableViewCell {
