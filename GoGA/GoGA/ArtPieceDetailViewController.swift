@@ -11,9 +11,7 @@ import UIKit
 class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegate {
 
     let artPieceInfoBarView = ArtPieceInfoBarView()
-    
-    var originFrame: CGRect?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,16 +44,14 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
         artPieceInfoBarView.animateDisappearingView()
     }
     
-    func artPieceInfoViewDidAppear() {
-        artPieceInfoBarView.animateDisappearingView()
-    }
+    // MARK: - ArtPieceInfoBarView delegate
     
-    func artPieceInfoViewWillAppear() {
+    func artPieceInfoBarViewWillAppear() {
         artPieceInfoBarView.show()
         artPieceInfoBarView.animateDisappearingView()
     }
     
-    func shouldCloseArtPieceDetailViewController() {
+    func artPieceInfoBarView(_ view: UIView, shouldCloseViewController: Bool) {
         dismiss(animated: true, completion: nil)
     }
 }

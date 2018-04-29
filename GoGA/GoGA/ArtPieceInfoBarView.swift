@@ -10,11 +10,9 @@ import UIKit
 
 protocol ArtPieceInfoBarViewDelegate: class {
 
-    func artPieceInfoViewWillAppear()
-    func artPieceInfoViewDidAppear()
+    func artPieceInfoBarViewWillAppear()
     
-    //needs renaming:
-    func shouldCloseArtPieceDetailViewController()
+    func artPieceInfoBarView(_ view: UIView, shouldCloseViewController: Bool)
 }
 
 class ArtPieceInfoBarView: UIView {
@@ -32,7 +30,7 @@ class ArtPieceInfoBarView: UIView {
         self.backgroundColor = .clear
         
         self.addSingleTapGestureRecognizer { [weak self] _ in
-            self?.delegate?.artPieceInfoViewWillAppear()
+            self?.delegate?.artPieceInfoBarViewWillAppear()
         }
         
         backButton.with { it in
@@ -84,8 +82,7 @@ class ArtPieceInfoBarView: UIView {
         guard self.frame.contains(point) else { return nil }
         
         if self.alpha > 0, backButton.frame.contains(point) {
-            
-            self.delegate?.shouldCloseArtPieceDetailViewController()
+            self.delegate?.artPieceInfoBarView(self, shouldCloseViewController: true)
             return backButton
         }
         
@@ -98,7 +95,7 @@ class ArtPieceInfoBarView: UIView {
                        options: [.curveEaseOut, .allowUserInteraction],
                        animations: {
                         self.alpha = 0.03
-            },
+        },
                        completion: { successful in
                         if successful {
                             self.alpha = 0.0

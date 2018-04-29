@@ -71,6 +71,8 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
+    //MARK: - TableView delegate
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MasterList.pieces.count
     }
@@ -91,6 +93,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MainViewController: ArtPieceTableViewCellDelegate, UIViewControllerTransitioningDelegate {
     
+    //MARK: - ArtPieceTableViewCell delegate
+    
     func openArtPiece(_ artPiece: Piece, at view: UIView) {
         originFrame = self.view.convert(view.bounds, from: view)
         
@@ -102,6 +106,8 @@ extension MainViewController: ArtPieceTableViewCellDelegate, UIViewControllerTra
         
         present(artPiece.viewController, animated: true, completion: nil)
     }
+    
+    //MARK: - UIViewControllerTransitioning delegate
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return ArtPieceDetailPresentAnimationController(transitionDuration: 0.25, transitionFrame: originFrame ?? .zero)
