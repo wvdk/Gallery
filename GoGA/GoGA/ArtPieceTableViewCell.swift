@@ -17,7 +17,9 @@ protocol ArtPieceTableViewCellDelegate {
 class ArtPieceTableViewCell: UITableViewCell {
     
     static let identifier = "artPieceTableViewCell"
+    
     var delegate: ArtPieceTableViewCellDelegate? = nil
+    
     var piece: Piece? = nil {
         didSet {
             guard let piece = piece else { return }
