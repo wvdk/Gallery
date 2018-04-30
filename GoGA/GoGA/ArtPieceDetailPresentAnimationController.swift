@@ -10,8 +10,8 @@ import UIKit
 
 class ArtPieceDetailPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
-    var transitionDuration: TimeInterval = 0.5
-    var transitionFrame: CGRect = .zero
+    private var transitionDuration: TimeInterval = 0.5
+    private var transitionFrame: CGRect = .zero
     
     convenience init(transitionDuration: TimeInterval, transitionFrame: CGRect) {
         self.init()
@@ -29,7 +29,7 @@ class ArtPieceDetailPresentAnimationController: NSObject, UIViewControllerAnimat
         
         let containerView = transitionContext.containerView
         
-        let roundedCornerMaskView = UIView(frame: self.transitionFrame)
+        let roundedCornerMaskView = UIView(frame: transitionFrame)
         roundedCornerMaskView.clipsToBounds = true
         roundedCornerMaskView.layer.masksToBounds = true
         roundedCornerMaskView.layer.cornerRadius = 8.0
@@ -38,7 +38,7 @@ class ArtPieceDetailPresentAnimationController: NSObject, UIViewControllerAnimat
 
         containerView.addSubview(roundedCornerMaskView)
         
-        UIView.animate(withDuration: self.transitionDuration,
+        UIView.animate(withDuration: transitionDuration,
                        delay: 0,
                        options: [.allowUserInteraction, .curveEaseIn],
                        animations: {
