@@ -41,11 +41,11 @@ class ArtPieceDetailPresentAnimationController: NSObject, UIViewControllerAnimat
         UIView.animate(withDuration: self.transitionDuration,
                        delay: 0,
                        options: [.allowUserInteraction, .curveEaseIn],
-                       animations: { () -> Void in
+                       animations: {
                         
                         toViewController.view.transform = CGAffineTransform.identity
                         
-        }) { (completed: Bool) -> Void in
+        }) { completed in
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
