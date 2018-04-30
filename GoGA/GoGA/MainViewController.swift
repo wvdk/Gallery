@@ -101,7 +101,6 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
         artPiece.viewController.artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
         
         if customTransitionDelegate == nil {
-            // MARK: - problems when landscape
             let originFrame = self.view.convert(originView.bounds, from: originView)
             
             customTransitionDelegate = ArtPieceDetailPresentationController(presentedViewController: artPiece.viewController, presenting: self, originFrame: originFrame)
