@@ -27,29 +27,28 @@ class ArtPieceDetailDismissAnimationController: NSObject, UIViewControllerAnimat
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromViewController = transitionContext.viewController(forKey: .from) else { return }
         
-        let containerView = transitionContext.containerView        
-        containerView.bringSubview(toFront: fromViewController.view)
+        let containerView = transitionContext.containerView
         
-        let scaleTransition = CGAffineTransform(scaleX: self.transitionFrame.size.width / containerView.frame.size.width,
-                                                y: self.transitionFrame.size.height / containerView.frame.size.height)
+        let roundedCornerMaskView = UIView(frame: containerView.bounds)
+        roundedCornerMaskView.clipsToBounds = true
+        roundedCornerMaskView.layer.masksToBounds = true
+        roundedCornerMaskView.layer.cornerRadius = 0
         
-        let translationTransition = CGAffineTransform(translationX: 0,
-                                                      y: (self.transitionFrame.size.height - containerView.frame.size.height) / 2 + self.transitionFrame.origin.y)
-        
-        fromViewController.view.alpha = 1
+        roundedCornerMaskView.addSubview(fromViewController.view)
+
+        containerView.addSubview(roundedCornerMaskView)
         
         UIView.animate(withDuration: self.transitionDuration,
                        delay: 0,
                        options: [.allowUserInteraction, .curveEaseInOut],
-                       animations: {
+                       animations: { [weak self] in
                         
-                        fromViewController.view.transform = scaleTransition.concatenating(translationTransition)
-                        fromViewController.view.alpha = 0
+                        roundedCornerMaskView.frame = self?.transitionFrame ?? .zero
+                        roundedCornerMaskView.layer.cornerRadius = 8
                         
         }) { completed in
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-            fromViewController.view.alpha = 1
         }
     }
 }
