@@ -28,22 +28,23 @@ class ArtPieceDetailPresentAnimationController: NSObject, UIViewControllerAnimat
         guard let toViewController = transitionContext.viewController(forKey: .to) else { return }
         
         let containerView = transitionContext.containerView
-        containerView.addSubview(toViewController.view)
         
-        let scaleTransition = CGAffineTransform(scaleX: self.transitionFrame.size.width / containerView.frame.size.width,
-                                                y: self.transitionFrame.size.height / containerView.frame.size.height)
+        let roundedCornerMaskView = UIView(frame: self.transitionFrame)
+        roundedCornerMaskView.clipsToBounds = true
+        roundedCornerMaskView.layer.masksToBounds = true
+        roundedCornerMaskView.layer.cornerRadius = 8.0
         
-        let translationTransition = CGAffineTransform(translationX: 0,
-                                                      y: (self.transitionFrame.size.height - containerView.frame.size.height) / 2 + self.transitionFrame.origin.y)
+        roundedCornerMaskView.addSubview(toViewController.view)
 
-        toViewController.view.transform = scaleTransition.concatenating(translationTransition)
+        containerView.addSubview(roundedCornerMaskView)
         
         UIView.animate(withDuration: self.transitionDuration,
                        delay: 0,
                        options: [.allowUserInteraction, .curveEaseIn],
                        animations: {
                         
-                        toViewController.view.transform = CGAffineTransform.identity
+                        roundedCornerMaskView.frame = containerView.bounds
+                        roundedCornerMaskView.layer.cornerRadius = 0
                         
         }) { completed in
             
