@@ -10,8 +10,8 @@ import UIKit
 
 class ArtPieceDetailDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
 
-    var transitionDuration: TimeInterval = 0.5
-    var transitionFrame: CGRect = .zero
+    private var transitionDuration: TimeInterval = 0.5
+    private var transitionFrame: CGRect = .zero
     
     convenience init(transitionDuration: TimeInterval, transitionFrame: CGRect) {
         self.init()
@@ -38,7 +38,7 @@ class ArtPieceDetailDismissAnimationController: NSObject, UIViewControllerAnimat
 
         containerView.addSubview(roundedCornerMaskView)
         
-        UIView.animate(withDuration: self.transitionDuration,
+        UIView.animate(withDuration: transitionDuration,
                        delay: 0,
                        options: [.allowUserInteraction, .curveEaseInOut],
                        animations: { [weak self] in
