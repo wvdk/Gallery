@@ -40,7 +40,7 @@ class ArtPieceDetailDismissAnimationController: NSObject, UIViewControllerAnimat
         
         UIView.animate(withDuration: self.transitionDuration,
                        delay: 0,
-                       options: [.allowUserInteraction, .curveEaseOut],
+                       options: [.allowUserInteraction, .curveEaseInOut],
                        animations: { () -> Void in
                         
                         fromViewController.view.transform = scaleTransition.concatenating(translationTransition)
