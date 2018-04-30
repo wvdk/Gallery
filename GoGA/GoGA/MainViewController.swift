@@ -17,8 +17,7 @@ class MainViewController: UIViewController {
     
     let tableView = UITableView()
     
-    fileprivate var originFrame: CGRect?
-    fileprivate var customTransitionDelegate: ArtPieceDetailPresentationController?
+    var customTransitionDelegate: ArtPieceDetailPresentationController?
     
     private let idGenerator = IDGenerator()
     private var idList = [String]()
@@ -97,15 +96,15 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
     //MARK: - ArtPieceTableViewCell delegate
     
     func openArtPiece(_ artPiece: Piece, at originView: UIView) {
-        originFrame = self.view.convert(originView.bounds, from: originView)
         
         artPiece.viewController.artPieceInfoBarView.idLabel.text = artPiece.id
         artPiece.viewController.artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
         
-//        artPiece.viewController.modalPresentationStyle = .custom
-        
         if customTransitionDelegate == nil {
-            customTransitionDelegate = ArtPieceDetailPresentationController(presentedViewController: artPiece.viewController, presenting: self)
+            // MARK: - problems when landscape
+            let originFrame = self.view.convert(originView.bounds, from: originView)
+            
+            customTransitionDelegate = ArtPieceDetailPresentationController(presentedViewController: artPiece.viewController, presenting: self, originFrame: originFrame)
         }
         
         artPiece.viewController.transitioningDelegate = customTransitionDelegate

@@ -13,8 +13,11 @@ class ArtPieceDetailPresentationController: UIPresentationController {
     var originFrame: CGRect?
     var presentationWrappingView = UIViewController()
 
-    override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
-        super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
+    convenience init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, originFrame: CGRect) {
+        self.init(presentedViewController: presentedViewController,
+                  presenting: presentingViewController)
+        
+        self.originFrame = originFrame
         
         if self.presentedViewController != presentedViewController {
              print("You didn't initialize \(self) with the correct presentedViewController.  Expected \(presentedViewController), got \(self.presentedViewController).")
@@ -33,10 +36,10 @@ extension ArtPieceDetailPresentationController: UIViewControllerTransitioningDel
     //MARK: - UIViewControllerTransitioning delegate
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ArtPieceDetailPresentAnimationController(transitionDuration: 0.25, transitionFrame: originFrame ?? .zero)
+        return ArtPieceDetailPresentAnimationController(transitionDuration: 0.5, transitionFrame: originFrame ?? .zero)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ArtPieceDetailDismissAnimationController(transitionDuration: 0.25, transitionFrame: originFrame ?? .zero)
+        return ArtPieceDetailDismissAnimationController(transitionDuration: 0.5, transitionFrame: originFrame ?? .zero)
     }
 }
