@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     let tableView = UITableView()
     
     fileprivate var originFrame: CGRect?
+    fileprivate var customTransitionDelegate: ArtPieceDetailPresentationController?
     
     private let idGenerator = IDGenerator()
     private var idList = [String]()
@@ -91,7 +92,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MainViewController: ArtPieceTableViewCellDelegate, UIViewControllerTransitioningDelegate {
+extension MainViewController: ArtPieceTableViewCellDelegate {
     
     //MARK: - ArtPieceTableViewCell delegate
     
@@ -101,19 +102,16 @@ extension MainViewController: ArtPieceTableViewCellDelegate, UIViewControllerTra
         artPiece.viewController.artPieceInfoBarView.idLabel.text = artPiece.id
         artPiece.viewController.artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
         
-        artPiece.viewController.modalPresentationStyle = .custom
-        artPiece.viewController.transitioningDelegate = self
+//        artPiece.viewController.modalPresentationStyle = .custom
         
-        present(artPiece.viewController, animated: true, completion: nil)
-    }
-    
-    //MARK: - UIViewControllerTransitioning delegate
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ArtPieceDetailPresentAnimationController(transitionDuration: 0.25, transitionFrame: originFrame ?? .zero)
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return ArtPieceDetailDismissAnimationController(transitionDuration: 0.25, transitionFrame: originFrame ?? .zero)
+        if customTransitionDelegate == nil {
+            customTransitionDelegate = ArtPieceDetailPresentationController(presentedViewController: artPiece.viewController, presenting: self)
+        }
+        
+        artPiece.viewController.transitioningDelegate = customTransitionDelegate
+        
+        present(artPiece.viewController, animated: true) { [weak self] in
+            self?.customTransitionDelegate = nil
+        }
     }
 }
