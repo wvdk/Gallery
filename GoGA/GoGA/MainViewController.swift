@@ -97,18 +97,18 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
     
     func openArtPiece(_ artPiece: Piece, at originView: UIView) {
         
-        artPiece.viewController.artPieceInfoBarView.idLabel.text = artPiece.id
-        artPiece.viewController.artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
+        artPiece.viewController.init().artPieceInfoBarView.idLabel.text = artPiece.id
+        artPiece.viewController.init().artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
         
         if customTransitionDelegate == nil {
             let originFrame = self.view.convert(originView.bounds, from: originView)
             
-            customTransitionDelegate = ArtPieceDetailPresentationController(presentedViewController: artPiece.viewController, presenting: self, originFrame: originFrame)
+            customTransitionDelegate = ArtPieceDetailPresentationController(presentedViewController: artPiece.viewController.init(), presenting: self, originFrame: originFrame)
         }
         
-        artPiece.viewController.transitioningDelegate = customTransitionDelegate
+        artPiece.viewController.init().transitioningDelegate = customTransitionDelegate
         
-        present(artPiece.viewController, animated: true) { [weak self] in
+        present(artPiece.viewController.init(), animated: true) { [weak self] in
             self?.customTransitionDelegate = nil
         }
     }

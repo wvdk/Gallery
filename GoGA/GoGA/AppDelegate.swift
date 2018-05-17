@@ -21,8 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         #if DEBUG
         
-            let piece: Piece = Piece(id: "a565z", author: "Wes <3", date: Date(), image: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController())
-        mainViewController.openArtPiece(piece, at: a565zViewController().view)
+        let piece: Piece = Piece(id: "a565z", author: "Wes <3", date: Date(), image: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController.self)
+        
+        mainViewController.openArtPiece(piece, at: piece.viewController.init().view)
         
         #endif
         
