@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,8 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        let ref = Database.database().reference().child("hello")
-        ref.setValue("world")
+        Auth.auth().signInAnonymously { (user, error) in
+            let ref = Database.database().reference().child("authed hello")
+            ref.setValue("authed world - user id: \(user?.uid ?? "not found")")
+        }
         
         let mainViewController = MainViewController()
         window?.rootViewController = mainViewController
