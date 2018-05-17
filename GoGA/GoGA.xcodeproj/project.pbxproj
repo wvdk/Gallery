@@ -19,6 +19,8 @@
 		89E96472205E85FC009B5420 /* a857CGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E96471205E85FC009B5420 /* a857CGameScene.swift */; };
 		89E96474205E87F1009B5420 /* TilePatternShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* TilePatternShader.fsh */; };
 		89E96476205E8C59009B5420 /* a857C.png in Resources */ = {isa = PBXBuildFile; fileRef = 89E96475205E8C59009B5420 /* a857C.png */; };
+		9B76A011005C3A9D31CC7AD8 /* Pods_ArtKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF6BF8774526379393A0B0A /* Pods_ArtKit.framework */; };
+		A784F530EC73D39C5BAC5568 /* Pods_GoGA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C452104507D5910B414148BC /* Pods_GoGA.framework */; };
 		DE165CD3205B891F00E28C37 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE165CD2205B891F00E28C37 /* Actions.sks */; };
 		DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F8E2048F30300444EB8 /* AppDelegate.swift */; };
 		DE293F912048F30300444EB8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F902048F30300444EB8 /* MainViewController.swift */; };
@@ -74,6 +76,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3ABE3903F59D225CB6C0BCF2 /* Pods-GoGA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoGA.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoGA/Pods-GoGA.release.xcconfig"; sourceTree = "<group>"; };
+		4C451B63F493F4CB4D48046A /* Pods-ArtKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit.debug.xcconfig"; sourceTree = "<group>"; };
+		4F5BF21D204A31502C67DF16 /* Pods-ArtKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit.release.xcconfig"; sourceTree = "<group>"; };
+		4FF6BF8774526379393A0B0A /* Pods_ArtKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailDismissAnimationController.swift; sourceTree = "<group>"; };
 		891C2EEC205C48BA00746712 /* a736D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a736D.png; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 		89E96471205E85FC009B5420 /* a857CGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a857CGameScene.swift; sourceTree = "<group>"; };
 		89E96473205E87F1009B5420 /* TilePatternShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TilePatternShader.fsh; sourceTree = "<group>"; };
 		89E96475205E8C59009B5420 /* a857C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a857C.png; sourceTree = "<group>"; };
+		C452104507D5910B414148BC /* Pods_GoGA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoGA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE165CD2205B891F00E28C37 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		DE293F8B2048F30300444EB8 /* GoGA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE293F8E2048F30300444EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +123,7 @@
 		DEEB70A22068530B00F4ACAD /* a994tViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a994tViewController.swift; sourceTree = "<group>"; };
 		DEEB70A42068556600F4ACAD /* a994t.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a994t.png; sourceTree = "<group>"; };
 		DEFE243C205B744E0027696F /* a736DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a736DViewController.swift; sourceTree = "<group>"; };
+		E847F505B269EA13C9174AD3 /* Pods-GoGA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoGA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoGA/Pods-GoGA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE293FAE20490E1100444EB8 /* ArtKit.framework in Frameworks */,
+				A784F530EC73D39C5BAC5568 /* Pods_GoGA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,12 +140,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B76A011005C3A9D31CC7AD8 /* Pods_ArtKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		454237023F322D583FA3D42C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FF6BF8774526379393A0B0A /* Pods_ArtKit.framework */,
+				C452104507D5910B414148BC /* Pods_GoGA.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5516CC5723D6F68448980550 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C451B63F493F4CB4D48046A /* Pods-ArtKit.debug.xcconfig */,
+				4F5BF21D204A31502C67DF16 /* Pods-ArtKit.release.xcconfig */,
+				E847F505B269EA13C9174AD3 /* Pods-GoGA.debug.xcconfig */,
+				3ABE3903F59D225CB6C0BCF2 /* Pods-GoGA.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		89BB28252097808B004B33F0 /* TransitionAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +205,8 @@
 				DE293F8D2048F30300444EB8 /* GoGA */,
 				DE293FA820490E1100444EB8 /* ArtKit */,
 				DE293F8C2048F30300444EB8 /* Products */,
+				5516CC5723D6F68448980550 /* Pods */,
+				454237023F322D583FA3D42C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -291,10 +323,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE293F9D2048F30300444EB8 /* Build configuration list for PBXNativeTarget "GoGA" */;
 			buildPhases = (
+				08BC62FEEC1662D96A826A7C /* [CP] Check Pods Manifest.lock */,
 				DE293F872048F30300444EB8 /* Sources */,
 				DE293F882048F30300444EB8 /* Frameworks */,
 				DE293F892048F30300444EB8 /* Resources */,
 				DE293FB320490E1100444EB8 /* Embed Frameworks */,
+				7DC3D81E60CF22A53E6E498E /* [CP] Embed Pods Frameworks */,
+				9FF58C033E8B9DB07304E7C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -310,10 +345,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE293FB020490E1100444EB8 /* Build configuration list for PBXNativeTarget "ArtKit" */;
 			buildPhases = (
+				C004CF75FA76D77C84EA535F /* [CP] Check Pods Manifest.lock */,
 				DE293FA220490E1100444EB8 /* Sources */,
 				DE293FA320490E1100444EB8 /* Frameworks */,
 				DE293FA420490E1100444EB8 /* Headers */,
 				DE293FA520490E1100444EB8 /* Resources */,
+				27D03225CC8D47F4FF03C05A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -390,6 +427,95 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08BC62FEEC1662D96A826A7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoGA-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27D03225CC8D47F4FF03C05A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DC3D81E60CF22A53E6E498E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GoGA/Pods-GoGA-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoGA/Pods-GoGA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FF58C033E8B9DB07304E7C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoGA/Pods-GoGA-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C004CF75FA76D77C84EA535F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArtKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DE293F872048F30300444EB8 /* Sources */ = {
@@ -567,6 +693,7 @@
 		};
 		DE293F9E2048F30300444EB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E847F505B269EA13C9174AD3 /* Pods-GoGA.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -584,6 +711,7 @@
 		};
 		DE293F9F2048F30300444EB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3ABE3903F59D225CB6C0BCF2 /* Pods-GoGA.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -601,6 +729,7 @@
 		};
 		DE293FB120490E1100444EB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C451B63F493F4CB4D48046A /* Pods-ArtKit.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -626,6 +755,7 @@
 		};
 		DE293FB220490E1100444EB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F5BF21D204A31502C67DF16 /* Pods-ArtKit.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

@@ -14,5 +14,7 @@ target 'GoGA' do
   use_frameworks!
 
   # Pods for GoGA
+  pod 'Firebase/Core'
+
 
 end
