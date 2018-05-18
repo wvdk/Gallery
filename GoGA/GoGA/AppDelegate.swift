@@ -21,20 +21,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         Auth.auth().signInAnonymously { (user, error) in
-            let ref = Database.database().reference().child("authed hello")
-            ref.setValue("authed world - user id: \(user?.uid ?? "not found")")
+            guard let user = user else { return }
+            let userRef = Database.database().reference().child("users/\(user.uid)")
+            userRef.child("latestAppLaunch").setValue([".sv": "timestamp"])
+            guard let deviceUUID = UIDevice.current.identifierForVendor?.uuidString else { return }
+            userRef.child("deviceUUID").setValue(deviceUUID)
         }
         
         let mainViewController = MainViewController()
         window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
         
-        #if DEBUG
-        
-            let piece: Piece = Piece(id: "a565z", author: "Wes <3", date: Date(), image: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController())
-        mainViewController.openArtPiece(piece, at: a565zViewController().view)
-        
-        #endif
+//        #if DEBUG
+//
+//            let piece: Piece = Piece(id: "a565z", author: "Wes <3", date: Date(), image: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController())
+//        mainViewController.openArtPiece(piece, at: a565zViewController().view)
+//
+//        #endif
         
         print("Here's a fresh ID, if you happen to want one: \(IDGenerator().generateNewArtPieceID())")
         
