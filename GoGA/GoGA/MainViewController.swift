@@ -103,7 +103,6 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
         
         if customTransitionDelegate == nil {
             let originFrame = self.view.convert(originView.bounds, from: originView)
-            
             customTransitionDelegate = ArtPieceDetailPresentationController(presentedViewController: artPieceViewController, presenting: self, originFrame: originFrame)
         }
         
