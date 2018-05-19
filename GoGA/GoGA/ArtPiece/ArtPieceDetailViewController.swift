@@ -48,7 +48,6 @@ class ArtPieceDetailViewController: UIViewController {
         super.viewDidAppear(animated)
         
         artPieceInfoBarView.show()
-        artPieceInfoBarView.animateDisappearingView()
     }
 }
 
@@ -58,7 +57,6 @@ extension ArtPieceDetailViewController: ArtPieceInfoBarViewDelegate {
     
     func artPieceInfoBarViewWillAppear() {
         artPieceInfoBarView.show()
-        artPieceInfoBarView.animateDisappearingView()
     }
     
     func artPieceInfoBarViewDidSelectClose(_ view: UIView) {

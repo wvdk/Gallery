@@ -89,21 +89,26 @@ class ArtPieceInfoBarView: UIView {
         return self
     }
     
-    func animateDisappearingView() {
-        UIView.animate(withDuration: 0.5,
-                       delay: 5.0,
-                       options: [.curveEaseOut, .allowUserInteraction],
-                       animations: {
-                        self.alpha = 0.03
-        },
-                       completion: { successful in
-                        if successful {
-                            self.alpha = 0.0
-                        }
+    /// Fades the view's alpha after a specified delay.
+    ///
+    /// - Parameter delay: A `TimeInterval` indicating how to long to wait before fading out.
+    private func fadeOut(after delay: TimeInterval) {
+        UIView.animate(withDuration: 0.5, delay: delay, options: [.curveEaseOut, .allowUserInteraction], animations: {
+            self.alpha = 0.03
+        }, completion: { successful in
+            if successful {
+                self.alpha = 0.0
+            }
         })
     }
     
-    func show() {
-        self.alpha = 1
+    
+    /// Instantly bring the view's alpha to 1.0.
+    ///
+    /// Will also trigger a fade out after 5 seconds.
+    public func show() {
+        self.alpha = 1.0
+        fadeOut(after: 5.0)
     }
+    
 }
