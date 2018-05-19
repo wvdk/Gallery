@@ -15,10 +15,9 @@ class MainViewController: UIViewController {
         static let tableViewCellHight: CGFloat = 150.0 / 768.0
     }
     
-    let tableView = UITableView()
-    
-    var customTransitionDelegate: ArtPieceDetailPresentationController?
-    
+    fileprivate let tableView = UITableView()
+    fileprivate var customTransitionDelegate: ArtPieceDetailPresentationController?
+
     private let idGenerator = IDGenerator()
     private var idList = [String]()
     
@@ -109,6 +108,7 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
         }
         
         artPieceViewController.transitioningDelegate = customTransitionDelegate
+        artPieceViewController.modalPresentationCapturesStatusBarAppearance = true
         
         present(artPieceViewController, animated: true) { [weak self] in
             self?.customTransitionDelegate = nil
