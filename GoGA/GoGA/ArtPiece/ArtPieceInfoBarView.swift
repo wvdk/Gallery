@@ -12,7 +12,7 @@ protocol ArtPieceInfoBarViewDelegate: class {
 
     func artPieceInfoBarViewWillAppear()
     
-    func artPieceInfoBarView(_ view: UIView, shouldCloseViewController: Bool)
+    func artPieceInfoBarViewDidSelectClose(_ view: UIView)
 }
 
 class ArtPieceInfoBarView: UIView {
@@ -82,7 +82,7 @@ class ArtPieceInfoBarView: UIView {
         guard self.frame.contains(point) else { return nil }
         
         if self.alpha > 0, backButton.frame.contains(point) {
-            self.delegate?.artPieceInfoBarView(self, shouldCloseViewController: true)
+            self.delegate?.artPieceInfoBarViewDidSelectClose(self)
             return backButton
         }
         

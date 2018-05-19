@@ -8,10 +8,17 @@
 
 import UIKit
 
-class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegate {
+protocol ArtPieceDetailViewControllerDelegate: class {
+    
+    func artPieceDetailViewControllerDidSelectClose(_ viewController: UIViewController)
+}
 
+class ArtPieceDetailViewController: UIViewController {
+
+    weak var delegate: ArtPieceDetailViewControllerDelegate?
+    
     let artPieceInfoBarView = ArtPieceInfoBarView()
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,6 +50,9 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
         artPieceInfoBarView.show()
         artPieceInfoBarView.animateDisappearingView()
     }
+}
+
+extension ArtPieceDetailViewController: ArtPieceInfoBarViewDelegate {
     
     // MARK: - ArtPieceInfoBarView delegate
     
@@ -51,7 +61,7 @@ class ArtPieceDetailViewController: UIViewController, ArtPieceInfoBarViewDelegat
         artPieceInfoBarView.animateDisappearingView()
     }
     
-    func artPieceInfoBarView(_ view: UIView, shouldCloseViewController: Bool) {
-        dismiss(animated: true, completion: nil)
+    func artPieceInfoBarViewDidSelectClose(_ view: UIView) {
+        self.delegate?.artPieceDetailViewControllerDidSelectClose(self)
     }
 }
