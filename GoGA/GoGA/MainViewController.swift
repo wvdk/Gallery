@@ -97,19 +97,28 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
     
     func openArtPiece(_ artPiece: Piece, at originView: UIView) {
         
-        artPiece.viewController.init().artPieceInfoBarView.idLabel.text = artPiece.id
-        artPiece.viewController.init().artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
+        let artPieceViewController = artPiece.viewController.init()
+        artPieceViewController.delegate = self
+        artPieceViewController.artPieceInfoBarView.idLabel.text = artPiece.id
+        artPieceViewController.artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
         
         if customTransitionDelegate == nil {
             let originFrame = self.view.convert(originView.bounds, from: originView)
             
-            customTransitionDelegate = ArtPieceDetailPresentationController(presentedViewController: artPiece.viewController.init(), presenting: self, originFrame: originFrame)
+            customTransitionDelegate = ArtPieceDetailPresentationController(presentedViewController: artPieceViewController, presenting: self, originFrame: originFrame)
         }
         
-        artPiece.viewController.init().transitioningDelegate = customTransitionDelegate
+        artPieceViewController.transitioningDelegate = customTransitionDelegate
         
-        present(artPiece.viewController.init(), animated: true) { [weak self] in
+        present(artPieceViewController, animated: true) { [weak self] in
             self?.customTransitionDelegate = nil
         }
+    }
+}
+
+extension MainViewController: ArtPieceDetailViewControllerDelegate {
+    
+    func artPieceDetailViewControllerDidSelectClose(_ viewController: UIViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
 }
