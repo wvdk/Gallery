@@ -11,11 +11,9 @@ import UIKit
 class ArtPieceDetailPresentationController: UIPresentationController {
     
     private var originFrame: CGRect?
-    private var presentationWrappingView = UIViewController()
 
     convenience init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, originFrame: CGRect) {
-        self.init(presentedViewController: presentedViewController,
-                  presenting: presentingViewController)
+        self.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         
         self.originFrame = originFrame
         
