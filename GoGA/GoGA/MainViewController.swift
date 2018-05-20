@@ -95,7 +95,7 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
     
     //MARK: - ArtPieceTableViewCell delegate
     
-    func openArtPiece(_ artPiece: Piece, at originView: UIView) {
+    func openArtPiece(_ artPiece: ArtPiece, at originView: UIView) {
         
         artPiece.viewController.init().artPieceInfoBarView.idLabel.text = artPiece.id
         artPiece.viewController.init().artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
