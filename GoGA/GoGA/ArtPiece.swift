@@ -23,7 +23,7 @@ struct ArtPiece {
     /// An optional image for disp
     let thumbnailImage: UIImage?
     
-    /// <#Description#>
+    /// The Type of the vieww controller which contains this art piece for display. Must be initiallized seperately.
     let viewController: ArtPieceDetailViewController.Type
     
     /// A static `DateFormatter` used for converting "March 2018" style `string`s into and out of `Date` objects.
