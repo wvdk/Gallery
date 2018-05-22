@@ -224,13 +224,8 @@
 		DE293F8D2048F30300444EB8 /* GoGA */ = {
 			isa = PBXGroup;
 			children = (
-				DE50B1E32069F255000292DE /* a.565z */,
-				DEEB70A1206852BA00F4ACAD /* a.994t */,
-				DEEB7098206822BB00F4ACAD /* a.586q */,
-				89E9646E205E8431009B5420 /* a.857C */,
-				DEFE243B205B735F0027696F /* a.736D */,
+				DE32B5F820B474D500C98DDB /* Art Pieces */,
 				DE293F8E2048F30300444EB8 /* AppDelegate.swift */,
-				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
 				DE39D70420B321960087788C /* ArtPiece.swift */,
 				DE293F902048F30300444EB8 /* MainViewController.swift */,
 				89BB2826209780AA004B33F0 /* ArtPiece */,
@@ -259,6 +254,19 @@
 				DE293FAA20490E1100444EB8 /* Info.plist */,
 			);
 			path = ArtKit;
+			sourceTree = "<group>";
+		};
+		DE32B5F820B474D500C98DDB /* Art Pieces */ = {
+			isa = PBXGroup;
+			children = (
+				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
+				DE50B1E32069F255000292DE /* a.565z */,
+				DEEB70A1206852BA00F4ACAD /* a.994t */,
+				DEEB7098206822BB00F4ACAD /* a.586q */,
+				89E9646E205E8431009B5420 /* a.857C */,
+				DEFE243B205B735F0027696F /* a.736D */,
+			);
+			path = "Art Pieces";
 			sourceTree = "<group>";
 		};
 		DE3BD6442055FBC200FD3298 /* Fonts */ = {

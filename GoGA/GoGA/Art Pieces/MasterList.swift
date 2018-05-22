@@ -9,9 +9,8 @@
 import UIKit
 import FirebaseDatabase
 
-/// A singleton master list of art pieces.
-///
-/// To be informed when it has been received for the first time or updated you should observe the `` via NotificationCenter, which includes a copy of the new list in it's userInfo under the "masterList" key.
+/// A singleton master list of all art pieces, and only active pieces. The active list (which is kept on Firebase) is what should be presented to the user.
+/// To be informed when it has been received for the first time or updated you should observe the `didUpdate` notification via `NotificationCenter.default` and refresh your presentation.
 class MasterList {
 
     /// The shared reference to the `MasterList` singleton.
@@ -41,6 +40,6 @@ class MasterList {
     ]
     
     /// <#Description#>
-    static let didUpdateNotificationName = Notification.Name("masterListDidUpdate")
+    static let didUpdate = Notification.Name("masterListDidUpdate")
     
 }
