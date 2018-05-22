@@ -74,13 +74,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - TableView delegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MasterList.shared.pieces.count
+        return MasterList.shared.allPieces.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ArtPieceTableViewCell.identifier) as! ArtPieceTableViewCell
         
-        cell.piece = MasterList.shared.pieces[indexPath.row]
+        cell.piece = MasterList.shared.allPieces[indexPath.row]
         cell.delegate = self
         
         return cell
@@ -98,7 +98,7 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
     func openArtPiece(_ artPiece: ArtPiece, at originView: UIView) {
         
         artPiece.viewController.init().artPieceInfoBarView.idLabel.text = artPiece.id
-        artPiece.viewController.init().artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyDate)"
+        artPiece.viewController.init().artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyPublishedDate)"
         
         if customTransitionDelegate == nil {
             let originFrame = self.view.convert(originView.bounds, from: originView)

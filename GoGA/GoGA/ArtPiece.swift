@@ -20,6 +20,11 @@ struct ArtPiece {
     /// The date at which this piece as released (might only retain accuracy up to the month - not day).
     var published: Date
     
+    /// A computed property returning a pretty formatted string of the `published` date.
+    var prettyPublishedDate: String {
+        return ArtPiece.dateFormatter.string(from: self.published)
+    }
+    
     /// An optional image for disp
     let thumbnailImage: UIImage?
     

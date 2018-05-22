@@ -21,12 +21,15 @@ class MasterList {
     ///
     /// Also starts up the firebase observer.
     private init() {
-        let ref = Database.database().reference().child("masterList")
+        let ref = Database.database().reference().child("activePieces")
+
+        ref.setValue(["a.565z", "a.994t", "a.586q", "a.857C", "a.736D"])
         
-        ref.observe(.value) { snapshot in
-            print(snapshot)
-            // TODO: parse snapshot, update `allPieces`, and push notification
-        }
+        
+//        ref.observe(.value) { snapshot in
+//            print(snapshot)
+//            // TODO: parse snapshot, update `allPieces`, and push notification
+//        }
     }
 
     /// <#Description#>

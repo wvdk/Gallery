@@ -24,8 +24,8 @@ class ArtPieceTableViewCell: UITableViewCell {
         didSet {
             guard let piece = piece else { return }
             idLabel.text = piece.id
-            nameAndDateLabel.text = "\(piece.author), \(piece.prettyDate)"
-            previewImageView.image = piece.image
+            nameAndDateLabel.text = "\(piece.author), \(piece.prettyPublishedDate)"
+            previewImageView.image = piece.thumbnailImage
         }
     }
     
