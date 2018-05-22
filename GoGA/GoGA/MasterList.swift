@@ -23,8 +23,7 @@ class MasterList {
     private init() {
         let ref = Database.database().reference().child("activePieces")
 
-        ref.setValue(["a.565z", "a.994t", "a.586q", "a.857C", "a.736D"])
-        
+        ref.setValue( allPieces.map { $0.id } )
         
 //        ref.observe(.value) { snapshot in
 //            print(snapshot)
@@ -32,13 +31,13 @@ class MasterList {
 //        }
     }
 
-    /// <#Description#>
+    /// The master list of all the `ArtPiece`s in the project. You'll need to update this list when you create a new one.
     let allPieces: [ArtPiece] = [
-//        ArtPiece(id: "a.857C", author: "Kristina Gelzinyte", date: "May 22", image: #imageLiteral(resourceName: "a857C.png"), viewController: a857CViewController.self),
-//        ArtPiece(id: "a.994t", author: "wvdk", date: "May 21", image: #imageLiteral(resourceName: "a994t.png"), viewController: a994tViewController.self),
-//        ArtPiece(id: "a.586q", author: "wwvdk", date: "May 20", image: #imageLiteral(resourceName: "a586q.png"), viewController: a586qViewController.self),
-//        ArtPiece(id: "a.736D", author: "wvdk", date: "May 19", image: #imageLiteral(resourceName: "a736D.png"), viewController: a736DViewController.self),
-//        ArtPiece(id: "a.565z", author: "wvdk", date: "May 18", image: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController.self)
+        ArtPiece(id: "a.857C", author: "Kristina Gelzinyte", prettyPublishedDate: "May 22", thumbnailImage: #imageLiteral(resourceName: "a857C.png"), viewController: a857CViewController.self),
+        ArtPiece(id: "a.994t", author: "wvdk", prettyPublishedDate: "May 21", thumbnailImage: #imageLiteral(resourceName: "a994t.png"), viewController: a994tViewController.self),
+        ArtPiece(id: "a.586q", author: "wwvdk", prettyPublishedDate: "May 20", thumbnailImage: #imageLiteral(resourceName: "a586q.png"), viewController: a586qViewController.self),
+        ArtPiece(id: "a.736D", author: "wvdk", prettyPublishedDate: "May 19", thumbnailImage: #imageLiteral(resourceName: "a736D.png"), viewController: a736DViewController.self),
+        ArtPiece(id: "a.565z", author: "wvdk", prettyPublishedDate: "May 18", thumbnailImage: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController.self)
     ]
     
     /// <#Description#>
