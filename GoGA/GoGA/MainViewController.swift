@@ -44,6 +44,10 @@ class MainViewController: UIViewController {
             it.separatorStyle = UITableViewCellSeparatorStyle.none
             it.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 86))
         }
+        
+        NotificationCenter.default.addObserver(forName: MasterList.didUpdateActivePieces, object: nil, queue: nil) { [weak self] notification in
+            self?.tableView.reloadData()
+        }
     }
     
     lazy var headerView: UIView = {
@@ -74,13 +78,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - TableView delegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MasterList.shared.allPieces.count
+        return MasterList.shared.activePieces.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ArtPieceTableViewCell.identifier) as! ArtPieceTableViewCell
         
-        cell.piece = MasterList.shared.allPieces[indexPath.row]
+        cell.piece = MasterList.shared.activePieces[indexPath.row]
         cell.delegate = self
         
         return cell
