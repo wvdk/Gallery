@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 
 /// A singleton master list of all art pieces, and only active pieces. The active list (which is kept on Firebase) is what should be presented to the user.
-/// To be informed when it has been received for the first time or updated you should observe the `didUpdate` notification via `NotificationCenter.default` and refresh your presentation.
+/// To be informed when it has been received for the first time or updated you should observe the `didUpdateActivePieces` notification via `NotificationCenter.default` and refresh your presentation.
 class MasterList {
 
     /// The shared reference to the `MasterList` singleton.
@@ -21,13 +21,27 @@ class MasterList {
     /// Also starts up the firebase observer.
     private init() {
         let ref = Database.database().reference().child("activePieces")
-
-        ref.setValue( allPieces.map { $0.id } )
         
-//        ref.observe(.value) { snapshot in
-//            print(snapshot)
-//            // TODO: parse snapshot, update `allPieces`, and push notification
-//        }
+        ref.observe(.value) { snapshot in
+            if let pieceIds = snapshot.value as? [String] {
+                var foundPieces = [ArtPiece]()
+                for id in pieceIds {
+                    if let foundPiece = self.allPieces.first(where: { $0.id == id }) {
+                        foundPieces.append(foundPiece)
+                    }
+                }
+                
+                self.activePieces = foundPieces
+            } else {
+                self.activePieces = []
+            }
+        }
+    }
+    
+    var activePieces = [ArtPiece]() {
+        didSet {
+            NotificationCenter.default.post(name: MasterList.didUpdateActivePieces, object: nil, userInfo: nil)
+        }
     }
 
     /// The master list of all the `ArtPiece`s in the project. You'll need to update this list when you create a new one.
@@ -39,7 +53,7 @@ class MasterList {
         ArtPiece(id: "a.565z", author: "wvdk", prettyPublishedDate: "May 18", thumbnailImage: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController.self)
     ]
     
-    /// <#Description#>
-    static let didUpdate = Notification.Name("masterListDidUpdate")
+    /// A `NotificationCenter.default` notification name which is posted by `MasterList.shared` when the `activePieces` list has been updated.
+    static let didUpdateActivePieces = Notification.Name("masterListDidUpdateActivePieces")
     
 }
