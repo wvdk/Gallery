@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00E4BD126400A71E6D61727D /* Pods_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53BCCCC1D3EDCAB0B2639B21 /* Pods_Gallery.framework */; };
 		890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */; };
 		891C2EED205C48BA00746712 /* a736D.png in Resources */ = {isa = PBXBuildFile; fileRef = 891C2EEC205C48BA00746712 /* a736D.png */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
@@ -81,6 +82,7 @@
 		4C451B63F493F4CB4D48046A /* Pods-ArtKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit.debug.xcconfig"; sourceTree = "<group>"; };
 		4F5BF21D204A31502C67DF16 /* Pods-ArtKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit.release.xcconfig"; sourceTree = "<group>"; };
 		4FF6BF8774526379393A0B0A /* Pods_ArtKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53BCCCC1D3EDCAB0B2639B21 /* Pods_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailDismissAnimationController.swift; sourceTree = "<group>"; };
 		891C2EEC205C48BA00746712 /* a736D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a736D.png; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
@@ -95,6 +97,8 @@
 		89E96473205E87F1009B5420 /* TilePatternShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TilePatternShader.fsh; sourceTree = "<group>"; };
 		89E96475205E8C59009B5420 /* a857C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a857C.png; sourceTree = "<group>"; };
 		C452104507D5910B414148BC /* Pods_GoGA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoGA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C85DD3F3A1656418B116D049 /* Pods-Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gallery/Pods-Gallery.release.xcconfig"; sourceTree = "<group>"; };
+		C8F56E034DED53BF3FE96DF6 /* Pods-Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gallery/Pods-Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 		DE165CD2205B891F00E28C37 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		DE293F8B2048F30300444EB8 /* Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE293F8E2048F30300444EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 			files = (
 				DE293FAE20490E1100444EB8 /* ArtKit.framework in Frameworks */,
 				A784F530EC73D39C5BAC5568 /* Pods_GoGA.framework in Frameworks */,
+				00E4BD126400A71E6D61727D /* Pods_Gallery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +159,7 @@
 			children = (
 				4FF6BF8774526379393A0B0A /* Pods_ArtKit.framework */,
 				C452104507D5910B414148BC /* Pods_GoGA.framework */,
+				53BCCCC1D3EDCAB0B2639B21 /* Pods_Gallery.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,6 +171,8 @@
 				4F5BF21D204A31502C67DF16 /* Pods-ArtKit.release.xcconfig */,
 				E847F505B269EA13C9174AD3 /* Pods-GoGA.debug.xcconfig */,
 				3ABE3903F59D225CB6C0BCF2 /* Pods-GoGA.release.xcconfig */,
+				C8F56E034DED53BF3FE96DF6 /* Pods-Gallery.debug.xcconfig */,
+				C85DD3F3A1656418B116D049 /* Pods-Gallery.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -340,7 +348,6 @@
 				DE293F892048F30300444EB8 /* Resources */,
 				DE293FB320490E1100444EB8 /* Embed Frameworks */,
 				7DC3D81E60CF22A53E6E498E /* [CP] Embed Pods Frameworks */,
-				9FF58C033E8B9DB07304E7C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -361,7 +368,6 @@
 				DE293FA320490E1100444EB8 /* Frameworks */,
 				DE293FA420490E1100444EB8 /* Headers */,
 				DE293FA520490E1100444EB8 /* Resources */,
-				27D03225CC8D47F4FF03C05A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -451,26 +457,11 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GoGA-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Gallery-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		27D03225CC8D47F4FF03C05A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7DC3D81E60CF22A53E6E498E /* [CP] Embed Pods Frameworks */ = {
@@ -479,7 +470,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GoGA/Pods-GoGA-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Gallery/Pods-Gallery-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -494,22 +485,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoGA/Pods-GoGA-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9FF58C033E8B9DB07304E7C7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoGA/Pods-GoGA-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gallery/Pods-Gallery-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C004CF75FA76D77C84EA535F /* [CP] Check Pods Manifest.lock */ = {
@@ -709,7 +685,7 @@
 		};
 		DE293F9E2048F30300444EB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E847F505B269EA13C9174AD3 /* Pods-GoGA.debug.xcconfig */;
+			baseConfigurationReference = C8F56E034DED53BF3FE96DF6 /* Pods-Gallery.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -727,7 +703,7 @@
 		};
 		DE293F9F2048F30300444EB8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3ABE3903F59D225CB6C0BCF2 /* Pods-GoGA.release.xcconfig */;
+			baseConfigurationReference = C85DD3F3A1656418B116D049 /* Pods-Gallery.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
