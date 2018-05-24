@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_GoGAVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_GoGAVersionString[];
+FOUNDATION_EXPORT double Pods_GalleryVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_GalleryVersionString[];
 
