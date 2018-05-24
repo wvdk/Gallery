@@ -204,7 +204,7 @@
 		DE293F822048F30300444EB8 = {
 			isa = PBXGroup;
 			children = (
-				DE293F8D2048F30300444EB8 /* GoGA */,
+				DE293F8D2048F30300444EB8 /* Gallery */,
 				DE293FA820490E1100444EB8 /* ArtKit */,
 				DE293F8C2048F30300444EB8 /* Products */,
 				5516CC5723D6F68448980550 /* Pods */,
@@ -221,7 +221,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DE293F8D2048F30300444EB8 /* GoGA */ = {
+		DE293F8D2048F30300444EB8 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
 				DE32B5F820B474D500C98DDB /* Art Pieces */,
@@ -236,7 +236,7 @@
 				DE3E64BB20ADDF4C00F1970E /* GoogleService-Info.plist */,
 				DE3BD6442055FBC200FD3298 /* Fonts */,
 			);
-			path = GoGA;
+			path = Gallery;
 			sourceTree = "<group>";
 		};
 		DE293FA820490E1100444EB8 /* ArtKit */ = {
