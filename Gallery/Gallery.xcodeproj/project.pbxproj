@@ -95,7 +95,7 @@
 		89E96475205E8C59009B5420 /* a857C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a857C.png; sourceTree = "<group>"; };
 		C452104507D5910B414148BC /* Pods_GoGA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoGA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE165CD2205B891F00E28C37 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		DE293F8B2048F30300444EB8 /* GoGA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE293F8B2048F30300444EB8 /* Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE293F8E2048F30300444EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE293F902048F30300444EB8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DE293F952048F30300444EB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		DE293F8C2048F30300444EB8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DE293F8B2048F30300444EB8 /* GoGA.app */,
+				DE293F8B2048F30300444EB8 /* Gallery.app */,
 				DE293FA720490E1100444EB8 /* ArtKit.framework */,
 			);
 			name = Products;
@@ -330,9 +330,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DE293F8A2048F30300444EB8 /* GoGA */ = {
+		DE293F8A2048F30300444EB8 /* Gallery */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE293F9D2048F30300444EB8 /* Build configuration list for PBXNativeTarget "GoGA" */;
+			buildConfigurationList = DE293F9D2048F30300444EB8 /* Build configuration list for PBXNativeTarget "Gallery" */;
 			buildPhases = (
 				08BC62FEEC1662D96A826A7C /* [CP] Check Pods Manifest.lock */,
 				DE293F872048F30300444EB8 /* Sources */,
@@ -347,9 +347,9 @@
 			dependencies = (
 				DE293FAD20490E1100444EB8 /* PBXTargetDependency */,
 			);
-			name = GoGA;
+			name = Gallery;
 			productName = GoGA;
-			productReference = DE293F8B2048F30300444EB8 /* GoGA.app */;
+			productReference = DE293F8B2048F30300444EB8 /* Gallery.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DE293FA620490E1100444EB8 /* ArtKit */ = {
@@ -392,7 +392,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DE293F862048F30300444EB8 /* Build configuration list for PBXProject "GoGA" */;
+			buildConfigurationList = DE293F862048F30300444EB8 /* Build configuration list for PBXProject "Gallery" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -405,7 +405,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DE293F8A2048F30300444EB8 /* GoGA */,
+				DE293F8A2048F30300444EB8 /* Gallery */,
 				DE293FA620490E1100444EB8 /* ArtKit */,
 			);
 		};
@@ -798,7 +798,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DE293F862048F30300444EB8 /* Build configuration list for PBXProject "GoGA" */ = {
+		DE293F862048F30300444EB8 /* Build configuration list for PBXProject "Gallery" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE293F9B2048F30300444EB8 /* Debug */,
@@ -807,7 +807,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE293F9D2048F30300444EB8 /* Build configuration list for PBXNativeTarget "GoGA" */ = {
+		DE293F9D2048F30300444EB8 /* Build configuration list for PBXNativeTarget "Gallery" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE293F9E2048F30300444EB8 /* Debug */,
