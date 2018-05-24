@@ -179,7 +179,7 @@
 			path = TransitionAnimation;
 			sourceTree = "<group>";
 		};
-		89BB2826209780AA004B33F0 /* ArtPiece */ = {
+		89BB2826209780AA004B33F0 /* Art Piece Controller */ = {
 			isa = PBXGroup;
 			children = (
 				DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */,
@@ -187,7 +187,7 @@
 				8959050C20754B8200300B62 /* ArtPieceInfoBarView.swift */,
 				89BB28252097808B004B33F0 /* TransitionAnimation */,
 			);
-			path = ArtPiece;
+			path = "Art Piece Controller";
 			sourceTree = "<group>";
 		};
 		89E9646E205E8431009B5420 /* a.857C */ = {
@@ -228,7 +228,7 @@
 				DE293F8E2048F30300444EB8 /* AppDelegate.swift */,
 				DE39D70420B321960087788C /* ArtPiece.swift */,
 				DE293F902048F30300444EB8 /* MainViewController.swift */,
-				89BB2826209780AA004B33F0 /* ArtPiece */,
+				89BB2826209780AA004B33F0 /* Art Piece Controller */,
 				8929F4F1204AD54C000E5179 /* IDGenerator.swift */,
 				DE293F952048F30300444EB8 /* Assets.xcassets */,
 				DE293F972048F30300444EB8 /* LaunchScreen.storyboard */,
