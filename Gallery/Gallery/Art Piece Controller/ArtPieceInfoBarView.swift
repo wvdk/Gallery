@@ -1,9 +1,9 @@
 //
 //  ArtPieceInfoBarView.swift
-//  GoGA
+//  Gallery
 //
 //  Created by Kristina Gelzinyte on 4/4/18.
-//  Copyright © 2018 Gallery of Generative Art. All rights reserved.
+//  Copyright © 2018 Gallery. All rights reserved.
 //
 
 import UIKit

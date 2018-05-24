@@ -1,9 +1,9 @@
 //
 //  a565zViewController.swift
-//  GoGA
+//  Gallery
 //
 //  Created by Wesley Van der Klomp on 3/26/18.
-//  Copyright © 2018 Gallery of Generative Art. All rights reserved.
+//  Copyright © 2018 Gallery. All rights reserved.
 //
 
 import UIKit

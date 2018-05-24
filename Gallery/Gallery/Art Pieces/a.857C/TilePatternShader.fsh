@@ -1,9 +1,9 @@
 //
 //  TilePatternShader.fsh
-//  GoGA
+//  Gallery
 //
 //  Created by Kristina Gelzinyte on 3/18/18.
-//  Copyright © 2018 Gallery of Generative Art. All rights reserved.
+//  Copyright © 2018 Gallery. All rights reserved.
 //
 
 #define PI 3.14159265358979323846
