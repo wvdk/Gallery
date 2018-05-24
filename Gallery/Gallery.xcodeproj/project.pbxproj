@@ -78,7 +78,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3ABE3903F59D225CB6C0BCF2 /* Pods-GoGA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoGA.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoGA/Pods-GoGA.release.xcconfig"; sourceTree = "<group>"; };
 		4C451B63F493F4CB4D48046A /* Pods-ArtKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit.debug.xcconfig"; sourceTree = "<group>"; };
 		4F5BF21D204A31502C67DF16 /* Pods-ArtKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit.release.xcconfig"; sourceTree = "<group>"; };
 		4FF6BF8774526379393A0B0A /* Pods_ArtKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +128,6 @@
 		DEEB70A22068530B00F4ACAD /* a994tViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a994tViewController.swift; sourceTree = "<group>"; };
 		DEEB70A42068556600F4ACAD /* a994t.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a994t.png; sourceTree = "<group>"; };
 		DEFE243C205B744E0027696F /* a736DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a736DViewController.swift; sourceTree = "<group>"; };
-		E847F505B269EA13C9174AD3 /* Pods-GoGA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoGA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoGA/Pods-GoGA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,8 +167,6 @@
 			children = (
 				4C451B63F493F4CB4D48046A /* Pods-ArtKit.debug.xcconfig */,
 				4F5BF21D204A31502C67DF16 /* Pods-ArtKit.release.xcconfig */,
-				E847F505B269EA13C9174AD3 /* Pods-GoGA.debug.xcconfig */,
-				3ABE3903F59D225CB6C0BCF2 /* Pods-GoGA.release.xcconfig */,
 				C8F56E034DED53BF3FE96DF6 /* Pods-Gallery.debug.xcconfig */,
 				C85DD3F3A1656418B116D049 /* Pods-Gallery.release.xcconfig */,
 			);
