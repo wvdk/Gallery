@@ -10,10 +10,10 @@ import UIKit
 
 class ArtPieceView: UIView {
 
-    let artPieceMetadata: ArtPiece
+    let artPieceMetadata: ArtPieceMetadata
     
     override init(frame: CGRect) {
-        artPieceMetadata = ArtPiece(id: "", author: "", prettyPublishedDate: "", thumbnailImage: nil, viewController: a857CViewController.self)
+        artPieceMetadata = ArtPieceMetadata(id: "", author: "", prettyPublishedDate: "", thumbnailImage: nil, viewController: a857CViewController.self)
 
         super.init(frame: frame)
     }

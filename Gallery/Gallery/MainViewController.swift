@@ -98,7 +98,7 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
     
     //MARK: - ArtPieceTableViewCell delegate
     
-    func openArtPiece(_ artPiece: ArtPiece, at originView: UIView) {
+    func openArtPiece(_ artPiece: ArtPieceMetadata, at originView: UIView) {
         
         let artPieceViewController = artPiece.viewController.init()
         artPieceViewController.delegate = self
