@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E4BD126400A71E6D61727D /* Pods_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53BCCCC1D3EDCAB0B2639B21 /* Pods_Gallery.framework */; };
 		890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */; };
 		891C2EED205C48BA00746712 /* a736D.png in Resources */ = {isa = PBXBuildFile; fileRef = 891C2EEC205C48BA00746712 /* a736D.png */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
@@ -21,8 +20,7 @@
 		89E96472205E85FC009B5420 /* a857CGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E96471205E85FC009B5420 /* a857CGameScene.swift */; };
 		89E96474205E87F1009B5420 /* TilePatternShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* TilePatternShader.fsh */; };
 		89E96476205E8C59009B5420 /* a857C.png in Resources */ = {isa = PBXBuildFile; fileRef = 89E96475205E8C59009B5420 /* a857C.png */; };
-		9B76A011005C3A9D31CC7AD8 /* Pods_ArtKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF6BF8774526379393A0B0A /* Pods_ArtKit.framework */; };
-		A784F530EC73D39C5BAC5568 /* Pods_GoGA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C452104507D5910B414148BC /* Pods_GoGA.framework */; };
+		B404A35FCB4153351A88093A /* Pods_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */; };
 		DE165CD3205B891F00E28C37 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE165CD2205B891F00E28C37 /* Actions.sks */; };
 		DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F8E2048F30300444EB8 /* AppDelegate.swift */; };
 		DE293F912048F30300444EB8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F902048F30300444EB8 /* MainViewController.swift */; };
@@ -51,6 +49,7 @@
 		DEEB70A32068530B00F4ACAD /* a994tViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB70A22068530B00F4ACAD /* a994tViewController.swift */; };
 		DEEB70A52068556600F4ACAD /* a994t.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEB70A42068556600F4ACAD /* a994t.png */; };
 		DEFE243D205B744E0027696F /* a736DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFE243C205B744E0027696F /* a736DViewController.swift */; };
+		FB6DD2CF7BBC7F406CE08C94 /* Pods_ArtKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3691700D8ECDC253DFFC376 /* Pods_ArtKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,8 +79,6 @@
 /* Begin PBXFileReference section */
 		4C451B63F493F4CB4D48046A /* Pods-ArtKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit.debug.xcconfig"; sourceTree = "<group>"; };
 		4F5BF21D204A31502C67DF16 /* Pods-ArtKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit.release.xcconfig"; sourceTree = "<group>"; };
-		4FF6BF8774526379393A0B0A /* Pods_ArtKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		53BCCCC1D3EDCAB0B2639B21 /* Pods_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailDismissAnimationController.swift; sourceTree = "<group>"; };
 		891C2EEC205C48BA00746712 /* a736D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a736D.png; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
@@ -95,7 +92,8 @@
 		89E96471205E85FC009B5420 /* a857CGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a857CGameScene.swift; sourceTree = "<group>"; };
 		89E96473205E87F1009B5420 /* TilePatternShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TilePatternShader.fsh; sourceTree = "<group>"; };
 		89E96475205E8C59009B5420 /* a857C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a857C.png; sourceTree = "<group>"; };
-		C452104507D5910B414148BC /* Pods_GoGA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoGA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3691700D8ECDC253DFFC376 /* Pods_ArtKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85DD3F3A1656418B116D049 /* Pods-Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gallery/Pods-Gallery.release.xcconfig"; sourceTree = "<group>"; };
 		C8F56E034DED53BF3FE96DF6 /* Pods-Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gallery/Pods-Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 		DE165CD2205B891F00E28C37 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -136,8 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE293FAE20490E1100444EB8 /* ArtKit.framework in Frameworks */,
-				A784F530EC73D39C5BAC5568 /* Pods_GoGA.framework in Frameworks */,
-				00E4BD126400A71E6D61727D /* Pods_Gallery.framework in Frameworks */,
+				B404A35FCB4153351A88093A /* Pods_Gallery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B76A011005C3A9D31CC7AD8 /* Pods_ArtKit.framework in Frameworks */,
+				FB6DD2CF7BBC7F406CE08C94 /* Pods_ArtKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,9 +152,8 @@
 		454237023F322D583FA3D42C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4FF6BF8774526379393A0B0A /* Pods_ArtKit.framework */,
-				C452104507D5910B414148BC /* Pods_GoGA.framework */,
-				53BCCCC1D3EDCAB0B2639B21 /* Pods_Gallery.framework */,
+				B3691700D8ECDC253DFFC376 /* Pods_ArtKit.framework */,
+				9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -344,6 +340,7 @@
 				DE293F892048F30300444EB8 /* Resources */,
 				DE293FB320490E1100444EB8 /* Embed Frameworks */,
 				7DC3D81E60CF22A53E6E498E /* [CP] Embed Pods Frameworks */,
+				D06EEF6D9DC6C5D9FC75D098 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -364,6 +361,7 @@
 				DE293FA320490E1100444EB8 /* Frameworks */,
 				DE293FA420490E1100444EB8 /* Headers */,
 				DE293FA520490E1100444EB8 /* Resources */,
+				62C64D31D26BF1B2F474ED53 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -460,6 +458,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		62C64D31D26BF1B2F474ED53 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7DC3D81E60CF22A53E6E498E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -500,6 +513,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D06EEF6D9DC6C5D9FC75D098 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gallery/Pods-Gallery-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
