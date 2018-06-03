@@ -29,7 +29,18 @@ struct ArtPieceMetadata {
     let thumbnailImage: UIImage?
     
     /// The Type of the view controller which contains this art piece for display. Must be initiallized seperately.
+    @available(*, deprecated)
     let viewController: ArtPieceDetailViewController.Type
+    
+    
+    
+    
+    
+    let viewName: ArtPieceView.Type? = nil
+    weak var view: ArtPieceView? = nil
+    
+    
+    
     
     /// A static `DateFormatter` used for converting "March 2018" style `string`s into and out of `Date` objects.
     static var dateFormatter: DateFormatter {
