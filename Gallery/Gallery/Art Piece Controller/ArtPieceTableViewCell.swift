@@ -48,55 +48,47 @@ class ArtPieceTableViewCell: UITableViewCell {
         backgroundColor = .clear
         
         let containerView = UIView()
-        containerView.with { it in
-            contentView.addSubview(it)
-            it.clipsToBounds = false
-            it.backgroundColor = .white
-            it.layer.cornerRadius = 8.0
-            it.layer.shadowRadius = 4.0
-            it.layer.shadowOffset = CGSize(width: 0, height: 2)
-            it.layer.shadowColor = UIColor.black.cgColor
-            it.layer.shadowOpacity = 0.1
-            it.translatesAutoresizingMaskIntoConstraints = false
-            it.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 38).isActive = true
-            it.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -38).isActive = true
-            it.heightAnchor.constraint(equalToConstant: 120).isActive = true
-            it.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        contentView.addSubview(containerView)
+        containerView.clipsToBounds = false
+        containerView.backgroundColor = .white
+        containerView.layer.cornerRadius = 8.0
+        containerView.layer.shadowRadius = 4.0
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 0.1
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 38).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -38).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        containerView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+    
+        containerView.addSubview(previewContainerView)
+        previewContainerView.clipsToBounds = true
+        previewContainerView.layer.cornerRadius = 8.0
+        previewContainerView.contentMode = .scaleAspectFill
+        previewContainerView.translatesAutoresizingMaskIntoConstraints = false
+        previewContainerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        previewContainerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        previewContainerView.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
+        previewContainerView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        previewContainerView.addSingleTapGestureRecognizer { [weak self] _ in
+            guard let piece = self?.piece, let previewContainerView = self?.previewContainerView else { return }
+            self?.delegate?.openArtPiece(piece, at: previewContainerView)
         }
-        
-        previewContainerView.with { it in
-            containerView.addSubview(it)
-            it.clipsToBounds = true
-            it.layer.cornerRadius = 8.0
-            it.contentMode = .scaleAspectFill
-            it.translatesAutoresizingMaskIntoConstraints = false
-            it.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-            it.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-            it.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
-            it.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-            it.addSingleTapGestureRecognizer { [weak self] _ in
-                guard let piece = self?.piece else { return }
-                self?.delegate?.openArtPiece(piece, at: it)
-            }            
-        }
-        
-        idLabel.with { it in
-            contentView.addSubview(it)
-            it.translatesAutoresizingMaskIntoConstraints = false
-            it.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2 * 3)
-            it.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
-            it.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-            it.font = UIFont(name: "SFMono-Light", size: 12.0)
-            it.textColor = UIColor(displayP3Red: 0.54, green: 0.54, blue: 0.54, alpha: 1.0)
-        }
-        
-        nameAndDateLabel.with { it in
-            contentView.addSubview(it)
-            it.translatesAutoresizingMaskIntoConstraints = false
-            it.topAnchor.constraint(equalTo: previewContainerView.bottomAnchor, constant: 2).isActive = true
-            it.trailingAnchor.constraint(equalTo: previewContainerView.trailingAnchor, constant: -8).isActive = true
-            it.font = UIFont(name: "Avenir Next", size: 12)
-            it.textColor = UIColor(r: 94, g: 64, b: 64)
-        }
+    
+        contentView.addSubview(idLabel)
+        idLabel.translatesAutoresizingMaskIntoConstraints = false
+        idLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2 * 3)
+        idLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        idLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        idLabel.font = UIFont(name: "SFMono-Light", size: 12.0)
+        idLabel.textColor = UIColor(displayP3Red: 0.54, green: 0.54, blue: 0.54, alpha: 1.0)
+    
+        contentView.addSubview(nameAndDateLabel)
+        nameAndDateLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameAndDateLabel.topAnchor.constraint(equalTo: previewContainerView.bottomAnchor, constant: 2).isActive = true
+        nameAndDateLabel.trailingAnchor.constraint(equalTo: previewContainerView.trailingAnchor, constant: -8).isActive = true
+        nameAndDateLabel.font = UIFont(name: "Avenir Next", size: 12)
+        nameAndDateLabel.textColor = UIColor(r: 94, g: 64, b: 64)
     }
 }
