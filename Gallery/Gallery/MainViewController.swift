@@ -100,7 +100,12 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
     
     func openArtPiece(_ artPiece: ArtPieceMetadata, at originView: UIView) {
         
-        let artPieceViewController = artPiece.viewController.init()
+        
+        let artPieceViewController = ArtPieceDetailViewController()
+        
+        let artPieceView = artPiece.viewType.init()
+        // TODO: Set the VC's piece view to artPieceView
+        
         artPieceViewController.delegate = self
         artPieceViewController.artPieceInfoBarView.idLabel.text = artPiece.id
         artPieceViewController.artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyPublishedDate)"

@@ -29,8 +29,8 @@ struct ArtPieceMetadata {
     let thumbnailImage: UIImage?
     
     /// The Type of the view controller which contains this art piece for display. Must be initiallized seperately.
-    @available(*, deprecated)
-    let viewController: ArtPieceDetailViewController.Type
+//    @available(*, deprecated)
+//    let viewController: ArtPieceDetailViewController.Type
     
     /// The Type of the view which contains all the content of this art piece.
     var viewType: ArtPieceView.Type
@@ -43,12 +43,19 @@ struct ArtPieceMetadata {
     }
     
     /// Creates an instance of the `ArtPieceMetadata` struct.
-    init(id: String, author: String, prettyPublishedDate: String, thumbnailImage: UIImage? = nil, viewController: ArtPieceDetailViewController.Type, viewType: ArtPieceView.Type) {
+    ///
+    /// - Parameters:
+    ///   - id: <#id description#>
+    ///   - author: <#author description#>
+    ///   - prettyPublishedDate: Formatted MMMM yyyy
+    ///   - thumbnailImage: <#thumbnailImage description#>
+    ///   - viewType: <#viewType description#>
+    init(id: String, author: String, prettyPublishedDate: String, thumbnailImage: UIImage? = nil, viewType: ArtPieceView.Type) {
         self.id = id
         self.author = author
         self.published = ArtPieceMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
         self.thumbnailImage = thumbnailImage
-        self.viewController = viewController
+//        self.viewController = viewController
         self.viewType = viewType
     }
     

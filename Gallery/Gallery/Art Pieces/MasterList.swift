@@ -20,22 +20,25 @@ class MasterList {
     ///
     /// Also starts up the firebase observer.
     private init() {
-        let ref = Database.database().reference().child("activePieces")
+//        let ref = Database.database().reference().child("activePieces")
+//
+//        ref.observe(.value) { snapshot in
+//            if let pieceIds = snapshot.value as? [String] {
+//                var foundPieces = [ArtPieceMetadata]()
+//                for id in pieceIds {
+//                    if let foundPiece = self.allPieces.first(where: { $0.id == id }) {
+//                        foundPieces.append(foundPiece)
+//                    }
+//                }
+//
+//                self.activePieces = foundPieces
+//            } else {
+//                self.activePieces = []
+//            }
+//        }
         
-        ref.observe(.value) { snapshot in
-            if let pieceIds = snapshot.value as? [String] {
-                var foundPieces = [ArtPieceMetadata]()
-                for id in pieceIds {
-                    if let foundPiece = self.allPieces.first(where: { $0.id == id }) {
-                        foundPieces.append(foundPiece)
-                    }
-                }
-                
-                self.activePieces = foundPieces
-            } else {
-                self.activePieces = []
-            }
-        }
+        // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
+        activePieces = [ArtPieceMetadata(id: "a.565z", author: "wvdk", prettyPublishedDate: "June 2018", viewType: a565zView.self)]
     }
     
     var activePieces = [ArtPieceMetadata]() {
@@ -50,7 +53,7 @@ class MasterList {
 //        ArtPieceMetadata(id: "a.994t", author: "wvdk", prettyPublishedDate: "May 21", thumbnailImage: #imageLiteral(resourceName: "a994t.png"), viewController: a994tViewController.self),
 //        ArtPieceMetadata(id: "a.586q", author: "wwvdk", prettyPublishedDate: "May 20", thumbnailImage: #imageLiteral(resourceName: "a586q.png"), viewController: a586qViewController.self),
 //        ArtPieceMetadata(id: "a.736D", author: "wvdk", prettyPublishedDate: "May 19", thumbnailImage: #imageLiteral(resourceName: "a736D.png"), viewController: a736DViewController.self),
-        ArtPieceMetadata(id: "a.565z", author: "wvdk", prettyPublishedDate: "May 18", thumbnailImage: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController.self, viewType: a565zView.self)
+        ArtPieceMetadata(id: "a.565z", author: "wvdk", prettyPublishedDate: "May 18", thumbnailImage: #imageLiteral(resourceName: "InDevelopment"), viewType: a565zView.self)
     ]
     
     /// A `NotificationCenter.default` notification name which is posted by `MasterList.shared` when the `activePieces` list has been updated.

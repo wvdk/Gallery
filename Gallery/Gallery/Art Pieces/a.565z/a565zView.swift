@@ -19,10 +19,7 @@ class a565zView: ArtPieceView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        
-        
         print("initing view")
-        
         
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()

@@ -13,7 +13,7 @@ class ArtPieceView: UIView {
     let artPieceMetadata: ArtPieceMetadata
     
     override init(frame: CGRect) {
-        artPieceMetadata = ArtPieceMetadata(id: "", author: "", prettyPublishedDate: "", thumbnailImage: nil, viewController: a857CViewController.self, viewType: a565zView.self)
+        artPieceMetadata = ArtPieceMetadata(id: "", author: "", prettyPublishedDate: "", thumbnailImage: nil, viewType: a565zView.self)
 
         super.init(frame: frame)
     }
