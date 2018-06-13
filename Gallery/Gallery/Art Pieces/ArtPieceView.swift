@@ -12,8 +12,8 @@ class ArtPieceView: UIView {
 
     let artPieceMetadata: ArtPieceMetadata
     
-    override init(frame: CGRect) {
-        artPieceMetadata = ArtPieceMetadata(id: "", author: "", prettyPublishedDate: "", thumbnailImage: nil, viewType: a565zView.self)
+    required override init(frame: CGRect) {
+        artPieceMetadata = ArtPieceMetadata(id: "", author: "", prettyPublishedDate: "", viewType: a565zView.self)
 
         super.init(frame: frame)
     }

@@ -16,7 +16,7 @@ class a565zView: ArtPieceView {
     let scene = SCNScene()
     let containerNode = SCNNode()
     
-    override init(frame: CGRect) {
+    required init(frame: CGRect) {
         super.init(frame: frame)
         
         print("initing view")

@@ -46,15 +46,6 @@ class MasterList {
             NotificationCenter.default.post(name: MasterList.didUpdateActivePieces, object: nil, userInfo: nil)
         }
     }
-
-    /// The master list of all the `ArtPiece`s in the project. You'll need to update this list when you create a new one.
-    let allPieces: [ArtPieceMetadata] = [
-//        ArtPieceMetadata(id: "a.857C", author: "Kristina Gelzinyte", prettyPublishedDate: "May 22", thumbnailImage: #imageLiteral(resourceName: "a857C.png"), viewController: a857CViewController.self, viewType: ),
-//        ArtPieceMetadata(id: "a.994t", author: "wvdk", prettyPublishedDate: "May 21", thumbnailImage: #imageLiteral(resourceName: "a994t.png"), viewController: a994tViewController.self),
-//        ArtPieceMetadata(id: "a.586q", author: "wwvdk", prettyPublishedDate: "May 20", thumbnailImage: #imageLiteral(resourceName: "a586q.png"), viewController: a586qViewController.self),
-//        ArtPieceMetadata(id: "a.736D", author: "wvdk", prettyPublishedDate: "May 19", thumbnailImage: #imageLiteral(resourceName: "a736D.png"), viewController: a736DViewController.self),
-        ArtPieceMetadata(id: "a.565z", author: "wvdk", prettyPublishedDate: "May 18", thumbnailImage: #imageLiteral(resourceName: "InDevelopment"), viewType: a565zView.self)
-    ]
     
     /// A `NotificationCenter.default` notification name which is posted by `MasterList.shared` when the `activePieces` list has been updated.
     static let didUpdateActivePieces = Notification.Name("masterListDidUpdateActivePieces")

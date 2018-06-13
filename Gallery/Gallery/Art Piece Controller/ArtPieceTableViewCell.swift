@@ -12,6 +12,7 @@ import ArtKit
 protocol ArtPieceTableViewCellDelegate {
     
     func openArtPiece(_ artPiece: ArtPieceMetadata, at originView: UIView)
+    
 }
 
 class ArtPieceTableViewCell: UITableViewCell {
@@ -25,11 +26,11 @@ class ArtPieceTableViewCell: UITableViewCell {
             guard let piece = piece else { return }
             idLabel.text = piece.id
             nameAndDateLabel.text = "\(piece.author), \(piece.prettyPublishedDate)"
-            previewImageView.image = piece.thumbnailImage
+            previewContainerView = piece.viewType.init(frame: previewContainerView.frame)
         }
     }
     
-    private var previewImageView = UIImageView()
+    private var previewContainerView = UIView()
     private var idLabel = UILabel()
     private var nameAndDateLabel = UILabel()
 
@@ -63,7 +64,7 @@ class ArtPieceTableViewCell: UITableViewCell {
             it.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         }
         
-        previewImageView.with { it in
+        previewContainerView.with { it in
             containerView.addSubview(it)
             it.clipsToBounds = true
             it.layer.cornerRadius = 8.0
@@ -92,8 +93,8 @@ class ArtPieceTableViewCell: UITableViewCell {
         nameAndDateLabel.with { it in
             contentView.addSubview(it)
             it.translatesAutoresizingMaskIntoConstraints = false
-            it.topAnchor.constraint(equalTo: previewImageView.bottomAnchor, constant: 2).isActive = true
-            it.trailingAnchor.constraint(equalTo: previewImageView.trailingAnchor, constant: -8).isActive = true
+            it.topAnchor.constraint(equalTo: previewContainerView.bottomAnchor, constant: 2).isActive = true
+            it.trailingAnchor.constraint(equalTo: previewContainerView.trailingAnchor, constant: -8).isActive = true
             it.font = UIFont(name: "Avenir Next", size: 12)
             it.textColor = UIColor(r: 94, g: 64, b: 64)
         }

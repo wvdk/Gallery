@@ -8,11 +8,13 @@
 
 import UIKit
 
+typealias ArtPieceId = String
+
 /// A struct which represents an art piece for display in this gallery.
 struct ArtPieceMetadata {
     
     /// The unique ID for this ArtPiece. These are generated using `IDGenerator`.
-    let id: String
+    let id: ArtPieceId
     
     /// The name of the person who created this piece.
     let author: String
@@ -24,9 +26,6 @@ struct ArtPieceMetadata {
     var prettyPublishedDate: String {
         return ArtPieceMetadata.dateFormatter.string(from: self.published)
     }
-    
-    /// An optional image for disp
-    let thumbnailImage: UIImage?
     
     /// The Type of the view controller which contains this art piece for display. Must be initiallized seperately.
 //    @available(*, deprecated)
@@ -47,16 +46,15 @@ struct ArtPieceMetadata {
     /// - Parameters:
     ///   - id: <#id description#>
     ///   - author: <#author description#>
-    ///   - prettyPublishedDate: Formatted MMMM yyyy
-    ///   - thumbnailImage: <#thumbnailImage description#>
+    ///   - prettyPublishedDate: Formatted MMMM yyyy (e.g. June 2018)
     ///   - viewType: <#viewType description#>
-    init(id: String, author: String, prettyPublishedDate: String, thumbnailImage: UIImage? = nil, viewType: ArtPieceView.Type) {
+    init(id: ArtPieceId, author: String, prettyPublishedDate: String, viewType: ArtPieceView.Type) {
         self.id = id
         self.author = author
         self.published = ArtPieceMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
-        self.thumbnailImage = thumbnailImage
 //        self.viewController = viewController
         self.viewType = viewType
     }
     
 }
+
