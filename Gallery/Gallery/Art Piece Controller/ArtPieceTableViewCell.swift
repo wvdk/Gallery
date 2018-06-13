@@ -41,10 +41,6 @@ class ArtPieceTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        configureView()
-    }
-    
-    func configureView() {
         backgroundColor = .clear
         
         let containerView = UIView()
@@ -61,7 +57,7 @@ class ArtPieceTableViewCell: UITableViewCell {
         containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -38).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         containerView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-    
+        
         containerView.addSubview(previewContainerView)
         previewContainerView.clipsToBounds = true
         previewContainerView.layer.cornerRadius = 8.0
@@ -75,7 +71,7 @@ class ArtPieceTableViewCell: UITableViewCell {
             guard let piece = self?.piece, let previewContainerView = self?.previewContainerView else { return }
             self?.delegate?.openArtPiece(piece, at: previewContainerView)
         }
-    
+        
         contentView.addSubview(idLabel)
         idLabel.translatesAutoresizingMaskIntoConstraints = false
         idLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2 * 3)
@@ -83,7 +79,7 @@ class ArtPieceTableViewCell: UITableViewCell {
         idLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         idLabel.font = UIFont(name: "SFMono-Light", size: 12.0)
         idLabel.textColor = UIColor(displayP3Red: 0.54, green: 0.54, blue: 0.54, alpha: 1.0)
-    
+        
         contentView.addSubview(nameAndDateLabel)
         nameAndDateLabel.translatesAutoresizingMaskIntoConstraints = false
         nameAndDateLabel.topAnchor.constraint(equalTo: previewContainerView.bottomAnchor, constant: 2).isActive = true
@@ -91,4 +87,5 @@ class ArtPieceTableViewCell: UITableViewCell {
         nameAndDateLabel.font = UIFont(name: "Avenir Next", size: 12)
         nameAndDateLabel.textColor = UIColor(r: 94, g: 64, b: 64)
     }
+    
 }
