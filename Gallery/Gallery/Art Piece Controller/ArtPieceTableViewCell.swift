@@ -65,8 +65,8 @@ class ArtPieceTableViewCell: UITableViewCell {
         previewContainerView.translatesAutoresizingMaskIntoConstraints = false
         previewContainerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         previewContainerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        previewContainerView.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
-        previewContainerView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        previewContainerView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        previewContainerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
         previewContainerView.addSingleTapGestureRecognizer { [weak self] _ in
             guard let piece = self?.piece, let previewContainerView = self?.previewContainerView else { return }
             self?.delegate?.openArtPiece(piece, at: previewContainerView)
