@@ -99,12 +99,7 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
     //MARK: - ArtPieceTableViewCell delegate
     
     func openArtPiece(_ artPiece: ArtPieceMetadata, at originView: UIView) {
-        
-        
-        let artPieceViewController = ArtPieceDetailViewController()
-        
-        let artPieceView = artPiece.viewType.init()
-        // TODO: Set the VC's piece view to artPieceView
+        let artPieceViewController = ArtPieceDetailViewController(metadata: artPiece)
         
         artPieceViewController.delegate = self
         artPieceViewController.artPieceInfoBarView.idLabel.text = artPiece.id

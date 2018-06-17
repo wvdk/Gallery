@@ -16,10 +16,10 @@ class a565zView: ArtPieceView {
     let scene = SCNScene()
     let containerNode = SCNNode()
     
-    required init(frame: CGRect) {
-        super.init(frame: frame)
+    required init(frame: CGRect, artPieceMetadata: ArtPieceMetadata) {
+        super.init(frame: frame, artPieceMetadata: artPieceMetadata)
         
-        print("initing view")
+        tag = 123
         
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
@@ -27,13 +27,15 @@ class a565zView: ArtPieceView {
         scene.rootNode.addChildNode(cameraNode)
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
         
-        sceneKitView.with { it in
-            it.scene = scene
-            it.allowsCameraControl = false
-            it.backgroundColor = UIColor.white
-            self.addSubview(it)
-            it.frame = self.frame
-        }
+        addSubview(sceneKitView)
+        sceneKitView.translatesAutoresizingMaskIntoConstraints = false
+        sceneKitView.translatesAutoresizingMaskIntoConstraints = false
+        sceneKitView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        sceneKitView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        sceneKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        sceneKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        sceneKitView.scene = scene
+        sceneKitView.allowsCameraControl = false
         
         scene.rootNode.addChildNode(containerNode)
         

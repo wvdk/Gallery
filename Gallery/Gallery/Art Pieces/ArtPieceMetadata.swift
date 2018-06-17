@@ -34,6 +34,8 @@ struct ArtPieceMetadata {
     /// The Type of the view which contains all the content of this art piece.
     var viewType: ArtPieceView.Type
     
+    weak var view: ArtPieceView? = nil
+    
     /// A static `DateFormatter` used for converting "March 2018" style `string`s into and out of `Date` objects.
     static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()

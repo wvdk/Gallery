@@ -26,7 +26,22 @@ class ArtPieceTableViewCell: UITableViewCell {
             guard let piece = piece else { return }
             idLabel.text = piece.id
             nameAndDateLabel.text = "\(piece.author), \(piece.prettyPublishedDate)"
-            previewContainerView = piece.viewType.init(frame: previewContainerView.frame)
+            
+            if let preexistingView = piece.view {
+                self.piece?.view = preexistingView
+                self.previewContainerView = preexistingView
+            } else {
+                let artPieceView = piece.viewType.init(frame: previewContainerView.frame, artPieceMetadata: piece)
+                
+                previewContainerView.addSubview(artPieceView)
+                artPieceView.translatesAutoresizingMaskIntoConstraints = false
+                artPieceView.topAnchor.constraint(equalTo: previewContainerView.topAnchor).isActive = true
+                artPieceView.bottomAnchor.constraint(equalTo: previewContainerView.bottomAnchor).isActive = true
+                artPieceView.leadingAnchor.constraint(equalTo: previewContainerView.leadingAnchor).isActive = true
+                artPieceView.trailingAnchor.constraint(equalTo: previewContainerView.trailingAnchor).isActive = true
+                
+                self.piece?.view = artPieceView
+            }
         }
     }
     
@@ -67,6 +82,7 @@ class ArtPieceTableViewCell: UITableViewCell {
         previewContainerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         previewContainerView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         previewContainerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        previewContainerView.tag = 2
         previewContainerView.addSingleTapGestureRecognizer { [weak self] _ in
             guard let piece = self?.piece, let previewContainerView = self?.previewContainerView else { return }
             self?.delegate?.openArtPiece(piece, at: previewContainerView)

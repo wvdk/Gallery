@@ -19,6 +19,8 @@ class ArtPieceDetailViewController: UIViewController {
     
     let artPieceInfoBarView = ArtPieceInfoBarView()
     
+    var artPieceMetadata: ArtPieceMetadata
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +32,26 @@ class ArtPieceDetailViewController: UIViewController {
             it.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
             it.heightAnchor.constraint(equalToConstant: 100).isActive = true
             it.delegate = self
-        }        
+        }
+        
+        if let artPieceView = artPieceMetadata.view {
+            view.addSubview(artPieceView)
+            artPieceView.translatesAutoresizingMaskIntoConstraints = false
+            artPieceView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            artPieceView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            artPieceView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            artPieceView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        }
+    }
+    
+    init(metadata: ArtPieceMetadata) {
+        self.artPieceMetadata = metadata
+
+        super.init(nibName: nil, bundle: nil)        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override var prefersStatusBarHidden: Bool {
