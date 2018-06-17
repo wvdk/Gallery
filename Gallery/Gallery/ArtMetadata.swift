@@ -8,13 +8,11 @@
 
 import UIKit
 
-typealias ArtPieceId = String
-
 /// A struct which represents an art piece for display in this gallery.
 struct ArtMetadata {
     
     /// The unique ID for this ArtPiece. These are generated using `IDGenerator`.
-    let id: ArtPieceId
+    let id: String
     
     /// The name of the person who created this piece.
     let author: String
@@ -50,7 +48,7 @@ struct ArtMetadata {
     ///   - author: <#author description#>
     ///   - prettyPublishedDate: Formatted MMMM yyyy (e.g. June 2018)
     ///   - viewType: <#viewType description#>
-    init(id: ArtPieceId, author: String, prettyPublishedDate: String, viewType: ArtView.Type) {
+    init(id: String, author: String, prettyPublishedDate: String, viewType: ArtView.Type) {
         self.id = id
         self.author = author
         self.published = ArtMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
