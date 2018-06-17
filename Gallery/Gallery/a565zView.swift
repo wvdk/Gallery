@@ -16,7 +16,7 @@ class a565zView: ArtView {
     let scene = SCNScene()
     let containerNode = SCNNode()
     
-    required init(frame: CGRect, artPieceMetadata: ArtPieceMetadata) {
+    required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
         super.init(frame: frame, artPieceMetadata: artPieceMetadata)
         
         tag = 123

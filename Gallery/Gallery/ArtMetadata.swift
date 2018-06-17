@@ -1,5 +1,5 @@
 //
-//  ArtPieceMetadata.swift
+//  ArtMetadata.swift
 //  Gallery
 //
 //  Created by Wesley Van der Klomp on 5/21/18.
@@ -11,7 +11,7 @@ import UIKit
 typealias ArtPieceId = String
 
 /// A struct which represents an art piece for display in this gallery.
-struct ArtPieceMetadata {
+struct ArtMetadata {
     
     /// The unique ID for this ArtPiece. These are generated using `IDGenerator`.
     let id: ArtPieceId
@@ -24,7 +24,7 @@ struct ArtPieceMetadata {
     
     /// A computed property returning a pretty formatted string of the `published` date.
     var prettyPublishedDate: String {
-        return ArtPieceMetadata.dateFormatter.string(from: self.published)
+        return ArtMetadata.dateFormatter.string(from: self.published)
     }
     
     /// The Type of the view controller which contains this art piece for display. Must be initiallized seperately.
@@ -43,7 +43,7 @@ struct ArtPieceMetadata {
         return formatter
     }
     
-    /// Creates an instance of the `ArtPieceMetadata` struct.
+    /// Creates an instance of the `ArtMetadata` struct.
     ///
     /// - Parameters:
     ///   - id: <#id description#>
@@ -53,7 +53,7 @@ struct ArtPieceMetadata {
     init(id: ArtPieceId, author: String, prettyPublishedDate: String, viewType: ArtView.Type) {
         self.id = id
         self.author = author
-        self.published = ArtPieceMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
+        self.published = ArtMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
 //        self.viewController = viewController
         self.viewType = viewType
     }

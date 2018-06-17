@@ -11,7 +11,7 @@ import ArtKit
 
 protocol ArtPieceTableViewCellDelegate {
     
-    func openArtPiece(_ artPiece: ArtPieceMetadata, at originView: UIView)
+    func openArtPiece(_ artPiece: ArtMetadata, at originView: UIView)
     
 }
 
@@ -21,7 +21,7 @@ class ArtPieceTableViewCell: UITableViewCell {
     
     var delegate: ArtPieceTableViewCellDelegate? = nil
     
-    var piece: ArtPieceMetadata? = nil {
+    var piece: ArtMetadata? = nil {
         didSet {
             guard let piece = piece else { return }
             idLabel.text = piece.id

@@ -24,7 +24,7 @@ class MasterList {
 //
 //        ref.observe(.value) { snapshot in
 //            if let pieceIds = snapshot.value as? [String] {
-//                var foundPieces = [ArtPieceMetadata]()
+//                var foundPieces = [ArtMetadata]()
 //                for id in pieceIds {
 //                    if let foundPiece = self.allPieces.first(where: { $0.id == id }) {
 //                        foundPieces.append(foundPiece)
@@ -38,10 +38,10 @@ class MasterList {
 //        }
         
         // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
-        activePieces = [ArtPieceMetadata(id: "a.565z", author: "wvdk", prettyPublishedDate: "June 2018", viewType: a565zView.self)]
+        activePieces = [ArtMetadata(id: "a.565z", author: "wvdk", prettyPublishedDate: "June 2018", viewType: a565zView.self)]
     }
     
-    var activePieces = [ArtPieceMetadata]() {
+    var activePieces = [ArtMetadata]() {
         didSet {
             NotificationCenter.default.post(name: MasterList.didUpdateActivePieces, object: nil, userInfo: nil)
         }

@@ -10,9 +10,9 @@ import UIKit
 
 class ArtView: UIView {
 
-    let artPieceMetadata: ArtPieceMetadata
+    let artPieceMetadata: ArtMetadata
     
-    required init(frame: CGRect, artPieceMetadata: ArtPieceMetadata) {
+    required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
         self.artPieceMetadata = artPieceMetadata
         super.init(frame: frame)
     }

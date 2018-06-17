@@ -20,7 +20,7 @@ class ArtPieceDetailViewController: UIViewController {
     
     let artPieceInfoBarView = ArtPieceInfoBarView()
     
-    var artPieceMetadata: ArtPieceMetadata
+    var artPieceMetadata: ArtMetadata
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class ArtPieceDetailViewController: UIViewController {
         }
     }
     
-    init(metadata: ArtPieceMetadata) {
+    init(metadata: ArtMetadata) {
         self.artPieceMetadata = metadata
 
         super.init(nibName: nil, bundle: nil)        
