@@ -11,6 +11,7 @@ import UIKit
 protocol ArtPieceDetailViewControllerDelegate: class {
     
     func artPieceDetailViewControllerDidSelectClose(_ viewController: UIViewController)
+    
 }
 
 class ArtPieceDetailViewController: UIViewController {
