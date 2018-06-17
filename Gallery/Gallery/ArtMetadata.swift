@@ -12,7 +12,7 @@ import UIKit
 struct ArtMetadata {
     
     /// The unique ID for this ArtPiece. These are generated using `IDGenerator`.
-    let id: String
+    let id: UUID
     
     /// The name of the person who created this piece.
     let author: String
@@ -25,13 +25,10 @@ struct ArtMetadata {
         return ArtMetadata.dateFormatter.string(from: self.published)
     }
     
-    /// The Type of the view controller which contains this art piece for display. Must be initiallized seperately.
-//    @available(*, deprecated)
-//    let viewController: ArtPieceDetailViewController.Type
-    
     /// The Type of the view which contains all the content of this art piece.
     var viewType: ArtView.Type
     
+    /// <#Description#>
     weak var view: ArtView? = nil
     
     /// A static `DateFormatter` used for converting "March 2018" style `string`s into and out of `Date` objects.

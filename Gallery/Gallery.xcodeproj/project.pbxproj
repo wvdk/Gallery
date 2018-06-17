@@ -171,25 +171,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		89BB28252097808B004B33F0 /* TransitionAnimation */ = {
+		89BB28252097808B004B33F0 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
 				89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */,
 				890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */,
 				89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */,
 			);
-			path = TransitionAnimation;
-			sourceTree = "<group>";
-		};
-		89BB2826209780AA004B33F0 /* Art Piece Controller */ = {
-			isa = PBXGroup;
-			children = (
-				DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */,
-				892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */,
-				8959050C20754B8200300B62 /* ArtPieceInfoBarView.swift */,
-				89BB28252097808B004B33F0 /* TransitionAnimation */,
-			);
-			path = "Art Piece Controller";
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 		89E9646E205E8431009B5420 /* a.857C */ = {
@@ -237,7 +226,10 @@
 		DE293F8D2048F30300444EB8 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				89BB2826209780AA004B33F0 /* Art Piece Controller */,
+				DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */,
+				8959050C20754B8200300B62 /* ArtPieceInfoBarView.swift */,
+				892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */,
+				89BB28252097808B004B33F0 /* Transitions */,
 				DE72BB9F20B8645400576999 /* ArtView.swift */,
 				DE39D70420B321960087788C /* ArtMetadata.swift */,
 				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,

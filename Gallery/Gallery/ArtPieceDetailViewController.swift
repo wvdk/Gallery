@@ -8,20 +8,30 @@
 
 import UIKit
 
+/// <#Description#>
 protocol ArtPieceDetailViewControllerDelegate: class {
     
+    /// <#Description#>
+    ///
+    /// - Parameter viewController: <#viewController description#>
     func artPieceDetailViewControllerDidSelectClose(_ viewController: UIViewController)
     
 }
 
+
+/// <#Description#>
 class ArtPieceDetailViewController: UIViewController {
 
+    /// <#Description#>
     weak var delegate: ArtPieceDetailViewControllerDelegate?
     
+    /// <#Description#>
     let artPieceInfoBarView = ArtPieceInfoBarView()
     
+    /// <#Description#>
     var artPieceMetadata: ArtMetadata
     
+    /// <#Description#>
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +55,9 @@ class ArtPieceDetailViewController: UIViewController {
         }
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter metadata: <#metadata description#>
     init(metadata: ArtMetadata) {
         self.artPieceMetadata = metadata
 
@@ -71,6 +84,7 @@ class ArtPieceDetailViewController: UIViewController {
         
         artPieceInfoBarView.show()
     }
+    
 }
 
 extension ArtPieceDetailViewController: ArtPieceInfoBarViewDelegate {
@@ -84,4 +98,5 @@ extension ArtPieceDetailViewController: ArtPieceInfoBarViewDelegate {
     func artPieceInfoBarViewDidSelectClose(_ view: UIView) {
         self.delegate?.artPieceDetailViewControllerDidSelectClose(self)
     }
+    
 }
