@@ -203,6 +203,17 @@
 			path = a.857C;
 			sourceTree = "<group>";
 		};
+		DE1881B320D6D3B80010353A /* old Art Pieces */ = {
+			isa = PBXGroup;
+			children = (
+				DEEB70A1206852BA00F4ACAD /* a.994t */,
+				DEEB7098206822BB00F4ACAD /* a.586q */,
+				89E9646E205E8431009B5420 /* a.857C */,
+				DEFE243B205B735F0027696F /* a.736D */,
+			);
+			path = "old Art Pieces";
+			sourceTree = "<group>";
+		};
 		DE293F822048F30300444EB8 = {
 			isa = PBXGroup;
 			children = (
@@ -227,7 +238,10 @@
 			isa = PBXGroup;
 			children = (
 				89BB2826209780AA004B33F0 /* Art Piece Controller */,
-				DE32B5F820B474D500C98DDB /* Art Pieces */,
+				DE72BB9F20B8645400576999 /* ArtPieceView.swift */,
+				DE39D70420B321960087788C /* ArtPieceMetadata.swift */,
+				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
+				DEA066D820C47FD700489BF8 /* a565zView.swift */,
 				DE293F8E2048F30300444EB8 /* AppDelegate.swift */,
 				DE293F902048F30300444EB8 /* MainViewController.swift */,
 				8929F4F1204AD54C000E5179 /* IDGenerator.swift */,
@@ -235,6 +249,7 @@
 				DE293F972048F30300444EB8 /* LaunchScreen.storyboard */,
 				DE293F9A2048F30300444EB8 /* Info.plist */,
 				89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */,
+				DE1881B320D6D3B80010353A /* old Art Pieces */,
 				DE3BD6442055FBC200FD3298 /* Fonts */,
 			);
 			path = Gallery;
@@ -257,35 +272,12 @@
 			path = ArtKit;
 			sourceTree = "<group>";
 		};
-		DE32B5F820B474D500C98DDB /* Art Pieces */ = {
-			isa = PBXGroup;
-			children = (
-				DE72BB9F20B8645400576999 /* ArtPieceView.swift */,
-				DE39D70420B321960087788C /* ArtPieceMetadata.swift */,
-				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
-				DE50B1E32069F255000292DE /* a.565z */,
-				DEEB70A1206852BA00F4ACAD /* a.994t */,
-				DEEB7098206822BB00F4ACAD /* a.586q */,
-				89E9646E205E8431009B5420 /* a.857C */,
-				DEFE243B205B735F0027696F /* a.736D */,
-			);
-			path = "Art Pieces";
-			sourceTree = "<group>";
-		};
 		DE3BD6442055FBC200FD3298 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		DE50B1E32069F255000292DE /* a.565z */ = {
-			isa = PBXGroup;
-			children = (
-				DEA066D820C47FD700489BF8 /* a565zView.swift */,
-			);
-			path = a.565z;
 			sourceTree = "<group>";
 		};
 		DEEB7098206822BB00F4ACAD /* a.586q */ = {
