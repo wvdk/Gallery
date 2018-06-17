@@ -1,5 +1,5 @@
 //
-//  ArtPieceView.swift
+//  ArtView.swift
 //  Gallery
 //
 //  Created by Wesley Van der Klomp on 5/25/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArtPieceView: UIView {
+class ArtView: UIView {
 
     let artPieceMetadata: ArtPieceMetadata
     
@@ -24,7 +24,7 @@ class ArtPieceView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         
-        print("ArtPieceView with id \(artPieceMetadata.id) did move to super view.")
+        print("ArtView with id \(artPieceMetadata.id) did move to super view.")
     }
     
 }

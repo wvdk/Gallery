@@ -10,7 +10,7 @@ import UIKit
 import ArtKit
 import SceneKit
 
-class a565zView: ArtPieceView {
+class a565zView: ArtView {
     
     let sceneKitView = SCNView()
     let scene = SCNScene()

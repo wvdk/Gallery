@@ -32,9 +32,9 @@ struct ArtPieceMetadata {
 //    let viewController: ArtPieceDetailViewController.Type
     
     /// The Type of the view which contains all the content of this art piece.
-    var viewType: ArtPieceView.Type
+    var viewType: ArtView.Type
     
-    weak var view: ArtPieceView? = nil
+    weak var view: ArtView? = nil
     
     /// A static `DateFormatter` used for converting "March 2018" style `string`s into and out of `Date` objects.
     static var dateFormatter: DateFormatter {
@@ -50,7 +50,7 @@ struct ArtPieceMetadata {
     ///   - author: <#author description#>
     ///   - prettyPublishedDate: Formatted MMMM yyyy (e.g. June 2018)
     ///   - viewType: <#viewType description#>
-    init(id: ArtPieceId, author: String, prettyPublishedDate: String, viewType: ArtPieceView.Type) {
+    init(id: ArtPieceId, author: String, prettyPublishedDate: String, viewType: ArtView.Type) {
         self.id = id
         self.author = author
         self.published = ArtPieceMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
