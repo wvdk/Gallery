@@ -8,25 +8,34 @@
 
 import Foundation
 
+/// A `String` containing a unique sequence of characters for identifiying an art piece.
+typealias ArtID = String
+
+/// A struct which provides static functions for generating unique `ArtID`s for new art pieces.
 struct IDGenerator {
     
     fileprivate enum Constants {
         static let allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         static let allDigits = "0123456789"
         static let uniqueIDBeggining = "a."
-    }    
-
-    func generateNewArtPieceID() -> String {
+    }
+    
+    /// A static function which returns a newly generated `ArtID`.
+    ///
+    /// Recursively calls itself until it finds an ID which is not already contained in the `MasterList` and returns.
+    ///
+    /// - Returns: A unique, new, `ArtID` for identifiying your newly created art pieces.
+    static func generateNewArtPieceID() -> ArtID {
         let newId = generate(digits: 3, letters: 1)
         
-        if (MasterList.shared.allPieces.contains { $0.id == newId }) {
+        if (MasterList.shared.activePieces.contains { $0.id == newId }) {
             return generateNewArtPieceID()
         }
         
         return newId
     }
     
-    func generate(digits: Int, letters: Int) -> String {
+    private static func generate(digits: Int, letters: Int) -> String {
         var uniqueId = Constants.uniqueIDBeggining
         let randomNumber = random(of: Constants.allDigits, for: digits)
         let randomletter = random(of: Constants.allLetters, for: letters)
@@ -35,7 +44,7 @@ struct IDGenerator {
         return uniqueId
     }
     
-    private func random(of collection: String, for numberTimes: Int) -> String {
+    private static func random(of collection: String, for numberTimes: Int) -> String {
         var randomGeneratedString = ""
         for _ in 0..<numberTimes {
             let count = UInt32(collection.count)

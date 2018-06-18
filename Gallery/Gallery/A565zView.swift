@@ -1,40 +1,48 @@
 //
-//  a565zViewController.swift
+//  A565zView.swift
 //  Gallery
 //
-//  Created by Wesley Van der Klomp on 3/26/18.
-//  Copyright © 2018 Gallery. All rights reserved.
+//  Created by Wesley Van der Klomp on 6/3/18.
+//  Copyright © 2018 Gallery of Generative Art. All rights reserved.
 //
 
 import UIKit
 import ArtKit
 import SceneKit
 
-class a565zViewController: ArtPieceDetailViewController {
+class A565zView: ArtView {
     
+    let sceneKitView = SCNView()
     let scene = SCNScene()
     let containerNode = SCNNode()
-    let sceneKitView = SCNView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
+        super.init(frame: frame, artPieceMetadata: artPieceMetadata)
+        
+        tag = 123
         
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
+        
         scene.rootNode.addChildNode(cameraNode)
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
         
-        sceneKitView.with { it in
-            it.scene = scene
-            it.allowsCameraControl = false
-            it.backgroundColor = UIColor.white
-            view.addSubview(it)
-            it.frame = view.frame
-        }
+        addSubview(sceneKitView)
+        sceneKitView.translatesAutoresizingMaskIntoConstraints = false
+        sceneKitView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        sceneKitView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        sceneKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        sceneKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        sceneKitView.scene = scene
+        sceneKitView.allowsCameraControl = false
         
         scene.rootNode.addChildNode(containerNode)
         
         createNodeAtCenter()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func createNodeAtCenter() {

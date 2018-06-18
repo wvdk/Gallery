@@ -8,17 +8,30 @@
 
 import UIKit
 
+/// <#Description#>
 protocol ArtPieceDetailViewControllerDelegate: class {
     
+    /// <#Description#>
+    ///
+    /// - Parameter viewController: <#viewController description#>
     func artPieceDetailViewControllerDidSelectClose(_ viewController: UIViewController)
+    
 }
 
+
+/// <#Description#>
 class ArtPieceDetailViewController: UIViewController {
 
+    /// <#Description#>
     weak var delegate: ArtPieceDetailViewControllerDelegate?
     
+    /// <#Description#>
     let artPieceInfoBarView = ArtPieceInfoBarView()
     
+    /// <#Description#>
+    var artPieceMetadata: ArtMetadata
+    
+    /// <#Description#>
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +43,29 @@ class ArtPieceDetailViewController: UIViewController {
             it.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
             it.heightAnchor.constraint(equalToConstant: 100).isActive = true
             it.delegate = self
-        }        
+        }
+        
+        if let artPieceView = artPieceMetadata.view {
+            view.addSubview(artPieceView)
+            artPieceView.translatesAutoresizingMaskIntoConstraints = false
+            artPieceView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            artPieceView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            artPieceView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            artPieceView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        }
+    }
+    
+    /// <#Description#>
+    ///
+    /// - Parameter metadata: <#metadata description#>
+    init(metadata: ArtMetadata) {
+        self.artPieceMetadata = metadata
+
+        super.init(nibName: nil, bundle: nil)        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -49,6 +84,7 @@ class ArtPieceDetailViewController: UIViewController {
         
         artPieceInfoBarView.show()
     }
+    
 }
 
 extension ArtPieceDetailViewController: ArtPieceInfoBarViewDelegate {
@@ -62,4 +98,5 @@ extension ArtPieceDetailViewController: ArtPieceInfoBarViewDelegate {
     func artPieceInfoBarViewDidSelectClose(_ view: UIView) {
         self.delegate?.artPieceDetailViewControllerDidSelectClose(self)
     }
+    
 }
