@@ -38,7 +38,7 @@ class MasterList {
 //        }
         
         // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
-        activePieces = [ArtMetadata(id: IDGenerator.generateNewArtPieceID(), author: "wvdk", prettyPublishedDate: "June 2018", viewType: a565zView.self)]
+        activePieces = [ArtMetadata(id: IDGenerator.generateNewArtPieceID(), author: "wvdk", prettyPublishedDate: "June 2018", viewType: A565zView.self)]
     }
     
     var activePieces = [ArtMetadata]() {

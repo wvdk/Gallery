@@ -1,5 +1,5 @@
 //
-//  a565zView.swift
+//  A565zView.swift
 //  Gallery
 //
 //  Created by Wesley Van der Klomp on 6/3/18.
@@ -10,7 +10,7 @@ import UIKit
 import ArtKit
 import SceneKit
 
-class a565zView: ArtView {
+class A565zView: ArtView {
     
     let sceneKitView = SCNView()
     let scene = SCNScene()
