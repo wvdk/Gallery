@@ -29,7 +29,6 @@ class A565zView: ArtView {
         
         addSubview(sceneKitView)
         sceneKitView.translatesAutoresizingMaskIntoConstraints = false
-        sceneKitView.translatesAutoresizingMaskIntoConstraints = false
         sceneKitView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         sceneKitView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         sceneKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
