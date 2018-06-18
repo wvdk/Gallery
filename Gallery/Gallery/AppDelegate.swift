@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        mainViewController.openArtPiece(piece, at: a565zViewController().view)
         #endif
         
-        print("Here's a fresh art piece ID, if you happen to want one: \(IDGenerator().generateNewArtPieceID())")
+        print("Here's a fresh art piece ID, if you happen to want one: \(IDGenerator.generateNewArtPieceID())")
         
         return true
     }

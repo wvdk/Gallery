@@ -12,7 +12,7 @@ import UIKit
 struct ArtMetadata {
     
     /// The unique ID for this ArtPiece. These are generated using `IDGenerator`.
-    let id: UUID
+    let id: ArtID
     
     /// The name of the person who created this piece.
     let author: String
@@ -45,7 +45,7 @@ struct ArtMetadata {
     ///   - author: <#author description#>
     ///   - prettyPublishedDate: Formatted MMMM yyyy (e.g. June 2018)
     ///   - viewType: <#viewType description#>
-    init(id: String, author: String, prettyPublishedDate: String, viewType: ArtView.Type) {
+    init(id: ArtID, author: String, prettyPublishedDate: String, viewType: ArtView.Type) {
         self.id = id
         self.author = author
         self.published = ArtMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()

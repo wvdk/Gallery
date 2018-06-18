@@ -229,7 +229,6 @@
 				DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */,
 				8959050C20754B8200300B62 /* ArtPieceInfoBarView.swift */,
 				892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */,
-				89BB28252097808B004B33F0 /* Transitions */,
 				DE72BB9F20B8645400576999 /* ArtView.swift */,
 				DE39D70420B321960087788C /* ArtMetadata.swift */,
 				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
@@ -241,6 +240,7 @@
 				DE293F972048F30300444EB8 /* LaunchScreen.storyboard */,
 				DE293F9A2048F30300444EB8 /* Info.plist */,
 				89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */,
+				89BB28252097808B004B33F0 /* Transitions */,
 				DE1881B320D6D3B80010353A /* old Art Pieces */,
 				DE3BD6442055FBC200FD3298 /* Fonts */,
 			);

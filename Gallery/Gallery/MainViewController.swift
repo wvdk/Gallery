@@ -62,14 +62,6 @@ class MainViewController: UIViewController {
         return view
     }()
 
-    fileprivate func generateUniqueID() -> String {
-        let id = idGenerator.generate(digits: 3, letters: 1)
-        guard idList.contains(id) else {
-            idList.append(id)
-            return id
-        }
-        return generateUniqueID()
-    }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -102,7 +94,7 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
         let artPieceViewController = ArtPieceDetailViewController(metadata: artPiece)
         
         artPieceViewController.delegate = self
-        artPieceViewController.artPieceInfoBarView.idLabel.text = artPiece.id
+        artPieceViewController.artPieceInfoBarView.idLabel.text = ""
         artPieceViewController.artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyPublishedDate)"
         
         if customTransitionDelegate == nil {
