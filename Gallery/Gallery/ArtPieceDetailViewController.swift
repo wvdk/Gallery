@@ -86,6 +86,13 @@ extension ArtPieceDetailViewController: InfoBarViewDelegate {
     
     func infoBarViewDidSelectClose(_ view: UIView) {
         self.dismiss(animated: true, completion: nil)
+        
+        
+        
+        // TODO: Add the artPiece view back to the cell which presented it.
+        
+        
+        
     }
     
 }
