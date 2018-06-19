@@ -29,7 +29,7 @@ struct ArtMetadata {
     var viewType: ArtView.Type
     
     /// <#Description#>
-    weak var view: ArtView? = nil
+    var view: ArtView? = nil
     
     /// A static `DateFormatter` used for converting "March 2018" style `string`s into and out of `Date` objects.
     static var dateFormatter: DateFormatter {

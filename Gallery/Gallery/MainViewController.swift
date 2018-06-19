@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     }
     
     fileprivate let tableView = UITableView()
-    fileprivate var customTransitionDelegate: ArtPieceDetailPresentationController?
+//    fileprivate var customTransitionDelegate: ArtPieceDetailPresentationController?
 
     private let idGenerator = IDGenerator()
     private var idList = [String]()
@@ -87,33 +87,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MainViewController: ArtPieceTableViewCellDelegate {
-    
-    //MARK: - ArtPieceTableViewCell delegate
-    
+
     func openArtPiece(_ artPiece: ArtMetadata, at originView: UIView) {
-        let artPieceViewController = ArtPieceDetailViewController(metadata: artPiece)
-        
-        artPieceViewController.delegate = self
-        artPieceViewController.artPieceInfoBarView.idLabel.text = ""
-        artPieceViewController.artPieceInfoBarView.nameAndDateLabel.text = "\(artPiece.author) \(artPiece.prettyPublishedDate)"
-        
-        if customTransitionDelegate == nil {
-            let originFrame = self.view.convert(originView.bounds, from: originView)
-            customTransitionDelegate = ArtPieceDetailPresentationController(presentedViewController: artPieceViewController, presenting: self, originFrame: originFrame)
-        }
-        
-        artPieceViewController.transitioningDelegate = customTransitionDelegate
-        artPieceViewController.modalPresentationCapturesStatusBarAppearance = true
-        
-        present(artPieceViewController, animated: true) { [weak self] in
-            self?.customTransitionDelegate = nil
-        }
+        // TODO: Use origin view frame to expand from in custom transition.
+        present(ArtPieceDetailViewController(metadata: artPiece), animated: true)
     }
+    
 }
 
-extension MainViewController: ArtPieceDetailViewControllerDelegate {
-    
-    func artPieceDetailViewControllerDidSelectClose(_ viewController: UIViewController) {
-        viewController.dismiss(animated: true, completion: nil)
-    }
-}

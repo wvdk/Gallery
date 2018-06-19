@@ -9,50 +9,45 @@
 import UIKit
 
 /// <#Description#>
-protocol ArtPieceDetailViewControllerDelegate: class {
-    
-    /// <#Description#>
-    ///
-    /// - Parameter viewController: <#viewController description#>
-    func artPieceDetailViewControllerDidSelectClose(_ viewController: UIViewController)
-    
-}
-
-
-/// <#Description#>
 class ArtPieceDetailViewController: UIViewController {
-
-    /// <#Description#>
-    weak var delegate: ArtPieceDetailViewControllerDelegate?
     
     /// <#Description#>
-    let artPieceInfoBarView = ArtPieceInfoBarView()
+    let infoBarView = InfoBarView()
     
     /// <#Description#>
     var artPieceMetadata: ArtMetadata
     
     /// <#Description#>
+    var artView: UIView? = nil
+    
+    /// <#Description#>
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        artPieceInfoBarView.with { it in
-            view.addSubview(it)
-            it.translatesAutoresizingMaskIntoConstraints = false
-            it.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-            it.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-            it.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-            it.heightAnchor.constraint(equalToConstant: 100).isActive = true
-            it.delegate = self
-        }
+    
+        view.addSubview(infoBarView)
+        infoBarView.translatesAutoresizingMaskIntoConstraints = false
+        infoBarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        infoBarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        infoBarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        infoBarView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        infoBarView.delegate = self
         
-        if let artPieceView = artPieceMetadata.view {
-            view.addSubview(artPieceView)
-            artPieceView.translatesAutoresizingMaskIntoConstraints = false
-            artPieceView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            artPieceView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            artPieceView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            artPieceView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        artView = artPieceMetadata.view
+        
+        if let artView = artView {
+            view.addSubview(artView)
+            artView.translatesAutoresizingMaskIntoConstraints = false
+            artView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            artView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            artView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            artView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        artView = nil
     }
     
     /// <#Description#>
@@ -61,7 +56,7 @@ class ArtPieceDetailViewController: UIViewController {
     init(metadata: ArtMetadata) {
         self.artPieceMetadata = metadata
 
-        super.init(nibName: nil, bundle: nil)        
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,28 +70,22 @@ class ArtPieceDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        view.bringSubview(toFront: artPieceInfoBarView)
-        artPieceInfoBarView.show()
+        view.bringSubview(toFront: infoBarView)
+        infoBarView.show()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        artPieceInfoBarView.show()
+        infoBarView.show()
     }
     
 }
 
-extension ArtPieceDetailViewController: ArtPieceInfoBarViewDelegate {
+extension ArtPieceDetailViewController: InfoBarViewDelegate {
     
-    // MARK: - ArtPieceInfoBarView delegate
-    
-    func artPieceInfoBarViewWillAppear() {
-        artPieceInfoBarView.show()
-    }
-    
-    func artPieceInfoBarViewDidSelectClose(_ view: UIView) {
-        self.delegate?.artPieceDetailViewControllerDidSelectClose(self)
+    func infoBarViewDidSelectClose(_ view: UIView) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
