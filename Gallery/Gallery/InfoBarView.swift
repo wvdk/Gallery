@@ -1,5 +1,5 @@
 //
-//  ArtPieceInfoBarView.swift
+//  InfoBarView.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 4/4/18.
@@ -8,21 +8,22 @@
 
 import UIKit
 
-protocol ArtPieceInfoBarViewDelegate: class {
+protocol InfoBarViewDelegate: class {
 
-    func artPieceInfoBarViewWillAppear()
+//    func artPieceInfoBarViewWillAppear()
     
-    func artPieceInfoBarViewDidSelectClose(_ view: UIView)
+    func infoBarViewDidSelectClose(_ view: UIView)
+    
 }
 
-class ArtPieceInfoBarView: UIView {
+class InfoBarView: UIView {
     
     let backButton = UIButton()
     let infoView = UIView()
     var idLabel = UILabel()
     var nameAndDateLabel = UILabel()
     
-    weak var delegate: ArtPieceInfoBarViewDelegate?
+    weak var delegate: InfoBarViewDelegate?
     
     convenience init() {
         self.init(frame: .zero)
@@ -30,7 +31,7 @@ class ArtPieceInfoBarView: UIView {
         self.backgroundColor = .clear
         
         self.addSingleTapGestureRecognizer { [weak self] _ in
-            self?.delegate?.artPieceInfoBarViewWillAppear()
+            self?.show()
         }
         
         backButton.with { it in
@@ -82,7 +83,7 @@ class ArtPieceInfoBarView: UIView {
         guard self.frame.contains(point) else { return nil }
         
         if self.alpha > 0, backButton.frame.contains(point) {
-            self.delegate?.artPieceInfoBarViewDidSelectClose(self)
+            self.delegate?.infoBarViewDidSelectClose(self)
             return backButton
         }
         
@@ -101,7 +102,6 @@ class ArtPieceInfoBarView: UIView {
             }
         })
     }
-    
     
     /// Instantly bring the view's alpha to 1.0.
     ///
