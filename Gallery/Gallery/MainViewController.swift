@@ -90,7 +90,34 @@ extension MainViewController: ArtPieceTableViewCellDelegate {
 
     func openArtPiece(_ artPiece: ArtMetadata, at originView: UIView) {
         // TODO: Use origin view frame to expand from in custom transition.
-        present(ArtPieceDetailViewController(metadata: artPiece), animated: true)
+        
+        let detailVC = ArtPieceDetailViewController(metadata: artPiece)
+        
+        detailVC.transitioningDelegate = self
+        
+        present(detailVC, animated: true)
+    }
+    
+}
+
+extension MainViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if presented is ArtPieceDetailViewController {
+            print("showing detail")
+            return nil
+        }
+        
+        return nil
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if dismissed is ArtPieceDetailViewController {
+            print("Dismissing detail VC")
+            return nil
+        }
+        
+        return nil
     }
     
 }
