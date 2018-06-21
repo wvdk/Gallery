@@ -1,54 +1,57 @@
-////
-////  ArtPieceDetailDismissAnimationController.swift
-////  Gallery
-////
-////  Created by Kristina Gelzinyte on 4/23/18.
-////  Copyright © 2018 Gallery. All rights reserved.
-////
 //
-//import UIKit
+//  ArtPieceDetailDismissAnimationController.swift
+//  Gallery
 //
-//class ArtPieceDetailDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+//  Created by Kristina Gelzinyte on 4/23/18.
+//  Copyright © 2018 Gallery. All rights reserved.
 //
-//    private var transitionDuration: TimeInterval = 0.5
-//    private var transitionFrame: CGRect = .zero
-//    
-//    convenience init(transitionDuration: TimeInterval, transitionFrame: CGRect) {
-//        self.init()
-//        
-//        self.transitionDuration = transitionDuration
-//        self.transitionFrame = transitionFrame
-//    }
-//    
-//    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-//        return transitionDuration
-//    }
-//    
-//    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-//        guard let fromViewController = transitionContext.viewController(forKey: .from) else { return }
-//        
-//        let containerView = transitionContext.containerView
-//        
+
+import UIKit
+
+class ArtPieceDetailDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+
+    private var transitionDuration: TimeInterval = 0.5
+    private var transitionFrame: CGRect = .zero
+    
+    convenience init(transitionDuration: TimeInterval, transitionFrame: CGRect) {
+        self.init()
+        
+        self.transitionDuration = transitionDuration
+        self.transitionFrame = transitionFrame
+    }
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return transitionDuration
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let fromDetailViewController = transitionContext.viewController(forKey: .from) as? ArtPieceDetailViewController,
+              let backToMainViewController = transitionContext.view(forKey: .to) as? MainViewController else { return }
+        
+        let containerView = transitionContext.containerView
+        
 //        let roundedCornerMaskView = UIView(frame: containerView.bounds)
 //        roundedCornerMaskView.clipsToBounds = true
 //        roundedCornerMaskView.layer.masksToBounds = true
 //        roundedCornerMaskView.layer.cornerRadius = 0
-//        
-//        roundedCornerMaskView.addSubview(fromViewController.view)
 //
+//        roundedCornerMaskView.addSubview(fromViewController.view)
+
 //        containerView.addSubview(roundedCornerMaskView)
-//        
-//        UIView.animate(withDuration: transitionDuration,
-//                       delay: 0,
-//                       options: [.allowUserInteraction, .curveEaseInOut],
-//                       animations: { [weak self] in
-//                        
+        
+        UIView.animate(withDuration: transitionDuration,
+                       delay: 0,
+                       options: [.allowUserInteraction, .curveEaseInOut],
+                       animations: { [weak self] in
+                        
+                        
+                        
 //                        roundedCornerMaskView.frame = self?.transitionFrame ?? .zero
 //                        roundedCornerMaskView.layer.cornerRadius = 8
-//                        
-//        }) { completed in
-//            
-//            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-//        }
-//    }
-//}
+                        
+        }) { completed in
+            
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        }
+    }
+}

@@ -20,6 +20,10 @@ class MainViewController: UIViewController {
 
     private let idGenerator = IDGenerator()
     private var idList = [String]()
+
+    
+    /// <#Description#>
+    private var lastSelectedCellFrameUsedForTransitioning: CGRect? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,12 +88,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
     }
+    
 }
 
 extension MainViewController: ArtPieceTableViewCellDelegate {
 
     func openArtPiece(_ artPiece: ArtMetadata, at originView: UIView) {
-        // TODO: Use origin view frame to expand from in custom transition.
+        self.lastSelectedCellFrameUsedForTransitioning = originView.frame
         
         let detailVC = ArtPieceDetailViewController(metadata: artPiece)
         
@@ -104,7 +109,6 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if presented is ArtPieceDetailViewController {
-            print("showing detail")
             return nil
         }
         
@@ -113,8 +117,7 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if dismissed is ArtPieceDetailViewController {
-            print("Dismissing detail VC")
-            return nil
+            return ArtPieceDetailDismissAnimationController(transitionDuration: 0.5, transitionFrame: lastSelectedCellFrameUsedForTransitioning ?? .zero)
         }
         
         return nil
