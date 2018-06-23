@@ -1,5 +1,5 @@
 //
-//  ArtPiece.swift
+//  ArtMetadata.swift
 //  Gallery
 //
 //  Created by Wesley Van der Klomp on 5/21/18.
@@ -9,10 +9,10 @@
 import UIKit
 
 /// A struct which represents an art piece for display in this gallery.
-struct ArtPiece {
+struct ArtMetadata {
     
     /// The unique ID for this ArtPiece. These are generated using `IDGenerator`.
-    let id: String
+    let id: ArtID
     
     /// The name of the person who created this piece.
     let author: String
@@ -22,14 +22,14 @@ struct ArtPiece {
     
     /// A computed property returning a pretty formatted string of the `published` date.
     var prettyPublishedDate: String {
-        return ArtPiece.dateFormatter.string(from: self.published)
+        return ArtMetadata.dateFormatter.string(from: self.published)
     }
     
-    /// An optional image for disp
-    let thumbnailImage: UIImage?
+    /// The Type of the view which contains all the content of this art piece.
+    var viewType: ArtView.Type
     
-    /// The Type of the view controller which contains this art piece for display. Must be initiallized seperately.
-    let viewController: ArtPieceDetailViewController.Type
+    /// <#Description#>
+    var view: ArtView? = nil
     
     /// A static `DateFormatter` used for converting "March 2018" style `string`s into and out of `Date` objects.
     static var dateFormatter: DateFormatter {
@@ -38,13 +38,20 @@ struct ArtPiece {
         return formatter
     }
     
-    /// Creates an instance of the `ArtPiece` struct.
-    init(id: String, author: String, prettyPublishedDate: String, thumbnailImage: UIImage? = nil, viewController: ArtPieceDetailViewController.Type) {
+    /// Creates an instance of the `ArtMetadata` struct.
+    ///
+    /// - Parameters:
+    ///   - id: <#id description#>
+    ///   - author: <#author description#>
+    ///   - prettyPublishedDate: Formatted MMMM yyyy (e.g. June 2018)
+    ///   - viewType: <#viewType description#>
+    init(id: ArtID, author: String, prettyPublishedDate: String, viewType: ArtView.Type) {
         self.id = id
         self.author = author
-        self.published = ArtPiece.dateFormatter.date(from: prettyPublishedDate) ?? Date()
-        self.thumbnailImage = thumbnailImage
-        self.viewController = viewController
+        self.published = ArtMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
+//        self.viewController = viewController
+        self.viewType = viewType
     }
     
 }
+
