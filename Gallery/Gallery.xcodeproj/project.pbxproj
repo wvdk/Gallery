@@ -10,7 +10,6 @@
 		890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */; };
 		891C2EED205C48BA00746712 /* a736D.png in Resources */ = {isa = PBXBuildFile; fileRef = 891C2EEC205C48BA00746712 /* a736D.png */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
-		8929F4F2204AD54C000E5179 /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929F4F1204AD54C000E5179 /* IDGenerator.swift */; };
 		8959050D20754B8200300B62 /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959050C20754B8200300B62 /* InfoBarView.swift */; };
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
@@ -24,6 +23,11 @@
 		DE0B7FA720E3E337000B482F /* GalleryCore.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore.framework */; };
 		DE0B7FAB20E3E337000B482F /* GalleryCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
+		DE0B7FB020E3E34F000B482F /* ArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE72BB9F20B8645400576999 /* ArtView.swift */; };
+		DE0B7FB120E3E352000B482F /* ArtMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* ArtMetadata.swift */; };
+		DE0B7FB220E3E357000B482F /* A565zView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA066D820C47FD700489BF8 /* A565zView.swift */; };
+		DE0B7FB320E3E35B000B482F /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929F4F1204AD54C000E5179 /* IDGenerator.swift */; };
 		DE165CD3205B891F00E28C37 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE165CD2205B891F00E28C37 /* Actions.sks */; };
 		DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F8E2048F30300444EB8 /* AppDelegate.swift */; };
 		DE293F912048F30300444EB8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F902048F30300444EB8 /* MainViewController.swift */; };
@@ -34,18 +38,14 @@
 		DE293FAF20490E1100444EB8 /* ArtKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE293FB420490E2000444EB8 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */; };
 		DE2AEFB0204B0F6900C65CA4 /* ArtPieceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */; };
-		DE2AEFB2204B1AB700C65CA4 /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
 		DE332B74205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */; };
 		DE332B76205B7F3E00C40727 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B75205B7F3E00C40727 /* UIView+Extensions.swift */; };
 		DE332B78205B84CE00C40727 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B77205B84CE00C40727 /* GameScene.swift */; };
 		DE332B7A205B852600C40727 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B79205B852600C40727 /* SKNode+Extensions.swift */; };
 		DE332B7E205B856800C40727 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7D205B856800C40727 /* GlobalFunctions.swift */; };
 		DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7F205B857900C40727 /* ArrayExtensions.swift */; };
-		DE39D70520B321960087788C /* ArtMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* ArtMetadata.swift */; };
 		DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */; };
 		DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */; };
-		DE72BBA020B8645400576999 /* ArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE72BB9F20B8645400576999 /* ArtView.swift */; };
-		DEA066D920C47FD700489BF8 /* A565zView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA066D820C47FD700489BF8 /* A565zView.swift */; };
 		DEEB709A2068244F00F4ACAD /* a586qViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB70992068244F00F4ACAD /* a586qViewController.swift */; };
 		DEEB709C206827C700F4ACAD /* PatternOneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB709B206827C700F4ACAD /* PatternOneScene.swift */; };
 		DEEB709E20684F4200F4ACAD /* a586qActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEEB709D20684F4200F4ACAD /* a586qActions.sks */; };
@@ -217,6 +217,11 @@
 		DE0B7FA420E3E337000B482F /* GalleryCore */ = {
 			isa = PBXGroup;
 			children = (
+				8929F4F1204AD54C000E5179 /* IDGenerator.swift */,
+				DEA066D820C47FD700489BF8 /* A565zView.swift */,
+				DE39D70420B321960087788C /* ArtMetadata.swift */,
+				DE72BB9F20B8645400576999 /* ArtView.swift */,
+				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
 				DE0B7FA520E3E337000B482F /* GalleryCore.h */,
 				DE0B7FA620E3E337000B482F /* Info.plist */,
 			);
@@ -262,13 +267,8 @@
 				DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */,
 				8959050C20754B8200300B62 /* InfoBarView.swift */,
 				892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */,
-				DE72BB9F20B8645400576999 /* ArtView.swift */,
-				DE39D70420B321960087788C /* ArtMetadata.swift */,
-				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
-				DEA066D820C47FD700489BF8 /* A565zView.swift */,
 				DE293F8E2048F30300444EB8 /* AppDelegate.swift */,
 				DE293F902048F30300444EB8 /* MainViewController.swift */,
-				8929F4F1204AD54C000E5179 /* IDGenerator.swift */,
 				DE293F952048F30300444EB8 /* Assets.xcassets */,
 				DE293F972048F30300444EB8 /* LaunchScreen.storyboard */,
 				DE293F9A2048F30300444EB8 /* Info.plist */,
@@ -596,6 +596,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE0B7FB220E3E357000B482F /* A565zView.swift in Sources */,
+				DE0B7FB020E3E34F000B482F /* ArtView.swift in Sources */,
+				DE0B7FB320E3E35B000B482F /* IDGenerator.swift in Sources */,
+				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
+				DE0B7FB120E3E352000B482F /* ArtMetadata.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,7 +608,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE39D70520B321960087788C /* ArtMetadata.swift in Sources */,
 				89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */,
 				890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */,
 				DEFE243D205B744E0027696F /* a736DViewController.swift in Sources */,
@@ -613,14 +617,10 @@
 				89E96472205E85FC009B5420 /* a857CGameScene.swift in Sources */,
 				DEEB709A2068244F00F4ACAD /* a586qViewController.swift in Sources */,
 				DE293F912048F30300444EB8 /* MainViewController.swift in Sources */,
-				8929F4F2204AD54C000E5179 /* IDGenerator.swift in Sources */,
 				89E9646D205E842A009B5420 /* a857CViewController.swift in Sources */,
 				DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */,
-				DEA066D920C47FD700489BF8 /* A565zView.swift in Sources */,
 				892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */,
 				DEEB709C206827C700F4ACAD /* PatternOneScene.swift in Sources */,
-				DE2AEFB2204B1AB700C65CA4 /* MasterList.swift in Sources */,
-				DE72BBA020B8645400576999 /* ArtView.swift in Sources */,
 				DEEB70A32068530B00F4ACAD /* a994tViewController.swift in Sources */,
 				89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */,
 			);
@@ -682,7 +682,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = GalleryCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wes.GalleryCore;
@@ -709,7 +709,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = GalleryCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wes.GalleryCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
