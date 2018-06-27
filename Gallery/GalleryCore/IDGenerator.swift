@@ -9,10 +9,10 @@
 import Foundation
 
 /// A `String` containing a unique sequence of characters for identifiying an art piece.
-typealias ArtID = String
+public typealias ArtID = String
 
 /// A struct which provides static functions for generating unique `ArtID`s for new art pieces.
-struct IDGenerator {
+public struct IDGenerator {
     
     fileprivate enum Constants {
         static let allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"

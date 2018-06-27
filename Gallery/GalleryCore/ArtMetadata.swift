@@ -9,27 +9,27 @@
 import UIKit
 
 /// A struct which represents an art piece for display in this gallery.
-struct ArtMetadata {
+public struct ArtMetadata {
     
     /// The unique ID for this ArtPiece. These are generated using `IDGenerator`.
-    let id: ArtID
+    public let id: ArtID
     
     /// The name of the person who created this piece.
-    let author: String
+    public let author: String
     
     /// The date at which this piece as released (might only retain accuracy up to the month - not day).
-    var published: Date
+    public var published: Date
     
     /// A computed property returning a pretty formatted string of the `published` date.
-    var prettyPublishedDate: String {
+    public var prettyPublishedDate: String {
         return ArtMetadata.dateFormatter.string(from: self.published)
     }
     
     /// The Type of the view which contains all the content of this art piece.
-    var viewType: ArtView.Type
+    public var viewType: ArtView.Type
     
     /// <#Description#>
-    var view: ArtView? = nil
+    public var view: ArtView? = nil
     
     /// A static `DateFormatter` used for converting "March 2018" style `string`s into and out of `Date` objects.
     static var dateFormatter: DateFormatter {

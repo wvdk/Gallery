@@ -8,6 +8,7 @@
 
 import UIKit
 import ArtKit
+import GalleryCore
 
 class MainViewController: UIViewController {
 
