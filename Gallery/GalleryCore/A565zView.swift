@@ -12,11 +12,11 @@ import SceneKit
 
 public class A565zView: ArtView {
     
-    let sceneKitView = SCNView()
-    let scene = SCNScene()
-    let containerNode = SCNNode()
+    private let sceneKitView = SCNView()
+    private let scene = SCNScene()
+    private let containerNode = SCNNode()
     
-    required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
+    public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
         super.init(frame: frame, artPieceMetadata: artPieceMetadata)
         
         tag = 123
@@ -45,7 +45,7 @@ public class A565zView: ArtView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func createNodeAtCenter() {
+    private func createNodeAtCenter() {
         let plane = SCNPlane(width: 3, height: 3)
         plane.firstMaterial?.diffuse.contents = UIColor.darkGray
         let planeNode = SCNNode(geometry: plane)

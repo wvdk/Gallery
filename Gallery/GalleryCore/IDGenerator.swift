@@ -25,7 +25,7 @@ public struct IDGenerator {
     /// Recursively calls itself until it finds an ID which is not already contained in the `MasterList` and returns.
     ///
     /// - Returns: A unique, new, `ArtID` for identifiying your newly created art pieces.
-    static func generateNewArtPieceID() -> ArtID {
+    public static func generateNewArtPieceID() -> ArtID {
         let newId = generate(digits: 3, letters: 1)
         
         if (MasterList.shared.activePieces.contains { $0.id == newId }) {

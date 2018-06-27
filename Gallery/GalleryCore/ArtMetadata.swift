@@ -32,7 +32,7 @@ public struct ArtMetadata {
     public var view: ArtView? = nil
     
     /// A static `DateFormatter` used for converting "March 2018" style `string`s into and out of `Date` objects.
-    static var dateFormatter: DateFormatter {
+    public static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM yyyy"
         return formatter
@@ -45,7 +45,7 @@ public struct ArtMetadata {
     ///   - author: <#author description#>
     ///   - prettyPublishedDate: Formatted MMMM yyyy (e.g. June 2018)
     ///   - viewType: <#viewType description#>
-    init(id: ArtID, author: String, prettyPublishedDate: String, viewType: ArtView.Type) {
+    public init(id: ArtID, author: String, prettyPublishedDate: String, viewType: ArtView.Type) {
         self.id = id
         self.author = author
         self.published = ArtMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()

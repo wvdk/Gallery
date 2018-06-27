@@ -14,7 +14,7 @@ import UIKit
 public class MasterList {
 
     /// The shared reference to the `MasterList` singleton.
-    static let shared = MasterList()
+    public static let shared = MasterList()
     
     /// Privatized initalizer forcing users of this class should always access via the `shared` property.
     ///
@@ -41,13 +41,13 @@ public class MasterList {
         activePieces = [ArtMetadata(id: "a.565z", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A565zView.self)]
     }
     
-    var activePieces = [ArtMetadata]() {
+    public var activePieces = [ArtMetadata]() {
         didSet {
             NotificationCenter.default.post(name: MasterList.didUpdateActivePieces, object: nil, userInfo: nil)
         }
     }
     
     /// A `NotificationCenter.default` notification name which is posted by `MasterList.shared` when the `activePieces` list has been updated.
-    static let didUpdateActivePieces = Notification.Name("masterListDidUpdateActivePieces")
+    public static let didUpdateActivePieces = Notification.Name("masterListDidUpdateActivePieces")
     
 }
