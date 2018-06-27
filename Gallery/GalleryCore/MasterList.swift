@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import FirebaseDatabase
+//import FirebaseDatabase
 
 /// A singleton master list of all art pieces, and only active pieces. The active list (which is kept on Firebase) is what should be presented to the user.
 /// To be informed when it has been received for the first time or updated you should observe the `didUpdateActivePieces` notification via `NotificationCenter.default` and refresh your presentation.
-class MasterList {
+public class MasterList {
 
     /// The shared reference to the `MasterList` singleton.
-    static let shared = MasterList()
+    public static let shared = MasterList()
     
     /// Privatized initalizer forcing users of this class should always access via the `shared` property.
     ///
@@ -41,13 +41,13 @@ class MasterList {
         activePieces = [ArtMetadata(id: "a.565z", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A565zView.self)]
     }
     
-    var activePieces = [ArtMetadata]() {
+    public var activePieces = [ArtMetadata]() {
         didSet {
             NotificationCenter.default.post(name: MasterList.didUpdateActivePieces, object: nil, userInfo: nil)
         }
     }
     
     /// A `NotificationCenter.default` notification name which is posted by `MasterList.shared` when the `activePieces` list has been updated.
-    static let didUpdateActivePieces = Notification.Name("masterListDidUpdateActivePieces")
+    public static let didUpdateActivePieces = Notification.Name("masterListDidUpdateActivePieces")
     
 }

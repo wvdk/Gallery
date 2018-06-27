@@ -8,6 +8,7 @@
 
 import UIKit
 import ArtKit
+import GalleryCore
 
 class MainViewController: UIViewController {
 
@@ -18,7 +19,6 @@ class MainViewController: UIViewController {
     fileprivate let tableView = UITableView()
 //    fileprivate var customTransitionDelegate: ArtPieceDetailPresentationController?
 
-    private let idGenerator = IDGenerator()
     private var idList = [String]()
     
     override func viewDidLoad() {

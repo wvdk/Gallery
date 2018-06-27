@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import GalleryCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
