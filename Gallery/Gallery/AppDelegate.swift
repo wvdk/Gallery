@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         #if DEBUG // open directly to the following art piece:
-//            let piece: Piece = Piece(id: "a565z", author: "Wes <3", date: Date(), image: #imageLiteral(resourceName: "InDevelopment"), viewController: a565zViewController())
-//        mainViewController.openArtPiece(piece, at: a565zViewController().view)
+//            let piece = MasterList.shared.activePieces.first!
+//            mainViewController.openArtPiece(piece, at: piece.view!)
         #endif
         
         print("Here's a fresh art piece ID, if you happen to want one: \(IDGenerator.generateNewArtPieceID())")
