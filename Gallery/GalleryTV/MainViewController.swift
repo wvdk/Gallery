@@ -12,7 +12,14 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let menuTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.back))
+        menuTapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)];
+        view.addGestureRecognizer(menuTapRecognizer)
+    }
+    
+    @objc func back() {
+        exit(EXIT_SUCCESS)
     }
 }
 
