@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */; };
+		89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89134E1520E80C1300772E7F /* AppDelegate.swift */; };
+		89134E1820E80C1300772E7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89134E1720E80C1300772E7F /* ViewController.swift */; };
+		89134E1B20E80C1300772E7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89134E1920E80C1300772E7F /* Main.storyboard */; };
+		89134E1D20E80C1500772E7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89134E1C20E80C1500772E7F /* Assets.xcassets */; };
 		891C2EED205C48BA00746712 /* a736D.png in Resources */ = {isa = PBXBuildFile; fileRef = 891C2EEC205C48BA00746712 /* a736D.png */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		8959050D20754B8200300B62 /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959050C20754B8200300B62 /* InfoBarView.swift */; };
@@ -92,6 +96,12 @@
 		4C451B63F493F4CB4D48046A /* Pods-ArtKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit.debug.xcconfig"; sourceTree = "<group>"; };
 		4F5BF21D204A31502C67DF16 /* Pods-ArtKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit.release.xcconfig"; sourceTree = "<group>"; };
 		890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailDismissAnimationController.swift; sourceTree = "<group>"; };
+		89134E1320E80C1300772E7F /* GalleryTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalleryTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89134E1520E80C1300772E7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		89134E1720E80C1300772E7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89134E1A20E80C1300772E7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89134E1C20E80C1500772E7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89134E1E20E80C1500772E7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		891C2EEC205C48BA00746712 /* a736D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a736D.png; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		8929F4F1204AD54C000E5179 /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
@@ -145,6 +155,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		89134E1020E80C1300772E7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE0B7FA020E3E337000B482F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -191,6 +208,18 @@
 				C85DD3F3A1656418B116D049 /* Pods-Gallery.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		89134E1420E80C1300772E7F /* GalleryTV */ = {
+			isa = PBXGroup;
+			children = (
+				89134E1520E80C1300772E7F /* AppDelegate.swift */,
+				89134E1720E80C1300772E7F /* ViewController.swift */,
+				89134E1920E80C1300772E7F /* Main.storyboard */,
+				89134E1C20E80C1500772E7F /* Assets.xcassets */,
+				89134E1E20E80C1500772E7F /* Info.plist */,
+			);
+			path = GalleryTV;
 			sourceTree = "<group>";
 		};
 		89BB28252097808B004B33F0 /* Transitions */ = {
@@ -245,6 +274,7 @@
 				DE293F8D2048F30300444EB8 /* Gallery */,
 				DE293FA820490E1100444EB8 /* ArtKit */,
 				DE0B7FA420E3E337000B482F /* GalleryCore */,
+				89134E1420E80C1300772E7F /* GalleryTV */,
 				DE293F8C2048F30300444EB8 /* Products */,
 				5516CC5723D6F68448980550 /* Pods */,
 				454237023F322D583FA3D42C /* Frameworks */,
@@ -257,6 +287,7 @@
 				DE293F8B2048F30300444EB8 /* Gallery.app */,
 				DE293FA720490E1100444EB8 /* ArtKit.framework */,
 				DE0B7FA320E3E337000B482F /* GalleryCore.framework */,
+				89134E1320E80C1300772E7F /* GalleryTV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -358,6 +389,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		89134E1220E80C1300772E7F /* GalleryTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89134E2120E80C1500772E7F /* Build configuration list for PBXNativeTarget "GalleryTV" */;
+			buildPhases = (
+				89134E0F20E80C1300772E7F /* Sources */,
+				89134E1020E80C1300772E7F /* Frameworks */,
+				89134E1120E80C1300772E7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GalleryTV;
+			productName = GalleryTV;
+			productReference = 89134E1320E80C1300772E7F /* GalleryTV.app */;
+			productType = "com.apple.product-type.application";
+		};
 		DE0B7FA220E3E337000B482F /* GalleryCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE0B7FAC20E3E337000B482F /* Build configuration list for PBXNativeTarget "GalleryCore" */;
@@ -425,10 +473,14 @@
 		DE293F832048F30300444EB8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Gallery of Generative Art";
 				TargetAttributes = {
+					89134E1220E80C1300772E7F = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+					};
 					DE0B7FA220E3E337000B482F = {
 						CreatedOnToolsVersion = 10.0;
 						ProvisioningStyle = Automatic;
@@ -459,11 +511,21 @@
 				DE293F8A2048F30300444EB8 /* Gallery */,
 				DE293FA620490E1100444EB8 /* ArtKit */,
 				DE0B7FA220E3E337000B482F /* GalleryCore */,
+				89134E1220E80C1300772E7F /* GalleryTV */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		89134E1120E80C1300772E7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89134E1D20E80C1500772E7F /* Assets.xcassets in Resources */,
+				89134E1B20E80C1300772E7F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE0B7FA120E3E337000B482F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -592,6 +654,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		89134E0F20E80C1300772E7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89134E1820E80C1300772E7F /* ViewController.swift in Sources */,
+				89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE0B7F9F20E3E337000B482F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -657,6 +728,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		89134E1920E80C1300772E7F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89134E1A20E80C1300772E7F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		DE293F972048F30300444EB8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -668,6 +747,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		89134E1F20E80C1500772E7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
+				INFOPLIST_FILE = GalleryTV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KG.GalleryTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		89134E2020E80C1500772E7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
+				INFOPLIST_FILE = GalleryTV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KG.GalleryTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
 		DE0B7FAD20E3E337000B482F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -923,6 +1040,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		89134E2120E80C1500772E7F /* Build configuration list for PBXNativeTarget "GalleryTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89134E1F20E80C1500772E7F /* Debug */,
+				89134E2020E80C1500772E7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DE0B7FAC20E3E337000B482F /* Build configuration list for PBXNativeTarget "GalleryCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
