@@ -14,6 +14,9 @@
 		891C2EED205C48BA00746712 /* a736D.png in Resources */ = {isa = PBXBuildFile; fileRef = 891C2EEC205C48BA00746712 /* a736D.png */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		8959050D20754B8200300B62 /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959050C20754B8200300B62 /* InfoBarView.swift */; };
+		8970BCAD20E95D160006870D /* GalleryCore_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8970BCB020E95D160006870D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
+		8970BCB120E95D160006870D /* GalleryCore_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
 		89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
@@ -74,6 +77,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8970BCAE20E95D160006870D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE293F832048F30300444EB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8970BCA820E95D160006870D;
+			remoteInfo = "GalleryCore tvOS";
+		};
 		DE0B7FA820E3E337000B482F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DE293F832048F30300444EB8 /* Project object */;
@@ -113,6 +123,7 @@
 			files = (
 				DE0B7FAB20E3E337000B482F /* GalleryCore.framework in Embed Frameworks */,
 				DEDB687B20E946D900D102EB /* ArtKit_tvOS.framework in Embed Frameworks */,
+				8970BCB120E95D160006870D /* GalleryCore_tvOS.framework in Embed Frameworks */,
 				DE293FAF20490E1100444EB8 /* ArtKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -144,6 +155,9 @@
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		8929F4F1204AD54C000E5179 /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
 		8959050C20754B8200300B62 /* InfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBarView.swift; sourceTree = "<group>"; };
+		8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_tvOS.h; sourceTree = "<group>"; };
+		8970BCAC20E95D160006870D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentationController.swift; sourceTree = "<group>"; };
 		89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentAnimationController.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
@@ -204,6 +218,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8970BCA520E95D160006870D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE0B7FA020E3E337000B482F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE293FAE20490E1100444EB8 /* ArtKit.framework in Frameworks */,
+				8970BCB020E95D160006870D /* GalleryCore_tvOS.framework in Frameworks */,
 				B404A35FCB4153351A88093A /* Pods_Gallery.framework in Frameworks */,
 				DE0B7FAA20E3E337000B482F /* GalleryCore.framework in Frameworks */,
 				DEDB687A20E946D900D102EB /* ArtKit_tvOS.framework in Frameworks */,
@@ -269,6 +291,15 @@
 				89134E1E20E80C1500772E7F /* Info.plist */,
 			);
 			path = GalleryTV;
+			sourceTree = "<group>";
+		};
+		8970BCAA20E95D160006870D /* GalleryCore tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */,
+				8970BCAC20E95D160006870D /* Info.plist */,
+			);
+			path = "GalleryCore tvOS";
 			sourceTree = "<group>";
 		};
 		89BB28252097808B004B33F0 /* Transitions */ = {
@@ -325,6 +356,7 @@
 				DE0B7FA420E3E337000B482F /* GalleryCore */,
 				89134E1420E80C1300772E7F /* GalleryTV */,
 				DEDB687420E946D900D102EB /* ArtKit tvOS */,
+				8970BCAA20E95D160006870D /* GalleryCore tvOS */,
 				DE293F8C2048F30300444EB8 /* Products */,
 				5516CC5723D6F68448980550 /* Pods */,
 				454237023F322D583FA3D42C /* Frameworks */,
@@ -339,6 +371,7 @@
 				DE0B7FA320E3E337000B482F /* GalleryCore.framework */,
 				89134E1320E80C1300772E7F /* GalleryTV.app */,
 				DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */,
+				8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -430,6 +463,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		8970BCA620E95D160006870D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8970BCAD20E95D160006870D /* GalleryCore_tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE0B7F9E20E3E337000B482F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -477,6 +518,24 @@
 			productReference = 89134E1320E80C1300772E7F /* GalleryTV.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8970BCA820E95D160006870D /* GalleryCore tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8970BCB420E95D170006870D /* Build configuration list for PBXNativeTarget "GalleryCore tvOS" */;
+			buildPhases = (
+				8970BCA420E95D160006870D /* Sources */,
+				8970BCA520E95D160006870D /* Frameworks */,
+				8970BCA620E95D160006870D /* Headers */,
+				8970BCA720E95D160006870D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GalleryCore tvOS";
+			productName = "GalleryCore tvOS";
+			productReference = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		DE0B7FA220E3E337000B482F /* GalleryCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE0B7FAC20E3E337000B482F /* Build configuration list for PBXNativeTarget "GalleryCore" */;
@@ -513,6 +572,7 @@
 				DE293FAD20490E1100444EB8 /* PBXTargetDependency */,
 				DE0B7FA920E3E337000B482F /* PBXTargetDependency */,
 				DEDB687920E946D900D102EB /* PBXTargetDependency */,
+				8970BCAF20E95D160006870D /* PBXTargetDependency */,
 			);
 			name = Gallery;
 			productName = GoGA;
@@ -571,6 +631,10 @@
 						CreatedOnToolsVersion = 9.4.1;
 						ProvisioningStyle = Automatic;
 					};
+					8970BCA820E95D160006870D = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+					};
 					DE0B7FA220E3E337000B482F = {
 						CreatedOnToolsVersion = 10.0;
 						ProvisioningStyle = Automatic;
@@ -607,6 +671,7 @@
 				DE0B7FA220E3E337000B482F /* GalleryCore */,
 				89134E1220E80C1300772E7F /* GalleryTV */,
 				DEDB687220E946D900D102EB /* ArtKit tvOS */,
+				8970BCA820E95D160006870D /* GalleryCore tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -617,6 +682,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				89134E1D20E80C1500772E7F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8970BCA720E95D160006870D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,6 +836,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8970BCA420E95D160006870D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE0B7F9F20E3E337000B482F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -831,6 +910,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8970BCAF20E95D160006870D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8970BCA820E95D160006870D /* GalleryCore tvOS */;
+			targetProxy = 8970BCAE20E95D160006870D /* PBXContainerItemProxy */;
+		};
 		DE0B7FA920E3E337000B482F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DE0B7FA220E3E337000B482F /* GalleryCore */;
@@ -902,6 +986,60 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
+		8970BCB220E95D170006870D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "GalleryCore tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "KG.GalleryCore-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8970BCB320E95D170006870D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "GalleryCore tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "KG.GalleryCore-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1219,6 +1357,15 @@
 			buildConfigurations = (
 				89134E1F20E80C1500772E7F /* Debug */,
 				89134E2020E80C1500772E7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8970BCB420E95D170006870D /* Build configuration list for PBXNativeTarget "GalleryCore tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8970BCB220E95D170006870D /* Debug */,
+				8970BCB320E95D170006870D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
