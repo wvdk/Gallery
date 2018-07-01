@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import ArtKit_tvOS
 
 class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        flipACoin()
         
         let menuTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.back))
         menuTapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)];

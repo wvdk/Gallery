@@ -49,6 +49,20 @@
 		DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7F205B857900C40727 /* ArrayExtensions.swift */; };
 		DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */; };
 		DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */; };
+		DEDB687720E946D900D102EB /* ArtKit_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DEDB687520E946D900D102EB /* ArtKit_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DEDB687A20E946D900D102EB /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
+		DEDB687B20E946D900D102EB /* ArtKit_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DEDB687F20E946EE00D102EB /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
+		DEDB688020E946EE00D102EB /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7F205B857900C40727 /* ArrayExtensions.swift */; };
+		DEDB688120E946EE00D102EB /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7D205B856800C40727 /* GlobalFunctions.swift */; };
+		DEDB688220E946EE00D102EB /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B79205B852600C40727 /* SKNode+Extensions.swift */; };
+		DEDB688320E946EE00D102EB /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B75205B7F3E00C40727 /* UIView+Extensions.swift */; };
+		DEDB688420E946EE00D102EB /* UITapGestureRecognizerWithClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */; };
+		DEDB688520E946EE00D102EB /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */; };
+		DEDB688620E946EE00D102EB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */; };
+		DEDB688720E946EE00D102EB /* ArtKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DE293FA920490E1100444EB8 /* ArtKit.h */; };
+		DEDB688820E9471700D102EB /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
+		DEDB688920E9471700D102EB /* ArtKit_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DEEB709A2068244F00F4ACAD /* a586qViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB70992068244F00F4ACAD /* a586qViewController.swift */; };
 		DEEB709C206827C700F4ACAD /* PatternOneScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB709B206827C700F4ACAD /* PatternOneScene.swift */; };
 		DEEB709E20684F4200F4ACAD /* a586qActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEEB709D20684F4200F4ACAD /* a586qActions.sks */; };
@@ -74,6 +88,20 @@
 			remoteGlobalIDString = DE293FA620490E1100444EB8;
 			remoteInfo = ArtKit;
 		};
+		DEDB687820E946D900D102EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE293F832048F30300444EB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DEDB687220E946D900D102EB;
+			remoteInfo = "ArtKit tvOS";
+		};
+		DEDB688A20E9471700D102EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE293F832048F30300444EB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DEDB687220E946D900D102EB;
+			remoteInfo = "ArtKit tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,7 +112,19 @@
 			dstSubfolderSpec = 10;
 			files = (
 				DE0B7FAB20E3E337000B482F /* GalleryCore.framework in Embed Frameworks */,
+				DEDB687B20E946D900D102EB /* ArtKit_tvOS.framework in Embed Frameworks */,
 				DE293FAF20490E1100444EB8 /* ArtKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEDB688C20E9471700D102EB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DEDB688920E9471700D102EB /* ArtKit_tvOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +183,9 @@
 		DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Light.otf"; sourceTree = "<group>"; };
 		DE72BB9F20B8645400576999 /* ArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtView.swift; sourceTree = "<group>"; };
 		DEA066D820C47FD700489BF8 /* A565zView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A565zView.swift; sourceTree = "<group>"; };
+		DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArtKit_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEDB687520E946D900D102EB /* ArtKit_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtKit_tvOS.h; sourceTree = "<group>"; };
+		DEDB687620E946D900D102EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEEB70992068244F00F4ACAD /* a586qViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a586qViewController.swift; sourceTree = "<group>"; };
 		DEEB709B206827C700F4ACAD /* PatternOneScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternOneScene.swift; sourceTree = "<group>"; };
 		DEEB709D20684F4200F4ACAD /* a586qActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = a586qActions.sks; sourceTree = "<group>"; };
@@ -157,6 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEDB688820E9471700D102EB /* ArtKit_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +218,7 @@
 				DE293FAE20490E1100444EB8 /* ArtKit.framework in Frameworks */,
 				B404A35FCB4153351A88093A /* Pods_Gallery.framework in Frameworks */,
 				DE0B7FAA20E3E337000B482F /* GalleryCore.framework in Frameworks */,
+				DEDB687A20E946D900D102EB /* ArtKit_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +227,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB6DD2CF7BBC7F406CE08C94 /* Pods_ArtKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEDB686F20E946D900D102EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +324,7 @@
 				DE293FA820490E1100444EB8 /* ArtKit */,
 				DE0B7FA420E3E337000B482F /* GalleryCore */,
 				89134E1420E80C1300772E7F /* GalleryTV */,
+				DEDB687420E946D900D102EB /* ArtKit tvOS */,
 				DE293F8C2048F30300444EB8 /* Products */,
 				5516CC5723D6F68448980550 /* Pods */,
 				454237023F322D583FA3D42C /* Frameworks */,
@@ -285,6 +338,7 @@
 				DE293FA720490E1100444EB8 /* ArtKit.framework */,
 				DE0B7FA320E3E337000B482F /* GalleryCore.framework */,
 				89134E1320E80C1300772E7F /* GalleryTV.app */,
+				DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -331,6 +385,15 @@
 				DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DEDB687420E946D900D102EB /* ArtKit tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				DEDB687520E946D900D102EB /* ArtKit_tvOS.h */,
+				DEDB687620E946D900D102EB /* Info.plist */,
+			);
+			path = "ArtKit tvOS";
 			sourceTree = "<group>";
 		};
 		DEEB7098206822BB00F4ACAD /* a.586q */ = {
@@ -383,6 +446,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DEDB687020E946D900D102EB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEDB687720E946D900D102EB /* ArtKit_tvOS.h in Headers */,
+				DEDB688720E946EE00D102EB /* ArtKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -393,10 +465,12 @@
 				89134E0F20E80C1300772E7F /* Sources */,
 				89134E1020E80C1300772E7F /* Frameworks */,
 				89134E1120E80C1300772E7F /* Resources */,
+				DEDB688C20E9471700D102EB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DEDB688B20E9471700D102EB /* PBXTargetDependency */,
 			);
 			name = GalleryTV;
 			productName = GalleryTV;
@@ -438,6 +512,7 @@
 			dependencies = (
 				DE293FAD20490E1100444EB8 /* PBXTargetDependency */,
 				DE0B7FA920E3E337000B482F /* PBXTargetDependency */,
+				DEDB687920E946D900D102EB /* PBXTargetDependency */,
 			);
 			name = Gallery;
 			productName = GoGA;
@@ -462,6 +537,24 @@
 			name = ArtKit;
 			productName = ArtKit;
 			productReference = DE293FA720490E1100444EB8 /* ArtKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DEDB687220E946D900D102EB /* ArtKit tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEDB687E20E946D900D102EB /* Build configuration list for PBXNativeTarget "ArtKit tvOS" */;
+			buildPhases = (
+				DEDB686E20E946D900D102EB /* Sources */,
+				DEDB686F20E946D900D102EB /* Frameworks */,
+				DEDB687020E946D900D102EB /* Headers */,
+				DEDB687120E946D900D102EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ArtKit tvOS";
+			productName = "ArtKit tvOS";
+			productReference = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -490,6 +583,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					DEDB687220E946D900D102EB = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = DE293F862048F30300444EB8 /* Build configuration list for PBXProject "Gallery" */;
@@ -509,6 +606,7 @@
 				DE293FA620490E1100444EB8 /* ArtKit */,
 				DE0B7FA220E3E337000B482F /* GalleryCore */,
 				89134E1220E80C1300772E7F /* GalleryTV */,
+				DEDB687220E946D900D102EB /* ArtKit tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -548,6 +646,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DE293FA520490E1100444EB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEDB687120E946D900D102EB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -708,6 +813,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DEDB686E20E946D900D102EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEDB687F20E946EE00D102EB /* CustomOperators.swift in Sources */,
+				DEDB688220E946EE00D102EB /* SKNode+Extensions.swift in Sources */,
+				DEDB688520E946EE00D102EB /* NSObject+Extensions.swift in Sources */,
+				DEDB688620E946EE00D102EB /* UIColor+Extensions.swift in Sources */,
+				DEDB688320E946EE00D102EB /* UIView+Extensions.swift in Sources */,
+				DEDB688420E946EE00D102EB /* UITapGestureRecognizerWithClosure.swift in Sources */,
+				DEDB688020E946EE00D102EB /* ArrayExtensions.swift in Sources */,
+				DEDB688120E946EE00D102EB /* GlobalFunctions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -720,6 +840,16 @@
 			isa = PBXTargetDependency;
 			target = DE293FA620490E1100444EB8 /* ArtKit */;
 			targetProxy = DE293FAC20490E1100444EB8 /* PBXContainerItemProxy */;
+		};
+		DEDB687920E946D900D102EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DEDB687220E946D900D102EB /* ArtKit tvOS */;
+			targetProxy = DEDB687820E946D900D102EB /* PBXContainerItemProxy */;
+		};
+		DEDB688B20E9471700D102EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DEDB687220E946D900D102EB /* ArtKit tvOS */;
+			targetProxy = DEDB688A20E9471700D102EB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -738,6 +868,7 @@
 		89134E1F20E80C1500772E7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -757,6 +888,7 @@
 		89134E2020E80C1500772E7F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1025,6 +1157,60 @@
 			};
 			name = Release;
 		};
+		DEDB687C20E946D900D102EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "ArtKit tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wes.ArtKit-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DEDB687D20E946D900D102EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "ArtKit tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wes.ArtKit-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1069,6 +1255,15 @@
 			buildConfigurations = (
 				DE293FB120490E1100444EB8 /* Debug */,
 				DE293FB220490E1100444EB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEDB687E20E946D900D102EB /* Build configuration list for PBXNativeTarget "ArtKit tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEDB687C20E946D900D102EB /* Debug */,
+				DEDB687D20E946D900D102EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
