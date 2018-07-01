@@ -19,8 +19,6 @@
 		8959454A20E9609900DF123D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
 		8959454B20E9609900DF123D /* GalleryCore_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8970BCAD20E95D160006870D /* GalleryCore_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8970BCB020E95D160006870D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
-		8970BCB120E95D160006870D /* GalleryCore_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8970BCB920E95F170006870D /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929F4F1204AD54C000E5179 /* IDGenerator.swift */; };
 		8970BCBA20E95F1A0006870D /* A565zView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA066D820C47FD700489BF8 /* A565zView.swift */; };
 		8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* ArtMetadata.swift */; };
@@ -63,8 +61,6 @@
 		DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */; };
 		DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */; };
 		DEDB687720E946D900D102EB /* ArtKit_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DEDB687520E946D900D102EB /* ArtKit_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DEDB687A20E946D900D102EB /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
-		DEDB687B20E946D900D102EB /* ArtKit_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DEDB687F20E946EE00D102EB /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
 		DEDB688020E946EE00D102EB /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7F205B857900C40727 /* ArrayExtensions.swift */; };
 		DEDB688120E946EE00D102EB /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7D205B856800C40727 /* GlobalFunctions.swift */; };
@@ -99,13 +95,6 @@
 			remoteGlobalIDString = 8970BCA820E95D160006870D;
 			remoteInfo = "GalleryCore tvOS";
 		};
-		8970BCAE20E95D160006870D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DE293F832048F30300444EB8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8970BCA820E95D160006870D;
-			remoteInfo = "GalleryCore tvOS";
-		};
 		DE0B7FA820E3E337000B482F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DE293F832048F30300444EB8 /* Project object */;
@@ -119,13 +108,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = DE293FA620490E1100444EB8;
 			remoteInfo = ArtKit;
-		};
-		DEDB687820E946D900D102EB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DE293F832048F30300444EB8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DEDB687220E946D900D102EB;
-			remoteInfo = "ArtKit tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -149,8 +131,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				DE0B7FAB20E3E337000B482F /* GalleryCore.framework in Embed Frameworks */,
-				DEDB687B20E946D900D102EB /* ArtKit_tvOS.framework in Embed Frameworks */,
-				8970BCB120E95D160006870D /* GalleryCore_tvOS.framework in Embed Frameworks */,
 				DE293FAF20490E1100444EB8 /* ArtKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -254,10 +234,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE293FAE20490E1100444EB8 /* ArtKit.framework in Frameworks */,
-				8970BCB020E95D160006870D /* GalleryCore_tvOS.framework in Frameworks */,
 				B404A35FCB4153351A88093A /* Pods_Gallery.framework in Frameworks */,
 				DE0B7FAA20E3E337000B482F /* GalleryCore.framework in Frameworks */,
-				DEDB687A20E946D900D102EB /* ArtKit_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,8 +568,6 @@
 			dependencies = (
 				DE293FAD20490E1100444EB8 /* PBXTargetDependency */,
 				DE0B7FA920E3E337000B482F /* PBXTargetDependency */,
-				DEDB687920E946D900D102EB /* PBXTargetDependency */,
-				8970BCAF20E95D160006870D /* PBXTargetDependency */,
 			);
 			name = Gallery;
 			productName = GoGA;
@@ -686,10 +662,10 @@
 			projectRoot = "";
 			targets = (
 				DE293F8A2048F30300444EB8 /* Gallery */,
-				DE293FA620490E1100444EB8 /* ArtKit */,
-				DE0B7FA220E3E337000B482F /* GalleryCore */,
 				89134E1220E80C1300772E7F /* GalleryTV */,
+				DE293FA620490E1100444EB8 /* ArtKit */,
 				DEDB687220E946D900D102EB /* ArtKit tvOS */,
+				DE0B7FA220E3E337000B482F /* GalleryCore */,
 				8970BCA820E95D160006870D /* GalleryCore tvOS */,
 			);
 		};
@@ -944,11 +920,6 @@
 			target = 8970BCA820E95D160006870D /* GalleryCore tvOS */;
 			targetProxy = 8959454C20E9609900DF123D /* PBXContainerItemProxy */;
 		};
-		8970BCAF20E95D160006870D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8970BCA820E95D160006870D /* GalleryCore tvOS */;
-			targetProxy = 8970BCAE20E95D160006870D /* PBXContainerItemProxy */;
-		};
 		DE0B7FA920E3E337000B482F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DE0B7FA220E3E337000B482F /* GalleryCore */;
@@ -958,11 +929,6 @@
 			isa = PBXTargetDependency;
 			target = DE293FA620490E1100444EB8 /* ArtKit */;
 			targetProxy = DE293FAC20490E1100444EB8 /* PBXContainerItemProxy */;
-		};
-		DEDB687920E946D900D102EB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DEDB687220E946D900D102EB /* ArtKit tvOS */;
-			targetProxy = DEDB687820E946D900D102EB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
