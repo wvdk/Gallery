@@ -14,8 +14,6 @@
 		891C2EED205C48BA00746712 /* a736D.png in Resources */ = {isa = PBXBuildFile; fileRef = 891C2EEC205C48BA00746712 /* a736D.png */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		8959050D20754B8200300B62 /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959050C20754B8200300B62 /* InfoBarView.swift */; };
-		8959454520E9609600DF123D /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
-		8959454620E9609600DF123D /* ArtKit_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8959454A20E9609900DF123D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
 		8959454B20E9609900DF123D /* GalleryCore_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8970BCAD20E95D160006870D /* GalleryCore_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,13 +41,13 @@
 		DE0B7FB220E3E357000B482F /* A565zView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA066D820C47FD700489BF8 /* A565zView.swift */; };
 		DE0B7FB320E3E35B000B482F /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929F4F1204AD54C000E5179 /* IDGenerator.swift */; };
 		DE165CD3205B891F00E28C37 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE165CD2205B891F00E28C37 /* Actions.sks */; };
+		DE26220620E967EA002F57C7 /* ArtKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit.framework */; };
+		DE26220720E9681C002F57C7 /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
 		DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F8E2048F30300444EB8 /* AppDelegate.swift */; };
 		DE293F912048F30300444EB8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F902048F30300444EB8 /* MainViewController.swift */; };
 		DE293F962048F30300444EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE293F952048F30300444EB8 /* Assets.xcassets */; };
 		DE293F992048F30300444EB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE293F972048F30300444EB8 /* LaunchScreen.storyboard */; };
 		DE293FAB20490E1100444EB8 /* ArtKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DE293FA920490E1100444EB8 /* ArtKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DE293FAE20490E1100444EB8 /* ArtKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit.framework */; };
-		DE293FAF20490E1100444EB8 /* ArtKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE293FB420490E2000444EB8 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */; };
 		DE2AEFB0204B0F6900C65CA4 /* ArtPieceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */; };
 		DE332B74205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */; };
@@ -81,13 +79,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8959454720E9609600DF123D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DE293F832048F30300444EB8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DEDB687220E946D900D102EB;
-			remoteInfo = "ArtKit tvOS";
-		};
 		8959454C20E9609900DF123D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DE293F832048F30300444EB8 /* Project object */;
@@ -102,13 +93,6 @@
 			remoteGlobalIDString = DE0B7FA220E3E337000B482F;
 			remoteInfo = GalleryCore;
 		};
-		DE293FAC20490E1100444EB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DE293F832048F30300444EB8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DE293FA620490E1100444EB8;
-			remoteInfo = ArtKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -119,7 +103,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				8959454B20E9609900DF123D /* GalleryCore_tvOS.framework in Embed Frameworks */,
-				8959454620E9609600DF123D /* ArtKit_tvOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,7 +114,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				DE0B7FAB20E3E337000B482F /* GalleryCore.framework in Embed Frameworks */,
-				DE293FAF20490E1100444EB8 /* ArtKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,7 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8959454A20E9609900DF123D /* GalleryCore_tvOS.framework in Frameworks */,
-				8959454520E9609600DF123D /* ArtKit_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE26220720E9681C002F57C7 /* ArtKit_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE26220620E967EA002F57C7 /* ArtKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +216,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE293FAE20490E1100444EB8 /* ArtKit.framework in Frameworks */,
 				B404A35FCB4153351A88093A /* Pods_Gallery.framework in Frameworks */,
 				DE0B7FAA20E3E337000B482F /* GalleryCore.framework in Frameworks */,
 			);
@@ -507,7 +489,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				8959454820E9609600DF123D /* PBXTargetDependency */,
 				8959454D20E9609900DF123D /* PBXTargetDependency */,
 			);
 			name = GalleryTV;
@@ -566,7 +547,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DE293FAD20490E1100444EB8 /* PBXTargetDependency */,
 				DE0B7FA920E3E337000B482F /* PBXTargetDependency */,
 			);
 			name = Gallery;
@@ -910,11 +890,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8959454820E9609600DF123D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DEDB687220E946D900D102EB /* ArtKit tvOS */;
-			targetProxy = 8959454720E9609600DF123D /* PBXContainerItemProxy */;
-		};
 		8959454D20E9609900DF123D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8970BCA820E95D160006870D /* GalleryCore tvOS */;
@@ -924,11 +899,6 @@
 			isa = PBXTargetDependency;
 			target = DE0B7FA220E3E337000B482F /* GalleryCore */;
 			targetProxy = DE0B7FA820E3E337000B482F /* PBXContainerItemProxy */;
-		};
-		DE293FAD20490E1100444EB8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DE293FA620490E1100444EB8 /* ArtKit */;
-			targetProxy = DE293FAC20490E1100444EB8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

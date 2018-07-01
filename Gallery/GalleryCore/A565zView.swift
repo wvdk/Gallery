@@ -7,8 +7,14 @@
 //
 
 import UIKit
-import ArtKit
 import SceneKit
+
+#if os(iOS)
+import ArtKit
+#elseif os(tvOS)
+import ArtKit_tvOS
+#endif
+
 
 public class A565zView: ArtView {
     
