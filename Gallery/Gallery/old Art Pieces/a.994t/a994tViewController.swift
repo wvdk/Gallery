@@ -8,7 +8,7 @@
 
 import UIKit
 import SceneKit
-import ArtKit_iOS
+import GalleryCore_iOS
 
 class a994tViewController: ArtPieceDetailViewController {
     
