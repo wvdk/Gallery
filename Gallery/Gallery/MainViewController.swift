@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import ArtKit
-import GalleryCore
+import GalleryCore_iOS
 
 class MainViewController: UIViewController {
 

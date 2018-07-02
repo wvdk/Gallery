@@ -7,7 +7,7 @@
 //
 
 import SpriteKit
-import ArtKit
+import ArtKit_iOS
 
 class GameScene: SKScene {
     

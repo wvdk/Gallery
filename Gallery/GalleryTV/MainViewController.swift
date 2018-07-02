@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ArtKit_tvOS
+import GalleryCore_tvOS
 
 class MainViewController: UIViewController {
 
