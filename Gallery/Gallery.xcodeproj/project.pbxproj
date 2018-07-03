@@ -12,6 +12,7 @@
 		89134E1820E80C1300772E7F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89134E1720E80C1300772E7F /* MainViewController.swift */; };
 		89134E1D20E80C1500772E7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89134E1C20E80C1500772E7F /* Assets.xcassets */; };
 		891C2EED205C48BA00746712 /* a736D.png in Resources */ = {isa = PBXBuildFile; fileRef = 891C2EEC205C48BA00746712 /* a736D.png */; };
+		891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		8959050D20754B8200300B62 /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959050C20754B8200300B62 /* InfoBarView.swift */; };
 		8959454A20E9609900DF123D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
@@ -128,6 +129,7 @@
 		89134E1C20E80C1500772E7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89134E1E20E80C1500772E7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		891C2EEC205C48BA00746712 /* a736D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a736D.png; sourceTree = "<group>"; };
+		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		8929F4F1204AD54C000E5179 /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
 		8959050C20754B8200300B62 /* InfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBarView.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				8929F4F1204AD54C000E5179 /* IDGenerator.swift */,
+				891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */,
 				DEA066D820C47FD700489BF8 /* A565zView.swift */,
 				DE39D70420B321960087788C /* ArtMetadata.swift */,
 				DE72BB9F20B8645400576999 /* ArtView.swift */,
@@ -825,6 +828,7 @@
 			files = (
 				DE0B7FB220E3E357000B482F /* A565zView.swift in Sources */,
 				DE0B7FB020E3E34F000B482F /* ArtView.swift in Sources */,
+				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
 				DE0B7FB320E3E35B000B482F /* IDGenerator.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
 				DE0B7FB120E3E352000B482F /* ArtMetadata.swift in Sources */,
