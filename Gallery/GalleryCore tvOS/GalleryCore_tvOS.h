@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ArtKit_tvOS/ArtKit_tvOS.h>
 
 //! Project version number for GalleryCore_tvOS.
 FOUNDATION_EXPORT double GalleryCore_tvOSVersionNumber;

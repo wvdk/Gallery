@@ -259,7 +259,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		89134E1420E80C1300772E7F /* GalleryTV */ = {
+		89134E1420E80C1300772E7F /* Gallery tvOS */ = {
 			isa = PBXGroup;
 			children = (
 				89134E1520E80C1300772E7F /* AppDelegate.swift */,
@@ -267,7 +267,7 @@
 				89134E1C20E80C1500772E7F /* Assets.xcassets */,
 				89134E1E20E80C1500772E7F /* Info.plist */,
 			);
-			path = GalleryTV;
+			path = "Gallery tvOS";
 			sourceTree = "<group>";
 		};
 		8970BCAA20E95D160006870D /* GalleryCore tvOS */ = {
@@ -300,7 +300,7 @@
 			path = a.857C;
 			sourceTree = "<group>";
 		};
-		DE0B7FA420E3E337000B482F /* GalleryCore */ = {
+		DE0B7FA420E3E337000B482F /* GalleryCore iOS */ = {
 			isa = PBXGroup;
 			children = (
 				8929F4F1204AD54C000E5179 /* IDGenerator.swift */,
@@ -311,7 +311,7 @@
 				DE0B7FA520E3E337000B482F /* GalleryCore.h */,
 				DE0B7FA620E3E337000B482F /* Info.plist */,
 			);
-			path = GalleryCore;
+			path = "GalleryCore iOS";
 			sourceTree = "<group>";
 		};
 		DE1881B320D6D3B80010353A /* old Art Pieces */ = {
@@ -328,11 +328,11 @@
 		DE293F822048F30300444EB8 = {
 			isa = PBXGroup;
 			children = (
-				DE293F8D2048F30300444EB8 /* Gallery */,
-				DE293FA820490E1100444EB8 /* ArtKit */,
-				DE0B7FA420E3E337000B482F /* GalleryCore */,
-				89134E1420E80C1300772E7F /* GalleryTV */,
+				DE293F8D2048F30300444EB8 /* Gallery iOS */,
+				89134E1420E80C1300772E7F /* Gallery tvOS */,
+				DE293FA820490E1100444EB8 /* ArtKit iOS */,
 				DEDB687420E946D900D102EB /* ArtKit tvOS */,
+				DE0B7FA420E3E337000B482F /* GalleryCore iOS */,
 				8970BCAA20E95D160006870D /* GalleryCore tvOS */,
 				DE293F8C2048F30300444EB8 /* Products */,
 				5516CC5723D6F68448980550 /* Pods */,
@@ -353,7 +353,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DE293F8D2048F30300444EB8 /* Gallery */ = {
+		DE293F8D2048F30300444EB8 /* Gallery iOS */ = {
 			isa = PBXGroup;
 			children = (
 				DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */,
@@ -369,10 +369,10 @@
 				DE1881B320D6D3B80010353A /* old Art Pieces */,
 				DE3BD6442055FBC200FD3298 /* Fonts */,
 			);
-			path = Gallery;
+			path = "Gallery iOS";
 			sourceTree = "<group>";
 		};
-		DE293FA820490E1100444EB8 /* ArtKit */ = {
+		DE293FA820490E1100444EB8 /* ArtKit iOS */ = {
 			isa = PBXGroup;
 			children = (
 				89CBB570205C3DA10022FBE2 /* CustomOperators.swift */,
@@ -386,7 +386,7 @@
 				DE293FA920490E1100444EB8 /* ArtKit.h */,
 				DE293FAA20490E1100444EB8 /* Info.plist */,
 			);
-			path = ArtKit;
+			path = "ArtKit iOS";
 			sourceTree = "<group>";
 		};
 		DE3BD6442055FBC200FD3298 /* Fonts */ = {
@@ -923,7 +923,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PJ8U3CQ43A;
-				INFOPLIST_FILE = GalleryTV/Info.plist;
+				INFOPLIST_FILE = "Gallery tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.tvOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -943,7 +943,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PJ8U3CQ43A;
-				INFOPLIST_FILE = GalleryTV/Info.plist;
+				INFOPLIST_FILE = "Gallery tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.tvOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1064,6 +1064,7 @@
 		DE293F9B2048F30300444EB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1123,6 +1124,7 @@
 		DE293F9C2048F30300444EB8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1180,7 +1182,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2HHR6H4K6;
-				INFOPLIST_FILE = Gallery/Info.plist;
+				INFOPLIST_FILE = "Gallery iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.iOS;
@@ -1198,7 +1200,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2HHR6H4K6;
-				INFOPLIST_FILE = Gallery/Info.plist;
+				INFOPLIST_FILE = "Gallery iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.iOS;
