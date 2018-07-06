@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GalleryCore
+import GalleryCore_iOS
 
 /// <#Description#>
 class ArtPieceDetailViewController: UIViewController {

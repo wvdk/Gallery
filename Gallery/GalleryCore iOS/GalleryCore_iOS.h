@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ArtKit_iOS/ArtKit_iOS.h>
 
 //! Project version number for GalleryCore.
 FOUNDATION_EXPORT double GalleryCoreVersionNumber;

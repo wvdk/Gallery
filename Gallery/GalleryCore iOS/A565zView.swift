@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 
 #if os(iOS)
-import ArtKit
+import ArtKit_iOS
 #elseif os(tvOS)
 import ArtKit_tvOS
 #endif

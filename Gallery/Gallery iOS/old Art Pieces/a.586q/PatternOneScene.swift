@@ -7,7 +7,7 @@
 //
 
 import SpriteKit
-import ArtKit
+import GalleryCore_iOS
 
 class PatternOneScene: SKScene {
     

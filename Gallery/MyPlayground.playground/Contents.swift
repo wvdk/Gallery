@@ -2,7 +2,7 @@
   
 import UIKit
 import PlaygroundSupport
-import ArtKit
+import ArtKit_iOS
 
 class MyViewController : UIViewController {
     
