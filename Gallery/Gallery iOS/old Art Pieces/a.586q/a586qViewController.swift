@@ -17,7 +17,7 @@ class a586qViewController: ArtPieceDetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scene = GameScene(size: view.frame.size)
+//        scene = GameScene(size: view.frame.size)
         spriteKitView.with { it in
             scene = PatternOneScene(size: view.frame.size)
             view.addSubview(it)

@@ -7,7 +7,6 @@
 //
 
 import SpriteKit
-import GalleryCore_iOS
 
 class GameScene: SKScene {
     
@@ -23,7 +22,6 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         self.backgroundColor = .black
-        
         
         self.startPatternOne()
         
