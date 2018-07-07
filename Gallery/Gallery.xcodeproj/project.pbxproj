@@ -22,6 +22,8 @@
 		894C691B20F13896003A5387 /* A586qView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C691520EFC5A0003A5387 /* A586qView.swift */; };
 		894C691C20F13899003A5387 /* A586qActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEEB709D20684F4200F4ACAD /* A586qActions.sks */; };
 		894C691D20F1389C003A5387 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B77205B84CE00C40727 /* GameScene.swift */; };
+		894C691F20F13FAE003A5387 /* A586qScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C691E20F13FAE003A5387 /* A586qScene.swift */; };
+		894C692020F13FB0003A5387 /* A586qScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C691E20F13FAE003A5387 /* A586qScene.swift */; };
 		8959050D20754B8200300B62 /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959050C20754B8200300B62 /* InfoBarView.swift */; };
 		8959454A20E9609900DF123D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
 		8959454B20E9609900DF123D /* GalleryCore_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -138,6 +140,7 @@
 		8929F4F1204AD54C000E5179 /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
 		894C691220EFC224003A5387 /* A994tView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A994tView.swift; sourceTree = "<group>"; };
 		894C691520EFC5A0003A5387 /* A586qView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A586qView.swift; sourceTree = "<group>"; };
+		894C691E20F13FAE003A5387 /* A586qScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A586qScene.swift; sourceTree = "<group>"; };
 		8959050C20754B8200300B62 /* InfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBarView.swift; sourceTree = "<group>"; };
 		8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_tvOS.h; sourceTree = "<group>"; };
@@ -290,6 +293,7 @@
 			children = (
 				DEEB709D20684F4200F4ACAD /* A586qActions.sks */,
 				894C691520EFC5A0003A5387 /* A586qView.swift */,
+				894C691E20F13FAE003A5387 /* A586qScene.swift */,
 			);
 			path = "A586q Art Piece";
 			sourceTree = "<group>";
@@ -830,6 +834,7 @@
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
 				894C691D20F1389C003A5387 /* GameScene.swift in Sources */,
 				8970BCB920E95F170006870D /* IDGenerator.swift in Sources */,
+				894C692020F13FB0003A5387 /* A586qScene.swift in Sources */,
 				8970BCBC20E95F200006870D /* ArtView.swift in Sources */,
 				894C691A20F13893003A5387 /* A994tView.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */,
@@ -843,6 +848,7 @@
 			files = (
 				DE0B7FB220E3E357000B482F /* A565zView.swift in Sources */,
 				DE0B7FB020E3E34F000B482F /* ArtView.swift in Sources */,
+				894C691F20F13FAE003A5387 /* A586qScene.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
 				894C691820F13883003A5387 /* GameScene.swift in Sources */,
 				894C691620EFC5A0003A5387 /* A586qView.swift in Sources */,
