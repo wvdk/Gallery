@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class A736DScene: SKScene {
     
     // Patern values. Updated by the startPattern___ methods.
     var whiteRectGenerationDelay: TimeInterval? = 1
