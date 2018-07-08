@@ -1,13 +1,13 @@
 //
-//  PatternOneScene.swift
-//  a.2
+//  A586qScene.swift
+//  GalleryCore iOS
 //
-//  Created by Wesley Van der Klomp on 1/7/18.
-//  Copyright © 2018 Wesley Van der Klomp. All rights reserved.
+//  Created by Kristina Gelzinyte on 7/7/18.
+//  Copyright © 2018 Gallery of Generative Art. All rights reserved.
 //
 
+import UIKit
 import SpriteKit
-import GalleryCore_iOS
 
 class PatternOneScene: SKScene {
     
@@ -69,5 +69,4 @@ class PatternOneScene: SKScene {
             whiteRect.run(getRandomAction())
         }
     }
-    
 }

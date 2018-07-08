@@ -17,11 +17,7 @@ class A586qView: ArtView {
         super.init(frame: frame, artPieceMetadata: artPieceMetadata)
         
         tag = 125
-        
-        spriteKitView.ignoresSiblingOrder = true
-        spriteKitView.showsFPS = false
-        spriteKitView.showsNodeCount = false
-        
+
         addSubview(spriteKitView)
         spriteKitView.translatesAutoresizingMaskIntoConstraints = false
         spriteKitView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -29,13 +25,25 @@ class A586qView: ArtView {
         spriteKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         spriteKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        scene = GameScene(size: frame.size)
+        sendSubview(toBack: spriteKitView)
+        
         scene = PatternOneScene(size: frame.size)
+        
+        spriteKitView.ignoresSiblingOrder = true
+        spriteKitView.showsFPS = false
+        spriteKitView.showsNodeCount = false
         
         spriteKitView.presentScene(scene)
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }    
+    }
+    
+    override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        
+        guard newSuperview != nil else { return }
+        scene.size = newSuperview!.frame.size
+    }
 }
