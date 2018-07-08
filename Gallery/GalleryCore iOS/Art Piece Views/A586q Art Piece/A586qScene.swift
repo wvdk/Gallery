@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class PatternOneScene: SKScene {
+class A586qScene: SKScene {
     
     var whiteRectGenerationDelay: TimeInterval? = 0.75
     

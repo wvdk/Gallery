@@ -27,7 +27,7 @@ class A586qView: ArtView {
         
         sendSubview(toBack: spriteKitView)
         
-        scene = PatternOneScene(size: frame.size)
+        scene = A586qScene(size: frame.size)
         
         spriteKitView.ignoresSiblingOrder = true
         spriteKitView.showsFPS = false
