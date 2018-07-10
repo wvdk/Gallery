@@ -38,6 +38,8 @@
 		8970BCBD20E95F220006870D /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
+		89C3866620F491F6004BF43F /* A857CView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3866520F491F6004BF43F /* A857CView.swift */; };
+		89C3866820F49286004BF43F /* A857CScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3866720F49286004BF43F /* A857CScene.swift */; };
 		89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
 		89E9646D205E842A009B5420 /* a857CViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9646C205E842A009B5420 /* a857CViewController.swift */; };
@@ -145,6 +147,8 @@
 		8970BCAC20E95D160006870D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentationController.swift; sourceTree = "<group>"; };
 		89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentAnimationController.swift; sourceTree = "<group>"; };
+		89C3866520F491F6004BF43F /* A857CView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A857CView.swift; sourceTree = "<group>"; };
+		89C3866720F49286004BF43F /* A857CScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A857CScene.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89E9646C205E842A009B5420 /* a857CViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a857CViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +288,9 @@
 		894C691420EFC565003A5387 /* Art Piece Views */ = {
 			isa = PBXGroup;
 			children = (
+				89C3866520F491F6004BF43F /* A857CView.swift */,
+				89C3866720F49286004BF43F /* A857CScene.swift */,
+				89E96473205E87F1009B5420 /* TilePatternShader.fsh */,
 				89485BCE20F2A07000046753 /* A736D Art Piece */,
 				894C691720EFC7CF003A5387 /* A586q Art Piece */,
 				DEA066D820C47FD700489BF8 /* A565zView.swift */,
@@ -326,7 +333,6 @@
 			children = (
 				89E9646C205E842A009B5420 /* a857CViewController.swift */,
 				89E96471205E85FC009B5420 /* a857CGameScene.swift */,
-				89E96473205E87F1009B5420 /* TilePatternShader.fsh */,
 				89E96475205E8C59009B5420 /* a857C.png */,
 			);
 			path = a.857C;
@@ -829,9 +835,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE0B7FB220E3E357000B482F /* A565zView.swift in Sources */,
+				89C3866620F491F6004BF43F /* A857CView.swift in Sources */,
 				DE0B7FB020E3E34F000B482F /* ArtView.swift in Sources */,
 				894C691F20F13FAE003A5387 /* A586qScene.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
+				89C3866820F49286004BF43F /* A857CScene.swift in Sources */,
 				894C691820F13883003A5387 /* A736DScene.swift in Sources */,
 				894C691620EFC5A0003A5387 /* A586qView.swift in Sources */,
 				894C691320EFC224003A5387 /* A994tView.swift in Sources */,

@@ -42,7 +42,8 @@ public class MasterList {
             ArtMetadata(id: "a.565z", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A565zView.self),
             ArtMetadata(id: "a.994t", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A994tView.self),
             ArtMetadata(id: "a.586q", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A586qView.self),
-            ArtMetadata(id: "a.736D", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A736DView.self)            
+            ArtMetadata(id: "a.736D", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A736DView.self),
+            ArtMetadata(id: "a.857C", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A857CView.self)
         ]
     }
     
