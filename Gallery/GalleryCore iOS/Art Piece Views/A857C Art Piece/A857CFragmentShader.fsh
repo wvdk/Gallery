@@ -1,5 +1,5 @@
 //
-//  TilePatternShader.fsh
+//  A857CFragmentShader.fsh
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 3/18/18.

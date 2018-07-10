@@ -42,7 +42,7 @@
 		89C3866820F49286004BF43F /* A857CScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3866720F49286004BF43F /* A857CScene.swift */; };
 		89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
-		89E96474205E87F1009B5420 /* TilePatternShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* TilePatternShader.fsh */; };
+		89E96474205E87F1009B5420 /* A857CFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */; };
 		B404A35FCB4153351A88093A /* Pods_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
@@ -148,7 +148,7 @@
 		89C3866720F49286004BF43F /* A857CScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A857CScene.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		89E96473205E87F1009B5420 /* TilePatternShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TilePatternShader.fsh; sourceTree = "<group>"; };
+		89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = A857CFragmentShader.fsh; sourceTree = "<group>"; };
 		9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3691700D8ECDC253DFFC376 /* Pods_ArtKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85DD3F3A1656418B116D049 /* Pods-Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gallery/Pods-Gallery.release.xcconfig"; sourceTree = "<group>"; };
@@ -282,9 +282,7 @@
 		894C691420EFC565003A5387 /* Art Piece Views */ = {
 			isa = PBXGroup;
 			children = (
-				89C3866520F491F6004BF43F /* A857CView.swift */,
-				89C3866720F49286004BF43F /* A857CScene.swift */,
-				89E96473205E87F1009B5420 /* TilePatternShader.fsh */,
+				89C3866920F49451004BF43F /* A857C Art Piece */,
 				89485BCE20F2A07000046753 /* A736D Art Piece */,
 				894C691720EFC7CF003A5387 /* A586q Art Piece */,
 				DEA066D820C47FD700489BF8 /* A565zView.swift */,
@@ -320,6 +318,16 @@
 				89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */,
 			);
 			path = Transitions;
+			sourceTree = "<group>";
+		};
+		89C3866920F49451004BF43F /* A857C Art Piece */ = {
+			isa = PBXGroup;
+			children = (
+				89C3866520F491F6004BF43F /* A857CView.swift */,
+				89C3866720F49286004BF43F /* A857CScene.swift */,
+				89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */,
+			);
+			path = "A857C Art Piece";
 			sourceTree = "<group>";
 		};
 		DE0B7FA420E3E337000B482F /* GalleryCore iOS */ = {
@@ -664,7 +672,7 @@
 				DE293F962048F30300444EB8 /* Assets.xcassets in Resources */,
 				89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */,
 				DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */,
-				89E96474205E87F1009B5420 /* TilePatternShader.fsh in Resources */,
+				89E96474205E87F1009B5420 /* A857CFragmentShader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

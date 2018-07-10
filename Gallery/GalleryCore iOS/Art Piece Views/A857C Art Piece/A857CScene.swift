@@ -10,11 +10,11 @@ import SpriteKit
 
 class A857CScene: SKScene {
 
-    private let shaderFilter = SKShader(fileNamed: "TilePatternShader.fsh")
+    private let shaderFilter = SKShader(fileNamed: "A857CFragmentShader.fsh")
     
     override func didMove(to view: SKView) {
-        let shaderNode = SKSpriteNode(color: .white, size: self.size)
-        shaderNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        let shaderNode = SKSpriteNode(color: .white, size: view.frame.size)
+        shaderNode.position = CGPoint(x: view.frame.size.width / 2, y: view.frame.size.height / 2)
         shaderNode.zPosition = 100
         
         applyShader(to: shaderNode)
