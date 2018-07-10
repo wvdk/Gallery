@@ -39,9 +39,12 @@
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
 		89C3866620F491F6004BF43F /* A857CView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3866520F491F6004BF43F /* A857CView.swift */; };
+		89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
+		89C3866B20F49840004BF43F /* A857CView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3866520F491F6004BF43F /* A857CView.swift */; };
+		89C3866C20F49845004BF43F /* A857CFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */; };
+		89C3866D20F49845004BF43F /* A857CFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */; };
 		89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
-		89E96474205E87F1009B5420 /* A857CFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */; };
 		B404A35FCB4153351A88093A /* Pods_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
@@ -647,6 +650,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89C3866D20F49845004BF43F /* A857CFragmentShader.fsh in Resources */,
 				894C691C20F13899003A5387 /* A586qActions.sks in Resources */,
 				89485BD120F2A08F00046753 /* A736DActions.sks in Resources */,
 			);
@@ -656,6 +660,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89C3866C20F49845004BF43F /* A857CFragmentShader.fsh in Resources */,
 				894C691920F13889003A5387 /* A586qActions.sks in Resources */,
 				89485BD020F2A08E00046753 /* A736DActions.sks in Resources */,
 			);
@@ -669,7 +674,6 @@
 				DE293F962048F30300444EB8 /* Assets.xcassets in Resources */,
 				89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */,
 				DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */,
-				89E96474205E87F1009B5420 /* A857CFragmentShader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,12 +801,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8970BCBA20E95F1A0006870D /* A565zView.swift in Sources */,
+				89C3866B20F49840004BF43F /* A857CView.swift in Sources */,
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
 				894C691D20F1389C003A5387 /* A736DScene.swift in Sources */,
 				8970BCB920E95F170006870D /* IDGenerator.swift in Sources */,
 				894C692020F13FB0003A5387 /* A586qScene.swift in Sources */,
 				8970BCBC20E95F200006870D /* ArtView.swift in Sources */,
 				89485BCF20F2A08B00046753 /* A736DView.swift in Sources */,
+				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
 				894C691A20F13893003A5387 /* A994tView.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */,
 				894C691B20F13896003A5387 /* A586qView.swift in Sources */,
