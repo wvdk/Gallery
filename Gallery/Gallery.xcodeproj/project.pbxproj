@@ -42,10 +42,7 @@
 		89C3866820F49286004BF43F /* A857CScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3866720F49286004BF43F /* A857CScene.swift */; };
 		89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
-		89E9646D205E842A009B5420 /* a857CViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9646C205E842A009B5420 /* a857CViewController.swift */; };
-		89E96472205E85FC009B5420 /* a857CGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E96471205E85FC009B5420 /* a857CGameScene.swift */; };
 		89E96474205E87F1009B5420 /* TilePatternShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* TilePatternShader.fsh */; };
-		89E96476205E8C59009B5420 /* a857C.png in Resources */ = {isa = PBXBuildFile; fileRef = 89E96475205E8C59009B5420 /* a857C.png */; };
 		B404A35FCB4153351A88093A /* Pods_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
@@ -151,10 +148,7 @@
 		89C3866720F49286004BF43F /* A857CScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A857CScene.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		89E9646C205E842A009B5420 /* a857CViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a857CViewController.swift; sourceTree = "<group>"; };
-		89E96471205E85FC009B5420 /* a857CGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a857CGameScene.swift; sourceTree = "<group>"; };
 		89E96473205E87F1009B5420 /* TilePatternShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TilePatternShader.fsh; sourceTree = "<group>"; };
-		89E96475205E8C59009B5420 /* a857C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a857C.png; sourceTree = "<group>"; };
 		9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3691700D8ECDC253DFFC376 /* Pods_ArtKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85DD3F3A1656418B116D049 /* Pods-Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gallery/Pods-Gallery.release.xcconfig"; sourceTree = "<group>"; };
@@ -328,16 +322,6 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
-		89E9646E205E8431009B5420 /* a.857C */ = {
-			isa = PBXGroup;
-			children = (
-				89E9646C205E842A009B5420 /* a857CViewController.swift */,
-				89E96471205E85FC009B5420 /* a857CGameScene.swift */,
-				89E96475205E8C59009B5420 /* a857C.png */,
-			);
-			path = a.857C;
-			sourceTree = "<group>";
-		};
 		DE0B7FA420E3E337000B482F /* GalleryCore iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,14 +335,6 @@
 				DE0B7FA620E3E337000B482F /* Info.plist */,
 			);
 			path = "GalleryCore iOS";
-			sourceTree = "<group>";
-		};
-		DE1881B320D6D3B80010353A /* old Art Pieces */ = {
-			isa = PBXGroup;
-			children = (
-				89E9646E205E8431009B5420 /* a.857C */,
-			);
-			path = "old Art Pieces";
 			sourceTree = "<group>";
 		};
 		DE293F822048F30300444EB8 = {
@@ -402,7 +378,6 @@
 				DE293F9A2048F30300444EB8 /* Info.plist */,
 				89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */,
 				89BB28252097808B004B33F0 /* Transitions */,
-				DE1881B320D6D3B80010353A /* old Art Pieces */,
 				DE3BD6442055FBC200FD3298 /* Fonts */,
 			);
 			path = "Gallery iOS";
@@ -690,7 +665,6 @@
 				89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */,
 				DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */,
 				89E96474205E87F1009B5420 /* TilePatternShader.fsh in Resources */,
-				89E96476205E8C59009B5420 /* a857C.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -858,9 +832,7 @@
 				890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */,
 				DE2AEFB0204B0F6900C65CA4 /* ArtPieceDetailViewController.swift in Sources */,
 				8959050D20754B8200300B62 /* InfoBarView.swift in Sources */,
-				89E96472205E85FC009B5420 /* a857CGameScene.swift in Sources */,
 				DE293F912048F30300444EB8 /* MainViewController.swift in Sources */,
-				89E9646D205E842A009B5420 /* a857CViewController.swift in Sources */,
 				DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */,
 				892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */,
 				89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */,
