@@ -39,7 +39,6 @@
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
 		89C3866620F491F6004BF43F /* A857CView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3866520F491F6004BF43F /* A857CView.swift */; };
-		89C3866820F49286004BF43F /* A857CScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3866720F49286004BF43F /* A857CScene.swift */; };
 		89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
 		89E96474205E87F1009B5420 /* A857CFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */; };
@@ -145,7 +144,6 @@
 		89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentationController.swift; sourceTree = "<group>"; };
 		89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentAnimationController.swift; sourceTree = "<group>"; };
 		89C3866520F491F6004BF43F /* A857CView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A857CView.swift; sourceTree = "<group>"; };
-		89C3866720F49286004BF43F /* A857CScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A857CScene.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = A857CFragmentShader.fsh; sourceTree = "<group>"; };
@@ -324,7 +322,6 @@
 			isa = PBXGroup;
 			children = (
 				89C3866520F491F6004BF43F /* A857CView.swift */,
-				89C3866720F49286004BF43F /* A857CScene.swift */,
 				89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */,
 			);
 			path = "A857C Art Piece";
@@ -821,7 +818,6 @@
 				DE0B7FB020E3E34F000B482F /* ArtView.swift in Sources */,
 				894C691F20F13FAE003A5387 /* A586qScene.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
-				89C3866820F49286004BF43F /* A857CScene.swift in Sources */,
 				894C691820F13883003A5387 /* A736DScene.swift in Sources */,
 				894C691620EFC5A0003A5387 /* A586qView.swift in Sources */,
 				894C691320EFC224003A5387 /* A994tView.swift in Sources */,
