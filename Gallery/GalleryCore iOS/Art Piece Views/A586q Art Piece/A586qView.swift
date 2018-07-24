@@ -32,7 +32,6 @@ class A586qView: ArtView {
         spriteKitView.showsFPS = false
         spriteKitView.showsNodeCount = false
         
-        scene.scaleMode = .aspectFit
         scene.addChild(containerNode)
         
         spriteKitView.presentScene(scene)
@@ -45,8 +44,11 @@ class A586qView: ArtView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        guard newSuperview != nil else { return }
-        scene.size = newSuperview!.frame.size
+        guard var size = newSuperview?.frame.size else { return }
+        if size == .zero {
+            size = superview?.frame.size ?? UIScreen.main.bounds.size
+        }
+        scene.size = size
         scene.clearScreen()
     }
 }

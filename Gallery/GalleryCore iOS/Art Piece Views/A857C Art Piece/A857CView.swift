@@ -30,11 +30,13 @@ class A857CView: ArtView {
         spriteKitView.ignoresSiblingOrder = true
         spriteKitView.showsFPS = false
         spriteKitView.showsNodeCount = false
-        
+
         sendSubview(toBack: spriteKitView)
         spriteKitView.presentScene(scene)
 
         setupShaderNode(size: frame.size)
+        
+        scene.scaleMode = .aspectFit
         scene.addChild(containerNode)
     }
     
@@ -45,8 +47,10 @@ class A857CView: ArtView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        guard let superview = newSuperview else { return }
-        let size = superview.frame.size
+        guard var size = newSuperview?.frame.size else { return }
+        if size == .zero {
+            size = CGSize(width: 300, height: 300)
+        }
         scene.size = size
         setupShaderNode(size: size)
     }
@@ -55,25 +59,9 @@ class A857CView: ArtView {
         let shaderNode = SKSpriteNode(color: .white, size: size)
         shaderNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         shaderNode.zPosition = 100
-        
-        applyShader(to: shaderNode)
+        shaderNode.addShader(shader: SKShader(fileNamed: "A857CFragmentShader.fsh"))
         
         containerNode.removeAllChildren()
         containerNode.addChild(shaderNode)
     }
-    
-    private func applyShader(to node: SKSpriteNode) {
-        let shaderFilter = SKShader(fileNamed: "A857CFragmentShader.fsh")
-        node.shader = shaderFilter
-
-        shaderFilter.attributes = [
-            SKAttribute(name: "a_sprite_size", type: .vectorFloat2)
-        ]
-        
-        let nodeSize = vector_float2(Float(node.size.width * UIScreen.main.scale),
-                                     Float(node.size.height * UIScreen.main.scale))
-        
-        node.setValue(SKAttributeValue(vectorFloat2: nodeSize), forAttribute: "a_sprite_size")
-    }
 }
-

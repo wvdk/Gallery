@@ -22,7 +22,8 @@ class A736DScene: SKScene {
     
     override func didMove(to view: SKView) {
         self.backgroundColor = .black
-        
+        self.scaleMode = .aspectFill
+
         self.startPatternOne()
         
 //        start({ [weak self] in

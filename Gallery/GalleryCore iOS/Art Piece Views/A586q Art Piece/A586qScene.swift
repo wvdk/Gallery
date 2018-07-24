@@ -21,7 +21,8 @@ class A586qScene: SKScene {
     
     override func didMove(to view: SKView) {
         self.backgroundColor = .black
-        
+        self.scaleMode = .aspectFill
+
         self.recursivelyTriggerWhiteRectGeneration(after: whiteRectGenerationDelay)
     }
     
