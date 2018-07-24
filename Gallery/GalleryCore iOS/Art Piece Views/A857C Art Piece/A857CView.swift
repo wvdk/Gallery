@@ -27,17 +27,15 @@ class A857CView: ArtView {
         spriteKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         spriteKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        sendSubview(toBack: spriteKitView)
-        
         spriteKitView.ignoresSiblingOrder = true
         spriteKitView.showsFPS = false
         spriteKitView.showsNodeCount = false
         
-        scene.addChild(containerNode)
-        
+        sendSubview(toBack: spriteKitView)
         spriteKitView.presentScene(scene)
-        
-        setupShaderNode()
+
+        setupShaderNode(size: frame.size)
+        scene.addChild(containerNode)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -47,17 +45,20 @@ class A857CView: ArtView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        guard newSuperview != nil else { return }
-        scene.size = newSuperview!.frame.size
+        guard let superview = newSuperview else { return }
+        let size = superview.frame.size
+        scene.size = size
+        setupShaderNode(size: size)
     }
     
-    private func setupShaderNode() {
-        let shaderNode = SKSpriteNode(color: .white, size: frame.size)
-        shaderNode.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+    private func setupShaderNode(size: CGSize = .zero) {
+        let shaderNode = SKSpriteNode(color: .white, size: size)
+        shaderNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         shaderNode.zPosition = 100
         
         applyShader(to: shaderNode)
         
+        containerNode.removeAllChildren()
         containerNode.addChild(shaderNode)
     }
     
