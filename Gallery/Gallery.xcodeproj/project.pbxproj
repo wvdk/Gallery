@@ -15,6 +15,7 @@
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		892F534921067D1300AC8C45 /* ArtKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; };
 		892F534A21067D1300AC8C45 /* ArtKit_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		892F534E2107A5E600AC8C45 /* SKSpriteNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */; };
 		89485BCD20F29EF500046753 /* A736DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89485BCC20F29EF500046753 /* A736DView.swift */; };
 		89485BCF20F2A08B00046753 /* A736DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89485BCC20F29EF500046753 /* A736DView.swift */; };
 		89485BD020F2A08E00046753 /* A736DActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE165CD2205B891F00E28C37 /* A736DActions.sks */; };
@@ -148,6 +149,7 @@
 		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		8929F4F1204AD54C000E5179 /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
+		892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+Extension.swift"; sourceTree = "<group>"; };
 		89485BCC20F29EF500046753 /* A736DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A736DView.swift; sourceTree = "<group>"; };
 		894C691220EFC224003A5387 /* A994tView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A994tView.swift; sourceTree = "<group>"; };
 		894C691520EFC5A0003A5387 /* A586qView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A586qView.swift; sourceTree = "<group>"; };
@@ -286,9 +288,9 @@
 		89485BCE20F2A07000046753 /* A736D Art Piece */ = {
 			isa = PBXGroup;
 			children = (
+				89485BCC20F29EF500046753 /* A736DView.swift */,
 				DE332B77205B84CE00C40727 /* A736DScene.swift */,
 				DE165CD2205B891F00E28C37 /* A736DActions.sks */,
-				89485BCC20F29EF500046753 /* A736DView.swift */,
 			);
 			path = "A736D Art Piece";
 			sourceTree = "<group>";
@@ -411,6 +413,7 @@
 				DE332B7F205B857900C40727 /* ArrayExtensions.swift */,
 				DE332B7D205B856800C40727 /* GlobalFunctions.swift */,
 				DE332B79205B852600C40727 /* SKNode+Extensions.swift */,
+				892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */,
 				DE332B75205B7F3E00C40727 /* UIView+Extensions.swift */,
 				DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */,
 				DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */,
@@ -875,6 +878,7 @@
 				DE332B76205B7F3E00C40727 /* UIView+Extensions.swift in Sources */,
 				DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */,
 				DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */,
+				892F534E2107A5E600AC8C45 /* SKSpriteNode+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
