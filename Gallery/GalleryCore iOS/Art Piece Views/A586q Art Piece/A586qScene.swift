@@ -31,7 +31,13 @@ class A586qScene: SKScene {
         self.removeAnyOutOfFrameChildren()
     }
     
-    // MARK: - Temporal pattern functions
+    /// MARK: - Scene reset
+
+    func clearScreen() {
+        self.removeAllChildren()
+    }
+    
+    /// MARK: - Temporal pattern functions
     
     func recursivelyTriggerWhiteRectGeneration(after delay: TimeInterval?) {
         guard let delay = delay else { return }

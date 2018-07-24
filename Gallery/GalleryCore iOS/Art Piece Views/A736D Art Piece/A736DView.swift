@@ -11,7 +11,7 @@ import SpriteKit
 
 class A736DView: ArtView {
     
-    var scene: A736DScene! = nil
+    var scene = A736DScene()
     let spriteKitView = SKView()
     
     public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
@@ -27,9 +27,7 @@ class A736DView: ArtView {
         spriteKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
         sendSubview(toBack: spriteKitView)
-        
-        scene = A736DScene(size: frame.size)
-        
+                
         spriteKitView.ignoresSiblingOrder = true
         spriteKitView.showsFPS = false
         spriteKitView.showsNodeCount = false
@@ -46,5 +44,6 @@ class A736DView: ArtView {
         
         guard newSuperview != nil else { return }
         scene.size = newSuperview!.frame.size
+        scene.clearScreen()
     }
 }

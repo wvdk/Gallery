@@ -10,8 +10,11 @@ import SpriteKit
 
 class A586qView: ArtView {
     
-    var scene: SKScene! = nil
-    let spriteKitView = SKView()
+    private var scene = A586qScene()
+    private let spriteKitView = SKView()
+    private let containerNode = SKNode()
+    
+    /// MARK: - Initialization
     
     public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
         super.init(frame: frame, artPieceMetadata: artPieceMetadata)
@@ -25,13 +28,12 @@ class A586qView: ArtView {
         spriteKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         spriteKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        sendSubview(toBack: spriteKitView)
-        
-        scene = A586qScene(size: frame.size)
-        
         spriteKitView.ignoresSiblingOrder = true
         spriteKitView.showsFPS = false
         spriteKitView.showsNodeCount = false
+        
+        scene.scaleMode = .aspectFit
+        scene.addChild(containerNode)
         
         spriteKitView.presentScene(scene)
     }
@@ -45,5 +47,6 @@ class A586qView: ArtView {
         
         guard newSuperview != nil else { return }
         scene.size = newSuperview!.frame.size
+        scene.clearScreen()
     }
 }

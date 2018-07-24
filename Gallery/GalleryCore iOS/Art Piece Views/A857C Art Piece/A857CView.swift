@@ -61,7 +61,7 @@ class A857CView: ArtView {
         containerNode.addChild(shaderNode)
     }
     
-    private func applyShader(to node: SKSpriteNode){
+    private func applyShader(to node: SKSpriteNode) {
         let shaderFilter = SKShader(fileNamed: "A857CFragmentShader.fsh")
         node.shader = shaderFilter
 
