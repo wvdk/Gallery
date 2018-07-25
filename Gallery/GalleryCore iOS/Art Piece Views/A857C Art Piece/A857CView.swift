@@ -33,10 +33,8 @@ class A857CView: ArtView {
 
         sendSubview(toBack: spriteKitView)
         spriteKitView.presentScene(scene)
-
-        setupShaderNode(size: frame.size)
         
-        scene.scaleMode = .aspectFit
+        scene.scaleMode = .aspectFill
         scene.addChild(containerNode)
     }
     
@@ -49,19 +47,21 @@ class A857CView: ArtView {
         
         guard var size = newSuperview?.frame.size else { return }
         if size == .zero {
-            size = CGSize(width: 300, height: 300)
+            size = superview?.frame.size ?? UIScreen.main.bounds.size
         }
         scene.size = size
-        setupShaderNode(size: size)
+        addShaderNode(size: size)
     }
     
-    private func setupShaderNode(size: CGSize = .zero) {
-        let shaderNode = SKSpriteNode(color: .white, size: size)
-        shaderNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        shaderNode.zPosition = 100
-        shaderNode.addShader(shader: SKShader(fileNamed: "A857CFragmentShader.fsh"))
+    private func addShaderNode(size: CGSize = .zero) {
+        let node = SKSpriteNode(color: .white, size: size)
+        node.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        node.zPosition = 100
+        
+        let shader = SKShader(fileNamed: "A857CFragmentShader.fsh")
+        node.addShader(shader: shader)
         
         containerNode.removeAllChildren()
-        containerNode.addChild(shaderNode)
+        containerNode.addChild(node)
     }
 }

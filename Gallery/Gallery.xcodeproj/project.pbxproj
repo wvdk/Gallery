@@ -49,6 +49,7 @@
 		89C3866C20F49845004BF43F /* A857CFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */; };
 		89C3866D20F49845004BF43F /* A857CFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */; };
 		89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
+		89DEC6932108DB19009858CC /* A857CFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */; };
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
@@ -687,6 +688,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89DEC6932108DB19009858CC /* A857CFragmentShader.fsh in Resources */,
 				DE293F992048F30300444EB8 /* LaunchScreen.storyboard in Resources */,
 				DE293F962048F30300444EB8 /* Assets.xcassets in Resources */,
 				89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */,
