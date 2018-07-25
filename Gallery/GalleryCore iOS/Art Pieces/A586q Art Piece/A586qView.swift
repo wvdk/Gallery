@@ -10,10 +10,12 @@ import SpriteKit
 
 class A586qView: ArtView {
     
+    // MARK: - Properties
+    
     private var scene = A586qScene()
     private let spriteKitView = SKView()
     
-    /// MARK: - Initialization
+    // MARK: - Initialization
     
     public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
         super.init(frame: frame, artPieceMetadata: artPieceMetadata)

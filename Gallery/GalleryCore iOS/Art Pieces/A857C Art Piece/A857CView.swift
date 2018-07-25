@@ -11,9 +11,13 @@ import SpriteKit
 
 class A857CView: ArtView {
 
+    // MARK: - Properties
+    
     let scene = SKScene()
     let containerNode = SKNode()
     let spriteKitView = SKView()
+    
+    // MARK: - Initialization
     
     public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
         super.init(frame: frame, artPieceMetadata: artPieceMetadata)
@@ -50,12 +54,15 @@ class A857CView: ArtView {
             size = superview?.frame.size ?? UIScreen.main.bounds.size
         }
         scene.size = size
-        addShaderNode(size: size)
+        addShaderNode(nodeSize: size)
     }
     
-    private func addShaderNode(size: CGSize = .zero) {
-        let node = SKSpriteNode(color: .white, size: size)
-        node.position = CGPoint(x: size.width / 2, y: size.height / 2)
+    // MARK: - Node appearance
+    
+    /// Adds `SKSpriteNode` with shader to the scene.
+    private func addShaderNode(nodeSize: CGSize = .zero) {
+        let node = SKSpriteNode(color: .white, size: nodeSize)
+        node.position = CGPoint(x: nodeSize.width / 2, y: nodeSize.height / 2)
         node.zPosition = 100
         
         let shader = SKShader(fileNamed: "A857CFragmentShader.fsh")

@@ -10,12 +10,12 @@
 #define lineNumber 24
 #define columnNumber 10
 
-float indexFor(float _st, float _number) {
+float indexFor(float _fragmentCoord, float _number) {
     float totalIndex = 0;
     float number = _number;
     
     while (number > 0) {
-        if (floor(_st / number) == 1) {
+        if (floor(_fragmentCoord / number) == 1) {
             return number;
         }
         number -= 1;
@@ -31,9 +31,9 @@ float time(float _time) {
     return indexFor(_time, lineNumber);
 }
 
-float tileComponent(float _st, float _zoom) {
-    _st *= _zoom;
-    return _st;
+float tileComponent(float _fragmentCoord, float _scale) {
+    _fragmentCoord *= _scale;
+    return _fragmentCoord;
 }
 
 vec3 changeColor(float _index) {
@@ -58,13 +58,6 @@ vec3 changeColor(float _index) {
     return color;
 }
 
-float box(vec2 _st, vec2 _size) {
-    _size = vec2(0.5) - _size * 0.5;
-    vec2 uv = smoothstep(_size, _size + vec2(1e-4), _st);
-    uv *= smoothstep(_size, _size + vec2(1e-4), vec2(1.0) - _st);
-    return uv.x * uv.y;
-}
-
 vec3 colorFor(float column, float row, float _time) {
     if (row == time(_time)) {
         return changeColor(column);
@@ -73,30 +66,39 @@ vec3 colorFor(float column, float row, float _time) {
     }
 }
 
+float box(vec2 _fragmentCoord, vec2 _size) {
+    _size = vec2(0.5) - _size * 0.5;
+    vec2 uv = smoothstep(_size, _size + vec2(1e-4), _fragmentCoord);
+    uv *= smoothstep(_size, _size + vec2(1e-4), vec2(1.0) - _fragmentCoord);
+    return uv.x * uv.y;
+}
+
 void main (void) {
-    vec2 iResolution = a_sprite_size.xy;
-    vec2 st = gl_FragCoord.xy / iResolution.xy;
+    vec2 size = a_sprite_size.xy;
+    vec2 fragmentCoord = gl_FragCoord.xy / size.xy;
     vec3 color = vec3(0.);
     
     // Pattern - x.
-    st.x = tileComponent(st.x, columnNumber);
-    float macroIndexX = indexFor(st.x, columnNumber);
+    fragmentCoord.x = tileComponent(fragmentCoord.x, columnNumber);
+    float macroIndexX = indexFor(fragmentCoord.x, columnNumber);
     
     // Pattern - y.
-    st.y = tileComponent(st.y, lineNumber);
-    float macroIndexY = indexFor(st.y, lineNumber);
+    fragmentCoord.y = tileComponent(fragmentCoord.y, lineNumber);
+    float macroIndexY = indexFor(fragmentCoord.y, lineNumber);
     
-    st = fract(st);
+    // Sets fragment coordinate to the fracture part of fragment cooridnate value.
+    fragmentCoord = fract(fragmentCoord);
     
     // Pattern - y.
-    st.y = tileComponent(st.y, 4);
-    float microIndexY = indexFor(st.y, lineNumber);
+    fragmentCoord.y = tileComponent(fragmentCoord.y, 4);
+    float microIndexY = indexFor(fragmentCoord.y, lineNumber);
     
-    st = fract(st);
+    // Sets fragment coordinate to the fracture part of fragment cooridnate value.
+    fragmentCoord = fract(fragmentCoord);
     
     // Draws boxes.
-    float boxDesign = box(st, vec2(0.8, 0.8));
-    float smallBoxDesign = box(st, vec2(0.2, 1));
+    float boxDesign = box(fragmentCoord, vec2(0.8, 0.8));
+    float smallBoxDesign = box(fragmentCoord, vec2(0.2, 1));
     
     // Changes color.
     if (boxDesign == 1) {
@@ -109,5 +111,6 @@ void main (void) {
         }
     }
     
+    // Sets color
     gl_FragColor = vec4(color, 1.0);
 }

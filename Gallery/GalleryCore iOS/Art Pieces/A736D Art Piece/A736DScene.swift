@@ -10,6 +10,8 @@ import SpriteKit
 
 class A736DScene: SKScene {
     
+    // MARK: - Properties
+    
     // Patern values. Updated by the startPattern___ methods.
     var whiteRectGenerationDelay: TimeInterval? = 1
     var clearScreenDelay: TimeInterval? = 1
@@ -18,7 +20,7 @@ class A736DScene: SKScene {
     lazy var moveLeft = SKAction(named: "MoveLeft")!
     lazy var moveRight = SKAction(named: "MoveRight")!
     
-    /// MARK: - Lifecycle functions
+    // MARK: - Lifecycle functions
     
     override func didMove(to view: SKView) {
         self.backgroundColor = .black
@@ -105,7 +107,7 @@ class A736DScene: SKScene {
         })
     }
     
-    /// MARK: - Drawing functions
+    // MARK: - Drawing functions
 
     func getRandomAction() -> SKAction {
         let randomActionList = [moveLeft, moveRight]
@@ -139,5 +141,4 @@ class A736DScene: SKScene {
             whiteRect.run(getRandomAction())
         }
     }
-
 }

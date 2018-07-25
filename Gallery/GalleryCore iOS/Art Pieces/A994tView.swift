@@ -11,10 +11,14 @@ import SceneKit
 
 class A994tView: ArtView {
     
+    // MARK: - Properties
+
     let scene = SCNScene()
     let containerNode = SCNNode()
     let sceneKitView = SCNView()
     
+    // MARK: - Initialization
+
     public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
         super.init(frame: frame, artPieceMetadata: artPieceMetadata)
 
@@ -62,6 +66,8 @@ class A994tView: ArtView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Node creation
+
     func scattering() {
         for i in -20...20 {
             let a = Double(i)
@@ -88,6 +94,7 @@ class A994tView: ArtView {
     func createSquareAt(x: Double, y: Double, z: Double) {
         let plane = SCNPlane(width: 0.08, height: 0.08)
         plane.firstMaterial?.diffuse.contents = UIColor.darkGray
+        
         let planeNode = SCNNode(geometry: plane)
         planeNode.position = SCNVector3(x: Float(x), y: Float(y), z: Float(z))
         

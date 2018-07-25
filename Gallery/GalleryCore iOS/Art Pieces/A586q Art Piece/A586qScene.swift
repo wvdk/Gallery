@@ -11,13 +11,15 @@ import SpriteKit
 
 class A586qScene: SKScene {
     
+    // MARK: - Properties
+    
     var whiteRectGenerationDelay: TimeInterval? = 0.75
     
     lazy var spinAndFade = SKAction(named: "SpinAndFade")!
     lazy var moveLeft = SKAction(named: "MoveLeft")!
     lazy var moveRight = SKAction(named: "MoveRight")!
     
-    /// MARK: - Lifecycle functions
+    // MARK: - Lifecycle functions
     
     override func didMove(to view: SKView) {
         self.backgroundColor = .black
@@ -32,13 +34,13 @@ class A586qScene: SKScene {
         self.removeAnyOutOfFrameChildren()
     }
     
-    /// MARK: - Scene reset
+    // MARK: - Scene reset
 
     func clearScreen() {
         self.removeAllChildren()
     }
     
-    /// MARK: - Temporal pattern functions
+    // MARK: - Temporal pattern functions
     
     func recursivelyTriggerWhiteRectGeneration(after delay: TimeInterval?) {
         guard let delay = delay else { return }
@@ -52,7 +54,7 @@ class A586qScene: SKScene {
         })
     }
     
-    /// MARK: - Drawing functions
+    // MARK: - Drawing functions
     
     func getRandomAction() -> SKAction {
         let randomActionList = [moveLeft, moveRight, spinAndFade]

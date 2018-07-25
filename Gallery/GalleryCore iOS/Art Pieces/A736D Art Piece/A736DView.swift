@@ -11,8 +11,12 @@ import SpriteKit
 
 class A736DView: ArtView {
     
+    // MARK: - Properties
+    
     var scene = A736DScene()
     let spriteKitView = SKView()
+    
+    // MARK: - Initialization
     
     public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
         super.init(frame: frame, artPieceMetadata: artPieceMetadata)
