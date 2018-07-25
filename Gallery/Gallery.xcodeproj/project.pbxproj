@@ -296,7 +296,7 @@
 			path = "A736D Art Piece";
 			sourceTree = "<group>";
 		};
-		894C691420EFC565003A5387 /* Art Piece Views */ = {
+		894C691420EFC565003A5387 /* Art Pieces */ = {
 			isa = PBXGroup;
 			children = (
 				89C3866920F49451004BF43F /* A857C Art Piece */,
@@ -305,7 +305,7 @@
 				DEA066D820C47FD700489BF8 /* A565zView.swift */,
 				894C691220EFC224003A5387 /* A994tView.swift */,
 			);
-			path = "Art Piece Views";
+			path = "Art Pieces";
 			sourceTree = "<group>";
 		};
 		894C691720EFC7CF003A5387 /* A586q Art Piece */ = {
@@ -351,7 +351,7 @@
 			children = (
 				8929F4F1204AD54C000E5179 /* IDGenerator.swift */,
 				891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */,
-				894C691420EFC565003A5387 /* Art Piece Views */,
+				894C691420EFC565003A5387 /* Art Pieces */,
 				DE39D70420B321960087788C /* ArtMetadata.swift */,
 				DE72BB9F20B8645400576999 /* ArtView.swift */,
 				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
