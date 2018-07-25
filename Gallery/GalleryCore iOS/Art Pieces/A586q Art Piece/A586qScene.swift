@@ -6,7 +6,6 @@
 //  Copyright © 2018 Gallery of Generative Art. All rights reserved.
 //
 
-import UIKit
 import SpriteKit
 
 class A586qScene: SKScene {
