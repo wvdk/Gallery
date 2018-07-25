@@ -11,10 +11,13 @@ import GalleryCore_tvOS
 
 class MainViewController: UIViewController {
 
+    lazy var collectionViewTopConstrain = 113 / 1080 * self.view.frame.size.height
+    lazy var collectionViewBottomConstrain = 140 / 1080 * self.view.frame.size.height
+    lazy var collectionViewHeightConstrain = 827 / 1080 * self.view.frame.size.height
+    lazy var collectionViewWidthConstrain = 1458 / 1920 * self.view.frame.size.width
+
     // MARK: - Properties
     
-    let collectionViewCellIdentifier = "collectionCell"
-
     var collectionView: UICollectionView?
     
     // MARK: - Lifecycle functions
@@ -29,8 +32,8 @@ class MainViewController: UIViewController {
         self.view.addSubview(collectionView)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 113).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -140).isActive = true
+        collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: collectionViewTopConstrain).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -collectionViewBottomConstrain).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         
@@ -44,12 +47,17 @@ class MainViewController: UIViewController {
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 2
+        layout.minimumInteritemSpacing = 0
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellIdentifier)
-        collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
+        collectionView?.register(ArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: ArtPieceCollectionViewCell.identifier)
+        collectionView?.decelerationRate = UIScrollViewDecelerationRateNormal
         collectionView?.delegate = self
         collectionView?.dataSource = self
+        
+        collectionView?.allowsSelection = true
+        collectionView?.allowsMultipleSelection = false
         
         collectionView?.backgroundColor = .black
     }
