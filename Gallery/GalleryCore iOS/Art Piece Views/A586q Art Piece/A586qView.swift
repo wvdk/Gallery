@@ -12,7 +12,6 @@ class A586qView: ArtView {
     
     private var scene = A586qScene()
     private let spriteKitView = SKView()
-    private let containerNode = SKNode()
     
     /// MARK: - Initialization
     
@@ -31,9 +30,7 @@ class A586qView: ArtView {
         spriteKitView.ignoresSiblingOrder = true
         spriteKitView.showsFPS = false
         spriteKitView.showsNodeCount = false
-        
-        scene.addChild(containerNode)
-        
+
         spriteKitView.presentScene(scene)
     }
     
