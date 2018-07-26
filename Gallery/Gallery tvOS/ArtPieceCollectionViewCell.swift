@@ -18,7 +18,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     var myNumber: Int? {
         didSet {
-            label.text = "\(myNumber)"
+            label.text = "ART \(myNumber!)"
         }
     }
     

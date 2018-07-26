@@ -45,9 +45,9 @@ class MainViewController: UIViewController {
         collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         
-        let menuTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.back))
-        menuTapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)];
-        view.addGestureRecognizer(menuTapRecognizer)
+//        let menuTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.back))
+//        menuTapRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)];
+//        view.addGestureRecognizer(menuTapRecognizer)
     }
     
     // MARK: - Collection view setup
@@ -72,9 +72,5 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - App control
-    
-    /// Close the App.
-    @objc func back() {
-        exit(EXIT_SUCCESS)
-    }
+
 }
