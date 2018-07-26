@@ -18,30 +18,28 @@ extension MainViewController: UICollectionViewDelegate {
         return 1
     }
     
-//    func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool {
-//        guard let indexPaths = collectionView.indexPathsForSelectedItems else {
-//            return true
-//        }
-//        return indexPaths.isEmpty
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-//        guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {
-//            return true
-//        }
-//        collectionView.deselectItem(at: indexPath, animated: true)
-//        return false
-//    }
+    func collectionView(_ collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool {
+        if collectionView.indexPathsForSelectedItems != nil, let focusedCell = context.nextFocusedView as? ArtPieceCollectionViewCell {
+            focusedCell.alpha = 1
+        }
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        if let focusedCell = context.previouslyFocusedView as? ArtPieceCollectionViewCell {
+            coordinator.addCoordinatedAnimations({
+                focusedCell.alpha = 0.5
+            })
+        }
+    }
 }
 
 extension MainViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionViewCell.identifier, for: indexPath) as! ArtPieceCollectionViewCell
+        
+        cell.alpha = 0.5
         
 //        cell.piece = MasterList.shared.activePieces[indexPath.row]
         

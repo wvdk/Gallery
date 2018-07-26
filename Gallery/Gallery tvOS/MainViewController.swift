@@ -42,30 +42,6 @@ class MainViewController: UIViewController {
         view.addGestureRecognizer(menuTapRecognizer)
     }
     
-    // MARK: - MainViewController focus coordination
-    
-    override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
-        super.shouldUpdateFocus(in: context)
-        
-        if let focusedCell = context.nextFocusedView as? ArtPieceCollectionViewCell {
-            focusedCell.alpha = 0.5
-        }
-        
-        return true
-    }
-    
-    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        super.didUpdateFocus(in: context, with: coordinator)
-        
-        if let focusedCell = context.previouslyFocusedView as? ArtPieceCollectionViewCell {
-            coordinator.addCoordinatedAnimations({
-                focusedCell.alpha = 1
-            }, completion: {
-                return
-            })
-        }
-    }
-    
     // MARK: - Collection view setup
     
     private func setupCollectionView() {
