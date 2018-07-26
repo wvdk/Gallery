@@ -20,6 +20,13 @@ class MainViewController: UIViewController {
     
     var collectionView: UICollectionView?
     
+    //    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+    //        guard let collectionView = collectionView else {
+    //            return []
+    //        }
+    //        return [collectionView]
+    //    }
+    
     // MARK: - Lifecycle functions
     
     override func viewDidLoad() {
@@ -56,10 +63,12 @@ class MainViewController: UIViewController {
         collectionView?.delegate = self
         collectionView?.dataSource = self
         
+//        collectionView?.remembersLastFocusedIndexPath = false
+        
         collectionView?.allowsSelection = true
         collectionView?.allowsMultipleSelection = false
         
-        collectionView?.backgroundColor = .black
+//        collectionView?.backgroundColor = .black
     }
     
     // MARK: - App control

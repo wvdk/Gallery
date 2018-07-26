@@ -18,20 +18,24 @@ extension MainViewController: UICollectionViewDelegate {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool {
-        if collectionView.indexPathsForSelectedItems != nil, let focusedCell = context.nextFocusedView as? ArtPieceCollectionViewCell {
-            focusedCell.alpha = 1
-        }
-        return true
+    func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath? {
+        return IndexPath(item: 0, section: 0)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        if let focusedCell = context.previouslyFocusedView as? ArtPieceCollectionViewCell {
-            coordinator.addCoordinatedAnimations({
-                focusedCell.alpha = 0.5
-            })
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool {
+//        if collectionView.indexPathsForSelectedItems != nil, let focusedCell = context.nextFocusedView as? ArtPieceCollectionViewCell {
+//            focusedCell.alpha = 1
+//        }
+//        return true
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+//        if let focusedCell = context.previouslyFocusedView as? ArtPieceCollectionViewCell {
+//            coordinator.addCoordinatedAnimations({
+//                focusedCell.alpha = 0.5
+//            })
+//        }
+//    }
 }
 
 extension MainViewController: UICollectionViewDataSource {
@@ -40,7 +44,8 @@ extension MainViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionViewCell.identifier, for: indexPath) as! ArtPieceCollectionViewCell
         
         cell.alpha = 0.5
-        
+        cell.myNumber = indexPath.item
+                
 //        cell.piece = MasterList.shared.activePieces[indexPath.row]
         
         return cell
