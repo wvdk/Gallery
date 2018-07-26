@@ -52,6 +52,6 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionViewWidthConstrain, height: collectionViewHeightConstrain - 50)
+        return CGSize(width: collectionViewCellWidthConstrain, height: collectionViewHeightConstrain - 100)
     }
 }

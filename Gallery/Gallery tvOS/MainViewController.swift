@@ -11,12 +11,12 @@ import GalleryCore_tvOS
 
 class MainViewController: UIViewController {
 
+    // MARK: - Properties
+
     lazy var collectionViewTopConstrain = 113 / 1080 * self.view.frame.size.height
     lazy var collectionViewBottomConstrain = 140 / 1080 * self.view.frame.size.height
     lazy var collectionViewHeightConstrain = 827 / 1080 * self.view.frame.size.height
-    lazy var collectionViewWidthConstrain = 1458 / 1920 * self.view.frame.size.width
-
-    // MARK: - Properties
+    lazy var collectionViewCellWidthConstrain = 1458 / 1920 * self.view.frame.size.width
     
     var collectionView: UICollectionView?
     
@@ -42,12 +42,36 @@ class MainViewController: UIViewController {
         view.addGestureRecognizer(menuTapRecognizer)
     }
     
+    // MARK: - MainViewController focus coordination
+    
+    override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
+        super.shouldUpdateFocus(in: context)
+        
+        if let focusedCell = context.nextFocusedView as? ArtPieceCollectionViewCell {
+            focusedCell.alpha = 0.5
+        }
+        
+        return true
+    }
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        super.didUpdateFocus(in: context, with: coordinator)
+        
+        if let focusedCell = context.previouslyFocusedView as? ArtPieceCollectionViewCell {
+            coordinator.addCoordinatedAnimations({
+                focusedCell.alpha = 1
+            }, completion: {
+                return
+            })
+        }
+    }
+    
     // MARK: - Collection view setup
     
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 2
+        layout.minimumLineSpacing = 50
         layout.minimumInteritemSpacing = 0
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
@@ -69,4 +93,3 @@ class MainViewController: UIViewController {
         exit(EXIT_SUCCESS)
     }
 }
-
