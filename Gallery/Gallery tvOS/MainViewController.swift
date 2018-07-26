@@ -17,7 +17,8 @@ class MainViewController: UIViewController {
     lazy var collectionViewBottomConstrain = 140 / 1080 * self.view.frame.size.height
     lazy var collectionViewHeightConstrain = 827 / 1080 * self.view.frame.size.height
     lazy var collectionViewCellWidthConstrain = 1458 / 1920 * self.view.frame.size.width
-    
+    lazy var collectionViewLeftEdgeInset = (self.view.frame.size.width - collectionViewCellWidthConstrain) / 2
+
     var collectionView: UICollectionView?
     
     //    override var preferredFocusEnvironments: [UIFocusEnvironment] {
@@ -62,9 +63,7 @@ class MainViewController: UIViewController {
         collectionView?.decelerationRate = UIScrollViewDecelerationRateNormal
         collectionView?.delegate = self
         collectionView?.dataSource = self
-        
-//        collectionView?.remembersLastFocusedIndexPath = false
-        
+                
         collectionView?.isScrollEnabled = false
         collectionView?.allowsSelection = true
         collectionView?.allowsMultipleSelection = false
