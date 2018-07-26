@@ -1,15 +1,16 @@
 //
-//  PatternOneScene.swift
-//  a.2
+//  A586qScene.swift
+//  GalleryCore iOS
 //
-//  Created by Wesley Van der Klomp on 1/7/18.
-//  Copyright © 2018 Wesley Van der Klomp. All rights reserved.
+//  Created by Kristina Gelzinyte on 7/7/18.
+//  Copyright © 2018 Gallery of Generative Art. All rights reserved.
 //
 
 import SpriteKit
-import GalleryCore_iOS
 
-class PatternOneScene: SKScene {
+class A586qScene: SKScene {
+    
+    // MARK: - Properties
     
     var whiteRectGenerationDelay: TimeInterval? = 0.75
     
@@ -17,11 +18,12 @@ class PatternOneScene: SKScene {
     lazy var moveLeft = SKAction(named: "MoveLeft")!
     lazy var moveRight = SKAction(named: "MoveRight")!
     
-    /// MARK: - Lifecycle functions
+    // MARK: - Lifecycle functions
     
     override func didMove(to view: SKView) {
         self.backgroundColor = .black
-        
+        self.scaleMode = .aspectFill
+
         self.recursivelyTriggerWhiteRectGeneration(after: whiteRectGenerationDelay)
     }
     
@@ -29,6 +31,12 @@ class PatternOneScene: SKScene {
         super.update(currentTime)
         
         self.removeAnyOutOfFrameChildren()
+    }
+    
+    // MARK: - Scene reset
+
+    func clearScreen() {
+        self.removeAllChildren()
     }
     
     // MARK: - Temporal pattern functions
@@ -45,7 +53,7 @@ class PatternOneScene: SKScene {
         })
     }
     
-    /// MARK: - Drawing functions
+    // MARK: - Drawing functions
     
     func getRandomAction() -> SKAction {
         let randomActionList = [moveLeft, moveRight, spinAndFade]
@@ -69,5 +77,4 @@ class PatternOneScene: SKScene {
             whiteRect.run(getRandomAction())
         }
     }
-    
 }

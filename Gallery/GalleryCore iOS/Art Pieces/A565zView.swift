@@ -15,13 +15,16 @@ import ArtKit_iOS
 import ArtKit_tvOS
 #endif
 
-
 public class A565zView: ArtView {
+    
+    // MARK: - Properties
     
     private let sceneKitView = SCNView()
     private let scene = SCNScene()
     private let containerNode = SCNNode()
     
+    // MARK: - Initialization
+
     public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
         super.init(frame: frame, artPieceMetadata: artPieceMetadata)
         
@@ -51,11 +54,13 @@ public class A565zView: ArtView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Node creation
+    
     private func createNodeAtCenter() {
         let plane = SCNPlane(width: 3, height: 3)
         plane.firstMaterial?.diffuse.contents = UIColor.darkGray
-        let planeNode = SCNNode(geometry: plane)
         
+        let planeNode = SCNNode(geometry: plane)
         planeNode.position = SCNVector3(x: containerNode.boundingBox.max.x,
                                         y: containerNode.boundingBox.max.y,
                                         z: Float(1))
@@ -65,5 +70,4 @@ public class A565zView: ArtView {
         
         containerNode.addChildNode(planeNode)
     }
-    
 }

@@ -1,5 +1,5 @@
 //
-//  a994tViewController.swift
+//  A994tView.swift
 //  Gallery
 //
 //  Created by Wesley Van der Klomp on 3/25/18.
@@ -8,22 +8,26 @@
 
 import UIKit
 import SceneKit
-import GalleryCore_iOS
 
-class a994tViewController: ArtPieceDetailViewController {
+class A994tView: ArtView {
     
+    // MARK: - Properties
+
     let scene = SCNScene()
     let containerNode = SCNNode()
     let sceneKitView = SCNView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    // MARK: - Initialization
+
+    public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
+        super.init(frame: frame, artPieceMetadata: artPieceMetadata)
+
+        tag = 124
+
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         scene.rootNode.addChildNode(cameraNode)
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
-        
         
         let lightNode = SCNNode()
         lightNode.light = SCNLight()
@@ -31,18 +35,18 @@ class a994tViewController: ArtPieceDetailViewController {
         lightNode.position = SCNVector3(x: 0, y: 10, z: 10)
         scene.rootNode.addChildNode(lightNode)
         
-        sceneKitView.with { it in
-            it.scene = scene
-            it.allowsCameraControl = false
-            it.backgroundColor = UIColor.white
-            view.addSubview(it)
-            it.frame = view.frame
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-            it.addGestureRecognizer(tapGesture)
-        }
+        sceneKitView.allowsCameraControl = false
+        sceneKitView.backgroundColor = UIColor.white
+        
+        addSubview(sceneKitView)
+        sceneKitView.translatesAutoresizingMaskIntoConstraints = false
+        sceneKitView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        sceneKitView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        sceneKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        sceneKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        sceneKitView.scene = scene
         
         scene.rootNode.addChildNode(containerNode)
-        
         
         //        let rotate = SCNAction.rotate(by: 5.0, around: SCNVector3(0, 10, 0), duration: 4.0)
         //        let rotate = SCNAction.rotateBy(x: 1, y: 0, z: 0, duration: 2)
@@ -58,6 +62,12 @@ class a994tViewController: ArtPieceDetailViewController {
         }
     }
     
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Node creation
+
     func scattering() {
         for i in -20...20 {
             let a = Double(i)
@@ -84,6 +94,7 @@ class a994tViewController: ArtPieceDetailViewController {
     func createSquareAt(x: Double, y: Double, z: Double) {
         let plane = SCNPlane(width: 0.08, height: 0.08)
         plane.firstMaterial?.diffuse.contents = UIColor.darkGray
+        
         let planeNode = SCNNode(geometry: plane)
         planeNode.position = SCNVector3(x: Float(x), y: Float(y), z: Float(z))
         
@@ -99,60 +110,4 @@ class a994tViewController: ArtPieceDetailViewController {
         
         containerNode.addChildNode(planeNode)
     }
-    
-    @objc
-    func handleTap(_ gestureRecognize: UIGestureRecognizer) {
-        // check what nodes are tapped
-        let p = gestureRecognize.location(in: sceneKitView)
-        let hitResults = sceneKitView.hitTest(p, options: [:])
-        // check that we clicked on at least one object
-        if hitResults.count > 0 {
-            // retrieved the first clicked object
-            let result = hitResults[0]
-            
-            // get its material
-            let material = result.node.geometry!.firstMaterial!
-            
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.animationDuration = 0.5
-            
-            // on completion - unhighlight
-            SCNTransaction.completionBlock = {
-                SCNTransaction.begin()
-                SCNTransaction.animationDuration = 0.5
-                
-                material.emission.contents = UIColor.black
-                
-                SCNTransaction.commit()
-            }
-            
-            material.emission.contents = UIColor.red
-            
-            SCNTransaction.commit()
-        }
-    }
-    
-    override var shouldAutorotate: Bool {
-        return true
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-    
 }
-
