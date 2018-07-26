@@ -65,6 +65,7 @@ class MainViewController: UIViewController {
         
 //        collectionView?.remembersLastFocusedIndexPath = false
         
+        collectionView?.isScrollEnabled = false
         collectionView?.allowsSelection = true
         collectionView?.allowsMultipleSelection = false
         

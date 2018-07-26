@@ -28,14 +28,18 @@ extension MainViewController: UICollectionViewDelegate {
 //        }
 //        return true
 //    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+//
+    func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
 //        if let focusedCell = context.previouslyFocusedView as? ArtPieceCollectionViewCell {
 //            coordinator.addCoordinatedAnimations({
 //                focusedCell.alpha = 0.5
 //            })
 //        }
-//    }
+        
+        if context.nextFocusedIndexPath != nil && !collectionView.isScrollEnabled {
+            collectionView.scrollToItem(at: context.nextFocusedIndexPath!, at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
+        }
+    }
 }
 
 extension MainViewController: UICollectionViewDataSource {
