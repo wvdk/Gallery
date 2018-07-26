@@ -7,9 +7,10 @@
 //
 
 import SpriteKit
-import GalleryCore_iOS
 
-class GameScene: SKScene {
+class A736DScene: SKScene {
+    
+    // MARK: - Properties
     
     // Patern values. Updated by the startPattern___ methods.
     var whiteRectGenerationDelay: TimeInterval? = 1
@@ -19,12 +20,12 @@ class GameScene: SKScene {
     lazy var moveLeft = SKAction(named: "MoveLeft")!
     lazy var moveRight = SKAction(named: "MoveRight")!
     
-    /// MARK: - Lifecycle functions
+    // MARK: - Lifecycle functions
     
     override func didMove(to view: SKView) {
         self.backgroundColor = .black
-        
-        
+        self.scaleMode = .aspectFill
+
         self.startPatternOne()
         
 //        start({ [weak self] in
@@ -106,7 +107,7 @@ class GameScene: SKScene {
         })
     }
     
-    /// MARK: - Drawing functions
+    // MARK: - Drawing functions
 
     func getRandomAction() -> SKAction {
         let randomActionList = [moveLeft, moveRight]
@@ -140,5 +141,4 @@ class GameScene: SKScene {
             whiteRect.run(getRandomAction())
         }
     }
-
 }
