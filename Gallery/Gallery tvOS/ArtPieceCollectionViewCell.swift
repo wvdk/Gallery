@@ -38,7 +38,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        self.alpha = self.isFocused ? 1 : 0.5
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        self.alpha = 0.5
     }
 }
