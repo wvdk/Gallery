@@ -53,6 +53,8 @@
 		89DEC69621091C2B009858CC /* MainViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC69421091C25009858CC /* MainViewController+UICollectionViewDelegate.swift */; };
 		89DEC6B6210933DB009858CC /* ArtPieceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC6B5210933DB009858CC /* ArtPieceCollectionViewCell.swift */; };
 		89DEC6B7210A7B30009858CC /* SKSpriteNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */; };
+		89DEC6BF210BA20B009858CC /* FocusedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC6BB210BA1AB009858CC /* FocusedLabel.swift */; };
+		89DEC6C0210BA210009858CC /* FocusedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC6B8210B9C10009858CC /* FocusedImageView.swift */; };
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
@@ -168,6 +170,8 @@
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		89DEC69421091C25009858CC /* MainViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		89DEC6B5210933DB009858CC /* ArtPieceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceCollectionViewCell.swift; sourceTree = "<group>"; };
+		89DEC6B8210B9C10009858CC /* FocusedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedImageView.swift; sourceTree = "<group>"; };
+		89DEC6BB210BA1AB009858CC /* FocusedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedLabel.swift; sourceTree = "<group>"; };
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = A857CFragmentShader.fsh; sourceTree = "<group>"; };
 		9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,6 +291,8 @@
 				89134E1720E80C1300772E7F /* MainViewController.swift */,
 				89DEC69421091C25009858CC /* MainViewController+UICollectionViewDelegate.swift */,
 				89DEC6B5210933DB009858CC /* ArtPieceCollectionViewCell.swift */,
+				89DEC6BB210BA1AB009858CC /* FocusedLabel.swift */,
+				89DEC6B8210B9C10009858CC /* FocusedImageView.swift */,
 				89134E1C20E80C1500772E7F /* Assets.xcassets */,
 				89134E1E20E80C1500772E7F /* Info.plist */,
 			);
@@ -819,6 +825,8 @@
 			files = (
 				89134E1820E80C1300772E7F /* MainViewController.swift in Sources */,
 				89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */,
+				89DEC6C0210BA210009858CC /* FocusedImageView.swift in Sources */,
+				89DEC6BF210BA20B009858CC /* FocusedLabel.swift in Sources */,
 				89DEC6B6210933DB009858CC /* ArtPieceCollectionViewCell.swift in Sources */,
 				89DEC69621091C2B009858CC /* MainViewController+UICollectionViewDelegate.swift in Sources */,
 			);
