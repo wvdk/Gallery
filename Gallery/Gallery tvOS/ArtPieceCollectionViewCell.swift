@@ -24,13 +24,8 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
             label.text = "ART \(myNumber!)"
         }
     }
-    
 
     // MARK: - UICollectionViewCell focus setup
-    
-//    override var preferredFocusEnvironments: [UIFocusEnvironment] {
-//        return [imageView]
-//    }
     
     override var canBecomeFocused: Bool {
         return false
@@ -74,15 +69,13 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - UICollectionViewCell layout setup
+    // MARK: - Layout update
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         self.alpha = 0.5
     }
-    
-    private var viewToRemember: UIView?
-    
+        
     // MARK: - UIFocusEnvironment update
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
