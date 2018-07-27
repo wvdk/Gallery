@@ -31,6 +31,8 @@ extension MainViewController: UICollectionViewDelegate {
             return
         }
         
+        collectionView.scrollToItem(at: nextFocusedIndexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
+        
         if let nextFocusedItem = context.nextFocusedItem,
             let focusedCell = collectionView.cellForItem(at: nextFocusedIndexPath),
             focusedCell.contains(nextFocusedItem),
@@ -50,10 +52,6 @@ extension MainViewController: UICollectionViewDelegate {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
                 unfocusedCell.alpha = 0.5
             }, completion: nil)
-        }
-        
-        if context.nextFocusedIndexPath != nil && !collectionView.isScrollEnabled {
-            collectionView.scrollToItem(at: context.nextFocusedIndexPath!, at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
         }
     }
 }
