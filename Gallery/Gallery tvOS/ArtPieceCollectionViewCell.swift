@@ -45,7 +45,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
                                            size: CGSize(width: 300, height: 300)))
         
         imageView = FocusedImageView(frame: CGRect(origin: CGPoint(x: 500, y: 100),
-                                                   size: CGSize(width: 700, height: 300)))
+                                                   size: CGSize(width: 700, height: 500)))
         
         super.init(frame: frame)
         
@@ -64,10 +64,10 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
       
         self.addLayoutGuide(focusGuide)
         
-        focusGuide.leadingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
-        focusGuide.topAnchor.constraint(equalTo: button.topAnchor).isActive = true
-        focusGuide.widthAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
-        focusGuide.heightAnchor.constraint(equalTo: button.heightAnchor).isActive = true
+        focusGuide.leadingAnchor.constraint(equalTo: button.trailingAnchor).isActive = true
+        focusGuide.trailingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
+        focusGuide.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
+        focusGuide.bottomAnchor.constraint(equalTo: button.bottomAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -87,53 +87,16 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         super.didUpdateFocus(in: context, with: coordinator)
-
-        let debugView = FocusGuideDebugView(focusGuide: focusGuide)
-        self.addSubview(debugView)
-                
         
         guard let nextFocusedView = context.nextFocusedView, let previouslyFocusedView = context.previouslyFocusedView else { return }
         
-//        if nextFocusedView == imageView {
-//            viewToRemember = previouslyFocusedView
-//        }
-//
-//        switch previouslyFocusedView {
-//        case imageView:
-//            if let viewToRemember = viewToRemember {
-//                focusGuide.preferredFocusEnvironments = [viewToRemember]
-//                self.viewToRemember = nil
-//            }
-//
-//        case button:
-//            focusGuide.preferredFocusEnvironments = [imageView]
-//
-//        default:
-//            focusGuide.preferredFocusEnvironments = []
-//        }
-        
-      
         switch nextFocusedView {
         case imageView:
-            focusGuide.preferredFocusEnvironments = [button]
+            focusGuide.preferredFocusEnvironments = [previouslyFocusedView]
         case button:
             focusGuide.preferredFocusEnvironments = [imageView]
         default:
             focusGuide.preferredFocusEnvironments = []
         }
-    }
-}
-
-class FocusGuideDebugView: UIView {
-    
-    init(focusGuide: UIFocusGuide) {
-        super.init(frame: focusGuide.layoutFrame)
-        backgroundColor = UIColor.green.withAlphaComponent(0.15)
-        layer.borderColor = UIColor.green.withAlphaComponent(0.3).cgColor
-        layer.borderWidth = 1
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        return nil
     }
 }
