@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
 
     // MARK: - Properties
 
-    lazy var collectionViewTopConstrain = 113 / 1080 * self.view.frame.size.height
+    lazy var collectionViewTopConstrain = 112 / 1080 * self.view.frame.size.height
     lazy var collectionViewBottomConstrain = 140 / 1080 * self.view.frame.size.height
     lazy var collectionViewHeightConstrain = 827 / 1080 * self.view.frame.size.height
     lazy var collectionViewCellWidthConstrain = 1458 / 1920 * self.view.frame.size.width
@@ -48,7 +48,7 @@ class MainViewController: UIViewController {
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 50
+        layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)

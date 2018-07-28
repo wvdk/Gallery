@@ -18,6 +18,10 @@ class FocusedImageView: UIImageView {
     
     // MARK: - Initialization
     
+    convenience init() {
+        self.init(frame: .zero)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

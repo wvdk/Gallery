@@ -12,11 +12,17 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
+    lazy var artPieceSize = CGSize(width: 880 / 1458 * self.frame.size.width,
+                                   height: 497 / 829 * self.frame.size.height)
+    lazy var artPieceTopEdgeInset = 147 / 829 * self.frame.size.height
+    lazy var artPieceTrailingEdgeInset = 51 / 1458 * self.frame.size.width
+    
     static let identifier = "ArtPieceCollectionViewCellIdentifier"
     
-    private var focusGuide: UIFocusGuide
+    private var artPieceFocusGuide: UIFocusGuide
+    private let artPieceImageView: FocusedImageView
+    
     private let label: FocusedLabel
-    private let imageView: FocusedImageView
     private let button = UIButton.init(type: .system)
 
     var myNumber: Int? {
@@ -34,35 +40,39 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     // MARK: - Initialization
     
     override init(frame: CGRect) {
-        focusGuide = UIFocusGuide()
+        artPieceFocusGuide = UIFocusGuide()
+        artPieceImageView = FocusedImageView()
 
-        label = FocusedLabel(frame: CGRect(origin: CGPoint(x: 100, y: 100),
+        label = FocusedLabel(frame: CGRect(origin: CGPoint(x: 200, y: 100),
                                            size: CGSize(width: 300, height: 300)))
         
-        imageView = FocusedImageView(frame: CGRect(origin: CGPoint(x: 500, y: 100),
-                                                   size: CGSize(width: 700, height: 500)))
         
         super.init(frame: frame)
         
-        //        self.backgroundColor = .red
-       
-        imageView.image = UIImage(named: "cell")
+        self.backgroundColor = .red
+        artPieceImageView.image = UIImage(named: "cell")
         
         button.setTitle("the but", for: .normal)
-        button.frame = CGRect(origin: CGPoint(x: 100, y: 500),
+        button.frame = CGRect(origin: CGPoint(x: 100, y: 400),
                               size: CGSize(width: 300, height: 100))
         
-        self.addSubview(imageView)
         self.addSubview(label)
         self.addSubview(button)
         
-      
-        self.addLayoutGuide(focusGuide)
+        self.addSubview(artPieceImageView)
+        self.addLayoutGuide(artPieceFocusGuide)
         
-        focusGuide.leadingAnchor.constraint(equalTo: button.trailingAnchor).isActive = true
-        focusGuide.trailingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
-        focusGuide.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
-        focusGuide.bottomAnchor.constraint(equalTo: button.bottomAnchor).isActive = true
+        artPieceImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        artPieceImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: artPieceTopEdgeInset).isActive = true
+        artPieceImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -artPieceTrailingEdgeInset).isActive = true
+        artPieceImageView.heightAnchor.constraint(equalToConstant: artPieceSize.height).isActive = true
+        artPieceImageView.widthAnchor.constraint(equalToConstant: artPieceSize.width).isActive = true
+        
+        artPieceFocusGuide.topAnchor.constraint(equalTo: artPieceImageView.topAnchor).isActive = true
+        artPieceFocusGuide.trailingAnchor.constraint(equalTo: artPieceImageView.leadingAnchor).isActive = true
+        artPieceFocusGuide.bottomAnchor.constraint(equalTo: button.bottomAnchor).isActive = true
+        artPieceFocusGuide.leadingAnchor.constraint(equalTo: button.trailingAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -84,12 +94,12 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         guard let nextFocusedView = context.nextFocusedView, let previouslyFocusedView = context.previouslyFocusedView else { return }
         
         switch nextFocusedView {
-        case imageView:
-            focusGuide.preferredFocusEnvironments = [previouslyFocusedView]
+        case artPieceImageView:
+            artPieceFocusGuide.preferredFocusEnvironments = [previouslyFocusedView]
         case button:
-            focusGuide.preferredFocusEnvironments = [imageView]
+            artPieceFocusGuide.preferredFocusEnvironments = [artPieceImageView]
         default:
-            focusGuide.preferredFocusEnvironments = []
+            artPieceFocusGuide.preferredFocusEnvironments = []
         }
     }
 }
