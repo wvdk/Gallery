@@ -91,13 +91,11 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         super.didUpdateFocus(in: context, with: coordinator)
         
-        guard let nextFocusedView = context.nextFocusedView, let previouslyFocusedView = context.previouslyFocusedView else { return }
+        guard let nextFocusedView = context.nextFocusedView else { return }
         
         switch nextFocusedView {
         case artPieceImageView:
-            artPieceFocusGuide.preferredFocusEnvironments = [previouslyFocusedView]
-        case button:
-            artPieceFocusGuide.preferredFocusEnvironments = [artPieceImageView]
+            artPieceFocusGuide.preferredFocusEnvironments = [label]
         default:
             artPieceFocusGuide.preferredFocusEnvironments = []
         }
