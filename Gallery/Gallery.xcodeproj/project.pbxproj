@@ -14,6 +14,8 @@
 		891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		89278ECC210F8AEC00CEEB3C /* DescriptionLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */; };
+		89278ED1210FB33200CEEB3C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */; };
+		89278ED2210FB33200CEEB3C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */; };
 		892F534921067D1300AC8C45 /* ArtKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; };
 		892F534A21067D1300AC8C45 /* ArtKit_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		892F534E2107A5E600AC8C45 /* SKSpriteNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */; };
@@ -156,6 +158,7 @@
 		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabels.swift; sourceTree = "<group>"; };
+		89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		8929F4F1204AD54C000E5179 /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
 		892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+Extension.swift"; sourceTree = "<group>"; };
 		89485BCC20F29EF500046753 /* A736DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A736DView.swift; sourceTree = "<group>"; };
@@ -432,6 +435,7 @@
 				DE332B79205B852600C40727 /* SKNode+Extensions.swift */,
 				892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */,
 				DE332B75205B7F3E00C40727 /* UIView+Extensions.swift */,
+				89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */,
 				DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */,
 				DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */,
 				DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */,
@@ -895,6 +899,7 @@
 			files = (
 				DE332B74205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift in Sources */,
 				DE293FB420490E2000444EB8 /* NSObject+Extensions.swift in Sources */,
+				89278ED1210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,
 				89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */,
 				DE332B7E205B856800C40727 /* GlobalFunctions.swift in Sources */,
 				DE332B7A205B852600C40727 /* SKNode+Extensions.swift in Sources */,
@@ -911,6 +916,7 @@
 			files = (
 				DEDB687F20E946EE00D102EB /* CustomOperators.swift in Sources */,
 				DEDB688220E946EE00D102EB /* SKNode+Extensions.swift in Sources */,
+				89278ED2210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,
 				DEDB688520E946EE00D102EB /* NSObject+Extensions.swift in Sources */,
 				DEDB688620E946EE00D102EB /* UIColor+Extensions.swift in Sources */,
 				DEDB688320E946EE00D102EB /* UIView+Extensions.swift in Sources */,
