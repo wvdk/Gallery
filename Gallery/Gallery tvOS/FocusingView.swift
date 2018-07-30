@@ -13,6 +13,8 @@ class FocusingView: UIView {
     
     // MARK: - Properties
     
+    private let containerView = UIView()
+    
     override var canBecomeFocused: Bool {
         return true
     }
@@ -24,8 +26,17 @@ class FocusingView: UIView {
         
         self.isUserInteractionEnabled = true
         
-//        self.layer.masksToBounds = true
-//        self.layer.cornerRadius = 8
+        self.addSubview(containerView)
+        
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        containerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        
+        containerView.layer.masksToBounds = true
+        containerView.layer.cornerRadius = 8
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,16 +46,14 @@ class FocusingView: UIView {
     // MARK: - Subviews
     
     func addSubview(artView: ArtView) {
-//        artView.clipsToBounds = true
-
-        self.addSubview(artView)
+        containerView.addSubview(artView)
         
         artView.translatesAutoresizingMaskIntoConstraints = false
         
-        artView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        artView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        artView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        artView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        artView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        artView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        artView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        artView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
     }
     
     // MARK: - Focus updates
