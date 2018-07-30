@@ -12,26 +12,45 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    lazy var artPieceSize = CGSize(width: 880 / 1458 * self.frame.size.width,
-                                   height: 497 / 829 * self.frame.size.height)
+    lazy var artPieceSize = CGSize(width: 880 / 1458 * self.frame.size.width, height: 497 / 829 * self.frame.size.height)
     lazy var artPieceTopEdgeInset = 147 / 829 * self.frame.size.height
     lazy var artPieceTrailingEdgeInset = 51 / 1458 * self.frame.size.width
+    lazy var purchaseButtonHeight = 60 / 829 * self.frame.size.height
     
     static let identifier = "ArtPieceCollectionViewCellIdentifier"
     
-    private var labelFocusGuide: UIFocusGuide
-    private var artPieceFocusGuide: UIFocusGuide
-    private let artPieceImageView: FocusedImageView
+    private var labelFocusGuide = UIFocusGuide()
+    private var artPieceFocusGuide = UIFocusGuide()
     
-    private let label: FocusedLabel
-    private let button = UIButton.init(type: .system)
+    private let artPieceImageView = FocusedImageView()
+    
+    private let purchaseButton = UIButton(type: .system)
+    
+    private let authorNameLabel = UILabel()
+    private let titleLabel = UILabel()
+    private let dateLabel = UILabel()
+    private let descriptionLabel = UILabel()
+    private let descriptionExpandingLabel = FocusedLabel()
 
+    private func setupDescriptionStackView() -> UIStackView {
+        let labelViews = [authorNameLabel, titleLabel, dateLabel, descriptionLabel]
+        let stackView = UIStackView(arrangedSubviews: labelViews)
+        
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 30
+        stackView.alignment = .trailing
+        
+        return stackView
+    }
+    
     var myNumber: Int? {
         didSet {
-            label.text = "ART \(myNumber!)"
+            descriptionExpandingLabel.text = "ART \(myNumber!)"
         }
     }
 
+    
     // MARK: - UICollectionViewCell focus setup
     
     override var canBecomeFocused: Bool {
@@ -41,47 +60,45 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     // MARK: - Initialization
     
     override init(frame: CGRect) {
-        labelFocusGuide = UIFocusGuide()
-        artPieceFocusGuide = UIFocusGuide()
-        artPieceImageView = FocusedImageView()
-        
-        label = FocusedLabel(frame: CGRect(origin: CGPoint(x: 200, y: 100),
-                                           size: CGSize(width: 300, height: 300)))
-        
-        
         super.init(frame: frame)
         
         self.backgroundColor = .red
         artPieceImageView.image = UIImage(named: "cell")
+        purchaseButton.setTitle("$99", for: .normal)
         
-        button.setTitle("the but", for: .normal)
-        button.frame = CGRect(origin: CGPoint(x: 100, y: 400),
-                              size: CGSize(width: 300, height: 100))
+        let descriptionStackView = setupDescriptionStackView()
         
-        self.addSubview(label)
-        self.addSubview(button)
-        
+        self.addSubview(descriptionStackView)
+//        self.addSubview(descriptionExpandingLabel)
+        self.addSubview(purchaseButton)
         self.addSubview(artPieceImageView)
         
         self.addLayoutGuide(labelFocusGuide)
         self.addLayoutGuide(artPieceFocusGuide)
         
+        descriptionStackView.translatesAutoresizingMaskIntoConstraints = false
         artPieceImageView.translatesAutoresizingMaskIntoConstraints = false
+        purchaseButton.translatesAutoresizingMaskIntoConstraints = false
         
         labelFocusGuide.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         labelFocusGuide.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         labelFocusGuide.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        labelFocusGuide.trailingAnchor.constraint(equalTo: self.button.leadingAnchor).isActive = true
+        labelFocusGuide.trailingAnchor.constraint(equalTo: self.purchaseButton.leadingAnchor).isActive = true
         
         artPieceImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: artPieceTopEdgeInset).isActive = true
         artPieceImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -artPieceTrailingEdgeInset).isActive = true
         artPieceImageView.heightAnchor.constraint(equalToConstant: artPieceSize.height).isActive = true
         artPieceImageView.widthAnchor.constraint(equalToConstant: artPieceSize.width).isActive = true
         
+        purchaseButton.trailingAnchor.constraint(equalTo: artPieceImageView.leadingAnchor, constant: -purchaseButtonHeight).isActive = true
+        purchaseButton.bottomAnchor.constraint(equalTo: artPieceImageView.bottomAnchor, constant: 9).isActive = true
+        purchaseButton.heightAnchor.constraint(equalToConstant: purchaseButtonHeight).isActive = true
+        
         artPieceFocusGuide.topAnchor.constraint(equalTo: artPieceImageView.topAnchor).isActive = true
         artPieceFocusGuide.trailingAnchor.constraint(equalTo: artPieceImageView.leadingAnchor).isActive = true
-        artPieceFocusGuide.bottomAnchor.constraint(equalTo: button.bottomAnchor).isActive = true
-        artPieceFocusGuide.leadingAnchor.constraint(equalTo: button.trailingAnchor).isActive = true
+        artPieceFocusGuide.bottomAnchor.constraint(equalTo: purchaseButton.bottomAnchor).isActive = true
+        artPieceFocusGuide.leadingAnchor.constraint(equalTo: purchaseButton.trailingAnchor).isActive = true
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -104,7 +121,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         
         switch nextFocusedView {
         case artPieceImageView:
-            artPieceFocusGuide.preferredFocusEnvironments = [label]
+            artPieceFocusGuide.preferredFocusEnvironments = [descriptionExpandingLabel]
         default:
             artPieceFocusGuide.preferredFocusEnvironments = []
         }
