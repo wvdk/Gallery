@@ -44,21 +44,19 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .white
-        artPieceImageView.image = UIImage(named: "cell")
-        purchaseButton.setTitle("$99", for: .normal)
-        
-        descriptionExpandingLabel.text = "...More"
-        
-        authorNameLabel.text = "Wesley Var der Klomp"
-        titleLabel.text = "Windows"
-        dateLabel.text = "2018 01 09"
-        descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam."
-        
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .justified
         
+        self.backgroundColor = .white
         
+        descriptionExpandingLabel.text = "...More"
+        
+        artPieceImageView.image = UIImage(named: "cell")
+        purchaseButton.setTitle("$99", for: .normal)
+        authorNameLabel.text = "Wesley Var der Klomp"
+        titleLabel.text = "Windows"
+        dateLabel.text = "2018 01 09"
+        descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam"
         
         let descriptionStackView = setupDescriptionStackView()
         
@@ -82,7 +80,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         
         descriptionExpandingLabel.topAnchor.constraint(equalTo: descriptionStackView.bottomAnchor).isActive = true
         descriptionExpandingLabel.trailingAnchor.constraint(equalTo: descriptionStackView.trailingAnchor).isActive = true
-
+        
         artPieceImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: artPieceTopEdgeInset).isActive = true
         artPieceImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -artPieceTrailingEdgeInset).isActive = true
         artPieceImageView.heightAnchor.constraint(equalToConstant: artPieceSize.height).isActive = true
@@ -91,8 +89,6 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         purchaseButton.trailingAnchor.constraint(equalTo: descriptionStackView.trailingAnchor).isActive = true
         purchaseButton.bottomAnchor.constraint(equalTo: artPieceImageView.bottomAnchor, constant: 9).isActive = true
         purchaseButton.heightAnchor.constraint(equalToConstant: purchaseButtonHeight).isActive = true
-        
-        
         
         labelFocusGuide.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         labelFocusGuide.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
@@ -103,7 +99,6 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         artPieceFocusGuide.trailingAnchor.constraint(equalTo: artPieceImageView.leadingAnchor).isActive = true
         artPieceFocusGuide.bottomAnchor.constraint(equalTo: purchaseButton.bottomAnchor).isActive = true
         artPieceFocusGuide.leadingAnchor.constraint(equalTo: purchaseButton.trailingAnchor).isActive = true
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -115,7 +110,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     private func setupDescriptionStackView() -> UIStackView {
         let labelViews = [authorNameLabel, titleLabel, dateLabel, descriptionLabel]
         let stackView = UIStackView(arrangedSubviews: labelViews)
-        
+
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
         stackView.spacing = 30
@@ -144,5 +139,8 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         default:
             artPieceFocusGuide.preferredFocusEnvironments = []
         }
+        
+        // Hides `descriptionExpandingLabel` if `descriptionLabel` text is not truncated.
+        descriptionExpandingLabel.isHidden = !descriptionLabel.isTruncated
     }
 }

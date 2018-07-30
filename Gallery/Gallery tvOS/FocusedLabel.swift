@@ -36,7 +36,7 @@ class FocusingLabel: UILabel {
         if context.nextFocusedView as? FocusingLabel != nil {
             coordinator.addCoordinatedFocusingAnimations({ (animationContext) in
                 self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-                self.textColor = .blue
+                self.textColor = .darkGray
                 self.addDropShadow()
             }, completion: nil)
         }
