@@ -47,6 +47,8 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .justified
         
+        purchaseButton.titleLabel?.font = UIFont.systemFont(ofSize: 33)
+        
         self.backgroundColor = .white
         
         descriptionExpandingLabel.text = "...More"

@@ -55,8 +55,8 @@ class FocusingLabel: UILabel {
     private func addDropShadow() {
         self.layer.masksToBounds = false
         self.layer.shadowRadius = 5
-        self.layer.shadowOpacity = 0.4
-        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowOpacity = 0.6
+        self.layer.shadowOffset = CGSize(width: 0, height: 8)
     }
     
     private func removeShadow() {
