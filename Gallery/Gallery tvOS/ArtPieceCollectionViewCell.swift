@@ -27,10 +27,10 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     private let purchaseButton = UIButton(type: .system)
     
-    private let authorNameLabel = UILabel()
-    private let titleLabel = DescriptionLabel()
-    private let dateLabel = DescriptionLabel()
-    private let descriptionLabel = DescriptionLabel()
+    private let authorNameLabel = HeadlineLabel()
+    private let titleLabel = BodyLabel()
+    private let dateLabel = BodyLabel()
+    private let descriptionLabel = BodyLabel()
     private let descriptionExpandingLabel = FocusedLabel()
 
     private func setupDescriptionStackView() -> UIStackView {
