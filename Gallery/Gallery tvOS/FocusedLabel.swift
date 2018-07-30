@@ -22,7 +22,7 @@ class FocusingLabel: UILabel {
         super.init(frame: frame)
         
         self.isUserInteractionEnabled = true
-        self.textColor = .lightGray
+        self.textColor = .darkGray
         self.font = UIFont.systemFont(ofSize: 20)
     }
     
@@ -36,7 +36,7 @@ class FocusingLabel: UILabel {
         if context.nextFocusedView as? FocusingLabel != nil {
             coordinator.addCoordinatedFocusingAnimations({ (animationContext) in
                 self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-                self.textColor = .darkGray
+                self.textColor = .white
                 self.addDropShadow()
             }, completion: nil)
         }
@@ -44,7 +44,7 @@ class FocusingLabel: UILabel {
         if context.previouslyFocusedView as? FocusingLabel != nil {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
                 self.transform = CGAffineTransform.identity
-                self.textColor = .lightGray
+                self.textColor = .darkGray
                 self.removeShadow()
             }, completion: nil)
         }
