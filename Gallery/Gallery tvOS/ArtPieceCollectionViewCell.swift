@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GalleryCore_tvOS
 
 class ArtPieceCollectionViewCell: UICollectionViewCell {
     
@@ -21,9 +22,9 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     static let identifier = "ArtPieceCollectionViewCellIdentifier"
     
     private var descriptionExpandingLabelFocusGuide = UIFocusGuide()
-    private var artPieceImageViewFocusGuide = UIFocusGuide()
+    private var artPieceViewFocusGuide = UIFocusGuide()
     
-    private let artPieceImageView = FocusedImageView()
+    private let artPieceView = FocusingView()
     
     private let purchaseButton = UIButton(type: .system)
     
@@ -53,11 +54,10 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         
         purchaseButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
         
-        self.backgroundColor = .white
+//        self.backgroundColor = .white
         
         descriptionExpandingLabel.text = "...More"
-        
-        artPieceImageView.image = UIImage(named: "cell")
+      
         purchaseButton.setTitle("$99.99", for: .normal)
         authorNameLabel.text = "Wesley Var der Klomp"
         titleLabel.text = "Windows"
@@ -68,32 +68,32 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         
         self.addSubview(descriptionStackView)
         self.addSubview(descriptionExpandingLabel)
-        self.addSubview(artPieceImageView)
+        self.addSubview(artPieceView)
         self.addSubview(purchaseButton)
         
         self.addLayoutGuide(descriptionExpandingLabelFocusGuide)
-        self.addLayoutGuide(artPieceImageViewFocusGuide)
+        self.addLayoutGuide(artPieceViewFocusGuide)
         
         descriptionStackView.translatesAutoresizingMaskIntoConstraints = false
         descriptionExpandingLabel.translatesAutoresizingMaskIntoConstraints = false
-        artPieceImageView.translatesAutoresizingMaskIntoConstraints = false
+        artPieceView.translatesAutoresizingMaskIntoConstraints = false
         purchaseButton.translatesAutoresizingMaskIntoConstraints = false
         
-        descriptionStackView.topAnchor.constraint(equalTo: artPieceImageView.topAnchor, constant: -31).isActive = true
+        descriptionStackView.topAnchor.constraint(equalTo: artPieceView.topAnchor, constant: -31).isActive = true
         descriptionStackView.bottomAnchor.constraint(lessThanOrEqualTo: purchaseButton.topAnchor, constant: -110).isActive = true
-        descriptionStackView.trailingAnchor.constraint(equalTo: artPieceImageView.leadingAnchor, constant: -artPieceLeadingEdgeInset).isActive = true
+        descriptionStackView.trailingAnchor.constraint(equalTo: artPieceView.leadingAnchor, constant: -artPieceLeadingEdgeInset).isActive = true
         descriptionStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 31).isActive = true
         
         descriptionExpandingLabel.topAnchor.constraint(equalTo: descriptionStackView.bottomAnchor).isActive = true
         descriptionExpandingLabel.trailingAnchor.constraint(equalTo: descriptionStackView.trailingAnchor).isActive = true
         
-        artPieceImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: artPieceTopEdgeInset).isActive = true
-        artPieceImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -artPieceTrailingEdgeInset).isActive = true
-        artPieceImageView.heightAnchor.constraint(equalToConstant: artPieceSize.height).isActive = true
-        artPieceImageView.widthAnchor.constraint(equalToConstant: artPieceSize.width).isActive = true
+        artPieceView.topAnchor.constraint(equalTo: self.topAnchor, constant: artPieceTopEdgeInset).isActive = true
+        artPieceView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -artPieceTrailingEdgeInset).isActive = true
+        artPieceView.heightAnchor.constraint(equalToConstant: artPieceSize.height).isActive = true
+        artPieceView.widthAnchor.constraint(equalToConstant: artPieceSize.width).isActive = true
         
         purchaseButton.trailingAnchor.constraint(equalTo: descriptionStackView.trailingAnchor).isActive = true
-        purchaseButton.bottomAnchor.constraint(equalTo: artPieceImageView.bottomAnchor, constant: 9).isActive = true
+        purchaseButton.bottomAnchor.constraint(equalTo: artPieceView.bottomAnchor, constant: 9).isActive = true
         purchaseButton.heightAnchor.constraint(equalToConstant: purchaseButtonHeight).isActive = true
         
         descriptionExpandingLabelFocusGuide.topAnchor.constraint(equalTo: descriptionExpandingLabel.topAnchor).isActive = true
@@ -101,10 +101,15 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         descriptionExpandingLabelFocusGuide.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         descriptionExpandingLabelFocusGuide.trailingAnchor.constraint(equalTo: self.descriptionExpandingLabel.leadingAnchor).isActive = true
         
-        artPieceImageViewFocusGuide.topAnchor.constraint(equalTo: artPieceImageView.topAnchor).isActive = true
-        artPieceImageViewFocusGuide.trailingAnchor.constraint(equalTo: artPieceImageView.leadingAnchor).isActive = true
-        artPieceImageViewFocusGuide.bottomAnchor.constraint(equalTo: purchaseButton.bottomAnchor).isActive = true
-        artPieceImageViewFocusGuide.leadingAnchor.constraint(equalTo: purchaseButton.trailingAnchor).isActive = true
+        artPieceViewFocusGuide.topAnchor.constraint(equalTo: artPieceView.topAnchor).isActive = true
+        artPieceViewFocusGuide.trailingAnchor.constraint(equalTo: artPieceView.leadingAnchor).isActive = true
+        artPieceViewFocusGuide.bottomAnchor.constraint(equalTo: purchaseButton.bottomAnchor).isActive = true
+        artPieceViewFocusGuide.leadingAnchor.constraint(equalTo: purchaseButton.trailingAnchor).isActive = true
+        
+        if let artPiece = MasterList.shared.activePieces.first {
+            let artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
+            artPieceView.addSubview(artView: artView)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -140,10 +145,10 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         guard let nextFocusedView = context.nextFocusedView else { return }
         
         switch nextFocusedView {
-        case artPieceImageView:
-            artPieceImageViewFocusGuide.preferredFocusEnvironments = [descriptionExpandingLabel]
+        case artPieceView:
+            artPieceViewFocusGuide.preferredFocusEnvironments = [descriptionExpandingLabel]
         default:
-            artPieceImageViewFocusGuide.preferredFocusEnvironments = []
+            artPieceViewFocusGuide.preferredFocusEnvironments = []
         }
         
         // Hides `descriptionExpandingLabel` if `descriptionLabel` text is not truncated.
