@@ -60,9 +60,7 @@ extension MainViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionViewCell.identifier, for: indexPath) as! ArtPieceCollectionViewCell
-        
-        cell.myNumber = indexPath.item
-        
+                
 //        cell.piece = MasterList.shared.activePieces[indexPath.row]
         
         return cell

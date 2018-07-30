@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FocusedLabel: UILabel {
+class FocusingLabel: UILabel {
     
     // MARK: - Properties
     
@@ -22,6 +22,8 @@ class FocusedLabel: UILabel {
         super.init(frame: frame)
         
         self.isUserInteractionEnabled = true
+        self.textColor = .lightGray
+        self.font = UIFont.systemFont(ofSize: 20)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -31,16 +33,18 @@ class FocusedLabel: UILabel {
     // MARK: - Focus updates
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        if context.nextFocusedView as? FocusedLabel != nil {
+        if context.nextFocusedView as? FocusingLabel != nil {
             coordinator.addCoordinatedFocusingAnimations({ (animationContext) in
                 self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                self.textColor = .blue
                 self.addDropShadow()
             }, completion: nil)
         }
         
-        if context.previouslyFocusedView as? FocusedLabel != nil {
+        if context.previouslyFocusedView as? FocusingLabel != nil {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
                 self.transform = CGAffineTransform.identity
+                self.textColor = .lightGray
                 self.removeShadow()
             }, completion: nil)
         }

@@ -31,7 +31,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     private let titleLabel = BodyLabel()
     private let dateLabel = BodyLabel()
     private let descriptionLabel = BodyLabel()
-    private let descriptionExpandingLabel = LinkLabel()
+    private let descriptionExpandingLabel = FocusingLabel()
  
     // MARK: - UICollectionViewCell focus setup
     
@@ -54,6 +54,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         titleLabel.text = "Windows"
         dateLabel.text = "2018 01 09"
         descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam."
+        
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .justified
         
