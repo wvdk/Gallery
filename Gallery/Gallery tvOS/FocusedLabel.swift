@@ -24,6 +24,8 @@ class FocusingLabel: UILabel {
         self.isUserInteractionEnabled = true
         self.textColor = .darkGray
         self.font = UIFont.systemFont(ofSize: 20)
+        
+        self.layer.masksToBounds = false
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -34,32 +36,35 @@ class FocusingLabel: UILabel {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if context.nextFocusedView as? FocusingLabel != nil {
-            coordinator.addCoordinatedFocusingAnimations({ (animationContext) in
-                self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-                self.textColor = .white
-                self.addDropShadow()
+            coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
+                self?.setFocusedStyle()
             }, completion: nil)
         }
         
         if context.previouslyFocusedView as? FocusingLabel != nil {
-            coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                self.transform = CGAffineTransform.identity
-                self.textColor = .darkGray
-                self.removeShadow()
+            coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
+                self?.resetFocusedStyle()
             }, completion: nil)
         }
     }
     
-    // MARK: - Appearance
+    // MARK: - Focus appearance
     
-    private func addDropShadow() {
-        self.layer.masksToBounds = false
+    private func setFocusedStyle() {
+        self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+
+        self.textColor = .white
+
         self.layer.shadowRadius = 5
         self.layer.shadowOpacity = 0.6
         self.layer.shadowOffset = CGSize(width: 0, height: 8)
     }
     
-    private func removeShadow() {
+    private func resetFocusedStyle() {
+        self.transform = CGAffineTransform.identity
+
+        self.textColor = .darkGray
+
         self.layer.shadowRadius = 0
         self.layer.shadowOpacity = 0
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
