@@ -1,5 +1,5 @@
 //
-//  FocusedImageView.swift
+//  FocusingView.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 7/27/18.
@@ -23,6 +23,9 @@ class FocusingView: UIView {
         super.init(frame: frame)
         
         self.isUserInteractionEnabled = true
+        
+//        self.layer.masksToBounds = true
+//        self.layer.cornerRadius = 8
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,6 +35,8 @@ class FocusingView: UIView {
     // MARK: - Subviews
     
     func addSubview(artView: ArtView) {
+//        artView.clipsToBounds = true
+
         self.addSubview(artView)
         
         artView.translatesAutoresizingMaskIntoConstraints = false

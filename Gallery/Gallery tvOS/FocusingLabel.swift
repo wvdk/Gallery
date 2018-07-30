@@ -1,5 +1,5 @@
 //
-//  FocusedLabel.swift
+//  FocusingLabel.swift
 //  GalleryCore tvOS
 //
 //  Created by Kristina Gelzinyte on 7/27/18.
