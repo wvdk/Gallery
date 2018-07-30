@@ -16,7 +16,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     lazy var artPieceTopEdgeInset = 147 / 829 * self.frame.size.height
     lazy var artPieceTrailingEdgeInset = 51 / 1458 * self.frame.size.width
     lazy var artPieceLeadingEdgeInset = 60 / 829 * self.frame.size.height
-    lazy var purchaseButtonHeight = 60 / 829 * self.frame.size.height
+    lazy var purchaseButtonHeight = 50 / 829 * self.frame.size.height
     
     static let identifier = "ArtPieceCollectionViewCellIdentifier"
     
@@ -51,18 +51,18 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .justified
         
-        purchaseButton.titleLabel?.font = UIFont.systemFont(ofSize: 33)
+        purchaseButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
         
         self.backgroundColor = .white
         
         descriptionExpandingLabel.text = "...More"
         
         artPieceImageView.image = UIImage(named: "cell")
-        purchaseButton.setTitle("$99", for: .normal)
+        purchaseButton.setTitle("$99.99", for: .normal)
         authorNameLabel.text = "Wesley Var der Klomp"
         titleLabel.text = "Windows"
         dateLabel.text = "2018 01 09"
-        descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam"
+        descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquam"
         
         let descriptionStackView = setupDescriptionStackView()
         
