@@ -28,9 +28,9 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     private let purchaseButton = UIButton(type: .system)
     
     private let authorNameLabel = UILabel()
-    private let titleLabel = UILabel()
-    private let dateLabel = UILabel()
-    private let descriptionLabel = UILabel()
+    private let titleLabel = DescriptionLabel()
+    private let dateLabel = DescriptionLabel()
+    private let descriptionLabel = DescriptionLabel()
     private let descriptionExpandingLabel = FocusedLabel()
 
     private func setupDescriptionStackView() -> UIStackView {
