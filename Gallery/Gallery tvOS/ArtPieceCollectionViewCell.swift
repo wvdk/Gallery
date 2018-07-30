@@ -20,8 +20,8 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "ArtPieceCollectionViewCellIdentifier"
     
-    private var labelFocusGuide = UIFocusGuide()
-    private var artPieceFocusGuide = UIFocusGuide()
+    private var descriptionExpandingLabelFocusGuide = UIFocusGuide()
+    private var artPieceImageViewFocusGuide = UIFocusGuide()
     
     private let artPieceImageView = FocusedImageView()
     
@@ -37,6 +37,10 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     override var canBecomeFocused: Bool {
         return false
+    }
+    
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        return [descriptionExpandingLabel]
     }
     
     // MARK: - Initialization
@@ -67,8 +71,8 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         self.addSubview(artPieceImageView)
         self.addSubview(purchaseButton)
         
-        self.addLayoutGuide(labelFocusGuide)
-        self.addLayoutGuide(artPieceFocusGuide)
+        self.addLayoutGuide(descriptionExpandingLabelFocusGuide)
+        self.addLayoutGuide(artPieceImageViewFocusGuide)
         
         descriptionStackView.translatesAutoresizingMaskIntoConstraints = false
         descriptionExpandingLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -92,15 +96,15 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         purchaseButton.bottomAnchor.constraint(equalTo: artPieceImageView.bottomAnchor, constant: 9).isActive = true
         purchaseButton.heightAnchor.constraint(equalToConstant: purchaseButtonHeight).isActive = true
         
-        labelFocusGuide.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        labelFocusGuide.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        labelFocusGuide.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        labelFocusGuide.trailingAnchor.constraint(equalTo: self.purchaseButton.leadingAnchor).isActive = true
+        descriptionExpandingLabelFocusGuide.topAnchor.constraint(equalTo: descriptionExpandingLabel.topAnchor).isActive = true
+        descriptionExpandingLabelFocusGuide.bottomAnchor.constraint(equalTo: descriptionExpandingLabel.bottomAnchor).isActive = true
+        descriptionExpandingLabelFocusGuide.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        descriptionExpandingLabelFocusGuide.trailingAnchor.constraint(equalTo: self.descriptionExpandingLabel.leadingAnchor).isActive = true
         
-        artPieceFocusGuide.topAnchor.constraint(equalTo: artPieceImageView.topAnchor).isActive = true
-        artPieceFocusGuide.trailingAnchor.constraint(equalTo: artPieceImageView.leadingAnchor).isActive = true
-        artPieceFocusGuide.bottomAnchor.constraint(equalTo: purchaseButton.bottomAnchor).isActive = true
-        artPieceFocusGuide.leadingAnchor.constraint(equalTo: purchaseButton.trailingAnchor).isActive = true
+        artPieceImageViewFocusGuide.topAnchor.constraint(equalTo: artPieceImageView.topAnchor).isActive = true
+        artPieceImageViewFocusGuide.trailingAnchor.constraint(equalTo: artPieceImageView.leadingAnchor).isActive = true
+        artPieceImageViewFocusGuide.bottomAnchor.constraint(equalTo: purchaseButton.bottomAnchor).isActive = true
+        artPieceImageViewFocusGuide.leadingAnchor.constraint(equalTo: purchaseButton.trailingAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -137,9 +141,9 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         
         switch nextFocusedView {
         case artPieceImageView:
-            artPieceFocusGuide.preferredFocusEnvironments = [descriptionExpandingLabel]
+            artPieceImageViewFocusGuide.preferredFocusEnvironments = [descriptionExpandingLabel]
         default:
-            artPieceFocusGuide.preferredFocusEnvironments = []
+            artPieceImageViewFocusGuide.preferredFocusEnvironments = []
         }
         
         // Hides `descriptionExpandingLabel` if `descriptionLabel` text is not truncated.
