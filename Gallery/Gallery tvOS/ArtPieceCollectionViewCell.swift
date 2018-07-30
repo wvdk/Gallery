@@ -108,7 +108,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         
         if let artPiece = MasterList.shared.activePieces.first {
             let artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
-            artPieceView.addSubview(artView: artView)
+            artPieceView.addSubview(artPieceView: artView)
         }
     }
     

@@ -45,15 +45,15 @@ class FocusingView: UIView {
     
     // MARK: - Subviews
     
-    func addSubview(artView: ArtView) {
-        containerView.addSubview(artView)
+    func addSubview(artPieceView: ArtView) {
+        containerView.addSubview(artPieceView)
         
-        artView.translatesAutoresizingMaskIntoConstraints = false
+        artPieceView.translatesAutoresizingMaskIntoConstraints = false
         
-        artView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        artView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        artView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        artView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        artPieceView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        artPieceView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        artPieceView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        artPieceView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
     }
     
     // MARK: - Focus updates
