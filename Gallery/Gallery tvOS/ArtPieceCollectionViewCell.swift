@@ -19,6 +19,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "ArtPieceCollectionViewCellIdentifier"
     
+    private var labelFocusGuide: UIFocusGuide
     private var artPieceFocusGuide: UIFocusGuide
     private let artPieceImageView: FocusedImageView
     
@@ -40,9 +41,10 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     // MARK: - Initialization
     
     override init(frame: CGRect) {
+        labelFocusGuide = UIFocusGuide()
         artPieceFocusGuide = UIFocusGuide()
         artPieceImageView = FocusedImageView()
-
+        
         label = FocusedLabel(frame: CGRect(origin: CGPoint(x: 200, y: 100),
                                            size: CGSize(width: 300, height: 300)))
         
@@ -60,9 +62,16 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         self.addSubview(button)
         
         self.addSubview(artPieceImageView)
+        
+        self.addLayoutGuide(labelFocusGuide)
         self.addLayoutGuide(artPieceFocusGuide)
         
         artPieceImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        labelFocusGuide.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        labelFocusGuide.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        labelFocusGuide.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        labelFocusGuide.trailingAnchor.constraint(equalTo: self.button.leadingAnchor).isActive = true
         
         artPieceImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: artPieceTopEdgeInset).isActive = true
         artPieceImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -artPieceTrailingEdgeInset).isActive = true
