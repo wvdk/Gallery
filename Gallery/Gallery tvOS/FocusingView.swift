@@ -14,10 +14,9 @@ class FocusingView: UIView {
     // MARK: - Properties
     
     private let containerView = UIView()
-    private let parralaxReflectionView = UIView()
-
-    private var parralaxMotionEffect: UIMotionEffectGroup?
     
+    private var artPieceViewParralaxMotionEffect: UIMotionEffectGroup?
+
     // MARK: - UIView properties
     
     override var canBecomeFocused: Bool {
@@ -32,7 +31,6 @@ class FocusingView: UIView {
         self.isUserInteractionEnabled = true
         
         self.addSubview(containerView)
-        self.containerView.addSubview(parralaxReflectionView)
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -45,7 +43,6 @@ class FocusingView: UIView {
         containerView.layer.cornerRadius = 8
         
         addDefaultShadow()
-        setupParralaxReflectionView(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,18 +62,6 @@ class FocusingView: UIView {
         artPieceView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
     }
     
-    func setupParralaxReflectionView(frame: CGRect) {
-        let beamOrigin = CGPoint(x: frame.size.width / 2, y: 0)
-        let beamLength = CGFloat(250) //frame.size.height / 2
-        let beamSize = CGSize(width: beamLength, height: beamLength)
-        
-        parralaxReflectionView.frame = CGRect(origin: beamOrigin, size: beamSize)
-        parralaxReflectionView.backgroundColor = .white
-        parralaxReflectionView.layer.cornerRadius = beamLength / 2
-        
-        hideParallaxReflectionView()
-    }
-    
     // MARK: - Focus updates
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
@@ -84,7 +69,6 @@ class FocusingView: UIView {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
                 self?.setFocusedStyle()
                 self?.addParallaxMotionEffect()
-                self?.showParallaxReflectionView()
             }, completion: nil)
         }
         
@@ -92,7 +76,6 @@ class FocusingView: UIView {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
                 self?.resetFocusedStyle()
                 self?.removeParallaxMotionEffect()
-                self?.hideParallaxReflectionView()
             }, completion: nil)
         }
     }
@@ -137,26 +120,20 @@ class FocusingView: UIView {
         yPan.minimumRelativeValue = -panValue
         yPan.maximumRelativeValue = panValue
         
-        if parralaxMotionEffect == nil {
-            parralaxMotionEffect = UIMotionEffectGroup()
+        if artPieceViewParralaxMotionEffect == nil {
+            artPieceViewParralaxMotionEffect = UIMotionEffectGroup()
         }
         
-        guard let parralaxMotionEffect = parralaxMotionEffect else { return }
+        guard let parralaxMotionEffect = artPieceViewParralaxMotionEffect else { return }
         parralaxMotionEffect.motionEffects = [xTilt, yTilt, xPan, yPan]
+        
         self.addMotionEffect(parralaxMotionEffect)
     }
     
     private func removeParallaxMotionEffect() {
-        guard let parralaxMotionEffect = parralaxMotionEffect else { return }
-        self.removeMotionEffect(parralaxMotionEffect)
-    }
-    
-    private func showParallaxReflectionView() {
-        containerView.bringSubview(toFront: parralaxReflectionView)
-        parralaxReflectionView.alpha = 0.2
-    }
-    
-    private func hideParallaxReflectionView() {
-        parralaxReflectionView.alpha = 0
+        guard let artPieceViewParralaxMotionEffect = artPieceViewParralaxMotionEffect else { return }
+        self.removeMotionEffect(artPieceViewParralaxMotionEffect)
+        
+        self.artPieceViewParralaxMotionEffect = nil
     }
 }
