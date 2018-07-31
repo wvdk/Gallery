@@ -14,7 +14,8 @@ class FocusingView: UIView {
     // MARK: - Properties
     
     private let containerView = UIView()
-    
+    private let parralaxReflectionView = UIView()
+
     private var parralaxMotionEffect: UIMotionEffectGroup?
     
     // MARK: - UIView properties
@@ -31,6 +32,7 @@ class FocusingView: UIView {
         self.isUserInteractionEnabled = true
         
         self.addSubview(containerView)
+        self.containerView.addSubview(parralaxReflectionView)
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -43,6 +45,7 @@ class FocusingView: UIView {
         containerView.layer.cornerRadius = 8
         
         addDefaultShadow()
+        setupParralaxReflectionView(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,6 +65,18 @@ class FocusingView: UIView {
         artPieceView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
     }
     
+    func setupParralaxReflectionView(frame: CGRect) {
+        let beamOrigin = CGPoint(x: frame.size.width / 2, y: 0)
+        let beamLength = CGFloat(250) //frame.size.height / 2
+        let beamSize = CGSize(width: beamLength, height: beamLength)
+        
+        parralaxReflectionView.frame = CGRect(origin: beamOrigin, size: beamSize)
+        parralaxReflectionView.backgroundColor = .white
+        parralaxReflectionView.layer.cornerRadius = beamLength / 2
+        
+        hideParallaxReflectionView()
+    }
+    
     // MARK: - Focus updates
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
@@ -69,6 +84,7 @@ class FocusingView: UIView {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
                 self?.setFocusedStyle()
                 self?.addParallaxMotionEffect()
+                self?.showParallaxReflectionView()
             }, completion: nil)
         }
         
@@ -76,6 +92,7 @@ class FocusingView: UIView {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
                 self?.resetFocusedStyle()
                 self?.removeParallaxMotionEffect()
+                self?.hideParallaxReflectionView()
             }, completion: nil)
         }
     }
@@ -103,25 +120,20 @@ class FocusingView: UIView {
         self.layer.shadowOffset = CGSize(width: 0, height: 3)
     }
     
-    func addParallaxMotionEffect(tiltValue: CGFloat = 0.1, panValue: CGFloat = 8) {
-        var xTilt = UIInterpolatingMotionEffect()
-        var yTilt = UIInterpolatingMotionEffect()
-        var xPan = UIInterpolatingMotionEffect()
-        var yPan = UIInterpolatingMotionEffect()
-        
-        yTilt = UIInterpolatingMotionEffect(keyPath: "layer.transform.rotation.y", type: .tiltAlongHorizontalAxis)
+    private func addParallaxMotionEffect(tiltValue: CGFloat = 0.1, panValue: CGFloat = 8) {
+        let yTilt = UIInterpolatingMotionEffect(keyPath: "layer.transform.rotation.y", type: .tiltAlongHorizontalAxis)
         yTilt.minimumRelativeValue = -tiltValue
         yTilt.maximumRelativeValue = tiltValue
         
-        xTilt = UIInterpolatingMotionEffect(keyPath: "layer.transform.rotation.x", type: .tiltAlongVerticalAxis)
+        let xTilt = UIInterpolatingMotionEffect(keyPath: "layer.transform.rotation.x", type: .tiltAlongVerticalAxis)
         xTilt.minimumRelativeValue = -tiltValue
         xTilt.maximumRelativeValue = tiltValue
         
-        xPan = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        let xPan = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
         xPan.minimumRelativeValue = -panValue
         xPan.maximumRelativeValue = panValue
 
-        yPan = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        let yPan = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
         yPan.minimumRelativeValue = -panValue
         yPan.maximumRelativeValue = panValue
         
@@ -134,8 +146,17 @@ class FocusingView: UIView {
         self.addMotionEffect(parralaxMotionEffect)
     }
     
-    func removeParallaxMotionEffect() {
+    private func removeParallaxMotionEffect() {
         guard let parralaxMotionEffect = parralaxMotionEffect else { return }
         self.removeMotionEffect(parralaxMotionEffect)
+    }
+    
+    private func showParallaxReflectionView() {
+        containerView.bringSubview(toFront: parralaxReflectionView)
+        parralaxReflectionView.alpha = 0.2
+    }
+    
+    private func hideParallaxReflectionView() {
+        parralaxReflectionView.alpha = 0
     }
 }
