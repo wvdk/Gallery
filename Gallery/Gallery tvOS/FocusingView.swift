@@ -41,6 +41,8 @@ class FocusingView: UIView {
         
         containerView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 8
+        
+        addDefaultShadow()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -82,9 +84,7 @@ class FocusingView: UIView {
     
     private func setFocusedStyle() {
         self.transform = CGAffineTransform(scaleX: 1.07, y: 1.07)
-        
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.2
+
         self.layer.shadowRadius = 15
         self.layer.shadowOffset = CGSize(width: 0, height: 25)
     }
@@ -92,7 +92,15 @@ class FocusingView: UIView {
     private func resetFocusedStyle() {
         self.transform = CGAffineTransform.identity
         
-        self.layer.shadowOpacity = 0
+        addDefaultShadow()
+    }
+    
+    private func addDefaultShadow() {
+        self.layer.shadowColor = UIColor.black.cgColor
+
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowRadius = 4
+        self.layer.shadowOffset = CGSize(width: 0, height: 3)
     }
     
     func addParallaxMotionEffect(tiltValue: CGFloat = 0.1, panValue: CGFloat = 8) {
