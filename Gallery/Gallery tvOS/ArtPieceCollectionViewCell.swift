@@ -28,7 +28,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     private let purchaseButton = UIButton(type: .system)
     
-    private let authorNameLabel = HeadlineLabel()
+    private let authorNameLabel = HeadlineLabel(isFontBold: true)
     private let titleLabel = BodyLabel()
     private let dateLabel = BodyLabel()
     private let descriptionLabel = BodyLabel()
