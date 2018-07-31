@@ -15,6 +15,10 @@ class FocusingView: UIView {
     
     private let containerView = UIView()
     
+    private var parralaxMotionEffect: UIMotionEffectGroup?
+    
+    // MARK: - UIView properties
+    
     override var canBecomeFocused: Bool {
         return true
     }
@@ -62,12 +66,14 @@ class FocusingView: UIView {
         if context.nextFocusedView as? FocusingView != nil {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
                 self?.setFocusedStyle()
+                self?.addParallaxMotionEffect()
             }, completion: nil)
         }
         
         if context.previouslyFocusedView as? FocusingView != nil {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
                 self?.resetFocusedStyle()
+                self?.removeParallaxMotionEffect()
             }, completion: nil)
         }
     }
@@ -87,5 +93,41 @@ class FocusingView: UIView {
         self.transform = CGAffineTransform.identity
         
         self.layer.shadowOpacity = 0
+    }
+    
+    func addParallaxMotionEffect(tiltValue: CGFloat = 0.1, panValue: CGFloat = 8) {
+        var xTilt = UIInterpolatingMotionEffect()
+        var yTilt = UIInterpolatingMotionEffect()
+        var xPan = UIInterpolatingMotionEffect()
+        var yPan = UIInterpolatingMotionEffect()
+        
+        yTilt = UIInterpolatingMotionEffect(keyPath: "layer.transform.rotation.y", type: .tiltAlongHorizontalAxis)
+        yTilt.minimumRelativeValue = -tiltValue
+        yTilt.maximumRelativeValue = tiltValue
+        
+        xTilt = UIInterpolatingMotionEffect(keyPath: "layer.transform.rotation.x", type: .tiltAlongVerticalAxis)
+        xTilt.minimumRelativeValue = -tiltValue
+        xTilt.maximumRelativeValue = tiltValue
+        
+        xPan = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        xPan.minimumRelativeValue = -panValue
+        xPan.maximumRelativeValue = panValue
+
+        yPan = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        yPan.minimumRelativeValue = -panValue
+        yPan.maximumRelativeValue = panValue
+        
+        if parralaxMotionEffect == nil {
+            parralaxMotionEffect = UIMotionEffectGroup()
+        }
+        
+        guard let parralaxMotionEffect = parralaxMotionEffect else { return }
+        parralaxMotionEffect.motionEffects = [xTilt, yTilt, xPan, yPan]
+        self.addMotionEffect(parralaxMotionEffect)
+    }
+    
+    func removeParallaxMotionEffect() {
+        guard let parralaxMotionEffect = parralaxMotionEffect else { return }
+        self.removeMotionEffect(parralaxMotionEffect)
     }
 }
