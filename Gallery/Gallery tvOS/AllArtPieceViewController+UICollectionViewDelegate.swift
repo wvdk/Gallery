@@ -1,5 +1,5 @@
 //
-//  MainViewController+UICollectionViewDelegate.swift
+//  AllArtPieceViewController+UICollectionViewDelegate.swift
 //  Gallery iOS
 //
 //  Created by Kristina Gelzinyte on 7/25/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MainViewController: UICollectionViewDelegate {
+extension AllArtPieceViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -56,7 +56,7 @@ extension MainViewController: UICollectionViewDelegate {
     }
 }
 
-extension MainViewController: UICollectionViewDataSource {
+extension AllArtPieceViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionViewCell.identifier, for: indexPath) as! ArtPieceCollectionViewCell
@@ -67,7 +67,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
-extension MainViewController: UICollectionViewDelegateFlowLayout {
+extension AllArtPieceViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionViewCellWidthConstrain, height: collectionViewHeightConstrain - 100)
