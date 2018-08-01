@@ -58,16 +58,21 @@ class AllArtPieceViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-        collectionView?.register(ArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: ArtPieceCollectionViewCell.identifier)
-        collectionView?.decelerationRate = UIScrollViewDecelerationRateNormal
-        collectionView?.delegate = self
-        collectionView?.dataSource = self
         
-        collectionView?.isScrollEnabled = false
-        collectionView?.allowsSelection = true
-        collectionView?.allowsMultipleSelection = false
+        guard let collectionView = collectionView else { return }
         
-        collectionView?.remembersLastFocusedIndexPath = true
+        collectionView.register(ArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: ArtPieceCollectionViewCell.identifier)
+        collectionView.decelerationRate = UIScrollViewDecelerationRateNormal
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.isScrollEnabled = false
+        collectionView.allowsSelection = true
+        collectionView.allowsMultipleSelection = false
+
+        collectionView.remembersLastFocusedIndexPath = true
+        
+        collectionView.selectCell(at: collectionView.firstCellIndex)
     }
     
     private func setupHeaderView() -> UIView {
