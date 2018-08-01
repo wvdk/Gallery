@@ -40,13 +40,13 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
                 let priceTitle = "$ \(price)"
                 purchaseButton.setTitle(priceTitle, for: .normal)
             } else {
-                purchaseButton.setTitle("", for: .normal)
+                purchaseButton.setTitle("NAN", for: .normal)
             }
             
             if let description = artPiece.description {
                 descriptionLabel.text = description
             } else {
-                 descriptionLabel.text = ""
+                 descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquam"
             }
             
             let artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
