@@ -1,5 +1,5 @@
 //
-//  AllArtPieceViewController+UICollectionViewDelegate.swift
+//  FeaturedArtPieceViewController+UICollectionViewDelegate.swift
 //  Gallery iOS
 //
 //  Created by Kristina Gelzinyte on 7/25/18.
@@ -9,7 +9,7 @@
 import UIKit
 import GalleryCore_tvOS
 
-extension AllArtPieceViewController: UICollectionViewDelegate {
+extension FeaturedArtPieceViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return MasterList.shared.activePieces.count
@@ -51,7 +51,7 @@ extension AllArtPieceViewController: UICollectionViewDelegate {
     }
 }
 
-extension AllArtPieceViewController: UICollectionViewDataSource {
+extension FeaturedArtPieceViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionViewCell.identifier, for: indexPath) as! ArtPieceCollectionViewCell
@@ -63,7 +63,7 @@ extension AllArtPieceViewController: UICollectionViewDataSource {
     }
 }
 
-extension AllArtPieceViewController: UICollectionViewDelegateFlowLayout {
+extension FeaturedArtPieceViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionViewCellWidthConstrain, height: collectionViewHeightConstrain - 100)

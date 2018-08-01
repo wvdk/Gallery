@@ -1,5 +1,5 @@
 //
-//  AllArtPieceViewController.swift
+//  FeaturedArtPieceViewController.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 7/31/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllArtPieceViewController: UIViewController {
+class FeaturedArtPieceViewController: UIViewController {
    
     // MARK: - Properties
     
@@ -39,7 +39,7 @@ class AllArtPieceViewController: UIViewController {
         headerView.translatesAutoresizingMaskIntoConstraints = false
         
         collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: collectionViewTopConstrain).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -collectionViewBottomConstrain).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         
