@@ -20,6 +20,12 @@ public struct ArtMetadata {
     /// The date at which this piece as released (might only retain accuracy up to the month - not day).
     public var published: Date
     
+    /// The description of this piece.
+    public var description: String?
+    
+    /// The price of this piece.
+    public var price: Double?
+    
     /// A computed property returning a pretty formatted string of the `published` date.
     public var prettyPublishedDate: String {
         return ArtMetadata.dateFormatter.string(from: self.published)
@@ -43,15 +49,17 @@ public struct ArtMetadata {
     /// - Parameters:
     ///   - id: <#id description#>
     ///   - author: <#author description#>
+    ///   - description: <#description description#>
+    ///   - price: <#price description#>
     ///   - prettyPublishedDate: Formatted MMMM yyyy (e.g. June 2018)
     ///   - viewType: <#viewType description#>
-    public init(id: ArtID, author: String, prettyPublishedDate: String, viewType: ArtView.Type) {
+    public init(id: ArtID, author: String, prettyPublishedDate: String, description: String? = nil, price: Double? = nil, viewType: ArtView.Type) {
         self.id = id
         self.author = author
         self.published = ArtMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
+        self.description = description
+        self.price = price
 //        self.viewController = viewController
         self.viewType = viewType
     }
-    
 }
-

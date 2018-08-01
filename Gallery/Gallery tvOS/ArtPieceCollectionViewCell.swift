@@ -34,10 +34,20 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
             guard let artPiece = artPiece else { return }
             authorNameLabel.text = "\(artPiece.author)"
             dateLabel.text = "\(artPiece.prettyPublishedDate)"
+            titleLabel.text = "\(artPiece.id)"
+
+            if let price = artPiece.price {
+                let priceTitle = "$ \(price)"
+                purchaseButton.setTitle(priceTitle, for: .normal)
+            } else {
+                purchaseButton.setTitle("", for: .normal)
+            }
             
-            purchaseButton.setTitle("$99.99", for: .normal)
-            //        titleLabel.text = "Windows"
-            descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquam"
+            if let description = artPiece.description {
+                descriptionLabel.text = description
+            } else {
+                 descriptionLabel.text = ""
+            }
             
             let artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
             artPieceView.addSubview(artPieceView: artView)

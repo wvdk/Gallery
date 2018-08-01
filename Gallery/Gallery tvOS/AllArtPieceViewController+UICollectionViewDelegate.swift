@@ -23,8 +23,6 @@ extension AllArtPieceViewController: UICollectionViewDelegate {
         
         guard let nextFocusedIndexPath = context.nextFocusedIndexPath else { return }
         
-        if context.previouslyFocusedIndexPath == nil { return }
-        
         if let previouslyFocusedIndexPath = context.previouslyFocusedIndexPath, nextFocusedIndexPath == previouslyFocusedIndexPath {
             return
         }
