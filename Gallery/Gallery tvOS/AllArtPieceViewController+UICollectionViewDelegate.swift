@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import GalleryCore_tvOS
 
 extension AllArtPieceViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return MasterList.shared.activePieces.count
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -58,8 +59,7 @@ extension AllArtPieceViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionViewCell.identifier, for: indexPath) as! ArtPieceCollectionViewCell
         
         cell.id = indexPath.item
-        
-//        cell.piece = MasterList.shared.activePieces[indexPath.row]
+        cell.artPiece = MasterList.shared.activePieces[indexPath.item]
         
         return cell
     }
@@ -72,6 +72,6 @@ extension AllArtPieceViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: collectionViewLeftEdgeInset, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: collectionViewLeftEdgeInset, bottom: 0, right: collectionViewLeftEdgeInset)
     }
 }

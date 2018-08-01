@@ -11,15 +11,38 @@ import GalleryCore_tvOS
 
 class ArtPieceCollectionViewCell: UICollectionViewCell {
     
-    // MARK: - Properties
-    
     lazy var artPieceSize = CGSize(width: 880 / 1458 * self.frame.size.width, height: 497 / 829 * self.frame.size.height)
     lazy var artPieceTopEdgeInset = 147 / 829 * self.frame.size.height
     lazy var artPieceTrailingEdgeInset = 51 / 1458 * self.frame.size.width
     lazy var artPieceLeadingEdgeInset = 60 / 829 * self.frame.size.height
     lazy var purchaseButtonHeight = 50 / 829 * self.frame.size.height
     
+    // MARK: - Properties
+    
     static let identifier = "ArtPieceCollectionViewCellIdentifier"
+    
+    var id: Int? = 999 {
+        didSet {
+            if let id = self.id {
+                titleLabel.text = "\(id)"
+            }
+        }
+    }
+    
+    var artPiece: ArtMetadata? = nil {
+        didSet {
+            guard let artPiece = artPiece else { return }
+            authorNameLabel.text = "\(artPiece.author)"
+            dateLabel.text = "\(artPiece.prettyPublishedDate)"
+            
+            purchaseButton.setTitle("$99.99", for: .normal)
+            //        titleLabel.text = "Windows"
+            descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquam"
+            
+            let artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
+            artPieceView.addSubview(artPieceView: artView)
+        }
+    }
     
     private var descriptionExpandingLabelFocusGuide = UIFocusGuide()
     private var artPieceViewFocusGuide = UIFocusGuide()
@@ -33,16 +56,8 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     private let dateLabel = BodyLabel()
     private let descriptionLabel = BodyLabel()
     private let descriptionExpandingLabel = FocusingLabel()
- 
-    var id: Int? {
-        didSet {
-            if let id = self.id {
-                titleLabel.text = "\(id)"
-            }
-        }
-    }
     
-    // MARK: - UICollectionViewCell focus setup
+    // MARK: - UICollectionViewCell properties
     
     override var canBecomeFocused: Bool {
         return false
@@ -73,14 +88,8 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         descriptionLabel.textAlignment = .justified
         
         purchaseButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
-                
+        
         descriptionExpandingLabel.text = "...More"
-      
-        purchaseButton.setTitle("$99.99", for: .normal)
-        authorNameLabel.text = "Wesley Var der Klomp"
-//        titleLabel.text = "Windows"
-        dateLabel.text = "2018 01 09"
-        descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquam"
         
         let descriptionStackView = setupDescriptionStackView()
         
@@ -123,11 +132,6 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         artPieceViewFocusGuide.trailingAnchor.constraint(equalTo: artPieceView.leadingAnchor).isActive = true
         artPieceViewFocusGuide.bottomAnchor.constraint(equalTo: purchaseButton.bottomAnchor).isActive = true
         artPieceViewFocusGuide.leadingAnchor.constraint(equalTo: purchaseButton.trailingAnchor).isActive = true
-        
-        if let artPiece = MasterList.shared.activePieces.first {
-            let artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
-            artPieceView.addSubview(artPieceView: artView)
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {
