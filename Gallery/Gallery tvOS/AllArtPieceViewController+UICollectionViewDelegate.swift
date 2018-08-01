@@ -22,10 +22,7 @@ extension AllArtPieceViewController: UICollectionViewDelegate {
         
         guard let nextFocusedIndexPath = context.nextFocusedIndexPath else { return }
         
-        if context.previouslyFocusedIndexPath == nil, let focusedCell = collectionView.cellForItem(at: nextFocusedIndexPath) {
-            focusedCell.alpha = 1
-            return
-        }
+        if context.previouslyFocusedIndexPath == nil { return }
         
         if let previouslyFocusedIndexPath = context.previouslyFocusedIndexPath, nextFocusedIndexPath == previouslyFocusedIndexPath {
             return
@@ -35,22 +32,21 @@ extension AllArtPieceViewController: UICollectionViewDelegate {
         
         if let nextFocusedItem = context.nextFocusedItem,
             let focusedCell = collectionView.cellForItem(at: nextFocusedIndexPath),
-            focusedCell.contains(nextFocusedItem),
-            focusedCell.alpha != 1 {
+            focusedCell.contains(nextFocusedItem) {
             
             coordinator.addCoordinatedFocusingAnimations({ (animationContext) in
-                focusedCell.alpha = 1
+                collectionView.deselectAllItems()
+                focusedCell.isSelected = true
             }, completion: nil)
         }
         
         if let previouslyFocusedItem = context.previouslyFocusedItem,
             let previouslyFocusedIndexPath = context.previouslyFocusedIndexPath,
             let unfocusedCell = collectionView.cellForItem(at: previouslyFocusedIndexPath),
-            unfocusedCell.contains(previouslyFocusedItem),
-            unfocusedCell.alpha != 0.5 {
+            unfocusedCell.contains(previouslyFocusedItem) {
             
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                unfocusedCell.alpha = 0.5
+                unfocusedCell.isSelected = false
             }, completion: nil)
         }
     }
@@ -60,7 +56,9 @@ extension AllArtPieceViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionViewCell.identifier, for: indexPath) as! ArtPieceCollectionViewCell
-                
+        
+        cell.id = indexPath.item
+        
 //        cell.piece = MasterList.shared.activePieces[indexPath.row]
         
         return cell
