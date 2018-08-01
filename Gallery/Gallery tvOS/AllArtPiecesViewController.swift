@@ -13,7 +13,7 @@ class AllArtPiecesViewController: UIViewController {
     // MARK: - Properties
     
     private let featuredArtPiecesViewController = FeaturedArtPieceViewController()
-    private let notFeaturedArtPiecesViewController = FeaturedArtPieceViewController()
+    private let notFeaturedArtPiecesViewController = NotFeaturedArtPieceViewController()
     
     // MARK: - Lifecycle functions
 
@@ -58,7 +58,8 @@ class AllArtPiecesViewController: UIViewController {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
                 self?.featuredArtPiecesViewController.view.transform = CGAffineTransform.identity
                 self?.notFeaturedArtPiecesViewController.view.transform = CGAffineTransform.identity
-            }, completion: nil)
+                }, completion: nil)
+            
             return
         }
         
@@ -67,7 +68,8 @@ class AllArtPiecesViewController: UIViewController {
                 guard let translationY = self?.featuredArtPiecesViewController.view.bounds.size.height else { return }
                 self?.featuredArtPiecesViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
                 self?.notFeaturedArtPiecesViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
-            }, completion: nil)
+                }, completion: nil)
+            
             return
         }
     }

@@ -15,6 +15,7 @@
 		891549CD21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */; };
 		891549D2211267690041FE8A /* FeaturedArtPieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ED5211115F900CEEB3C /* FeaturedArtPieceViewController.swift */; };
 		891549D3211267710041FE8A /* AllArtPiecesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549CE2112652E0041FE8A /* AllArtPiecesViewController.swift */; };
+		891549D5211276820041FE8A /* NotFeaturedArtPieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549D4211276820041FE8A /* NotFeaturedArtPieceViewController.swift */; };
 		891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		89278ECC210F8AEC00CEEB3C /* DescriptionLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */; };
@@ -161,6 +162,7 @@
 		89134E1E20E80C1500772E7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		891549CE2112652E0041FE8A /* AllArtPiecesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllArtPiecesViewController.swift; sourceTree = "<group>"; };
+		891549D4211276820041FE8A /* NotFeaturedArtPieceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFeaturedArtPieceViewController.swift; sourceTree = "<group>"; };
 		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabels.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				89134E1720E80C1300772E7F /* TabBarController.swift */,
 				891549CE2112652E0041FE8A /* AllArtPiecesViewController.swift */,
 				89278ED5211115F900CEEB3C /* FeaturedArtPieceViewController.swift */,
+				891549D4211276820041FE8A /* NotFeaturedArtPieceViewController.swift */,
 				89DEC69421091C25009858CC /* FeaturedArtPieceViewController+UICollectionViewDelegate.swift */,
 				89DEC6B5210933DB009858CC /* ArtPieceCollectionViewCell.swift */,
 				89DEC6BB210BA1AB009858CC /* FocusingLabel.swift */,
@@ -845,6 +848,7 @@
 				89278ECC210F8AEC00CEEB3C /* DescriptionLabels.swift in Sources */,
 				891549D3211267710041FE8A /* AllArtPiecesViewController.swift in Sources */,
 				891549D2211267690041FE8A /* FeaturedArtPieceViewController.swift in Sources */,
+				891549D5211276820041FE8A /* NotFeaturedArtPieceViewController.swift in Sources */,
 				89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */,
 				89DEC6BF210BA20B009858CC /* FocusingLabel.swift in Sources */,
 				89DEC6B6210933DB009858CC /* ArtPieceCollectionViewCell.swift in Sources */,
