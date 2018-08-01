@@ -34,6 +34,14 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     private let descriptionLabel = BodyLabel()
     private let descriptionExpandingLabel = FocusingLabel()
  
+    var id: Int? {
+        didSet {
+            if let id = self.id {
+                titleLabel.text = "\(id)"
+            }
+        }
+    }
+    
     // MARK: - UICollectionViewCell focus setup
     
     override var canBecomeFocused: Bool {
@@ -42,6 +50,18 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
         return [descriptionExpandingLabel]
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            guard isSelected != oldValue else { return }
+            
+            if isSelected {
+                self.alpha = 1
+            } else {
+                self.alpha = 0.5
+            }
+        }
     }
     
     // MARK: - Initialization
@@ -58,7 +78,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
       
         purchaseButton.setTitle("$99.99", for: .normal)
         authorNameLabel.text = "Wesley Var der Klomp"
-        titleLabel.text = "Windows"
+//        titleLabel.text = "Windows"
         dateLabel.text = "2018 01 09"
         descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquam"
         
