@@ -10,6 +10,8 @@ import UIKit
 
 class AllArtPiecesViewController: UIViewController {
 
+    // MARK: - Properties
+    
     private let featuredArtPiecesViewController = FeaturedArtPieceViewController()
     private let notFeaturedArtPiecesViewController = FeaturedArtPieceViewController()
     
@@ -52,7 +54,7 @@ class AllArtPiecesViewController: UIViewController {
             return
         }
         
-        if featuredArtPiecesViewController.contains(nextFocusedView), notFeaturedArtPiecesViewController.contains(previouslyFocusedView)  {
+        if notFeaturedArtPiecesViewController.contains(previouslyFocusedView)  {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
                 self?.featuredArtPiecesViewController.view.transform = CGAffineTransform.identity
                 self?.notFeaturedArtPiecesViewController.view.transform = CGAffineTransform.identity
