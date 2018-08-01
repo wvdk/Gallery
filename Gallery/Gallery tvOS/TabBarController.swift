@@ -37,9 +37,9 @@ class TabBarController: UITabBarController {
         
         let tabBarViewControllerList = [allArtPieceViewController, purchasedArtPieceViewController]
         self.viewControllers = tabBarViewControllerList
-        
-        self.selectedIndex = 0
     }
+    
+    // MARK: - Focus update
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let nextView = context.nextFocusedView, self.tabBar.contains(nextView) else { return }
