@@ -12,8 +12,6 @@ class FeaturedArtPieceViewController: UIViewController {
    
     // MARK: - Properties
     
-    lazy var collectionViewTopConstrain = 112 / 1080 * self.view.frame.size.height
-    lazy var collectionViewBottomConstrain = 140 / 1080 * self.view.frame.size.height
     lazy var collectionViewHeightConstrain = 827 / 1080 * self.view.frame.size.height
     lazy var collectionViewCellWidthConstrain = 1458 / 1920 * self.view.frame.size.width
     lazy var collectionViewLeftEdgeInset = (self.view.frame.size.width - collectionViewCellWidthConstrain) / 2
@@ -27,29 +25,32 @@ class FeaturedArtPieceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupCollectionView()
         let headerView = setupHeaderView()
+        
+        self.view.addSubview(headerView)
+        
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+
+        headerView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+
+        setupCollectionView()
         
         guard let collectionView = self.collectionView else { return }
         
         self.view.addSubview(collectionView)
-        self.view.addSubview(headerView)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.translatesAutoresizingMaskIntoConstraints = false
         
-        collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: collectionViewTopConstrain).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        
-        headerView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        headerView.bottomAnchor.constraint(equalTo: collectionView.topAnchor).isActive = true
-        headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
-    // MARK: - View setup
+    // MARK: - Views setup
     
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()

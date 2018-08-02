@@ -10,7 +10,7 @@ import UIKit
 
 class FocusingLabel: UILabel {
     
-    // MARK: - Properties
+    // MARK: - UILabel properties
     
     override public var canBecomeFocused: Bool {
         return true
@@ -32,8 +32,8 @@ class FocusingLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Focus updates
-    
+    // MARK: - UIFocusEnvironment update
+
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if context.nextFocusedView as? FocusingLabel != nil {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
@@ -50,6 +50,7 @@ class FocusingLabel: UILabel {
     
     // MARK: - Focus appearance
     
+    /// Scales `view` by 1.2, sets `textColor` to the `white`, and adds shadow to the `layer`.
     private func setFocusedStyle() {
         self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
 
@@ -60,6 +61,7 @@ class FocusingLabel: UILabel {
         self.layer.shadowOffset = CGSize(width: 0, height: 8)
     }
     
+    /// Resets `view` to default appearance.
     private func resetFocusedStyle() {
         self.transform = CGAffineTransform.identity
 

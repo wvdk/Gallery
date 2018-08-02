@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Darker than default `regular` style `UIVisualEffectView`.
 class BackgroundVisualEffectView: UIVisualEffectView {
     
     // MARK: - Initializer

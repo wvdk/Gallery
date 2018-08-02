@@ -23,6 +23,7 @@ extension FeaturedArtPieceViewController: UICollectionViewDelegate {
         
         guard let nextFocusedIndexPath = context.nextFocusedIndexPath else { return }
         
+        // Returns if focus item is in the same collection view cell.
         if let previouslyFocusedIndexPath = context.previouslyFocusedIndexPath, nextFocusedIndexPath == previouslyFocusedIndexPath {
             return
         }

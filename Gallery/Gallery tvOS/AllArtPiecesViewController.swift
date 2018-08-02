@@ -48,10 +48,12 @@ class AllArtPiecesViewController: UIViewController {
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let nextFocusedView = context.nextFocusedView, let previouslyFocusedView = context.previouslyFocusedView else { return }
         
+        // Returns if previous and next focused views are in the same featuredArtPiecesViewController.
         if featuredArtPiecesViewController.contains(previouslyFocusedView), featuredArtPiecesViewController.contains(nextFocusedView) {
             return
         }
         
+        // Returns if previous and next focused views are in the same notFeaturedArtPiecesViewController.
         if notFeaturedArtPiecesViewController.contains(previouslyFocusedView), notFeaturedArtPiecesViewController.contains(nextFocusedView) {
             return
         }

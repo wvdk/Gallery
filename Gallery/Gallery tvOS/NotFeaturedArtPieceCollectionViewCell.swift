@@ -68,11 +68,11 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         if artPieceView.isFocused {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
                 self?.titleLabel.alpha = 1
-            }, completion: nil)
+                }, completion: nil)
         } else {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
                 self?.titleLabel.alpha = 0
-            }, completion: nil)
+                }, completion: nil)
         }
     }
 }

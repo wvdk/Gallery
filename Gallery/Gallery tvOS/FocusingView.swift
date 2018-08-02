@@ -9,6 +9,9 @@
 import UIKit
 import GalleryCore_tvOS
 
+/// `UIView`, which can become focused.
+///
+/// In focused mode implements parallax effect.
 class FocusingView: UIView {
     
     // MARK: - Properties

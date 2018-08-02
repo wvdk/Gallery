@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// `System` `font` 20 size text label. By default `gray` color.
 class BodyLabel: UILabel {
     
     convenience init(color: UIColor = .gray) {
@@ -18,6 +19,7 @@ class BodyLabel: UILabel {
     }
 }
 
+/// `System` `font` 30 size `gray` color text label.
 class HeadlineLabel: UILabel {
     
     convenience init(isFontBold: Bool) {

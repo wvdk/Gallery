@@ -21,19 +21,20 @@ class NotFeaturedArtPieceViewController: UIViewController {
         super.viewDidLoad()
         
         let blurredEffectView = BackgroundVisualEffectView()
+        
+        self.view.addSubview(blurredEffectView)
+        
+        blurredEffectView.translatesAutoresizingMaskIntoConstraints = false
+        blurredEffectView.constraint(edgesTo: view)
 
         setupCollectionView()
         
         guard let collectionView = self.collectionView else { return }
         
-        self.view.addSubview(blurredEffectView)
         self.view.addSubview(collectionView)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        blurredEffectView.translatesAutoresizingMaskIntoConstraints = false
-
         collectionView.constraint(edgesTo: view)
-        blurredEffectView.constraint(edgesTo: view)
     }
     
     // MARK: - View setup
@@ -53,7 +54,6 @@ class NotFeaturedArtPieceViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-//        collectionView.isScrollEnabled = false
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false
         
