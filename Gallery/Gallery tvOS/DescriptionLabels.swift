@@ -10,15 +10,11 @@ import UIKit
 
 class BodyLabel: UILabel {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        self.textColor = .gray
+    convenience init(color: UIColor = .gray) {
+        self.init(frame: .zero)
+
+        self.textColor = color
         self.font = UIFont.systemFont(ofSize: 20)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
