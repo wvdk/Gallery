@@ -65,18 +65,18 @@ class FocusingView: UIView {
     // MARK: - Focus updates
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        if context.nextFocusedView as? FocusingView != nil {
+        if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
                 self?.setFocusedStyle()
                 self?.addParallaxMotionEffect()
-            }, completion: nil)
+                }, completion: nil)
         }
         
-        if context.previouslyFocusedView as? FocusingView != nil {
+        if let previouslyFocusedView = context.previouslyFocusedView as? FocusingView, previouslyFocusedView == self {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
                 self?.resetFocusedStyle()
                 self?.removeParallaxMotionEffect()
-            }, completion: nil)
+                }, completion: nil)
         }
     }
     

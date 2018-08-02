@@ -28,6 +28,12 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    // MARK: - UICollectionViewCell properties
+    
+    override var canBecomeFocused: Bool {
+        return false
+    }
+
     // MARK: - Initialization
     
     override init(frame: CGRect) {
@@ -50,12 +56,5 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - UIFocusEnvironment update
-    
-    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        super.didUpdateFocus(in: context, with: coordinator)
-        
     }
 }
