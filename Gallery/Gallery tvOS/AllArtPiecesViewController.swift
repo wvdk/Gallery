@@ -19,8 +19,6 @@ class AllArtPiecesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        notFeaturedArtPiecesViewController.view.backgroundColor = .black
         
         addChildViewController(featuredArtPiecesViewController)
         view.addSubview(featuredArtPiecesViewController.view)

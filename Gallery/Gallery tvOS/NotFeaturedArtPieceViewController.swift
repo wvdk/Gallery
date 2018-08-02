@@ -19,20 +19,27 @@ class NotFeaturedArtPieceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let blurredEffectView = BackgroundVisualEffectView()
+
         setupCollectionView()
         
         guard let collectionView = self.collectionView else { return }
-
+        
+        self.view.addSubview(blurredEffectView)
         self.view.addSubview(collectionView)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        collectionView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        blurredEffectView.translatesAutoresizingMaskIntoConstraints = false
 
-        self.view.backgroundColor = .red
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        blurredEffectView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        blurredEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        blurredEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        blurredEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
     // MARK: - View setup
