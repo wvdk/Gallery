@@ -89,7 +89,7 @@ class MyViewController : UIViewController {
         view.addSubview(box)
         
 //        box.loopInSuperview(duplicationCount: 3, moveHorizontallyWithIncrement: 60, moveVerticallyWithIncrement: -4)
-        box.loopInSuperview(duplicationCount: 3, with: [.moveHorizontallyWithIncrement(60), .moveVerticallyWithIncrement(-4)])
+        box.loopInSuperview(duplicationCount: 3, with: [.moveHorizontallyWithIncrement(60), .moveVerticallyWithIncrement(-4), .moveHorizontallyWithIncrement(60)])
         
     }
     
