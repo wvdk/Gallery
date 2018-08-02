@@ -19,8 +19,6 @@
 		891549D7211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549D6211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift */; };
 		891549D921128F340041FE8A /* NotFeaturedArtPieceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549D821128F340041FE8A /* NotFeaturedArtPieceCollectionViewCell.swift */; };
 		891549DB21129FB40041FE8A /* BackgroundVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549DA21129FB40041FE8A /* BackgroundVisualEffectView.swift */; };
-		891549DD21139C420041FE8A /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549DC21139C420041FE8A /* NSLayoutConstraint+Extension.swift */; };
-		891549DE21139C420041FE8A /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549DC21139C420041FE8A /* NSLayoutConstraint+Extension.swift */; };
 		891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		89278ECC210F8AEC00CEEB3C /* DescriptionLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */; };
@@ -171,7 +169,6 @@
 		891549D6211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		891549D821128F340041FE8A /* NotFeaturedArtPieceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFeaturedArtPieceCollectionViewCell.swift; sourceTree = "<group>"; };
 		891549DA21129FB40041FE8A /* BackgroundVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundVisualEffectView.swift; sourceTree = "<group>"; };
-		891549DC21139C420041FE8A /* NSLayoutConstraint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extension.swift"; sourceTree = "<group>"; };
 		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabels.swift; sourceTree = "<group>"; };
@@ -460,7 +457,6 @@
 				892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */,
 				DE332B75205B7F3E00C40727 /* UIView+Extensions.swift */,
 				89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */,
-				891549DC21139C420041FE8A /* NSLayoutConstraint+Extension.swift */,
 				891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */,
 				DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */,
 				DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */,
@@ -938,7 +934,6 @@
 				DE332B7A205B852600C40727 /* SKNode+Extensions.swift in Sources */,
 				DE332B76205B7F3E00C40727 /* UIView+Extensions.swift in Sources */,
 				DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */,
-				891549DD21139C420041FE8A /* NSLayoutConstraint+Extension.swift in Sources */,
 				DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */,
 				892F534E2107A5E600AC8C45 /* SKSpriteNode+Extension.swift in Sources */,
 			);
@@ -957,7 +952,6 @@
 				DEDB688320E946EE00D102EB /* UIView+Extensions.swift in Sources */,
 				DEDB688420E946EE00D102EB /* UITapGestureRecognizerWithClosure.swift in Sources */,
 				DEDB688020E946EE00D102EB /* ArrayExtensions.swift in Sources */,
-				891549DE21139C420041FE8A /* NSLayoutConstraint+Extension.swift in Sources */,
 				DEDB688120E946EE00D102EB /* GlobalFunctions.swift in Sources */,
 				89DEC6B7210A7B30009858CC /* SKSpriteNode+Extension.swift in Sources */,
 			);

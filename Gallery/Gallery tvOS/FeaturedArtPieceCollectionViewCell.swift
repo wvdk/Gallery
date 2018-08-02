@@ -62,9 +62,9 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     private let purchaseButton = UIButton(type: .system)
     
     private let authorNameLabel = HeadlineLabel(isFontBold: true)
-    private let titleLabel = BodyLabel()
-    private let dateLabel = BodyLabel()
-    private let descriptionLabel = BodyLabel()
+    private let titleLabel = BodyLabel(color: .gray)
+    private let dateLabel = BodyLabel(color: .gray)
+    private let descriptionLabel = BodyLabel(color: .gray)
     private let descriptionExpandingLabel = FocusingLabel()
     
     // MARK: - UICollectionViewCell properties

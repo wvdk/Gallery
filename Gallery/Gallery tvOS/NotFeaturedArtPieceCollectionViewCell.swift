@@ -16,7 +16,7 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     static let identifier = "NotFeaturedArtPieceCollectionViewCellIdentifier"
     
     private let artPieceView = FocusingView()
-    private let titleLabel = BodyLabel()
+    private let titleLabel = BodyLabel(color: .darkGray)
     
     var artPiece: ArtMetadata? = nil {
         didSet {
@@ -39,6 +39,8 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        titleLabel.alpha = 0
+        
         self.addSubview(artPieceView)
         self.addSubview(titleLabel)
         
@@ -50,11 +52,27 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         artPieceView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 47).isActive = true
         artPieceView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -47).isActive = true
         
-        titleLabel.topAnchor.constraint(equalTo: artPieceView.bottomAnchor, constant: 0).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: artPieceView.bottomAnchor, constant: 15).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: artPieceView.centerXAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - UIFocusEnvironment update
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        super.didUpdateFocus(in: context, with: coordinator)
+        
+        if artPieceView.isFocused {
+            coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
+                self?.titleLabel.alpha = 1
+            }, completion: nil)
+        } else {
+            coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
+                self?.titleLabel.alpha = 0
+            }, completion: nil)
+        }
     }
 }

@@ -25,22 +25,12 @@ class TabBarController: UITabBarController {
         purchasedArtPieceViewController.tabBarItem = UITabBarItem(title: "YOURS", image: nil, tag: 2)
         purchasedArtPieceViewController.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30)], for: .normal)
         
-//        let membershipViewController = UIViewController()
-//        membershipViewController.view.backgroundColor = .blue
-//        membershipViewController.tabBarItem = UITabBarItem(title: "Membership", image: nil, tag: 0)
-//
-//        let artPiecePresentatioViewController = UIViewController()
-//        artPiecePresentatioViewController.view.backgroundColor = .black
-//        artPiecePresentatioViewController.tabBarItem = UITabBarItem(title: "Shuffle", image: nil, tag: 3)
-        
-//        let tabBarViewControllerList = [membershipViewController, allArtPieceViewController, purchasedArtPieceViewController, artPiecePresentatioViewController]
-        
         let tabBarViewControllerList = [allArtPieceViewController, purchasedArtPieceViewController]
         self.viewControllers = tabBarViewControllerList
     }
     
-    // MARK: - Focus update
-    
+    // MARK: - UIFocusEnvironment update
+
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let nextView = context.nextFocusedView, self.tabBar.contains(nextView) else { return }
         
