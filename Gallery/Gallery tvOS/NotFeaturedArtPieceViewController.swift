@@ -47,7 +47,7 @@ class NotFeaturedArtPieceViewController: UIViewController {
         
         guard let collectionView = collectionView else { return }
         
-        collectionView.register(FeaturedArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: FeaturedArtPieceCollectionViewCell.identifier)
+        collectionView.register(NotFeaturedArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: NotFeaturedArtPieceCollectionViewCell.identifier)
         collectionView.decelerationRate = UIScrollViewDecelerationRateNormal
         collectionView.delegate = self
         collectionView.dataSource = self

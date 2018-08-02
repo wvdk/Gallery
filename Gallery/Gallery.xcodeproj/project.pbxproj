@@ -17,6 +17,7 @@
 		891549D3211267710041FE8A /* AllArtPiecesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549CE2112652E0041FE8A /* AllArtPiecesViewController.swift */; };
 		891549D5211276820041FE8A /* NotFeaturedArtPieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549D4211276820041FE8A /* NotFeaturedArtPieceViewController.swift */; };
 		891549D7211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549D6211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift */; };
+		891549D921128F340041FE8A /* NotFeaturedArtPieceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549D821128F340041FE8A /* NotFeaturedArtPieceCollectionViewCell.swift */; };
 		891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		89278ECC210F8AEC00CEEB3C /* DescriptionLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */; };
@@ -165,6 +166,7 @@
 		891549CE2112652E0041FE8A /* AllArtPiecesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllArtPiecesViewController.swift; sourceTree = "<group>"; };
 		891549D4211276820041FE8A /* NotFeaturedArtPieceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFeaturedArtPieceViewController.swift; sourceTree = "<group>"; };
 		891549D6211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		891549D821128F340041FE8A /* NotFeaturedArtPieceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFeaturedArtPieceCollectionViewCell.swift; sourceTree = "<group>"; };
 		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabels.swift; sourceTree = "<group>"; };
@@ -308,9 +310,10 @@
 				891549CE2112652E0041FE8A /* AllArtPiecesViewController.swift */,
 				89278ED5211115F900CEEB3C /* FeaturedArtPieceViewController.swift */,
 				89DEC69421091C25009858CC /* FeaturedArtPieceViewController+UICollectionViewDelegate.swift */,
+				89DEC6B5210933DB009858CC /* FeaturedArtPieceCollectionViewCell.swift */,
 				891549D4211276820041FE8A /* NotFeaturedArtPieceViewController.swift */,
 				891549D6211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift */,
-				89DEC6B5210933DB009858CC /* FeaturedArtPieceCollectionViewCell.swift */,
+				891549D821128F340041FE8A /* NotFeaturedArtPieceCollectionViewCell.swift */,
 				89DEC6BB210BA1AB009858CC /* FocusingLabel.swift */,
 				89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */,
 				89DEC6B8210B9C10009858CC /* FocusingView.swift */,
@@ -857,6 +860,7 @@
 				891549D7211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift in Sources */,
 				89DEC6B6210933DB009858CC /* FeaturedArtPieceCollectionViewCell.swift in Sources */,
 				89DEC69621091C2B009858CC /* FeaturedArtPieceViewController+UICollectionViewDelegate.swift in Sources */,
+				891549D921128F340041FE8A /* NotFeaturedArtPieceCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
