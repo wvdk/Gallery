@@ -1,5 +1,5 @@
 //
-//  ArtPieceCollectionViewCell.swift
+//  FeaturedArtPieceCollectionViewCell.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 7/25/18.
@@ -9,7 +9,7 @@
 import UIKit
 import GalleryCore_tvOS
 
-class ArtPieceCollectionViewCell: UICollectionViewCell {
+class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     lazy var artPieceSize = CGSize(width: 880 / 1458 * self.frame.size.width, height: 497 / 829 * self.frame.size.height)
     lazy var artPieceTopEdgeInset = 147 / 829 * self.frame.size.height
@@ -19,7 +19,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    static let identifier = "ArtPieceCollectionViewCellIdentifier"
+    static let identifier = "FeaturedArtPieceCollectionViewCellIdentifier"
     
     var id: Int? = 999 {
         didSet {
