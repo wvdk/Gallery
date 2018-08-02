@@ -16,6 +16,8 @@ class FocusingView: UIView {
     
     // MARK: - Properties
     
+    var delegate: FocusingViewDelegate?
+    
     private let containerView = UIView()
     
     private var artPieceViewParralaxMotionEffect: UIMotionEffectGroup?
@@ -64,16 +66,20 @@ class FocusingView: UIView {
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
-                self?.setFocusedStyle()
-                self?.addParallaxMotionEffect()
-                }, completion: nil)
+                if let strongSelf = self {
+                    strongSelf.setFocusedStyle()
+                    strongSelf.addParallaxMotionEffect()
+                    strongSelf.delegate?.focusingViewDidBecomeFocused(strongSelf)
+                }}, completion: nil)
         }
         
         if let previouslyFocusedView = context.previouslyFocusedView as? FocusingView, previouslyFocusedView == self {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
-                self?.resetFocusedStyle()
-                self?.removeParallaxMotionEffect()
-                }, completion: nil)
+                if let strongSelf = self {
+                    strongSelf.resetFocusedStyle()
+                    strongSelf.removeParallaxMotionEffect()
+                    strongSelf.delegate?.focusingViewDidResignedFocus(strongSelf)
+                }}, completion: nil)
         }
     }
     
@@ -133,4 +139,11 @@ class FocusingView: UIView {
         
         self.artPieceViewParralaxMotionEffect = nil
     }
+}
+
+protocol FocusingViewDelegate: class {
+    
+    func focusingViewDidBecomeFocused(_ focusingView: FocusingView)
+    
+    func focusingViewDidResignedFocus(_ focusingView: FocusingView)
 }

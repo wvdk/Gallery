@@ -101,6 +101,8 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         
         descriptionExpandingLabel.text = "...More"
         
+        artPieceView.delegate = self
+        
         let descriptionStackView = setupDescriptionStackView()
         
         self.addSubview(descriptionStackView)

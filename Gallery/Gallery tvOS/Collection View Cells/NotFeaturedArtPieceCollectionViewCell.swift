@@ -41,6 +41,8 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         
         titleLabel.alpha = 0
         
+        artPieceView.delegate = self
+        
         self.addSubview(artPieceView)
         self.addSubview(titleLabel)
         
