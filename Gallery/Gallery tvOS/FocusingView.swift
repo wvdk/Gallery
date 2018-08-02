@@ -34,10 +34,7 @@ class FocusingView: UIView {
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        containerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        containerView.constraint(edgesTo: self)
         
         containerView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 8
@@ -56,10 +53,7 @@ class FocusingView: UIView {
         
         artPieceView.translatesAutoresizingMaskIntoConstraints = false
         
-        artPieceView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        artPieceView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        artPieceView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        artPieceView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        artPieceView.constraint(edgesTo: containerView)
     }
     
     // MARK: - Focus updates

@@ -23,9 +23,6 @@ class BackgroundVisualEffectView: UIVisualEffectView {
         
         background.translatesAutoresizingMaskIntoConstraints = false
         
-        background.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        background.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        background.constraint(edgesTo: contentView)
     }
 }

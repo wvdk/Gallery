@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GalleryCore_tvOS
 
 class NotFeaturedArtPieceViewController: UIViewController {
 
@@ -31,15 +32,8 @@ class NotFeaturedArtPieceViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         blurredEffectView.translatesAutoresizingMaskIntoConstraints = false
 
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
-        blurredEffectView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        blurredEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        blurredEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        blurredEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView.constraint(edgesTo: view)
+        blurredEffectView.constraint(edgesTo: view)
     }
     
     // MARK: - View setup
