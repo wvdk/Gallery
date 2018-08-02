@@ -310,20 +310,44 @@
 				89134E1520E80C1300772E7F /* AppDelegate.swift */,
 				89134E1720E80C1300772E7F /* TabBarController.swift */,
 				891549CE2112652E0041FE8A /* AllArtPiecesViewController.swift */,
-				89278ED5211115F900CEEB3C /* FeaturedArtPieceViewController.swift */,
-				89DEC69421091C25009858CC /* FeaturedArtPieceViewController+UICollectionViewDelegate.swift */,
-				89DEC6B5210933DB009858CC /* FeaturedArtPieceCollectionViewCell.swift */,
-				891549D4211276820041FE8A /* NotFeaturedArtPieceViewController.swift */,
-				891549D6211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift */,
-				891549D821128F340041FE8A /* NotFeaturedArtPieceCollectionViewCell.swift */,
-				89DEC6BB210BA1AB009858CC /* FocusingLabel.swift */,
-				89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */,
-				89DEC6B8210B9C10009858CC /* FocusingView.swift */,
-				891549DA21129FB40041FE8A /* BackgroundVisualEffectView.swift */,
+				891549E02113ADF20041FE8A /* Art Piece Controllers */,
+				891549E12113AE0E0041FE8A /* Collection View Cells */,
+				891549DF2113ADCD0041FE8A /* Views */,
 				89134E1C20E80C1500772E7F /* Assets.xcassets */,
 				89134E1E20E80C1500772E7F /* Info.plist */,
 			);
 			path = "Gallery tvOS";
+			sourceTree = "<group>";
+		};
+		891549DF2113ADCD0041FE8A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				89DEC6BB210BA1AB009858CC /* FocusingLabel.swift */,
+				89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */,
+				89DEC6B8210B9C10009858CC /* FocusingView.swift */,
+				891549DA21129FB40041FE8A /* BackgroundVisualEffectView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		891549E02113ADF20041FE8A /* Art Piece Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				89278ED5211115F900CEEB3C /* FeaturedArtPieceViewController.swift */,
+				89DEC69421091C25009858CC /* FeaturedArtPieceViewController+UICollectionViewDelegate.swift */,
+				891549D4211276820041FE8A /* NotFeaturedArtPieceViewController.swift */,
+				891549D6211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift */,
+			);
+			path = "Art Piece Controllers";
+			sourceTree = "<group>";
+		};
+		891549E12113AE0E0041FE8A /* Collection View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				89DEC6B5210933DB009858CC /* FeaturedArtPieceCollectionViewCell.swift */,
+				891549D821128F340041FE8A /* NotFeaturedArtPieceCollectionViewCell.swift */,
+			);
+			path = "Collection View Cells";
 			sourceTree = "<group>";
 		};
 		89485BCE20F2A07000046753 /* A736D Art Piece */ = {
