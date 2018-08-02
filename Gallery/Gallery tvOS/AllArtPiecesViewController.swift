@@ -48,11 +48,15 @@ class AllArtPiecesViewController: UIViewController {
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let nextFocusedView = context.nextFocusedView, let previouslyFocusedView = context.previouslyFocusedView else { return }
         
-        if nextFocusedView.superview == previouslyFocusedView.superview {
+        if featuredArtPiecesViewController.contains(previouslyFocusedView), featuredArtPiecesViewController.contains(nextFocusedView) {
             return
         }
         
-        if notFeaturedArtPiecesViewController.contains(previouslyFocusedView)  {
+        if notFeaturedArtPiecesViewController.contains(previouslyFocusedView), notFeaturedArtPiecesViewController.contains(nextFocusedView) {
+            return
+        }
+        
+        if notFeaturedArtPiecesViewController.contains(previouslyFocusedView) {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
                 self?.featuredArtPiecesViewController.view.transform = CGAffineTransform.identity
                 self?.notFeaturedArtPiecesViewController.view.transform = CGAffineTransform.identity
