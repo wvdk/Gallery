@@ -29,6 +29,8 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var artView: ArtView?
+    
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let artPiece = artPiece else { return }
@@ -49,8 +51,10 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
                  descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquam"
             }
             
-            let artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
-            artPieceView.addSubview(artPieceView: artView)
+            artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
+            if let view = artView {
+                artPieceView.addSubview(artPieceView: view)
+            }
         }
     }
     

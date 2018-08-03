@@ -11,10 +11,10 @@ import UIKit
 extension NotFeaturedArtPieceCollectionViewCell: FocusingViewDelegate {
     
     func focusingViewDidBecomeFocused(_ focusingView: FocusingView) {
-        print("focus")
+        artView?.startPlaying()
     }
     
     func focusingViewDidResignedFocus(_ focusingView: FocusingView) {
-        print("not f")
+        artView?.stopPlaying()
     }
 }

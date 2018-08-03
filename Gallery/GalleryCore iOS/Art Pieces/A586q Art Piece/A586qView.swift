@@ -34,6 +34,8 @@ class A586qView: ArtView {
         spriteKitView.showsNodeCount = false
 
         spriteKitView.presentScene(scene)
+        
+        stopPlaying()
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -49,5 +51,15 @@ class A586qView: ArtView {
         }
         scene.size = size
         scene.clearScreen()
+    }
+    
+    // MARK: - ArtViewProtocol implementation
+    
+    override public func startPlaying() {
+        scene.isPaused = false
+    }
+    
+    override public func stopPlaying() {
+        scene.isPaused = true
     }
 }

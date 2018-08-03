@@ -18,13 +18,17 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     private let artPieceView = FocusingView()
     private let titleLabel = BodyLabel(color: .darkGray)
     
+    var artView: ArtView?
+
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let artPiece = artPiece else { return }
             titleLabel.text = "\(artPiece.id)"
             
-            let artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
-            artPieceView.addSubview(artPieceView: artView)
+            artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
+            if let view = self.artView {
+                artPieceView.addSubview(artPieceView: view)
+            }
         }
     }
     
