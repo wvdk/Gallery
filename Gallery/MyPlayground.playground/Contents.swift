@@ -17,10 +17,18 @@ extension UIView {
         
     }
     
+    /// Creates a copy of the UIView.
+    ///
+    /// Note: Might cause some issues with your subclasses of UIView if they don't handle being archived with NSKeyedArchiver.
     func copyView<T: UIView>() -> T {
         return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self)) as! T
     }
-        
+    
+    /// Creates a bunch of copies of the view, additively applying a transformation to them based on the `options` provided.
+    ///
+    /// - Parameters:
+    ///   - duplicationCount: The number of additional views you want to be created.
+    ///   - options: The transformation settings you want to be applied to each view.
     func loopInSuperview(duplicationCount: Int, with options: [LooperOptions]) {
         /// We start with an index of 2 - which seems weird but if very deliberate. If we use a starting index of 0, then multiply the origin points by that 0 index, it would bring the new view to the top left corner. Similarly if we start with 1, it will cover the original view.
         let startingIndex = 2
