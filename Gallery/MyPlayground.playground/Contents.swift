@@ -20,29 +20,7 @@ extension UIView {
     func copyView<T: UIView>() -> T {
         return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self)) as! T
     }
-    
-    func loopInSuperview(duplicationCount: Int, moveHorizontallyWithIncrement xMovement: Int = 0, moveVerticallyWithIncrement yMovement: Int = 0) {
-        /// We start with an index of 2 - which seems weird but if very deliberate. If we use a starting index of 0, then multiply the origin points by that 0 index, it would bring the new view to the top left corner. Similarly if we start with 1, it will cover the original view.
-        let startingIndex = 2
-        let endingIndex = duplicationCount + startingIndex
-        for i in startingIndex..<endingIndex {
-            let newView = self.copyView()
-            
-            
-            // Move
-            newView.frame = CGRect(x: frame.origin.x + CGFloat((i - 1) * xMovement),
-                                   y: frame.origin.y + CGFloat((i - 1) * yMovement),
-                                   width: frame.width,
-                                   height: frame.height)
-            
-            
-            
-            self.superview?.addSubview(newView)
-            newView.backgroundColor = .blue
-        }        
         
-    }
-    
     func loopInSuperview(duplicationCount: Int, with options: [LooperOptions]) {
         /// We start with an index of 2 - which seems weird but if very deliberate. If we use a starting index of 0, then multiply the origin points by that 0 index, it would bring the new view to the top left corner. Similarly if we start with 1, it will cover the original view.
         let startingIndex = 2
