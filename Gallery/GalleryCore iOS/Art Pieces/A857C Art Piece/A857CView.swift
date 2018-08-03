@@ -39,9 +39,7 @@ class A857CView: ArtView {
         spriteKitView.presentScene(scene)
         
         scene.scaleMode = .aspectFill
-        scene.addChild(containerNode)
-        
-        stopPlaying()
+        scene.addChild(containerNode)        
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -72,15 +70,5 @@ class A857CView: ArtView {
         
         containerNode.removeAllChildren()
         containerNode.addChild(node)
-    }
-    
-    // MARK: - ArtViewProtocol implementation
-    
-    override public func startPlaying() {
-        scene.isPaused = false
-    }
-    
-    override public func stopPlaying() {
-        scene.isPaused = true
     }
 }

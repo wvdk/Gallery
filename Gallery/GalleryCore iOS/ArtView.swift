@@ -26,21 +26,4 @@ public class ArtView: UIView {
         
         print("ArtView with id \(artPieceMetadata.id) did move to super view.")
     }
-    
-    // MARK: - ArtViewProtocol implementation
-    
-    public func startPlaying() {
-        print("start to play art piece")
-    }
-    
-    public func stopPlaying() {
-        print("stop to play art piece")
-    }
 }
-//
-//protocol ArtViewProtocol {
-//
-//    func startPlaying()
-//
-//    func stopPlaying()
-//}

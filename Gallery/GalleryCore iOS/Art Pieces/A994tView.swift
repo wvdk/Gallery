@@ -59,9 +59,7 @@ class A994tView: ArtView {
         
         for _ in 0...30 {
             scattering()
-        }
-        
-        stopPlaying()
+        }        
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -111,15 +109,5 @@ class A994tView: ArtView {
         //        }
         
         containerNode.addChildNode(planeNode)
-    }
-    
-    // MARK: - ArtViewProtocol implementation
-    
-    override func startPlaying() {
-        scene.isPaused = false
-    }
-    
-    override func stopPlaying() {
-        scene.isPaused = true
     }
 }

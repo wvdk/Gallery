@@ -47,9 +47,7 @@ public class A565zView: ArtView {
         
         scene.rootNode.addChildNode(containerNode)
         
-        createNodeAtCenter()
-        
-        stopPlaying()
+        createNodeAtCenter()        
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -70,15 +68,5 @@ public class A565zView: ArtView {
         let action = SCNAction.scale(by: 10, duration: 10)
         planeNode.runAction(action)
         containerNode.addChildNode(planeNode)
-    }
-    
-    // MARK: - ArtViewProtocol implementation
-    
-    override public func startPlaying() {
-        scene.isPaused = false
-    }
-    
-    override public func stopPlaying() {
-        scene.isPaused = true
     }
 }
