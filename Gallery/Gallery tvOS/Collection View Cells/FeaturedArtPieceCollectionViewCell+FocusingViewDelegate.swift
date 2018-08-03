@@ -11,10 +11,10 @@ import UIKit
 extension FeaturedArtPieceCollectionViewCell: FocusingViewDelegate {
     
     func focusingViewDidBecomeFocused(_ focusingView: FocusingView) {
-        return
+        showArtPiece()
     }
     
     func focusingViewDidResignedFocus(_ focusingView: FocusingView) {
-        return
+        hideArtPiece()
     }
 }

@@ -50,11 +50,6 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
             } else {
                  descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquam"
             }
-            
-            artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
-            if let view = artView {
-                artPieceView.addSubview(artPieceView: view)
-            }
         }
     }
     
@@ -191,5 +186,22 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         
         // Hides `descriptionExpandingLabel` if `descriptionLabel` text is not truncated.
         descriptionExpandingLabel.isHidden = !descriptionLabel.isTruncated
+    }
+    
+    // MARK: - Art appearance
+    
+    func showArtPiece() {
+        if let piece = artPiece, artView == nil {
+            artView = piece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: piece)
+        }
+        
+        guard let view = artView else { return }
+        artPieceView.addSubview(artPieceView: view)
+    }
+    
+    func hideArtPiece() {
+        guard let view = artView else { return }
+        view.removeFromSuperview()
+        artView = nil
     }
 }

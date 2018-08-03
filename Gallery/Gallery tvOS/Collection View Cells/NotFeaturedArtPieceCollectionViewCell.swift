@@ -24,11 +24,6 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let artPiece = artPiece else { return }
             titleLabel.text = "\(artPiece.id)"
-            
-            artView = artPiece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: artPiece)
-            if let view = self.artView {
-                artPieceView.addSubview(artPieceView: view)
-            }
         }
     }
     
@@ -80,5 +75,22 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
                 self?.titleLabel.alpha = 0
                 }, completion: nil)
         }
+    }
+    
+    // MARK: - Art appearance
+    
+    func showArtPiece() {
+        if let piece = artPiece, artView == nil {
+            artView = piece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: piece)
+        }
+        
+        guard let view = artView else { return }
+        artPieceView.addSubview(artPieceView: view)
+    }
+    
+    func hideArtPiece() {
+        guard let view = artView else { return }
+        view.removeFromSuperview()
+        artView = nil
     }
 }
