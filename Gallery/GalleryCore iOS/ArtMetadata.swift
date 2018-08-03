@@ -65,6 +65,6 @@ public struct ArtMetadata {
         self.price = price
 //        self.viewController = viewController
         self.viewType = viewType
-        self.thumbnail = thumbnail ?? UIImage(named: "defaultThumbnail")
+        self.thumbnail = thumbnail
     }
 }

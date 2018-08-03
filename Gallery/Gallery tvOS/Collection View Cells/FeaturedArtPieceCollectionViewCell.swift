@@ -34,6 +34,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let artPiece = artPiece else { return }
+            artPieceView.thumbnail = artPiece.thumbnail
             authorNameLabel.text = "\(artPiece.author)"
             dateLabel.text = "\(artPiece.prettyPublishedDate)"
             titleLabel.text = "\(artPiece.id)"

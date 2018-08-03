@@ -17,8 +17,14 @@ class FocusingView: UIView {
     // MARK: - Properties
     
     var delegate: FocusingViewDelegate?
+    var thumbnail: UIImage? {
+        didSet {
+            thumbnailView.image = thumbnail ?? UIImage(named: "defaultThumbnail")
+        }
+    }
     
     private let containerView = UIView()
+    private let thumbnailView = UIImageView()
     
     private var artPieceViewParralaxMotionEffect: UIMotionEffectGroup?
 
@@ -36,10 +42,13 @@ class FocusingView: UIView {
         self.isUserInteractionEnabled = true
         
         self.addSubview(containerView)
+        containerView.addSubview(thumbnailView)
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
+        thumbnailView.translatesAutoresizingMaskIntoConstraints = false
         
         containerView.constraint(edgesTo: self)
+        thumbnailView.constraint(edgesTo: containerView)
         
         containerView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 8

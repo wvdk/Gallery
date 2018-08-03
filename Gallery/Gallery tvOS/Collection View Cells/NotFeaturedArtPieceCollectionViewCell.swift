@@ -23,6 +23,7 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let artPiece = artPiece else { return }
+            artPieceView.thumbnail = artPiece.thumbnail
             titleLabel.text = "\(artPiece.id)"
         }
     }
