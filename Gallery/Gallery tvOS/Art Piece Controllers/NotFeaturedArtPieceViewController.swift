@@ -13,6 +13,8 @@ class NotFeaturedArtPieceViewController: UIViewController {
 
     // MARK: - Properties
 
+    weak var delegate: ArtPieceViewControllerDelegate?
+    
     var collectionView: UICollectionView?
     
     // MARK: - Lifecycle functions

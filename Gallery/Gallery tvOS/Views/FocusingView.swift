@@ -17,7 +17,7 @@ class FocusingView: UIView {
     // MARK: - Properties
     
     var delegate: FocusingViewDelegate?
-    var thumbnail: UIImage? {
+    var thumbnail: UIImage? = nil {
         didSet {
             thumbnailView.image = thumbnail ?? UIImage(named: "defaultThumbnail")
         }

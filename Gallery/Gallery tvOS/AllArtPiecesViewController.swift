@@ -20,6 +20,9 @@ class AllArtPiecesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        featuredArtPiecesViewController.delegate = self
+        notFeaturedArtPiecesViewController.delegate = self
+
         addChildViewController(featuredArtPiecesViewController)
         view.addSubview(featuredArtPiecesViewController.view)
         

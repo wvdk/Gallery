@@ -25,6 +25,7 @@ extension NotFeaturedArtPieceViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NotFeaturedArtPieceCollectionViewCell.identifier, for: indexPath) as! NotFeaturedArtPieceCollectionViewCell
         
+        cell.delegate = self
         cell.artPiece = MasterList.shared.activePieces[indexPath.item]
         
         return cell

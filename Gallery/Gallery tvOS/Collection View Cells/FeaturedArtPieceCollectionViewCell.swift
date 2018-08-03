@@ -21,6 +21,8 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "FeaturedArtPieceCollectionViewCellIdentifier"
     
+    weak var delegate: CollectionViewCellDelegate?
+    
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let artPiece = artPiece else { return }
@@ -33,7 +35,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
                 let priceTitle = "$ \(price)"
                 purchaseButton.setTitle(priceTitle, for: .normal)
             } else {
-                purchaseButton.setTitle("NAN", for: .normal)
+                purchaseButton.setTitle("FREE", for: .normal)
             }
             
             if let description = artPiece.description {
@@ -135,6 +137,17 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         artPieceViewFocusGuide.trailingAnchor.constraint(equalTo: artPieceView.leadingAnchor).isActive = true
         artPieceViewFocusGuide.bottomAnchor.constraint(equalTo: purchaseButton.bottomAnchor).isActive = true
         artPieceViewFocusGuide.leadingAnchor.constraint(equalTo: purchaseButton.trailingAnchor).isActive = true
+        
+        artPieceView.addSingleTapGestureRecognizer { [weak self] recognizer in
+            recognizer.allowedPressTypes = [
+                NSNumber(value: UIPressType.playPause.rawValue),
+                NSNumber(value: UIPressType.select.rawValue)
+            ]
+            
+            if let strongSelf = self, let artView = self?.artView {
+                self?.delegate?.collectionViewCell(strongSelf, didSelectOpenArtView: artView)
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -15,6 +15,8 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "NotFeaturedArtPieceCollectionViewCellIdentifier"
     
+    weak var delegate: CollectionViewCellDelegate?
+    
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let artPiece = artPiece else { return }
@@ -56,6 +58,17 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         
         titleLabel.topAnchor.constraint(equalTo: artPieceView.bottomAnchor, constant: 15).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: artPieceView.centerXAnchor).isActive = true
+        
+        artPieceView.addSingleTapGestureRecognizer { [weak self] recognizer in
+            recognizer.allowedPressTypes = [
+                NSNumber(value: UIPressType.playPause.rawValue),
+                NSNumber(value: UIPressType.select.rawValue)
+            ]
+            
+            if let strongSelf = self, let artView = self?.artView {
+                self?.delegate?.collectionViewCell(strongSelf, didSelectOpenArtView: artView)
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
