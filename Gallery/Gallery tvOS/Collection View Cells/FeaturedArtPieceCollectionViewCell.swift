@@ -25,20 +25,22 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     var artPiece: ArtMetadata? = nil {
         didSet {
-            guard let artPiece = artPiece else { return }
-            artPieceView.thumbnail = artPiece.thumbnail
-            authorNameLabel.text = "\(artPiece.author)"
-            dateLabel.text = "\(artPiece.prettyPublishedDate)"
-            titleLabel.text = "\(artPiece.id)"
+            guard let piece = artPiece else { return }
+            artPieceView.thumbnail = piece.thumbnail
+            authorNameLabel.text = "\(piece.author)"
+            dateLabel.text = "\(piece.prettyPublishedDate)"
+            titleLabel.text = "\(piece.id)"
 
-            if let price = artPiece.price {
+            self.artPiece?.view = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
+            
+            if let price = piece.price {
                 let priceTitle = "$ \(price)"
                 purchaseButton.setTitle(priceTitle, for: .normal)
             } else {
                 purchaseButton.setTitle("FREE", for: .normal)
             }
             
-            if let description = artPiece.description {
+            if let description = piece.description {
                 descriptionLabel.text = description
             } else {
                  descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquam"
@@ -197,7 +199,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     func showArtPiece() {
         if let piece = artPiece, artView == nil {
-            artView = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
+            artView = piece.view
         }
         
         guard let view = artView else { return }

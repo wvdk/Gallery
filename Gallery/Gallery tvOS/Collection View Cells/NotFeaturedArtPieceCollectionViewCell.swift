@@ -19,9 +19,11 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     var artPiece: ArtMetadata? = nil {
         didSet {
-            guard let artPiece = artPiece else { return }
-            artPieceView.thumbnail = artPiece.thumbnail
-            titleLabel.text = "\(artPiece.id)"
+            guard let piece = artPiece else { return }
+            artPieceView.thumbnail = piece.thumbnail
+            titleLabel.text = "\(piece.id)"
+            
+            self.artPiece?.view = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
         }
     }
     
@@ -95,7 +97,7 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     func showArtPiece() {
         if let piece = artPiece, artView == nil {
-            artView = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
+            artView = piece.view
         }
         
         guard let view = artView else { return }
