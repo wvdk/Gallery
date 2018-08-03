@@ -15,11 +15,6 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "NotFeaturedArtPieceCollectionViewCellIdentifier"
     
-    private let artPieceView = FocusingView()
-    private let titleLabel = BodyLabel(color: .darkGray)
-    
-    var artView: ArtView?
-
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let artPiece = artPiece else { return }
@@ -27,6 +22,11 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
             titleLabel.text = "\(artPiece.id)"
         }
     }
+    
+    private var artView: ArtView?
+    private let artPieceView = FocusingView()
+    
+    private let titleLabel = BodyLabel(color: .darkGray)
     
     // MARK: - UICollectionViewCell properties
     

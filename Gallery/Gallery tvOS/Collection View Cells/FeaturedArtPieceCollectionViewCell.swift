@@ -21,16 +21,6 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "FeaturedArtPieceCollectionViewCellIdentifier"
     
-    var id: Int? = 999 {
-        didSet {
-            if let id = self.id {
-                titleLabel.text = "\(id)"
-            }
-        }
-    }
-    
-    var artView: ArtView?
-    
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let artPiece = artPiece else { return }
@@ -57,6 +47,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     private var descriptionExpandingLabelFocusGuide = UIFocusGuide()
     private var artPieceViewFocusGuide = UIFocusGuide()
     
+    private var artView: ArtView?
     private let artPieceView = FocusingView()
     
     private let purchaseButton = UIButton(type: .system)
