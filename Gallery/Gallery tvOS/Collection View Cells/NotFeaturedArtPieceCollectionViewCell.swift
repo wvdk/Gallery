@@ -65,8 +65,8 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
                 NSNumber(value: UIPressType.select.rawValue)
             ]
             
-            if let strongSelf = self, let artView = self?.artView {
-                self?.delegate?.collectionViewCell(strongSelf, didSelectOpenArtView: artView)
+            if let strongSelf = self, let artPiece = self?.artPiece {
+                self?.delegate?.collectionViewCell(strongSelf, didSelectOpenArtMetadata: artPiece)
             }
         }
     }

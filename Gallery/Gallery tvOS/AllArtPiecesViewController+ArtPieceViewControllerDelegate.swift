@@ -10,10 +10,9 @@ import GalleryCore_tvOS
 
 extension AllArtPiecesViewController: ArtPieceViewControllerDelegate {
     
-    func artPieceControllerDelegate(_ viewController: UIViewController, didSelectOpenArtView: ArtView) {
-        print("did select item")
-//        let vc = UIViewController()
-//        vc.view.addSubview(didSelectOpenArtView)
-//        present(vc, animated: true, completion: nil)
+    func artPieceControllerDelegate(_ viewController: UIViewController, didSelectOpenArtMetadata: ArtMetadata) {
+        let artPieceDetailController = ArtPieceDetailViewController(artMetadata: didSelectOpenArtMetadata)
+        artPieceDetailController.view.backgroundColor = .red
+        present(artPieceDetailController, animated: true, completion: nil)
     }
 }
