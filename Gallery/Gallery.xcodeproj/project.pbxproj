@@ -21,6 +21,8 @@
 		891549DB21129FB40041FE8A /* BackgroundVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549DA21129FB40041FE8A /* BackgroundVisualEffectView.swift */; };
 		891549E52113B1780041FE8A /* FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549E22113B1720041FE8A /* FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */; };
 		891549E72113B1E70041FE8A /* NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549E62113B1E70041FE8A /* NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */; };
+		891549EC2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */; };
+		891549ED2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */; };
 		891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		89278ECC210F8AEC00CEEB3C /* DescriptionLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */; };
@@ -173,6 +175,7 @@
 		891549DA21129FB40041FE8A /* BackgroundVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundVisualEffectView.swift; sourceTree = "<group>"; };
 		891549E22113B1720041FE8A /* FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift"; sourceTree = "<group>"; };
 		891549E62113B1E70041FE8A /* NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift"; sourceTree = "<group>"; };
+		891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ArtPieceThumbails.xcassets; sourceTree = "<group>"; };
 		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabels.swift; sourceTree = "<group>"; };
@@ -425,6 +428,7 @@
 				DE39D70420B321960087788C /* ArtMetadata.swift */,
 				DE72BB9F20B8645400576999 /* ArtView.swift */,
 				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
+				891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */,
 				DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */,
 				DE0B7FA620E3E337000B482F /* Info.plist */,
 			);
@@ -740,6 +744,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				891549ED2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */,
 				89C3866D20F49845004BF43F /* A857CFragmentShader.fsh in Resources */,
 				894C691C20F13899003A5387 /* A586qActions.sks in Resources */,
 				89485BD120F2A08F00046753 /* A736DActions.sks in Resources */,
@@ -750,6 +755,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				891549EC2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */,
 				89C3866C20F49845004BF43F /* A857CFragmentShader.fsh in Resources */,
 				894C691920F13889003A5387 /* A586qActions.sks in Resources */,
 				89485BD020F2A08E00046753 /* A736DActions.sks in Resources */,

@@ -37,6 +37,9 @@ public struct ArtMetadata {
     /// <#Description#>
     public var view: ArtView? = nil
     
+    /// Thumbnail image of the art piece.
+    public var thumbnail: UIImage?
+    
     /// A static `DateFormatter` used for converting "March 2018" style `string`s into and out of `Date` objects.
     public static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -53,7 +56,8 @@ public struct ArtMetadata {
     ///   - price: <#price description#>
     ///   - prettyPublishedDate: Formatted MMMM yyyy (e.g. June 2018)
     ///   - viewType: <#viewType description#>
-    public init(id: ArtID, author: String, prettyPublishedDate: String, description: String? = nil, price: Double? = nil, viewType: ArtView.Type) {
+    ///   - thumbnail: <#thumbnail description#>
+    public init(id: ArtID, author: String, prettyPublishedDate: String, description: String? = nil, price: Double? = nil, viewType: ArtView.Type, thumbnail: UIImage?) {
         self.id = id
         self.author = author
         self.published = ArtMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
@@ -61,5 +65,6 @@ public struct ArtMetadata {
         self.price = price
 //        self.viewController = viewController
         self.viewType = viewType
+        self.thumbnail = thumbnail ?? UIImage(named: "defaultThumbnail")
     }
 }
