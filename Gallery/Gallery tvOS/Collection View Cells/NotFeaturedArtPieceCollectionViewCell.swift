@@ -82,7 +82,7 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     func showArtPiece() {
         if let piece = artPiece, artView == nil {
-            artView = piece.viewType.init(frame: artPieceView.bounds, artPieceMetadata: piece)
+            artView = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
         }
         
         guard let view = artView else { return }

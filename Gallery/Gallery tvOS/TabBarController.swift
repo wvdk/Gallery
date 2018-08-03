@@ -21,7 +21,6 @@ class TabBarController: UITabBarController {
         allArtPieceViewController.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30)], for: .normal)
      
         let purchasedArtPieceViewController = UIViewController()
-        purchasedArtPieceViewController.view.backgroundColor = .red
         purchasedArtPieceViewController.tabBarItem = UITabBarItem(title: "YOURS", image: nil, tag: 2)
         purchasedArtPieceViewController.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30)], for: .normal)
         
