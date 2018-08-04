@@ -356,13 +356,13 @@
 			isa = PBXGroup;
 			children = (
 				891549FB211513CF0041FE8A /* ArtPieceDetailViewController.swift */,
-				891549F421150BE00041FE8A /* ArtPieceViewControllerDelegate.swift */,
 				89278ED5211115F900CEEB3C /* FeaturedArtPieceViewController.swift */,
 				89DEC69421091C25009858CC /* FeaturedArtPieceViewController+UICollectionViewDelegate.swift */,
 				891549F021150AF80041FE8A /* FeaturedArtPieceViewController+CollectionViewCellDelegate.swift */,
 				891549D4211276820041FE8A /* NotFeaturedArtPieceViewController.swift */,
 				891549D6211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift */,
 				891549F821150DD40041FE8A /* NotFeaturedArtPieceViewController+CollectionViewCellDelegate.swift */,
+				891549F421150BE00041FE8A /* ArtPieceViewControllerDelegate.swift */,
 			);
 			path = "Art Piece Controllers";
 			sourceTree = "<group>";

@@ -15,25 +15,13 @@ class ArtPieceDetailViewController: UIViewController {
     var artPieceMetadata: ArtMetadata
     
     /// <#Description#>
-    var artView: UIView? = nil
-    
-    /// <#Description#>
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        artView = artPieceMetadata.view
-
-        if let artView = artView {
-            view.addSubview(artView)
-            artView.translatesAutoresizingMaskIntoConstraints = false
-            artView.constraint(edgesTo: view)
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        artView = nil
+        let artView = artPieceMetadata.viewType.init(frame: self.view.bounds, artPieceMetadata: artPieceMetadata)
+        view.addSubview(artView)
+        artView.translatesAutoresizingMaskIntoConstraints = false
+        artView.constraint(edgesTo: view)
     }
     
     /// <#Description#>
