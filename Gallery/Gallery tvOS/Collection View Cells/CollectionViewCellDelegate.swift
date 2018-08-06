@@ -11,4 +11,6 @@ import GalleryCore_tvOS
 protocol CollectionViewCellDelegate: class {
     
     func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtMetadata: ArtMetadata)
+    
+    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtDescription: ArtMetadata)
 }

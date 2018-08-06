@@ -147,7 +147,17 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
             ]
             
             if let strongSelf = self, let artPiece = self?.artPiece {
-                self?.delegate?.collectionViewCell(strongSelf, didSelectOpenArtMetadata: artPiece)
+                strongSelf.delegate?.collectionViewCell(strongSelf, didSelectOpenArtMetadata: artPiece)
+            }
+        }
+        
+        descriptionExpandingLabel.addSingleTapGestureRecognizer { [weak self] recognizer in
+            recognizer.allowedPressTypes = [
+                NSNumber(value: UIPressType.select.rawValue)
+            ]
+            
+            if let strongSelf = self, let artPiece = self?.artPiece {
+                strongSelf.delegate?.collectionViewCell(strongSelf, didSelectOpenArtDescription: artPiece)
             }
         }
     }

@@ -11,4 +11,6 @@ import GalleryCore_tvOS
 protocol ArtPieceViewControllerDelegate: class {
     
     func artPieceControllerDelegate(_ viewController: UIViewController, didSelectOpenArtMetadata: ArtMetadata)
+    
+    func artPieceControllerDelegate(_ viewController: UIViewController, didSelectOpenArtDescription: ArtMetadata)
 }

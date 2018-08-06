@@ -14,4 +14,10 @@ extension AllArtPiecesViewController: ArtPieceViewControllerDelegate {
         let artPieceDetailController = ArtPieceDetailViewController(artMetadata: didSelectOpenArtMetadata)
         present(artPieceDetailController, animated: true, completion: nil)
     }
+    
+    func artPieceControllerDelegate(_ viewController: UIViewController, didSelectOpenArtDescription: ArtMetadata) {
+        let artPieceDetailController = ArtPieceDescriptionViewController(artMetadata: didSelectOpenArtDescription)
+        artPieceDetailController.modalPresentationStyle = .overCurrentContext
+        present(artPieceDetailController, animated: true, completion: nil)
+    }
 }

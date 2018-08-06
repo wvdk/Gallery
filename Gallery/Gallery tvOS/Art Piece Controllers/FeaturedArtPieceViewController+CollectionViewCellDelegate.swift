@@ -13,4 +13,8 @@ extension FeaturedArtPieceViewController: CollectionViewCellDelegate {
     func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtMetadata: ArtMetadata) {
         self.delegate?.artPieceControllerDelegate(self, didSelectOpenArtMetadata: didSelectOpenArtMetadata)
     }
+    
+    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtDescription: ArtMetadata) {
+        self.delegate?.artPieceControllerDelegate(self, didSelectOpenArtDescription: didSelectOpenArtDescription)
+    }
 }
