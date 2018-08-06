@@ -52,7 +52,7 @@ class ArtPieceDescriptionViewController: UIViewController {
         
         backgroundView.constraint(edgesTo: view)
         
-        authorNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        authorNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 170).isActive = true
         authorNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -500).isActive = true
         
         titleLabel.topAnchor.constraint(equalTo: authorNameLabel.bottomAnchor, constant: 30).isActive = true
@@ -62,9 +62,9 @@ class ArtPieceDescriptionViewController: UIViewController {
         dateLabel.trailingAnchor.constraint(equalTo: authorNameLabel.trailingAnchor).isActive = true
         
         descriptionLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 30).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: authorNameLabel.trailingAnchor).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: authorNameLabel.trailingAnchor, constant: 25).isActive = true
         descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120).isActive = true
         
         updateText()
     }
