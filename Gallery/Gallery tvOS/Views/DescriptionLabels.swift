@@ -22,10 +22,10 @@ class BodyLabel: UILabel {
 /// `System` `font` 30 size `gray` color text label.
 class HeadlineLabel: UILabel {
     
-    convenience init(isFontBold: Bool) {
+    convenience init(color: UIColor = .gray, isFontBold: Bool) {
         self.init(frame: .zero)
         
-        self.textColor = .gray
+        self.textColor = color
         
         if isFontBold {
             self.font = UIFont.boldSystemFont(ofSize: 30)
