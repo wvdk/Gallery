@@ -336,7 +336,9 @@
 				89134E1720E80C1300772E7F /* TabBarController.swift */,
 				891549CE2112652E0041FE8A /* AllArtPiecesViewController.swift */,
 				891549F621150D4C0041FE8A /* AllArtPiecesViewController+ArtPieceViewControllerDelegate.swift */,
-				891549E02113ADF20041FE8A /* Art Piece Controllers */,
+				891549FB211513CF0041FE8A /* ArtPieceDetailViewController.swift */,
+				8913D3412118B3BE00FBC9C5 /* ArtPieceDescriptionViewController.swift */,
+				891549E02113ADF20041FE8A /* Art Piece Collection Controllers */,
 				891549E12113AE0E0041FE8A /* Collection View Cells */,
 				891549DF2113ADCD0041FE8A /* Views */,
 				89134E1C20E80C1500772E7F /* Assets.xcassets */,
@@ -357,11 +359,9 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		891549E02113ADF20041FE8A /* Art Piece Controllers */ = {
+		891549E02113ADF20041FE8A /* Art Piece Collection Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				891549FB211513CF0041FE8A /* ArtPieceDetailViewController.swift */,
-				8913D3412118B3BE00FBC9C5 /* ArtPieceDescriptionViewController.swift */,
 				89278ED5211115F900CEEB3C /* FeaturedArtPieceViewController.swift */,
 				89DEC69421091C25009858CC /* FeaturedArtPieceViewController+UICollectionViewDelegate.swift */,
 				891549F021150AF80041FE8A /* FeaturedArtPieceViewController+CollectionViewCellDelegate.swift */,
@@ -370,7 +370,7 @@
 				891549F821150DD40041FE8A /* NotFeaturedArtPieceViewController+CollectionViewCellDelegate.swift */,
 				891549F421150BE00041FE8A /* ArtPieceViewControllerDelegate.swift */,
 			);
-			path = "Art Piece Controllers";
+			path = "Art Piece Collection Controllers";
 			sourceTree = "<group>";
 		};
 		891549E12113AE0E0041FE8A /* Collection View Cells */ = {
