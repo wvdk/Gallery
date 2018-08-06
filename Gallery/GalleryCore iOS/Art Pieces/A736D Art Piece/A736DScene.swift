@@ -14,7 +14,7 @@ class A736DScene: SKScene {
     
     // Patern values. Updated by the startPattern___ methods.
     var whiteRectGenerationDelay: TimeInterval? = 1
-    var clearScreenDelay: TimeInterval? = 1
+    var clearScreenDelay: TimeInterval? = 0.75
     
     lazy var spin = SKAction(named: "Spin")!
     lazy var moveLeft = SKAction(named: "MoveLeft")!
@@ -130,7 +130,7 @@ class A736DScene: SKScene {
             rectWidth = 30
         }
         
-        for i in 0...20 {
+        for i in 0...25 {
             let whiteRect = SKSpriteNode()
             whiteRect.color = .white
             whiteRect.position = CGPoint(x: self.size.width / 2, y: CGFloat(i * rectHeight))
