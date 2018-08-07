@@ -18,7 +18,7 @@ class FeaturedArtPieceViewController: UIViewController {
     
     weak var delegate: ArtPieceViewControllerDelegate?
 
-    var collectionView: UICollectionView?
+    var collectionView: NotFocusingCollectionView?
     
     let headerView = UIView()
     
@@ -60,7 +60,7 @@ class FeaturedArtPieceViewController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        collectionView = NotFocusingCollectionView(frame: self.view.frame, collectionViewLayout: layout)
         
         guard let collectionView = collectionView else { return }
         
