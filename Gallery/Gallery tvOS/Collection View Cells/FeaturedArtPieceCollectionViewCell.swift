@@ -43,7 +43,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
             if let description = piece.description {
                 descriptionLabel.text = description
             } else {
-                 descriptionLabel.text = "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquam"
+                removeDescriptionLabel()
             }
         }
     }
@@ -205,7 +205,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         descriptionExpandingLabel.isHidden = !descriptionLabel.isTruncated
     }
     
-    // MARK: - Art appearance
+    // MARK: - Appearance
     
     func showArtPiece() {
         if let piece = artPiece, artView == nil {
@@ -220,5 +220,11 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         guard let view = artView else { return }
         view.removeFromSuperview()
         artView = nil
+    }
+    
+    private func removeDescriptionLabel() {
+        descriptionLabel.removeFromSuperview()
+        descriptionExpandingLabel.removeFromSuperview()
+        removeLayoutGuide(descriptionExpandingLabelFocusGuide)
     }
 }
