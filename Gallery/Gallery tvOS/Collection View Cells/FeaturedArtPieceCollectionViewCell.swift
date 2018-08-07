@@ -37,7 +37,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
                 let priceTitle = "$ \(price)"
                 purchaseButton.setTitle(priceTitle, for: .normal)
             } else {
-                purchaseButton.setTitle("FREE", for: .normal)
+                removePurchaseButton()
             }
             
             if let description = piece.description {
@@ -226,5 +226,9 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         descriptionLabel.removeFromSuperview()
         descriptionExpandingLabel.removeFromSuperview()
         removeLayoutGuide(descriptionExpandingLabelFocusGuide)
+    }
+    
+    private func removePurchaseButton() {
+        purchaseButton.removeFromSuperview()
     }
 }
