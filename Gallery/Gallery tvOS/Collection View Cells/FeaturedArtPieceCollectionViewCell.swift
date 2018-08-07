@@ -42,7 +42,13 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
             
             if let description = piece.description {
                 descriptionLabel.text = description
+                
+                // Hides `descriptionExpandingLabel` if `descriptionLabel` text is not truncated.
+                if descriptionLabel.isTruncated {
+                    removeDescriptionExpandingLabel()
+                }
             } else {
+                removeDescriptionExpandingLabel()
                 removeDescriptionLabel()
             }
         }
@@ -200,9 +206,6 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         default:
             artPieceViewFocusGuide.preferredFocusEnvironments = []
         }
-        
-        // Hides `descriptionExpandingLabel` if `descriptionLabel` text is not truncated.
-        descriptionExpandingLabel.isHidden = !descriptionLabel.isTruncated
     }
     
     // MARK: - Appearance
@@ -224,8 +227,11 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     private func removeDescriptionLabel() {
         descriptionLabel.removeFromSuperview()
-        descriptionExpandingLabel.removeFromSuperview()
         removeLayoutGuide(descriptionExpandingLabelFocusGuide)
+    }
+    
+    private func removeDescriptionExpandingLabel() {
+        descriptionExpandingLabel.removeFromSuperview()
     }
     
     private func removePurchaseButton() {
