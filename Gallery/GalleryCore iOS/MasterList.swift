@@ -42,7 +42,7 @@ public class MasterList {
             ArtMetadata(id: "A565z",
                         author: "wvdk",
                         prettyPublishedDate: "June 2018",
-                        description: "I made my art piece.",
+                        description: "I made my art piece. I made it very pretty. And few more words.",
                         viewType: A565zView.self,
                         thumbnail: UIImage(named: "A565z")),
             ArtMetadata(id: "A994t",

@@ -11,12 +11,6 @@ import GalleryCore_tvOS
 
 class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
-    lazy var artPieceSize = CGSize(width: 880 / 1458 * self.frame.size.width, height: 497 / 829 * self.frame.size.height)
-    lazy var artPieceTopEdgeInset = 147 / 829 * self.frame.size.height
-    lazy var artPieceTrailingEdgeInset = 51 / 1458 * self.frame.size.width
-    lazy var artPieceLeadingEdgeInset = 60 / 829 * self.frame.size.height
-    lazy var purchaseButtonHeight = 50 / 829 * self.frame.size.height
-    
     // MARK: - Properties
     
     static let identifier = "FeaturedArtPieceCollectionViewCellIdentifier"
@@ -42,11 +36,6 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
             
             if let description = piece.description {
                 descriptionLabel.text = description
-                
-                // Hides `descriptionExpandingLabel` if `descriptionLabel` text is not truncated.
-                if descriptionLabel.isTruncated {
-                    removeDescriptionExpandingLabel()
-                }
             } else {
                 removeDescriptionExpandingLabel()
                 removeDescriptionLabel()
@@ -95,18 +84,15 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.textAlignment = .justified
-        
         purchaseButton.titleLabel?.font = UIFont.systemFont(ofSize: 25)
         
         descriptionExpandingLabel.text = "...More"
         
         artPieceView.delegate = self
         
-        let descriptionStackView = setupDescriptionStackView()
+        let descriptionHeaderStackView = setupDescriptionStackView()
         
-        self.addSubview(descriptionStackView)
+        self.addSubview(descriptionHeaderStackView)
         self.addSubview(descriptionExpandingLabel)
         self.addSubview(artPieceView)
         self.addSubview(purchaseButton)
@@ -114,27 +100,27 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         self.addLayoutGuide(descriptionExpandingLabelFocusGuide)
         self.addLayoutGuide(artPieceViewFocusGuide)
         
-        descriptionStackView.translatesAutoresizingMaskIntoConstraints = false
+        descriptionHeaderStackView.translatesAutoresizingMaskIntoConstraints = false
         descriptionExpandingLabel.translatesAutoresizingMaskIntoConstraints = false
         artPieceView.translatesAutoresizingMaskIntoConstraints = false
         purchaseButton.translatesAutoresizingMaskIntoConstraints = false
         
-        descriptionStackView.topAnchor.constraint(equalTo: artPieceView.topAnchor, constant: -31).isActive = true
-        descriptionStackView.bottomAnchor.constraint(lessThanOrEqualTo: purchaseButton.topAnchor, constant: -110).isActive = true
-        descriptionStackView.trailingAnchor.constraint(equalTo: artPieceView.leadingAnchor, constant: -artPieceLeadingEdgeInset).isActive = true
-        descriptionStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 31).isActive = true
+        descriptionHeaderStackView.topAnchor.constraint(equalTo: artPieceView.topAnchor, constant: -30).isActive = true
+        descriptionHeaderStackView.bottomAnchor.constraint(lessThanOrEqualTo: artPieceView.bottomAnchor, constant: -150).isActive = true
+        descriptionHeaderStackView.trailingAnchor.constraint(equalTo: artPieceView.leadingAnchor, constant: -60).isActive = true
+        descriptionHeaderStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30).isActive = true
+
+        descriptionExpandingLabel.topAnchor.constraint(equalTo: descriptionHeaderStackView.bottomAnchor).isActive = true
+        descriptionExpandingLabel.trailingAnchor.constraint(equalTo: descriptionHeaderStackView.trailingAnchor).isActive = true
         
-        descriptionExpandingLabel.topAnchor.constraint(equalTo: descriptionStackView.bottomAnchor).isActive = true
-        descriptionExpandingLabel.trailingAnchor.constraint(equalTo: descriptionStackView.trailingAnchor).isActive = true
+        artPieceView.topAnchor.constraint(equalTo: self.topAnchor, constant: 150).isActive = true
+        artPieceView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50).isActive = true
+        artPieceView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        artPieceView.widthAnchor.constraint(equalToConstant: 880).isActive = true
         
-        artPieceView.topAnchor.constraint(equalTo: self.topAnchor, constant: artPieceTopEdgeInset).isActive = true
-        artPieceView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -artPieceTrailingEdgeInset).isActive = true
-        artPieceView.heightAnchor.constraint(equalToConstant: artPieceSize.height).isActive = true
-        artPieceView.widthAnchor.constraint(equalToConstant: artPieceSize.width).isActive = true
-        
-        purchaseButton.trailingAnchor.constraint(equalTo: descriptionStackView.trailingAnchor).isActive = true
+        purchaseButton.trailingAnchor.constraint(equalTo: descriptionHeaderStackView.trailingAnchor).isActive = true
         purchaseButton.bottomAnchor.constraint(equalTo: artPieceView.bottomAnchor, constant: 9).isActive = true
-        purchaseButton.heightAnchor.constraint(equalToConstant: purchaseButtonHeight).isActive = true
+        purchaseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         descriptionExpandingLabelFocusGuide.topAnchor.constraint(equalTo: descriptionExpandingLabel.topAnchor).isActive = true
         descriptionExpandingLabelFocusGuide.bottomAnchor.constraint(equalTo: descriptionExpandingLabel.bottomAnchor).isActive = true
@@ -236,5 +222,12 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     private func removePurchaseButton() {
         purchaseButton.removeFromSuperview()
+    }
+    
+    func updateCellAppearance() {
+        // Removes `descriptionExpandingLabel` if `descriptionLabel` text is not truncated.
+        if !descriptionLabel.isTruncated {
+            removeDescriptionExpandingLabel()
+        }
     }
 }

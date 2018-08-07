@@ -52,6 +52,14 @@ class FeaturedArtPieceViewController: UIViewController {
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let visibleCells = collectionView?.visibleCells as? [FeaturedArtPieceCollectionViewCell] {
+            visibleCells.forEach { $0.updateCellAppearance() }
+        }
+    }
+    
     // MARK: - Views setup
     
     private func setupCollectionView() {
