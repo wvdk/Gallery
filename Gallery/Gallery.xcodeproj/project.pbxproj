@@ -379,11 +379,11 @@
 		891549E12113AE0E0041FE8A /* Collection View Cells */ = {
 			isa = PBXGroup;
 			children = (
-				891549F221150BA30041FE8A /* CollectionViewCellDelegate.swift */,
 				89DEC6B5210933DB009858CC /* FeaturedArtPieceCollectionViewCell.swift */,
 				891549E22113B1720041FE8A /* FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */,
 				891549D821128F340041FE8A /* NotFeaturedArtPieceCollectionViewCell.swift */,
 				891549E62113B1E70041FE8A /* NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */,
+				891549F221150BA30041FE8A /* CollectionViewCellDelegate.swift */,
 			);
 			path = "Collection View Cells";
 			sourceTree = "<group>";

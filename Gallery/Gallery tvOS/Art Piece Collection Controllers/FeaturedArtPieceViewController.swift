@@ -11,11 +11,7 @@ import UIKit
 class FeaturedArtPieceViewController: UIViewController {
    
     // MARK: - Properties
-    
-    lazy var collectionViewHeightConstrain = 827 / 1080 * self.view.frame.size.height
-    lazy var collectionViewCellWidthConstrain = 1458 / 1920 * self.view.frame.size.width
-    lazy var collectionViewLeftEdgeInset = (self.view.frame.size.width - collectionViewCellWidthConstrain) / 2
-    
+        
     weak var delegate: ArtPieceViewControllerDelegate?
 
     var collectionView: NotFocusingCollectionView?

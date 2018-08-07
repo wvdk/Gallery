@@ -52,7 +52,7 @@ public class MasterList {
                         price: 99.99,
                         viewType: A994tView.self,
                         thumbnail: UIImage(named: "A994t")),
-            ArtMetadata(id: "A586q", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A586qView.self, thumbnail: UIImage(named: "A586q")),
+            ArtMetadata(id: "A586q", author: "wvdk", prettyPublishedDate: "June 2018", price: 0.99, viewType: A586qView.self, thumbnail: UIImage(named: "A586q")),
             ArtMetadata(id: "A736D", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A736DView.self, thumbnail: UIImage(named: "A736D")),
             ArtMetadata(id: "a.857C", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A857CView.self, thumbnail: nil)
         ]

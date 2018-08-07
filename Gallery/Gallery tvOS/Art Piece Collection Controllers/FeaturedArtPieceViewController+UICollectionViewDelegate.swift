@@ -67,10 +67,11 @@ extension FeaturedArtPieceViewController: UICollectionViewDataSource {
 extension FeaturedArtPieceViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionViewCellWidthConstrain, height: collectionViewHeightConstrain - 100)
+        return CGSize(width: 1458, height: 727)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: collectionViewLeftEdgeInset, bottom: 0, right: collectionViewLeftEdgeInset)
+        let constant = (self.view.frame.size.width - 1458) / 2
+        return UIEdgeInsets(top: 0, left: constant, bottom: 0, right: constant)
     }
 }
