@@ -1,5 +1,5 @@
 //
-//  ArtPieceDetailViewController.swift
+//  ArtPieceDisplayViewController.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/3/18.
@@ -8,12 +8,15 @@
 
 import GalleryCore_tvOS
 
-/// <#Description#>
-class ArtPieceDetailViewController: UIViewController {
+/// A subclass of `UIViewController`, which displays single art piece view in full screen mode.
+class ArtPieceDisplayViewController: UIViewController {
+    
+    // MARK: - Properties
     
     private var artPieceMetadata: ArtMetadata
-    
-    /// <#Description#>
+
+    // MARK: - Lifecycle functions
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,9 +27,14 @@ class ArtPieceDetailViewController: UIViewController {
         artView.constraint(edgesTo: view)
     }
     
-    /// <#Description#>
+    // MARK: - Initalization
+    
+    /// Initializes and returns a newly allocated view object with the specified `artMetadata` art piece view.
     ///
-    /// - Parameter metadata: <#metadata description#>
+    /// - Parameters:
+    ///     - artMetadata: Metadata of the art piece which is going to be presented.
+    ///
+    /// - Returns: `UIViewController` with child view of art piece.
     init(artMetadata: ArtMetadata) {
         self.artPieceMetadata = artMetadata
         

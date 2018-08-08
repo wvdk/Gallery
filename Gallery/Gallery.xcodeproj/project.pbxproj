@@ -32,7 +32,7 @@
 		891549F521150BE00041FE8A /* ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F421150BE00041FE8A /* ArtPieceViewControllerDelegate.swift */; };
 		891549F721150D4C0041FE8A /* AllArtPiecesViewController+ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* AllArtPiecesViewController+ArtPieceViewControllerDelegate.swift */; };
 		891549F921150DD40041FE8A /* NotFeaturedArtPieceViewController+CollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F821150DD40041FE8A /* NotFeaturedArtPieceViewController+CollectionViewCellDelegate.swift */; };
-		891549FC211513CF0041FE8A /* ArtPieceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDetailViewController.swift */; };
+		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
 		891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		89278ECC210F8AEC00CEEB3C /* DescriptionLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */; };
@@ -194,7 +194,7 @@
 		891549F421150BE00041FE8A /* ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceViewControllerDelegate.swift; sourceTree = "<group>"; };
 		891549F621150D4C0041FE8A /* AllArtPiecesViewController+ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllArtPiecesViewController+ArtPieceViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		891549F821150DD40041FE8A /* NotFeaturedArtPieceViewController+CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotFeaturedArtPieceViewController+CollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
-		891549FB211513CF0041FE8A /* ArtPieceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailViewController.swift; sourceTree = "<group>"; };
+		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
 		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabels.swift; sourceTree = "<group>"; };
@@ -338,7 +338,7 @@
 				89134E1720E80C1300772E7F /* TabBarController.swift */,
 				891549CE2112652E0041FE8A /* AllArtPiecesViewController.swift */,
 				891549F621150D4C0041FE8A /* AllArtPiecesViewController+ArtPieceViewControllerDelegate.swift */,
-				891549FB211513CF0041FE8A /* ArtPieceDetailViewController.swift */,
+				891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */,
 				8913D3412118B3BE00FBC9C5 /* ArtPieceDescriptionViewController.swift */,
 				891549E02113ADF20041FE8A /* Art Piece Collection Controllers */,
 				891549E12113AE0E0041FE8A /* Collection View Cells */,
@@ -933,7 +933,7 @@
 				891549D5211276820041FE8A /* NotFeaturedArtPieceViewController.swift in Sources */,
 				891549DB21129FB40041FE8A /* BackgroundVisualEffectView.swift in Sources */,
 				89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */,
-				891549FC211513CF0041FE8A /* ArtPieceDetailViewController.swift in Sources */,
+				891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */,
 				8913D3432118B43A00FBC9C5 /* ArtPieceDescriptionViewController.swift in Sources */,
 				892E7B4A21191AA500755957 /* NotFocusingCollectionView.swift in Sources */,
 				891549F321150BA30041FE8A /* CollectionViewCellDelegate.swift in Sources */,

@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // Set the root to `AllArtPiecesViewController`.
+        // Set the root controller to `AllArtPiecesViewController`.
         let allArtPiecesViewController = AllArtPiecesViewController()
         window?.rootViewController = allArtPiecesViewController
         
