@@ -1,5 +1,5 @@
 //
-//  NotFocusingCollectionView.swift
+//  DisabledFocusCollectionView.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/6/18.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-/// An object that manages an ordered collection of data items with disabled focus property.
-class NotFocusingCollectionView: UICollectionView {
+/// A subclass of `UICollectionView` with disabled focus property.
+class DisabledFocusCollectionView: UICollectionView {
 
     override var canBecomeFocused: Bool {
         return false

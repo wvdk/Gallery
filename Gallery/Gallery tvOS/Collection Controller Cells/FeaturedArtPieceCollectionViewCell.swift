@@ -223,7 +223,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         purchaseButton.removeFromSuperview()
     }
     
-    func updateCellAppearance() {
+    func updateUI() {
         // Removes `descriptionExpandingLabel` if `descriptionLabel` text is not truncated.
         if !descriptionLabel.isTruncated {
             removeDescriptionExpandingLabel()

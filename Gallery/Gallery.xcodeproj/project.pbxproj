@@ -30,7 +30,7 @@
 		891549F121150AF80041FE8A /* FeaturedArtPieceViewController+CollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F021150AF80041FE8A /* FeaturedArtPieceViewController+CollectionViewCellDelegate.swift */; };
 		891549F321150BA30041FE8A /* CollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F221150BA30041FE8A /* CollectionViewCellDelegate.swift */; };
 		891549F521150BE00041FE8A /* ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F421150BE00041FE8A /* ArtPieceViewControllerDelegate.swift */; };
-		891549F721150D4C0041FE8A /* ArtPieceCollectionsContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* ArtPieceCollectionsContainerViewController+ArtPieceViewControllerDelegate.swift */; };
+		891549F721150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */; };
 		891549F921150DD40041FE8A /* NotFeaturedArtPieceViewController+CollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F821150DD40041FE8A /* NotFeaturedArtPieceViewController+CollectionViewCellDelegate.swift */; };
 		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
 		891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
@@ -38,7 +38,7 @@
 		89278ECC210F8AEC00CEEB3C /* DescriptionLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */; };
 		89278ED1210FB33200CEEB3C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */; };
 		89278ED2210FB33200CEEB3C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */; };
-		892E7B4A21191AA500755957 /* NotFocusingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E7B4921191AA500755957 /* NotFocusingCollectionView.swift */; };
+		892E7B4A21191AA500755957 /* DisabledFocusCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E7B4921191AA500755957 /* DisabledFocusCollectionView.swift */; };
 		892F534921067D1300AC8C45 /* ArtKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; };
 		892F534A21067D1300AC8C45 /* ArtKit_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		892F534E2107A5E600AC8C45 /* SKSpriteNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */; };
@@ -192,7 +192,7 @@
 		891549F021150AF80041FE8A /* FeaturedArtPieceViewController+CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedArtPieceViewController+CollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		891549F221150BA30041FE8A /* CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 		891549F421150BE00041FE8A /* ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceViewControllerDelegate.swift; sourceTree = "<group>"; };
-		891549F621150D4C0041FE8A /* ArtPieceCollectionsContainerViewController+ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceCollectionsContainerViewController+ArtPieceViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		891549F821150DD40041FE8A /* NotFeaturedArtPieceViewController+CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotFeaturedArtPieceViewController+CollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
 		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		89278ED5211115F900CEEB3C /* FeaturedArtPieceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedArtPieceViewController.swift; sourceTree = "<group>"; };
 		8929F4F1204AD54C000E5179 /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
-		892E7B4921191AA500755957 /* NotFocusingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFocusingCollectionView.swift; sourceTree = "<group>"; };
+		892E7B4921191AA500755957 /* DisabledFocusCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledFocusCollectionView.swift; sourceTree = "<group>"; };
 		892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+Extension.swift"; sourceTree = "<group>"; };
 		89485BCC20F29EF500046753 /* A736DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A736DView.swift; sourceTree = "<group>"; };
 		894C691220EFC224003A5387 /* A994tView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A994tView.swift; sourceTree = "<group>"; };
@@ -337,11 +337,11 @@
 				89134E1520E80C1300772E7F /* AppDelegate.swift */,
 				89134E1720E80C1300772E7F /* TabBarController.swift */,
 				891549CE2112652E0041FE8A /* ArtPieceContainerViewController.swift */,
-				891549F621150D4C0041FE8A /* ArtPieceCollectionsContainerViewController+ArtPieceViewControllerDelegate.swift */,
+				891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */,
 				891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */,
 				8913D3412118B3BE00FBC9C5 /* ArtPieceDescriptionDisplayViewController.swift */,
 				891549E02113ADF20041FE8A /* Art Piece Collection Controllers */,
-				891549E12113AE0E0041FE8A /* Collection View Cells */,
+				891549E12113AE0E0041FE8A /* Collection Controller Cells */,
 				891549DF2113ADCD0041FE8A /* Views */,
 				89134E1C20E80C1500772E7F /* Assets.xcassets */,
 				89134E1E20E80C1500772E7F /* Info.plist */,
@@ -353,7 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				89DEC6B8210B9C10009858CC /* FocusingView.swift */,
-				892E7B4921191AA500755957 /* NotFocusingCollectionView.swift */,
+				892E7B4921191AA500755957 /* DisabledFocusCollectionView.swift */,
 				8913D3442118C4FB00FBC9C5 /* DescriptionTextView.swift */,
 				89DEC6BB210BA1AB009858CC /* FocusingLabel.swift */,
 				89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */,
@@ -376,7 +376,7 @@
 			path = "Art Piece Collection Controllers";
 			sourceTree = "<group>";
 		};
-		891549E12113AE0E0041FE8A /* Collection View Cells */ = {
+		891549E12113AE0E0041FE8A /* Collection Controller Cells */ = {
 			isa = PBXGroup;
 			children = (
 				89DEC6B5210933DB009858CC /* FeaturedArtPieceCollectionViewCell.swift */,
@@ -385,7 +385,7 @@
 				891549E62113B1E70041FE8A /* NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */,
 				891549F221150BA30041FE8A /* CollectionViewCellDelegate.swift */,
 			);
-			path = "Collection View Cells";
+			path = "Collection Controller Cells";
 			sourceTree = "<group>";
 		};
 		89485BCE20F2A07000046753 /* A736D Art Piece */ = {
@@ -925,7 +925,7 @@
 				891549E52113B1780041FE8A /* FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift in Sources */,
 				8913D3452118C4FB00FBC9C5 /* DescriptionTextView.swift in Sources */,
 				891549F521150BE00041FE8A /* ArtPieceViewControllerDelegate.swift in Sources */,
-				891549F721150D4C0041FE8A /* ArtPieceCollectionsContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */,
+				891549F721150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */,
 				891549D3211267710041FE8A /* ArtPieceContainerViewController.swift in Sources */,
 				891549F921150DD40041FE8A /* NotFeaturedArtPieceViewController+CollectionViewCellDelegate.swift in Sources */,
 				891549F121150AF80041FE8A /* FeaturedArtPieceViewController+CollectionViewCellDelegate.swift in Sources */,
@@ -935,7 +935,7 @@
 				89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */,
 				891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */,
 				8913D3432118B43A00FBC9C5 /* ArtPieceDescriptionDisplayViewController.swift in Sources */,
-				892E7B4A21191AA500755957 /* NotFocusingCollectionView.swift in Sources */,
+				892E7B4A21191AA500755957 /* DisabledFocusCollectionView.swift in Sources */,
 				891549F321150BA30041FE8A /* CollectionViewCellDelegate.swift in Sources */,
 				89DEC6BF210BA20B009858CC /* FocusingLabel.swift in Sources */,
 				891549D7211283250041FE8A /* NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift in Sources */,

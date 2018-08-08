@@ -10,6 +10,8 @@ import GalleryCore_tvOS
 
 extension FeaturedArtPieceViewController: UICollectionViewDelegate {
     
+    // MARK: - UICollectionViewDelegate implementation
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return MasterList.shared.activePieces.count
     }
@@ -27,8 +29,10 @@ extension FeaturedArtPieceViewController: UICollectionViewDelegate {
             return
         }
         
+        // Scroll manually to constrain cells in the center of the screen.
         collectionView.scrollToItem(at: nextFocusedIndexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
         
+        // Animates selection of focused cells.
         if let nextFocusedItem = context.nextFocusedItem,
             let focusedCell = collectionView.cellForItem(at: nextFocusedIndexPath),
             focusedCell.contains(nextFocusedItem) {
@@ -39,6 +43,7 @@ extension FeaturedArtPieceViewController: UICollectionViewDelegate {
             }, completion: nil)
         }
         
+        // Animates deselection of focused cells.
         if let previouslyFocusedItem = context.previouslyFocusedItem,
             let previouslyFocusedIndexPath = context.previouslyFocusedIndexPath,
             let unfocusedCell = collectionView.cellForItem(at: previouslyFocusedIndexPath),
@@ -53,6 +58,8 @@ extension FeaturedArtPieceViewController: UICollectionViewDelegate {
 
 extension FeaturedArtPieceViewController: UICollectionViewDataSource {
 
+    // MARK: - UICollectionViewDataSource implementation
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeaturedArtPieceCollectionViewCell.identifier, for: indexPath) as! FeaturedArtPieceCollectionViewCell
 
@@ -64,6 +71,8 @@ extension FeaturedArtPieceViewController: UICollectionViewDataSource {
 }
 
 extension FeaturedArtPieceViewController: UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - UICollectionViewDelegateFlowLayout implementation
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 1458, height: 727)
