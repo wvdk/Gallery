@@ -1,5 +1,5 @@
 //
-//  FeaturedArtPieceViewController.swift
+//  FeaturedArtPieceCollectionViewController.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 7/31/18.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// A subclass of `UIViewController` which contains a featured art piece collection view.
-class FeaturedArtPieceViewController: UIViewController {
+class FeaturedArtPieceCollectionViewController: UIViewController {
    
     // MARK: - Properties
         

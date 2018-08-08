@@ -21,6 +21,7 @@ class NotFeaturedArtPieceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Sets background view to darker than default regular `UIVisualEffectView`.
         let blurredEffectView = BackgroundVisualEffectView()
         
         view.addSubview(blurredEffectView)
@@ -40,6 +41,7 @@ class NotFeaturedArtPieceViewController: UIViewController {
     
     // MARK: - View setup
     
+    /// Sets up `UICollectionView` with vertical scrolling direction.
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical

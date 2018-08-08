@@ -1,5 +1,5 @@
 //
-//  FeaturedArtPieceViewController+UICollectionViewDelegate.swift
+//  FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift
 //  Gallery iOS
 //
 //  Created by Kristina Gelzinyte on 7/25/18.
@@ -8,7 +8,7 @@
 
 import GalleryCore_tvOS
 
-extension FeaturedArtPieceViewController: UICollectionViewDelegate {
+extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegate {
     
     // MARK: - UICollectionViewDelegate implementation
     
@@ -56,7 +56,7 @@ extension FeaturedArtPieceViewController: UICollectionViewDelegate {
     }
 }
 
-extension FeaturedArtPieceViewController: UICollectionViewDataSource {
+extension FeaturedArtPieceCollectionViewController: UICollectionViewDataSource {
 
     // MARK: - UICollectionViewDataSource implementation
     
@@ -70,7 +70,7 @@ extension FeaturedArtPieceViewController: UICollectionViewDataSource {
     }
 }
 
-extension FeaturedArtPieceViewController: UICollectionViewDelegateFlowLayout {
+extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegateFlowLayout implementation
     

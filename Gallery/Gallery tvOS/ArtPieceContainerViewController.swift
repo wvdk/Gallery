@@ -16,7 +16,7 @@ class ArtPieceContainerViewController: UIViewController {
 
     // MARK: - Properties
     
-    private let featuredArtPiecesViewController = FeaturedArtPieceViewController()
+    private let featuredArtPiecesViewController = FeaturedArtPieceCollectionViewController()
     private let notFeaturedArtPiecesViewController = NotFeaturedArtPieceViewController()
     
     // MARK: - Lifecycle functions
@@ -65,6 +65,7 @@ class ArtPieceContainerViewController: UIViewController {
             return
         }
         
+        // Animates translation transform between view controllers.
         if notFeaturedArtPiecesViewController.contains(previouslyFocusedView) {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
                 self?.featuredArtPiecesViewController.view.transform = CGAffineTransform.identity
@@ -74,6 +75,7 @@ class ArtPieceContainerViewController: UIViewController {
             return
         }
         
+        // Animates translation transform between view controllers.
         if featuredArtPiecesViewController.contains(previouslyFocusedView), notFeaturedArtPiecesViewController.contains(nextFocusedView) {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
                 guard let translationY = self?.featuredArtPiecesViewController.view.bounds.size.height else { return }

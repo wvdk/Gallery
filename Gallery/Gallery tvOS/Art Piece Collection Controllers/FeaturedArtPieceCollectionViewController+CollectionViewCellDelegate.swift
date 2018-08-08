@@ -1,5 +1,5 @@
 //
-//  FeaturedArtPieceViewController+CollectionViewCellDelegate.swift
+//  FeaturedArtPieceCollectionViewController+CollectionViewCellDelegate.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/3/18.
@@ -8,7 +8,9 @@
 
 import GalleryCore_tvOS
 
-extension FeaturedArtPieceViewController: CollectionViewCellDelegate {
+extension FeaturedArtPieceCollectionViewController: CollectionViewCellDelegate {
+    
+    // MARK: - CollectionViewCellDelegate implementation
     
     func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: ArtMetadata) {
         delegate?.artPieceControllerDelegate(self, didSelectOpenArtPiece: didSelectOpenArtPiece)
