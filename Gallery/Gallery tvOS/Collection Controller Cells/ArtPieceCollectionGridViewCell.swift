@@ -1,5 +1,5 @@
 //
-//  NotFeaturedArtPieceCollectionViewCell.swift
+//  ArtPieceCollectionGridViewCell.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/1/18.
@@ -8,14 +8,18 @@
 
 import GalleryCore_tvOS
 
-class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
+/// A subclass of `UICollectionViewCell` which contains:
+/// - Art piece preview view.
+/// - Art piece title.
+class ArtPieceCollectionGridViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    static let identifier = "NotFeaturedArtPieceCollectionViewCellIdentifier"
+    static let identifier = "ArtPieceCollectionGridViewCellIdentifier"
     
     weak var delegate: CollectionViewCellDelegate?
     
+    /// Metadata of art piece presented by cell.
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let piece = artPiece else { return }
@@ -27,6 +31,7 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     }
     
     private var artView: ArtView?
+    
     private let artPieceView = FocusingView()
     
     private let titleLabel = BodyLabel(color: .darkGray)
@@ -34,6 +39,7 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     // MARK: - UICollectionViewCell properties
     
     override var canBecomeFocused: Bool {
+        // Cell cannot be focus to allow its subviews to become focused.
         return false
     }
 
@@ -42,6 +48,7 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        // Initially hide title label.
         titleLabel.alpha = 0
         
         artPieceView.delegate = self
@@ -81,6 +88,8 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         super.didUpdateFocus(in: context, with: coordinator)
         
+        // Animate title label appearance.
+        // Title label is shown when cell is focused.
         if artPieceView.isFocused {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
                 self?.titleLabel.alpha = 1
@@ -92,8 +101,9 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    // MARK: - Art appearance
+    // MARK: - Art view appearance
     
+    /// Creates a new instance view of specific art piece and adds it to the `artPieceView`.
     func showArtPiece() {
         if let piece = artPiece, artView == nil {
             artView = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
@@ -103,6 +113,7 @@ class NotFeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         artPieceView.addSubview(artPieceView: view)
     }
     
+    /// Removes specific art piece view from parents view.
     func hideArtPiece() {
         guard let view = artView else { return }
         view.removeFromSuperview()

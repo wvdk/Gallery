@@ -8,6 +8,14 @@
 
 import GalleryCore_tvOS
 
+/// A subclass of `UICollectionViewCell` which contains:
+/// - Art piece preview view.
+/// - Description info:
+///     - Author name
+///     - Title
+///     - Date
+///     - Description
+/// - Purchase button.
 class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
@@ -16,18 +24,20 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: CollectionViewCellDelegate?
     
+    /// Metadata of art piece presented by cell.
     var artPiece: ArtMetadata? = nil {
         didSet {
-            guard let piece = artPiece else { return }
+            guard var piece = artPiece else { return }
             artPieceView.thumbnail = piece.thumbnail
             authorNameLabel.text = "\(piece.author)"
             dateLabel.text = "\(piece.prettyPublishedDate)"
             titleLabel.text = "\(piece.id)"
 
-            self.artPiece?.view = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
+            // Sets view of art piece to initialized art piece view.
+            piece.view = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
             
             if let price = piece.price {
-                let priceTitle = "$ \(price)"
+                let priceTitle = "$\(price)"
                 purchaseButton.setTitle(priceTitle, for: .normal)
             } else {
                 removePurchaseButton()
@@ -46,6 +56,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     private var artPieceViewFocusGuide = UIFocusGuide()
     
     private var artView: ArtView?
+    
     private let artPieceView = FocusingView()
     
     private let purchaseButton = UIButton(type: .system)
@@ -59,6 +70,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     // MARK: - UICollectionViewCell properties
     
     override var canBecomeFocused: Bool {
+        // Cell cannot be focus to allow its subviews to become focused.
         return false
     }
     
@@ -70,10 +82,11 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         didSet {
             guard isSelected != oldValue else { return }
             
+            // Updates cell's opacity based on `isSelected` property.
             if isSelected {
-                self.alpha = 1
+                alpha = 1
             } else {
-                self.alpha = 0.5
+                alpha = 0.5
             }
         }
     }
@@ -159,6 +172,11 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Stackview setup
     
+    /// Sets up vertical stack view of
+    /// - `authorNameLabel`
+    /// - `titleLabel`
+    /// - `dateLabel`
+    /// - `descriptionLabel`
     private func setupDescriptionStackView() -> UIStackView {
         let labelViews = [authorNameLabel, titleLabel, dateLabel, descriptionLabel]
         let stackView = UIStackView(arrangedSubviews: labelViews)
@@ -175,7 +193,9 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
-        self.alpha = 0.5
+        
+        // Sets alpha to 0.5 by default.
+        alpha = 0.5
     }
         
     // MARK: - UIFocusEnvironment update
@@ -185,6 +205,8 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         
         guard let nextFocusedView = context.nextFocusedView else { return }
         
+        // Updates focus guide for `artPieceView`.
+        // Focus goes from `artPieceView` to `descriptionExpandingLabel` through focus guide.
         switch nextFocusedView {
         case artPieceView:
             artPieceViewFocusGuide.preferredFocusEnvironments = [descriptionExpandingLabel]
@@ -195,6 +217,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Appearance
     
+    /// Creates a new instance view of specific art piece and adds it to the `artPieceView`.
     func showArtPiece() {
         if let piece = artPiece, artView == nil {
             artView = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
@@ -204,26 +227,32 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         artPieceView.addSubview(artPieceView: view)
     }
     
+    /// Removes specific art piece view from parents view.
     func hideArtPiece() {
         guard let view = artView else { return }
         view.removeFromSuperview()
         artView = nil
     }
     
+    /// Removes `descriptionLabel` from parents view.
     private func removeDescriptionLabel() {
         descriptionLabel.removeFromSuperview()
         removeLayoutGuide(descriptionExpandingLabelFocusGuide)
     }
     
+    /// Removes `descriptionExpandingLabel` from parents view.
     private func removeDescriptionExpandingLabel() {
         descriptionExpandingLabel.removeFromSuperview()
     }
     
+    /// Removes `purchaseButton` from parents view.
     private func removePurchaseButton() {
         purchaseButton.removeFromSuperview()
     }
     
+    /// Removes `descriptionExpandingLabel` from superview if `descriptionLabel` is not truncated.
     func updateUI() {
+        
         // Removes `descriptionExpandingLabel` if `descriptionLabel` text is not truncated.
         if !descriptionLabel.isTruncated {
             removeDescriptionExpandingLabel()

@@ -8,10 +8,11 @@
 
 import GalleryCore_tvOS
 
-/// The object that acts as the delegate of the art piece collection view controller.
+/// The object that acts as the delegate of the `ArtPieceCollectionViewController`.
 ///
 /// The delegate must adopt the ArtPieceCollectionViewControllerDelegate protocol.
-/// The delegate object is responsible for managing selection behavior with view controller items.
+///
+/// The delegate object is responsible for managing selection behavior for view controller subview.
 protocol ArtPieceCollectionViewControllerDelegate: class {
     
     /// Tells the delegate that an art piece was selected to be opened.

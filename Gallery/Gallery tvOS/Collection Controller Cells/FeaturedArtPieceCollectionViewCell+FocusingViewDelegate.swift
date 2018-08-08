@@ -10,6 +10,8 @@ import UIKit
 
 extension FeaturedArtPieceCollectionViewCell: FocusingViewDelegate {
     
+    // MARK: - FocusingViewDelegate implementation
+    
     func focusingViewDidBecomeFocused(_ focusingView: FocusingView) {
         showArtPiece()
     }

@@ -26,7 +26,7 @@ extension ArtPieceCollectionGridViewController: UICollectionViewDataSource {
     // MARK: - UICollectionViewDataSource implementation
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NotFeaturedArtPieceCollectionViewCell.identifier, for: indexPath) as! NotFeaturedArtPieceCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionGridViewCell.identifier, for: indexPath) as! ArtPieceCollectionGridViewCell
         
         cell.delegate = self
         cell.artPiece = MasterList.shared.activePieces[indexPath.item]

@@ -8,7 +8,9 @@
 
 import UIKit
 
-extension NotFeaturedArtPieceCollectionViewCell: FocusingViewDelegate {
+extension ArtPieceCollectionGridViewCell: FocusingViewDelegate {
+    
+    // MARK: - FocusingViewDelegate implementation
     
     func focusingViewDidBecomeFocused(_ focusingView: FocusingView) {
         showArtPiece()
