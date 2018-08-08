@@ -15,7 +15,7 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let allArtPieceViewController = AllArtPiecesViewController()
+        let allArtPieceViewController = ArtPieceContainerViewController()
         allArtPieceViewController.tabBarItem = UITabBarItem(title: "ALL", image: nil, tag: 1)
         allArtPieceViewController.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30)], for: .normal)
      

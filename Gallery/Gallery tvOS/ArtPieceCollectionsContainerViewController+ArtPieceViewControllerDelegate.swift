@@ -1,5 +1,5 @@
 //
-//  AllArtPiecesViewController+ArtPieceViewControllerDelegate.swift
+//  ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/3/18.
@@ -8,7 +8,7 @@
 
 import GalleryCore_tvOS
 
-extension AllArtPiecesViewController: ArtPieceViewControllerDelegate {
+extension ArtPieceContainerViewController: ArtPieceViewControllerDelegate {
     
     // MARK: - ArtPieceViewControllerDelegate implementation
     
@@ -22,7 +22,7 @@ extension AllArtPiecesViewController: ArtPieceViewControllerDelegate {
     func artPieceControllerDelegate(_ viewController: UIViewController, didSelectOpenArtDescription: ArtMetadata) {
         
         // Presents single art piece description full screen mode on top of existing context.
-        let artPieceDetailController = ArtPieceDescriptionViewController(artMetadata: didSelectOpenArtDescription)
+        let artPieceDetailController = ArtPieceDescriptionDisplayViewController(artMetadata: didSelectOpenArtDescription)
         artPieceDetailController.modalPresentationStyle = .overCurrentContext
         present(artPieceDetailController, animated: true, completion: nil)
     }

@@ -1,5 +1,5 @@
 //
-//  ArtPieceDescriptionViewController.swift
+//  ArtPieceDescriptionDisplayViewController.swift
 //  Gallery iOS
 //
 //  Created by Kristina Gelzinyte on 8/6/18.
@@ -8,7 +8,13 @@
 
 import GalleryCore_tvOS
 
-class ArtPieceDescriptionViewController: UIViewController {
+/// A subclass of `UIViewController`, which displays art piece info.
+///
+/// - Author name.
+/// - Title.
+/// - Publishing date.
+/// - Description.
+class ArtPieceDescriptionDisplayViewController: UIViewController {
 
     // MARK: - Properties
     
@@ -21,6 +27,12 @@ class ArtPieceDescriptionViewController: UIViewController {
     
     // MARK: - Initialization
     
+    /// Initializes and returns a newly allocated view object with the specified `artMetadata` art piece description view.
+    ///
+    /// - Parameters:
+    ///     - artMetadata: Metadata of the art piece, which description view will to be presented.
+    ///
+    /// - Returns: `UIViewController` with child view of art piece description.
     init(artMetadata: ArtMetadata) {
         self.artPieceMetadata = artMetadata
         
@@ -36,6 +48,7 @@ class ArtPieceDescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Sets background view to dark blur `UIVisualEffectView`.
         let backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         
         view.addSubview(backgroundView)
@@ -72,11 +85,13 @@ class ArtPieceDescriptionViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        // Scrolls description text view to the top of the `UITextView`.
         descriptionTextView.setContentOffset(.zero, animated: false)
     }
 
     // MARK: - Description text update
     
+    /// Sets art piece info label text.
     private func updateText() {
         authorNameLabel.text = "\(artPieceMetadata.author)"
         dateLabel.text = "\(artPieceMetadata.prettyPublishedDate)"

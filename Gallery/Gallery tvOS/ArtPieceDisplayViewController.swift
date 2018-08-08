@@ -8,7 +8,7 @@
 
 import GalleryCore_tvOS
 
-/// A subclass of `UIViewController`, which displays single art piece view in full screen mode.
+/// A subclass of `UIViewController`, which displays single art piece view `ArtView` in full screen mode.
 class ArtPieceDisplayViewController: UIViewController {
     
     // MARK: - Properties
@@ -32,7 +32,7 @@ class ArtPieceDisplayViewController: UIViewController {
     /// Initializes and returns a newly allocated view object with the specified `artMetadata` art piece view.
     ///
     /// - Parameters:
-    ///     - artMetadata: Metadata of the art piece which is going to be presented.
+    ///     - artMetadata: Metadata of the art piece which will to be presented.
     ///
     /// - Returns: `UIViewController` with child view of art piece.
     init(artMetadata: ArtMetadata) {
