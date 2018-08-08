@@ -23,7 +23,7 @@ class NotFeaturedArtPieceViewController: UIViewController {
         
         let blurredEffectView = BackgroundVisualEffectView()
         
-        self.view.addSubview(blurredEffectView)
+        view.addSubview(blurredEffectView)
         
         blurredEffectView.translatesAutoresizingMaskIntoConstraints = false
         blurredEffectView.constraint(edgesTo: view)
@@ -32,7 +32,7 @@ class NotFeaturedArtPieceViewController: UIViewController {
         
         guard let collectionView = self.collectionView else { return }
         
-        self.view.addSubview(collectionView)
+        view.addSubview(collectionView)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.constraint(edgesTo: view)
@@ -46,7 +46,7 @@ class NotFeaturedArtPieceViewController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         
         guard let collectionView = collectionView else { return }
         

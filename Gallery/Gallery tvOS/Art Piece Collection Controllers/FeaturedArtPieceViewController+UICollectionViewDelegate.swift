@@ -79,7 +79,7 @@ extension FeaturedArtPieceViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let constant = (self.view.frame.size.width - 1458) / 2
+        let constant = (view.frame.size.width - 1458) / 2
         return UIEdgeInsets(top: 0, left: constant, bottom: 0, right: constant)
     }
 }

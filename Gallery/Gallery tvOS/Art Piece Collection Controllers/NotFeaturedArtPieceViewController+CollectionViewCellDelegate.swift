@@ -11,10 +11,11 @@ import GalleryCore_tvOS
 extension NotFeaturedArtPieceViewController: CollectionViewCellDelegate {
     
     func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: ArtMetadata) {
-        self.delegate?.artPieceControllerDelegate(self, didSelectOpenArtPiece: didSelectOpenArtPiece)
+        delegate?.artPieceControllerDelegate(self, didSelectOpenArtPiece: didSelectOpenArtPiece)
     }
     
     func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtDescription: ArtMetadata) {
+        // `Cell` does not have an art piece description label.
         return
     }
 }

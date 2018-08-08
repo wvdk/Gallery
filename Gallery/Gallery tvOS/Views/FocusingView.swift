@@ -15,18 +15,19 @@ class FocusingView: UIView {
     
     // MARK: - Properties
     
-    var delegate: FocusingViewDelegate?
+    weak var delegate: FocusingViewDelegate?
+    
     var thumbnail: UIImage? = nil {
         didSet {
             thumbnailView.image = thumbnail ?? UIImage(named: "defaultThumbnail")
         }
     }
     
+    private var artPieceViewParralaxMotionEffect: UIMotionEffectGroup?
+    
     private let containerView = UIView()
     private let thumbnailView = UIImageView()
     
-    private var artPieceViewParralaxMotionEffect: UIMotionEffectGroup?
-
     // MARK: - UIView properties
     
     override var canBecomeFocused: Bool {
