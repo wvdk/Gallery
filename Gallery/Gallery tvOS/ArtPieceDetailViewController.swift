@@ -11,14 +11,14 @@ import GalleryCore_tvOS
 /// <#Description#>
 class ArtPieceDetailViewController: UIViewController {
     
-    /// <#Description#>
-    var artPieceMetadata: ArtMetadata
+    private var artPieceMetadata: ArtMetadata
     
     /// <#Description#>
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let artView = artPieceMetadata.viewType.init(frame: self.view.bounds, artPieceMetadata: artPieceMetadata)
+        let artView = artPieceMetadata.viewType.init(frame: view.bounds, artPieceMetadata: artPieceMetadata)
+        
         view.addSubview(artView)
         artView.translatesAutoresizingMaskIntoConstraints = false
         artView.constraint(edgesTo: view)
