@@ -22,6 +22,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "FeaturedArtPieceCollectionViewCellIdentifier"
     
+    /// The object that acts as the delegate of the `CollectionViewCellDelegate`.
     weak var delegate: CollectionViewCellDelegate?
     
     /// Metadata of art piece presented by cell.
@@ -34,7 +35,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
             titleLabel.text = "\(piece.id)"
 
             // Sets view of art piece to initialized art piece view.
-            piece.view = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
+            piece.view = piece.viewType.init(frame: bounds, artPieceMetadata: piece)
             
             if let price = piece.price {
                 let priceTitle = "$\(price)"
@@ -104,13 +105,13 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         
         let descriptionHeaderStackView = setupDescriptionStackView()
         
-        self.addSubview(descriptionHeaderStackView)
-        self.addSubview(descriptionExpandingLabel)
-        self.addSubview(artPieceView)
-        self.addSubview(purchaseButton)
+        addSubview(descriptionHeaderStackView)
+        addSubview(descriptionExpandingLabel)
+        addSubview(artPieceView)
+        addSubview(purchaseButton)
         
-        self.addLayoutGuide(descriptionExpandingLabelFocusGuide)
-        self.addLayoutGuide(artPieceViewFocusGuide)
+        addLayoutGuide(descriptionExpandingLabelFocusGuide)
+        addLayoutGuide(artPieceViewFocusGuide)
         
         descriptionHeaderStackView.translatesAutoresizingMaskIntoConstraints = false
         descriptionExpandingLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -120,13 +121,13 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         descriptionHeaderStackView.topAnchor.constraint(equalTo: artPieceView.topAnchor, constant: -30).isActive = true
         descriptionHeaderStackView.bottomAnchor.constraint(lessThanOrEqualTo: artPieceView.bottomAnchor, constant: -150).isActive = true
         descriptionHeaderStackView.trailingAnchor.constraint(equalTo: artPieceView.leadingAnchor, constant: -60).isActive = true
-        descriptionHeaderStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30).isActive = true
+        descriptionHeaderStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
 
         descriptionExpandingLabel.topAnchor.constraint(equalTo: descriptionHeaderStackView.bottomAnchor).isActive = true
         descriptionExpandingLabel.trailingAnchor.constraint(equalTo: descriptionHeaderStackView.trailingAnchor).isActive = true
         
-        artPieceView.topAnchor.constraint(equalTo: self.topAnchor, constant: 150).isActive = true
-        artPieceView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50).isActive = true
+        artPieceView.topAnchor.constraint(equalTo: topAnchor, constant: 150).isActive = true
+        artPieceView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50).isActive = true
         artPieceView.heightAnchor.constraint(equalToConstant: 500).isActive = true
         artPieceView.widthAnchor.constraint(equalToConstant: 880).isActive = true
         
@@ -136,8 +137,8 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
         
         descriptionExpandingLabelFocusGuide.topAnchor.constraint(equalTo: descriptionExpandingLabel.topAnchor).isActive = true
         descriptionExpandingLabelFocusGuide.bottomAnchor.constraint(equalTo: descriptionExpandingLabel.bottomAnchor).isActive = true
-        descriptionExpandingLabelFocusGuide.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        descriptionExpandingLabelFocusGuide.trailingAnchor.constraint(equalTo: self.descriptionExpandingLabel.leadingAnchor).isActive = true
+        descriptionExpandingLabelFocusGuide.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        descriptionExpandingLabelFocusGuide.trailingAnchor.constraint(equalTo: descriptionExpandingLabel.leadingAnchor).isActive = true
         
         artPieceViewFocusGuide.topAnchor.constraint(equalTo: artPieceView.topAnchor).isActive = true
         artPieceViewFocusGuide.trailingAnchor.constraint(equalTo: artPieceView.leadingAnchor).isActive = true
@@ -220,7 +221,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     /// Creates a new instance view of specific art piece and adds it to the `artPieceView`.
     func showArtPiece() {
         if let piece = artPiece, artView == nil {
-            artView = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
+            artView = piece.viewType.init(frame: bounds, artPieceMetadata: piece)
         }
         
         guard let view = artView else { return }

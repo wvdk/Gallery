@@ -12,6 +12,7 @@ class ArtPieceCollectionGridViewController: UIViewController {
 
     // MARK: - Properties
 
+    /// The object that acts as the delegate of the `ArtPieceCollectionViewControllerDelegate`.
     weak var delegate: ArtPieceCollectionViewControllerDelegate?
     
     var collectionView: UICollectionView?

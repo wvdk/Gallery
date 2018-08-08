@@ -8,15 +8,21 @@
 
 import GalleryCore_tvOS
 
-/// `UIView`, which can become focused.
+/// A subclass of `UIView` which can become focused when system updates the focus for views.
 ///
 /// In focused mode implements parallax effect.
+///
+/// Should set `thumbnail` image.
+///
+/// Can add subview to this view which can be animated.
 class FocusingView: UIView {
     
     // MARK: - Properties
     
+    /// The object that acts as the delegate of the `FocusingViewDelegate`.
     weak var delegate: FocusingViewDelegate?
     
+    /// Thumbnail image of the art piece.
     var thumbnail: UIImage? = nil {
         didSet {
             thumbnailView.image = thumbnail ?? UIImage(named: "defaultThumbnail")
@@ -39,9 +45,9 @@ class FocusingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.isUserInteractionEnabled = true
+        isUserInteractionEnabled = true
         
-        self.addSubview(containerView)
+        addSubview(containerView)
         containerView.addSubview(thumbnailView)
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,19 +66,22 @@ class FocusingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Subviews
+    // MARK: - Subview management.
     
+    /// Adds a specific view to the end of the receiver’s list of subviews.
+    /// - Parameters:
+    ///     - artPieceView: A new view of type `ArtView` to be added.
     func addSubview(artPieceView: ArtView) {
         containerView.addSubview(artPieceView)
-        
         artPieceView.translatesAutoresizingMaskIntoConstraints = false
-        
         artPieceView.constraint(edgesTo: containerView)
     }
     
-    // MARK: - Focus updates
-    
+    // MARK: - UIFocusEnvironment update
+
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        
+        // Animates view's appeatance to be focused.
         if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
                 if let strongSelf = self {
@@ -82,6 +91,7 @@ class FocusingView: UIView {
                 }}, completion: nil)
         }
         
+        // Animates view's appeatance to be not focused.
         if let previouslyFocusedView = context.previouslyFocusedView as? FocusingView, previouslyFocusedView == self {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
                 if let strongSelf = self {
@@ -94,27 +104,36 @@ class FocusingView: UIView {
     
     // MARK: - Focus appearance
     
+    /// Sets focus style on the view:
+    /// - Scales by 1.07.
+    /// - Adds significant drop down shadow to the view's layer.
     private func setFocusedStyle() {
-        self.transform = CGAffineTransform(scaleX: 1.07, y: 1.07)
+        transform = CGAffineTransform(scaleX: 1.07, y: 1.07)
 
-        self.layer.shadowRadius = 15
-        self.layer.shadowOffset = CGSize(width: 0, height: 25)
+        layer.shadowRadius = 15
+        layer.shadowOffset = CGSize(width: 0, height: 25)
     }
     
+    /// Removes focus stylw from the view.
     private func resetFocusedStyle() {
-        self.transform = CGAffineTransform.identity
+        transform = CGAffineTransform.identity
         
         addDefaultShadow()
     }
     
+    /// Adds small drop down type shadow to the view's layer.
     private func addDefaultShadow() {
-        self.layer.shadowColor = UIColor.black.cgColor
+        layer.shadowColor = UIColor.black.cgColor
 
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowRadius = 4
-        self.layer.shadowOffset = CGSize(width: 0, height: 3)
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 0, height: 3)
     }
     
+    /// Adds parallax motion effect to the `view`, which allows to pan and tilt it.
+    /// - Parameters:
+    ///     - tiltValue: View's maximum tilt value in radians, by default it is 0.1.
+    ///     - panValue: View's maximum pan value in points, by default it is 8.
     private func addParallaxMotionEffect(tiltValue: CGFloat = 0.1, panValue: CGFloat = 8) {
         let yTilt = UIInterpolatingMotionEffect(keyPath: "layer.transform.rotation.y", type: .tiltAlongHorizontalAxis)
         yTilt.minimumRelativeValue = -tiltValue
@@ -139,20 +158,14 @@ class FocusingView: UIView {
         guard let parralaxMotionEffect = artPieceViewParralaxMotionEffect else { return }
         parralaxMotionEffect.motionEffects = [xTilt, yTilt, xPan, yPan]
         
-        self.addMotionEffect(parralaxMotionEffect)
+        addMotionEffect(parralaxMotionEffect)
     }
     
+    /// Removes parallax motion effect from the `view`.
     private func removeParallaxMotionEffect() {
-        guard let artPieceViewParralaxMotionEffect = artPieceViewParralaxMotionEffect else { return }
-        self.removeMotionEffect(artPieceViewParralaxMotionEffect)
+        guard let artPieceViewParralaxMotionEffect = self.artPieceViewParralaxMotionEffect else { return }
+        removeMotionEffect(artPieceViewParralaxMotionEffect)
         
         self.artPieceViewParralaxMotionEffect = nil
     }
-}
-
-protocol FocusingViewDelegate: class {
-    
-    func focusingViewDidBecomeFocused(_ focusingView: FocusingView)
-    
-    func focusingViewDidResignedFocus(_ focusingView: FocusingView)
 }

@@ -8,7 +8,7 @@
 
 import GalleryCore_tvOS
 
-/// The object that acts as the delegate of the `ArtPieceCollectionViewController`.
+/// The object that acts as the delegate of the art piece collection view controllers.
 ///
 /// The delegate must adopt the ArtPieceCollectionViewControllerDelegate protocol.
 ///
@@ -26,6 +26,6 @@ protocol ArtPieceCollectionViewControllerDelegate: class {
     ///
     /// - Parameters:
     ///     - viewController: A view controller object informing the delegate about the selected art piece description.
-    ///     - didSelectOpenArtDescription: A selected to open art piece  description metadata.
+    ///     - didSelectOpenArtDescription: A selected to open art piece description metadata.
     func artPieceCollectionControllerDelegate(_ viewController: UIViewController, didSelectOpenArtDescription: ArtMetadata)
 }

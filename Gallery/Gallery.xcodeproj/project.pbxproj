@@ -22,7 +22,7 @@
 		891549D921128F340041FE8A /* ArtPieceCollectionGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549D821128F340041FE8A /* ArtPieceCollectionGridViewCell.swift */; };
 		891549DB21129FB40041FE8A /* BackgroundVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549DA21129FB40041FE8A /* BackgroundVisualEffectView.swift */; };
 		891549E52113B1780041FE8A /* FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549E22113B1720041FE8A /* FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */; };
-		891549E72113B1E70041FE8A /* NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549E62113B1E70041FE8A /* NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */; };
+		891549E72113B1E70041FE8A /* ArtPieceCollectionGridViewCell+FocusingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549E62113B1E70041FE8A /* ArtPieceCollectionGridViewCell+FocusingViewDelegate.swift */; };
 		891549EC2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */; };
 		891549ED2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */; };
 		891549EE2114E8F40041FE8A /* ArtPieceThumbails.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */; };
@@ -82,6 +82,7 @@
 		89DEC6BF210BA20B009858CC /* FocusingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC6BB210BA1AB009858CC /* FocusingLabel.swift */; };
 		89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC6B8210B9C10009858CC /* FocusingView.swift */; };
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
+		89F343E7211BB7BB00468168 /* FocusingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F343E6211BB7BB00468168 /* FocusingViewDelegate.swift */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
 		DE0B7FAB20E3E337000B482F /* GalleryCore_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -187,7 +188,7 @@
 		891549D821128F340041FE8A /* ArtPieceCollectionGridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceCollectionGridViewCell.swift; sourceTree = "<group>"; };
 		891549DA21129FB40041FE8A /* BackgroundVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundVisualEffectView.swift; sourceTree = "<group>"; };
 		891549E22113B1720041FE8A /* FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift"; sourceTree = "<group>"; };
-		891549E62113B1E70041FE8A /* NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift"; sourceTree = "<group>"; };
+		891549E62113B1E70041FE8A /* ArtPieceCollectionGridViewCell+FocusingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceCollectionGridViewCell+FocusingViewDelegate.swift"; sourceTree = "<group>"; };
 		891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ArtPieceThumbails.xcassets; sourceTree = "<group>"; };
 		891549F021150AF80041FE8A /* FeaturedArtPieceCollectionViewController+CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedArtPieceCollectionViewController+CollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		891549F221150BA30041FE8A /* CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +222,7 @@
 		89DEC6BB210BA1AB009858CC /* FocusingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingLabel.swift; sourceTree = "<group>"; };
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = A857CFragmentShader.fsh; sourceTree = "<group>"; };
+		89F343E6211BB7BB00468168 /* FocusingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingViewDelegate.swift; sourceTree = "<group>"; };
 		9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3691700D8ECDC253DFFC376 /* Pods_ArtKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85DD3F3A1656418B116D049 /* Pods-Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gallery/Pods-Gallery.release.xcconfig"; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				89DEC6B8210B9C10009858CC /* FocusingView.swift */,
+				89F343E6211BB7BB00468168 /* FocusingViewDelegate.swift */,
 				892E7B4921191AA500755957 /* DisabledFocusCollectionView.swift */,
 				8913D3442118C4FB00FBC9C5 /* DescriptionTextView.swift */,
 				89DEC6BB210BA1AB009858CC /* FocusingLabel.swift */,
@@ -382,7 +385,7 @@
 				89DEC6B5210933DB009858CC /* FeaturedArtPieceCollectionViewCell.swift */,
 				891549E22113B1720041FE8A /* FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */,
 				891549D821128F340041FE8A /* ArtPieceCollectionGridViewCell.swift */,
-				891549E62113B1E70041FE8A /* NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift */,
+				891549E62113B1E70041FE8A /* ArtPieceCollectionGridViewCell+FocusingViewDelegate.swift */,
 				891549F221150BA30041FE8A /* CollectionViewCellDelegate.swift */,
 			);
 			path = "Collection Controller Cells";
@@ -920,6 +923,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89134E1820E80C1300772E7F /* TabBarController.swift in Sources */,
+				89F343E7211BB7BB00468168 /* FocusingViewDelegate.swift in Sources */,
 				89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */,
 				89278ECC210F8AEC00CEEB3C /* DescriptionLabels.swift in Sources */,
 				891549E52113B1780041FE8A /* FeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift in Sources */,
@@ -942,7 +946,7 @@
 				89DEC6B6210933DB009858CC /* FeaturedArtPieceCollectionViewCell.swift in Sources */,
 				89DEC69621091C2B009858CC /* FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift in Sources */,
 				891549D921128F340041FE8A /* ArtPieceCollectionGridViewCell.swift in Sources */,
-				891549E72113B1E70041FE8A /* NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift in Sources */,
+				891549E72113B1E70041FE8A /* ArtPieceCollectionGridViewCell+FocusingViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

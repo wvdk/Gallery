@@ -1,5 +1,5 @@
 //
-//  NotFeaturedArtPieceCollectionViewCell+FocusingViewDelegate.swift
+//  ArtPieceCollectionGridViewCell+FocusingViewDelegate.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/2/18.

@@ -17,16 +17,17 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
     
     static let identifier = "ArtPieceCollectionGridViewCellIdentifier"
     
+    /// The object that acts as the delegate of the `CollectionViewCellDelegate`.
     weak var delegate: CollectionViewCellDelegate?
     
     /// Metadata of art piece presented by cell.
     var artPiece: ArtMetadata? = nil {
         didSet {
-            guard let piece = artPiece else { return }
+            guard var piece = artPiece else { return }
             artPieceView.thumbnail = piece.thumbnail
             titleLabel.text = "\(piece.id)"
             
-            self.artPiece?.view = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
+            piece.view = piece.viewType.init(frame: bounds, artPieceMetadata: piece)
         }
     }
     
@@ -53,16 +54,16 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
         
         artPieceView.delegate = self
         
-        self.addSubview(artPieceView)
-        self.addSubview(titleLabel)
+        addSubview(artPieceView)
+        addSubview(titleLabel)
         
         artPieceView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        artPieceView.topAnchor.constraint(equalTo: self.topAnchor, constant: 36).isActive = true
-        artPieceView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -36).isActive = true
-        artPieceView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 47).isActive = true
-        artPieceView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -47).isActive = true
+        artPieceView.topAnchor.constraint(equalTo: topAnchor, constant: 36).isActive = true
+        artPieceView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -36).isActive = true
+        artPieceView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 47).isActive = true
+        artPieceView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -47).isActive = true
         
         titleLabel.topAnchor.constraint(equalTo: artPieceView.bottomAnchor, constant: 15).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: artPieceView.centerXAnchor).isActive = true
@@ -74,7 +75,7 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
             ]
             
             if let strongSelf = self, let artPiece = self?.artPiece {
-                self?.delegate?.collectionViewCell(strongSelf, didSelectOpenArtPiece: artPiece)
+                strongSelf.delegate?.collectionViewCell(strongSelf, didSelectOpenArtPiece: artPiece)
             }
         }
     }
@@ -106,7 +107,7 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
     /// Creates a new instance view of specific art piece and adds it to the `artPieceView`.
     func showArtPiece() {
         if let piece = artPiece, artView == nil {
-            artView = piece.viewType.init(frame: self.bounds, artPieceMetadata: piece)
+            artView = piece.viewType.init(frame: bounds, artPieceMetadata: piece)
         }
         
         guard let view = artView else { return }
