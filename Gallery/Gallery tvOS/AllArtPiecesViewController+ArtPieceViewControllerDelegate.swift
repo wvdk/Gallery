@@ -10,8 +10,8 @@ import GalleryCore_tvOS
 
 extension AllArtPiecesViewController: ArtPieceViewControllerDelegate {
     
-    func artPieceControllerDelegate(_ viewController: UIViewController, didSelectOpenArtMetadata: ArtMetadata) {
-        let artPieceDetailController = ArtPieceDetailViewController(artMetadata: didSelectOpenArtMetadata)
+    func artPieceControllerDelegate(_ viewController: UIViewController, didSelectOpenArtPiece: ArtMetadata) {
+        let artPieceDetailController = ArtPieceDetailViewController(artMetadata: didSelectOpenArtPiece)
         present(artPieceDetailController, animated: true, completion: nil)
     }
     

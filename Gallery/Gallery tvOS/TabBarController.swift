@@ -6,7 +6,6 @@
 //  Copyright © 2018 Gallery of Generative Art. All rights reserved.
 //
 
-import UIKit
 import GalleryCore_tvOS
 
 class TabBarController: UITabBarController {
@@ -33,6 +32,7 @@ class TabBarController: UITabBarController {
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let nextView = context.nextFocusedView, self.tabBar.contains(nextView) else { return }
         
+        // Animate (scale up and down) tab bar item views (`titles`) on focus update.
         coordinator.addCoordinatedFocusingAnimations({ (animationContext) in
             nextView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         }, completion: {

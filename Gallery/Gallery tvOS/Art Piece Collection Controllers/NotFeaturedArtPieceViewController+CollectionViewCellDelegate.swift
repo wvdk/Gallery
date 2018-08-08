@@ -10,8 +10,8 @@ import GalleryCore_tvOS
 
 extension NotFeaturedArtPieceViewController: CollectionViewCellDelegate {
     
-    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtMetadata: ArtMetadata) {
-        self.delegate?.artPieceControllerDelegate(self, didSelectOpenArtMetadata: didSelectOpenArtMetadata)
+    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: ArtMetadata) {
+        self.delegate?.artPieceControllerDelegate(self, didSelectOpenArtPiece: didSelectOpenArtPiece)
     }
     
     func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtDescription: ArtMetadata) {

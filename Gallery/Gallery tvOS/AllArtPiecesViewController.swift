@@ -8,6 +8,10 @@
 
 import UIKit
 
+/// A container type `UIViewController` with two controllers nested inside:
+///
+/// 1. Premium art piece collection controller - `FeaturedArtPieceViewController`
+/// 2. Free art piece collection controller - `NotFeaturedArtPieceViewController`
 class AllArtPiecesViewController: UIViewController {
 
     // MARK: - Properties

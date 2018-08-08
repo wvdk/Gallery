@@ -6,7 +6,6 @@
 //  Copyright © 2018 Gallery of Generative Art. All rights reserved.
 //
 
-import UIKit
 import GalleryCore_tvOS
 
 class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
@@ -139,7 +138,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
             ]
             
             if let strongSelf = self, let artPiece = self?.artPiece {
-                strongSelf.delegate?.collectionViewCell(strongSelf, didSelectOpenArtMetadata: artPiece)
+                strongSelf.delegate?.collectionViewCell(strongSelf, didSelectOpenArtPiece: artPiece)
             }
         }
         
