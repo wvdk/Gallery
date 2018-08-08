@@ -13,7 +13,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
    
     // MARK: - Properties
         
-    weak var delegate: ArtPieceViewControllerDelegate?
+    weak var delegate: ArtPieceCollectionViewControllerDelegate?
     
     var collectionView: DisabledFocusCollectionView?
     

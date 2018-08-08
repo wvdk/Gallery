@@ -17,7 +17,7 @@ class ArtPieceContainerViewController: UIViewController {
     // MARK: - Properties
     
     private let featuredArtPiecesViewController = FeaturedArtPieceCollectionViewController()
-    private let notFeaturedArtPiecesViewController = NotFeaturedArtPieceViewController()
+    private let notFeaturedArtPiecesViewController = ArtPieceCollectionGridViewController()
     
     // MARK: - Lifecycle functions
 

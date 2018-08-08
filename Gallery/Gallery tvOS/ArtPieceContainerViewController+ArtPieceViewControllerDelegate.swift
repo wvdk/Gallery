@@ -8,18 +8,18 @@
 
 import GalleryCore_tvOS
 
-extension ArtPieceContainerViewController: ArtPieceViewControllerDelegate {
+extension ArtPieceContainerViewController: ArtPieceCollectionViewControllerDelegate {
     
     // MARK: - ArtPieceViewControllerDelegate implementation
     
-    func artPieceControllerDelegate(_ viewController: UIViewController, didSelectOpenArtPiece: ArtMetadata) {
+    func artPieceCollectionControllerDelegate(_ viewController: UIViewController, didSelectOpenArtPiece: ArtMetadata) {
         
         // Presents single art piece full screen mode.
         let artPieceDetailController = ArtPieceDisplayViewController(artMetadata: didSelectOpenArtPiece)
         present(artPieceDetailController, animated: true, completion: nil)
     }
     
-    func artPieceControllerDelegate(_ viewController: UIViewController, didSelectOpenArtDescription: ArtMetadata) {
+    func artPieceCollectionControllerDelegate(_ viewController: UIViewController, didSelectOpenArtDescription: ArtMetadata) {
         
         // Presents single art piece description full screen mode on top of existing context.
         let artPieceDetailController = ArtPieceDescriptionDisplayViewController(artMetadata: didSelectOpenArtDescription)

@@ -13,10 +13,10 @@ extension FeaturedArtPieceCollectionViewController: CollectionViewCellDelegate {
     // MARK: - CollectionViewCellDelegate implementation
     
     func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: ArtMetadata) {
-        delegate?.artPieceControllerDelegate(self, didSelectOpenArtPiece: didSelectOpenArtPiece)
+        delegate?.artPieceCollectionControllerDelegate(self, didSelectOpenArtPiece: didSelectOpenArtPiece)
     }
     
     func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtDescription: ArtMetadata) {
-        delegate?.artPieceControllerDelegate(self, didSelectOpenArtDescription: didSelectOpenArtDescription)
+        delegate?.artPieceCollectionControllerDelegate(self, didSelectOpenArtDescription: didSelectOpenArtDescription)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  NotFeaturedArtPieceViewController+UICollectionViewDelegate.swift
+//  ArtPieceCollectionGridViewController+UICollectionViewDelegate.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/1/18.
@@ -8,7 +8,9 @@
 
 import GalleryCore_tvOS
 
-extension NotFeaturedArtPieceViewController: UICollectionViewDelegate {
+extension ArtPieceCollectionGridViewController: UICollectionViewDelegate {
+    
+    // MARK: - UICollectionViewDelegate implementation
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return MasterList.shared.activePieces.count
@@ -19,7 +21,9 @@ extension NotFeaturedArtPieceViewController: UICollectionViewDelegate {
     }
 }
 
-extension NotFeaturedArtPieceViewController: UICollectionViewDataSource {
+extension ArtPieceCollectionGridViewController: UICollectionViewDataSource {
+    
+    // MARK: - UICollectionViewDataSource implementation
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NotFeaturedArtPieceCollectionViewCell.identifier, for: indexPath) as! NotFeaturedArtPieceCollectionViewCell
@@ -31,7 +35,9 @@ extension NotFeaturedArtPieceViewController: UICollectionViewDataSource {
     }
 }
 
-extension NotFeaturedArtPieceViewController: UICollectionViewDelegateFlowLayout {
+extension ArtPieceCollectionGridViewController: UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - UICollectionViewDelegateFlowLayout implementation
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 435, height: 263)

@@ -1,5 +1,5 @@
 //
-//  NotFeaturedArtPieceViewController.swift
+//  ArtPieceCollectionGridViewController.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/1/18.
@@ -8,11 +8,11 @@
 
 import GalleryCore_tvOS
 
-class NotFeaturedArtPieceViewController: UIViewController {
+class ArtPieceCollectionGridViewController: UIViewController {
 
     // MARK: - Properties
 
-    weak var delegate: ArtPieceViewControllerDelegate?
+    weak var delegate: ArtPieceCollectionViewControllerDelegate?
     
     var collectionView: UICollectionView?
     
