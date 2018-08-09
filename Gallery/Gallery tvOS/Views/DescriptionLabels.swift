@@ -8,32 +8,51 @@
 
 import UIKit
 
-/// `System` `font` 20 size text label. By default `gray` color.
+/// A subclass of `UILabel`.
+///
+/// Default text parameters:
+/// - System font
+/// - 20 size
+/// - Gray color.
 class BodyLabel: UILabel {
     
+    /// Return `UILabel`.
+    ///
+    /// - Parameters:
+    ///     - color: Text color, by default - gray.
     convenience init(color: UIColor = .gray) {
         self.init(frame: .zero)
 
-        self.textColor = color
-        self.font = UIFont.systemFont(ofSize: 20)
+        textColor = color
+        font = UIFont.systemFont(ofSize: 20)
         
-        self.numberOfLines = 0
-        self.textAlignment = .justified
+        numberOfLines = 0
+        textAlignment = .justified
     }
 }
 
-/// `System` `font` 30 size `gray` color text label.
+/// A subclass of `UILabel`.
+///
+/// Default text parameters:
+/// - System font
+/// - 30 size
+/// - Gray color.
 class HeadlineLabel: UILabel {
     
+    /// Return `UILabel`.
+    ///
+    /// - Parameters:
+    ///     - color: Text color, by default - gray.
+    ///     - isFontBold: Sets font bold property.
     convenience init(color: UIColor = .gray, isFontBold: Bool) {
         self.init(frame: .zero)
         
-        self.textColor = color
+        textColor = color
         
         if isFontBold {
-            self.font = UIFont.boldSystemFont(ofSize: 30)
+            font = UIFont.boldSystemFont(ofSize: 30)
         } else {
-            self.font = UIFont.systemFont(ofSize: 30)
+            font = UIFont.systemFont(ofSize: 30)
         }
     }
 }

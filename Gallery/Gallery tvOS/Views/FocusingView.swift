@@ -81,7 +81,7 @@ class FocusingView: UIView {
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
-        // Animates view's appeatance to be focused.
+        // Animates view's appearance to be focused.
         if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
                 if let strongSelf = self {
@@ -91,7 +91,7 @@ class FocusingView: UIView {
                 }}, completion: nil)
         }
         
-        // Animates view's appeatance to be not focused.
+        // Animates view's appearance to be not focused.
         if let previouslyFocusedView = context.previouslyFocusedView as? FocusingView, previouslyFocusedView == self {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
                 if let strongSelf = self {
@@ -104,7 +104,7 @@ class FocusingView: UIView {
     
     // MARK: - Focus appearance
     
-    /// Sets focus style on the view:
+    /// Sets focus style to the view:
     /// - Scales by 1.07.
     /// - Adds significant drop down shadow to the view's layer.
     private func setFocusedStyle() {
@@ -114,7 +114,7 @@ class FocusingView: UIView {
         layer.shadowOffset = CGSize(width: 0, height: 25)
     }
     
-    /// Removes focus stylw from the view.
+    /// Removes focus style from the view.
     private func resetFocusedStyle() {
         transform = CGAffineTransform.identity
         

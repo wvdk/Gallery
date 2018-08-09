@@ -8,11 +8,12 @@
 
 import UIKit
 
-/// A vertically acrollable multiline text region.
+/// A subclass of `UITextView`.
 ///
-/// Defautl settings:
+/// Default settings:
 /// - White text color
 /// - Justified text alligment
+/// - vertically scrollable
 class DescriptionTextView: UITextView {
 
     // MARK: - Initialization

@@ -8,6 +8,13 @@
 
 import UIKit
 
+/// A subclass of `UILabel` which can become focused when system updates the focus for views.
+///
+/// In focused mode implements parallax effect.
+///
+/// Default settings:
+/// - Dark gray text color
+/// - System font of size 20.
 class FocusingLabel: UILabel {
     
     // MARK: - UILabel properties
@@ -21,11 +28,11 @@ class FocusingLabel: UILabel {
     override public init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.isUserInteractionEnabled = true
-        self.textColor = .darkGray
-        self.font = UIFont.systemFont(ofSize: 20)
+        isUserInteractionEnabled = true
+        textColor = .darkGray
+        font = UIFont.systemFont(ofSize: 20)
         
-        self.layer.masksToBounds = false
+        layer.masksToBounds = false
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -35,12 +42,15 @@ class FocusingLabel: UILabel {
     // MARK: - UIFocusEnvironment update
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        
+        // Animates label's appearance to be focused.
         if context.nextFocusedView as? FocusingLabel != nil {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
                 self?.setFocusedStyle()
             }, completion: nil)
         }
         
+        // Animates label's appearance to not be focused.
         if context.previouslyFocusedView as? FocusingLabel != nil {
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
                 self?.resetFocusedStyle()
@@ -50,25 +60,28 @@ class FocusingLabel: UILabel {
     
     // MARK: - Focus appearance
     
-    /// Scales `view` by 1.2, sets `textColor` to the `white`, and adds shadow to the `layer`.
+    /// Sets focus style to the label:
+    /// - Scales by 1.2.
+    /// - Sets text color to white.
+    /// - Adds significant drop down shadow to the view's layer.
     private func setFocusedStyle() {
-        self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
 
-        self.textColor = .white
+        textColor = .white
 
-        self.layer.shadowRadius = 5
-        self.layer.shadowOpacity = 0.6
-        self.layer.shadowOffset = CGSize(width: 0, height: 8)
+        layer.shadowRadius = 5
+        layer.shadowOpacity = 0.6
+        layer.shadowOffset = CGSize(width: 0, height: 8)
     }
     
-    /// Resets `view` to default appearance.
+    /// Removes focus style from the view.
     private func resetFocusedStyle() {
-        self.transform = CGAffineTransform.identity
+        transform = CGAffineTransform.identity
 
-        self.textColor = .darkGray
+        textColor = .darkGray
 
-        self.layer.shadowRadius = 0
-        self.layer.shadowOpacity = 0
-        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowRadius = 0
+        layer.shadowOpacity = 0
+        layer.shadowOffset = CGSize(width: 0, height: 0)
     }
 }

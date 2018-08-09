@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// Darker than default `regular` style `UIVisualEffectView`.
+/// A subclass of `UIVisualEffectView`.
+///
+/// Returns darker than default `regular` style `UIVisualEffectView`.
 class BackgroundVisualEffectView: UIVisualEffectView {
     
     // MARK: - Initializer
@@ -16,7 +18,7 @@ class BackgroundVisualEffectView: UIVisualEffectView {
     convenience init() {
         self.init(effect: UIBlurEffect(style: .regular))
         
-        let background = UIView(frame: self.bounds)
+        let background = UIView(frame: bounds)
         background.backgroundColor = .black
         background.alpha = 0.33
         
