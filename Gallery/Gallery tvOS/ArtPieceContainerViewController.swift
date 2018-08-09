@@ -94,12 +94,8 @@ class ArtPieceContainerViewController: UIViewController {
         if featuredArtPieceCollectionViewController.contains(previouslyFocusedView), artPieceCollectionGridViewController.contains(nextFocusedView) {
             
             // Sets preferred focus guide to `featuredArtPieceCollectionViewController` collection view selected cell.
-            if let selectedCell = featuredArtPieceCollectionViewController.collectionView?.selectedCell {
-                for subview in selectedCell.subviews {
-                    if let focusingView = subview as? FocusingView {
-                        artPieceCollectionGridViewControllerFocusGuide.preferredFocusEnvironments = [focusingView]
-                    }
-                }
+            if let focusingView = featuredArtPieceCollectionViewController.collectionView?.selectedCell?.subviews.first(where: { $0 is FocusingView}) {
+                artPieceCollectionGridViewControllerFocusGuide.preferredFocusEnvironments = [focusingView]
             }
             
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in

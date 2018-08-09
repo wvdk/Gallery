@@ -105,7 +105,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         separatorView.bottomAnchor.constraint(equalTo: headerContainerView.bottomAnchor).isActive = true
         separatorView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor, constant: 180).isActive = true
         separatorView.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor, constant: -180).isActive = true
-        separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        separatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
         
         headerLabel.leadingAnchor.constraint(equalTo: separatorView.leadingAnchor).isActive = true
         headerLabel.bottomAnchor.constraint(equalTo: separatorView.topAnchor, constant: -10).isActive = true
