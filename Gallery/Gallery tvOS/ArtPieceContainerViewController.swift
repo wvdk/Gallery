@@ -19,6 +19,9 @@ class ArtPieceContainerViewController: UIViewController {
     private let featuredArtPieceCollectionViewController = FeaturedArtPieceCollectionViewController()
     private let artPieceCollectionGridViewController = ArtPieceCollectionGridViewController()
     
+    /// Focus guide to set preferred focus environment.
+    ///
+    /// It is set to featured art piece collection view selected cell during transition from `artPieceCollectionGridViewController` to `featuredArtPieceCollectionViewController`.
     private var artPieceCollectionGridViewControllerFocusGuide = UIFocusGuide()
     
     // MARK: - Lifecycle functions
