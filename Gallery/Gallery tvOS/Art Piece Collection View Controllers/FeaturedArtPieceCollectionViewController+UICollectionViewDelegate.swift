@@ -22,6 +22,9 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
+        // Returns if previous focus item is not in `self's` environment.
+        guard let previouslyFocusedItem = context.previouslyFocusedItem, contains(previouslyFocusedItem) else { return }
+        
         guard let nextFocusedIndexPath = context.nextFocusedIndexPath else { return }
         
         // Returns if focus item is in the same collection view cell.

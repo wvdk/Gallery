@@ -16,38 +16,47 @@ class ArtPieceContainerViewController: UIViewController {
 
     // MARK: - Properties
     
-    private let featuredArtPiecesViewController = FeaturedArtPieceCollectionViewController()
-    private let notFeaturedArtPiecesViewController = ArtPieceCollectionGridViewController()
+    private let featuredArtPieceCollectionViewController = FeaturedArtPieceCollectionViewController()
+    private let artPieceCollectionGridViewController = ArtPieceCollectionGridViewController()
+    
+    private var artPieceCollectionGridViewControllerFocusGuide = UIFocusGuide()
     
     // MARK: - Lifecycle functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        featuredArtPiecesViewController.delegate = self
-        notFeaturedArtPiecesViewController.delegate = self
+        featuredArtPieceCollectionViewController.delegate = self
+        artPieceCollectionGridViewController.delegate = self
 
-        addChildViewController(featuredArtPiecesViewController)
-        view.addSubview(featuredArtPiecesViewController.view)
+        addChildViewController(featuredArtPieceCollectionViewController)
+        view.addSubview(featuredArtPieceCollectionViewController.view)
         
-        addChildViewController(notFeaturedArtPiecesViewController)
-        view.addSubview(notFeaturedArtPiecesViewController.view)
+        addChildViewController(artPieceCollectionGridViewController)
+        view.addSubview(artPieceCollectionGridViewController.view)
         
-        featuredArtPiecesViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        notFeaturedArtPiecesViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        featuredArtPieceCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        artPieceCollectionGridViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
-        featuredArtPiecesViewController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        featuredArtPiecesViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        featuredArtPiecesViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        featuredArtPiecesViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -140).isActive = true
+        featuredArtPieceCollectionViewController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        featuredArtPieceCollectionViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        featuredArtPieceCollectionViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        featuredArtPieceCollectionViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -140).isActive = true
 
-        notFeaturedArtPiecesViewController.view.topAnchor.constraint(equalTo: featuredArtPiecesViewController.view.bottomAnchor).isActive = true
-        notFeaturedArtPiecesViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        notFeaturedArtPiecesViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        notFeaturedArtPiecesViewController.view.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        artPieceCollectionGridViewController.view.topAnchor.constraint(equalTo: featuredArtPieceCollectionViewController.view.bottomAnchor).isActive = true
+        artPieceCollectionGridViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        artPieceCollectionGridViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        artPieceCollectionGridViewController.view.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
 
-        featuredArtPiecesViewController.didMove(toParentViewController: self)
-        notFeaturedArtPiecesViewController.didMove(toParentViewController: self)
+        featuredArtPieceCollectionViewController.didMove(toParentViewController: self)
+        artPieceCollectionGridViewController.didMove(toParentViewController: self)
+        
+        artPieceCollectionGridViewController.view.addLayoutGuide(artPieceCollectionGridViewControllerFocusGuide)
+        
+        artPieceCollectionGridViewControllerFocusGuide.topAnchor.constraint(equalTo: artPieceCollectionGridViewController.view.topAnchor).isActive = true
+        artPieceCollectionGridViewControllerFocusGuide.leadingAnchor.constraint(equalTo: artPieceCollectionGridViewController.view.leadingAnchor).isActive = true
+        artPieceCollectionGridViewControllerFocusGuide.trailingAnchor.constraint(equalTo: artPieceCollectionGridViewController.view.trailingAnchor).isActive = true
+        artPieceCollectionGridViewControllerFocusGuide.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     // MARK: - UIFocusEnvironment update
@@ -56,31 +65,44 @@ class ArtPieceContainerViewController: UIViewController {
         guard let nextFocusedView = context.nextFocusedView, let previouslyFocusedView = context.previouslyFocusedView else { return }
         
         // Returns if previous and next focused views are in the same featuredArtPiecesViewController.
-        if featuredArtPiecesViewController.contains(previouslyFocusedView), featuredArtPiecesViewController.contains(nextFocusedView) {
+        if featuredArtPieceCollectionViewController.contains(previouslyFocusedView), featuredArtPieceCollectionViewController.contains(nextFocusedView) {
             return
         }
         
         // Returns if previous and next focused views are in the same notFeaturedArtPiecesViewController.
-        if notFeaturedArtPiecesViewController.contains(previouslyFocusedView), notFeaturedArtPiecesViewController.contains(nextFocusedView) {
+        if artPieceCollectionGridViewController.contains(previouslyFocusedView), artPieceCollectionGridViewController.contains(nextFocusedView) {
             return
         }
         
         // Animates translation transform between view controllers.
-        if notFeaturedArtPiecesViewController.contains(previouslyFocusedView) {
+        if artPieceCollectionGridViewController.contains(previouslyFocusedView) {
+            // Sets preferred focus guide to default.
+            artPieceCollectionGridViewControllerFocusGuide.preferredFocusEnvironments = []
+            
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
-                self?.featuredArtPiecesViewController.view.transform = CGAffineTransform.identity
-                self?.notFeaturedArtPiecesViewController.view.transform = CGAffineTransform.identity
+                self?.featuredArtPieceCollectionViewController.view.transform = CGAffineTransform.identity
+                self?.artPieceCollectionGridViewController.view.transform = CGAffineTransform.identity
                 }, completion: nil)
             
             return
         }
         
         // Animates translation transform between view controllers.
-        if featuredArtPiecesViewController.contains(previouslyFocusedView), notFeaturedArtPiecesViewController.contains(nextFocusedView) {
+        if featuredArtPieceCollectionViewController.contains(previouslyFocusedView), artPieceCollectionGridViewController.contains(nextFocusedView) {
+            
+            // Sets preferred focus guide to `featuredArtPieceCollectionViewController` collection view selected cell.
+            if let selectedCell = featuredArtPieceCollectionViewController.collectionView?.selectedCell {
+                for subview in selectedCell.subviews {
+                    if let focusingView = subview as? FocusingView {
+                        artPieceCollectionGridViewControllerFocusGuide.preferredFocusEnvironments = [focusingView]
+                    }
+                }
+            }
+            
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
-                guard let translationY = self?.featuredArtPiecesViewController.view.bounds.size.height else { return }
-                self?.featuredArtPiecesViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
-                self?.notFeaturedArtPiecesViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
+                guard let translationY = self?.featuredArtPieceCollectionViewController.view.bounds.size.height else { return }
+                self?.featuredArtPieceCollectionViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
+                self?.artPieceCollectionGridViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
                 }, completion: nil)
             
             return
