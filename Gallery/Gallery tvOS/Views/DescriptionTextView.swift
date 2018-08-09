@@ -10,7 +10,7 @@ import UIKit
 
 /// A subclass of `UITextView`.
 ///
-/// Default settings:
+/// Return text view with default settings:
 /// - White text color
 /// - Justified text alligment
 /// - vertically scrollable

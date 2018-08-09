@@ -12,7 +12,7 @@ import UIKit
 ///
 /// In focused mode implements parallax effect.
 ///
-/// Default settings:
+/// Returns label with default settings:
 /// - Dark gray text color
 /// - System font of size 20.
 class FocusingLabel: UILabel {

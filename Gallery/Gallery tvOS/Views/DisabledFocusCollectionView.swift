@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// A subclass of `UICollectionView` with disabled focus property.
+/// A subclass of `UICollectionView`.
+///
+/// Returns collection view with disabled focus property.
 class DisabledFocusCollectionView: UICollectionView {
 
     override var canBecomeFocused: Bool {

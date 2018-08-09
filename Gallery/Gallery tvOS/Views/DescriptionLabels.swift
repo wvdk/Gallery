@@ -10,7 +10,7 @@ import UIKit
 
 /// A subclass of `UILabel`.
 ///
-/// Default text parameters:
+/// Returns label with default text parameters:
 /// - System font
 /// - 20 size
 /// - Gray color.
@@ -33,7 +33,7 @@ class BodyLabel: UILabel {
 
 /// A subclass of `UILabel`.
 ///
-/// Default text parameters:
+/// Returns label with default text parameters:
 /// - System font
 /// - 30 size
 /// - Gray color.
