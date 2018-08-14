@@ -39,11 +39,22 @@ public class MasterList {
         
         // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
         activePieces = [
-            ArtMetadata(id: "a.565z", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A565zView.self),
-            ArtMetadata(id: "a.994t", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A994tView.self),
-            ArtMetadata(id: "a.586q", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A586qView.self),
-            ArtMetadata(id: "a.736D", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A736DView.self),
-            ArtMetadata(id: "a.857C", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A857CView.self)
+            ArtMetadata(id: "A565z",
+                        author: "wvdk",
+                        prettyPublishedDate: "June 2018",
+                        description: "I made my art piece. I made it very pretty. And few more words.",
+                        viewType: A565zView.self,
+                        thumbnail: UIImage(named: "A565z")),
+            ArtMetadata(id: "A994t",
+                        author: "Kristina Gelzinyte",
+                        prettyPublishedDate: "June 2018",
+                        description: "Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquam. Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquamorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Lorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. Nisl rhoncus turpis est, vel elit, congue wisi enim nunc ultricies sit, magna tincidunt. Maecenas aliquam. gna tincidunt. Maecenas aliquam tincidunt. Maecenas aliquamorem ipsum dolor sit amet, ligula suspendisse nulla pretium, rhoncus tempor fermentum, enim integer ad vestibulum volutpat. END",
+                        price: 99.99,
+                        viewType: A994tView.self,
+                        thumbnail: UIImage(named: "A994t")),
+            ArtMetadata(id: "A586q", author: "wvdk", prettyPublishedDate: "June 2018", price: 0.99, viewType: A586qView.self, thumbnail: UIImage(named: "A586q")),
+            ArtMetadata(id: "A736D", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A736DView.self, thumbnail: UIImage(named: "A736D")),
+            ArtMetadata(id: "a.857C", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A857CView.self, thumbnail: nil)
         ]
     }
     

@@ -25,10 +25,7 @@ class A736DView: ArtView {
         
         addSubview(spriteKitView)
         spriteKitView.translatesAutoresizingMaskIntoConstraints = false
-        spriteKitView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        spriteKitView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        spriteKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        spriteKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        spriteKitView.constraint(edgesTo: self)
         
         sendSubview(toBack: spriteKitView)
                 
@@ -36,7 +33,7 @@ class A736DView: ArtView {
         spriteKitView.showsFPS = false
         spriteKitView.showsNodeCount = false
         
-        spriteKitView.presentScene(scene)
+        spriteKitView.presentScene(scene)        
     }
     
     public required init?(coder aDecoder: NSCoder) {

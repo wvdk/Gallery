@@ -40,10 +40,8 @@ class A994tView: ArtView {
         
         addSubview(sceneKitView)
         sceneKitView.translatesAutoresizingMaskIntoConstraints = false
-        sceneKitView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        sceneKitView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        sceneKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        sceneKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        sceneKitView.constraint(edgesTo: self)
+        
         sceneKitView.scene = scene
         
         scene.rootNode.addChildNode(containerNode)
@@ -59,7 +57,7 @@ class A994tView: ArtView {
         
         for _ in 0...30 {
             scattering()
-        }
+        }        
     }
     
     public required init?(coder aDecoder: NSCoder) {
