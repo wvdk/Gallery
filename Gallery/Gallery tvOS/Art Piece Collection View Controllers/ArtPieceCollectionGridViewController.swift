@@ -22,8 +22,8 @@ class ArtPieceCollectionGridViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Sets background view to darker than default regular `UIVisualEffectView`.
-        let blurredEffectView = BackgroundVisualEffectView()
+        // Sets background view to dark `UIVisualEffectView`.
+        let blurredEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         
         view.addSubview(blurredEffectView)
         
