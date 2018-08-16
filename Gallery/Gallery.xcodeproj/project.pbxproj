@@ -1079,7 +1079,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PJ8U3CQ43A;
+				DEVELOPMENT_TEAM = B2HHR6H4K6;
 				INFOPLIST_FILE = "Gallery tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.tvOS;
@@ -1099,7 +1099,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PJ8U3CQ43A;
+				DEVELOPMENT_TEAM = B2HHR6H4K6;
 				INFOPLIST_FILE = "Gallery tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.tvOS;
