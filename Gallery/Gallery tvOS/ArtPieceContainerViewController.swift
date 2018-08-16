@@ -16,6 +16,8 @@ class ArtPieceContainerViewController: UIViewController {
 
     // MARK: - Properties
     
+    var artPieceDetailController: ArtPieceDisplayViewController?
+    
     private let featuredArtPieceCollectionViewController = FeaturedArtPieceCollectionViewController()
     private let artPieceCollectionGridViewController = ArtPieceCollectionGridViewController()
     
