@@ -143,7 +143,7 @@ class FocusingView: UIView {
     /// - Parameters:
     ///     - tiltValue: View's maximum tilt value in radians, by default it is 0.1.
     ///     - panValue: View's maximum pan value in points, by default it is 8.
-    private func addParallaxMotionEffect(tiltValue: CGFloat = 0.1, panValue: CGFloat = 10) {
+    private func addParallaxMotionEffect(tiltValue: CGFloat = 0.15, panValue: CGFloat = 15) {
         let yTilt = UIInterpolatingMotionEffect(keyPath: "layer.transform.rotation.y", type: .tiltAlongHorizontalAxis)
         yTilt.minimumRelativeValue = -tiltValue
         yTilt.maximumRelativeValue = tiltValue

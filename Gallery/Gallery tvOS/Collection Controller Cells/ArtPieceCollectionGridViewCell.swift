@@ -36,7 +36,7 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
     
     private let artPieceView = FocusingView()
     
-    private let titleLabel = BodyLabel(color: .darkGray)
+    private let titleLabel = BodyLabel(color: .white)
     
     // MARK: - UICollectionViewCell properties
     
