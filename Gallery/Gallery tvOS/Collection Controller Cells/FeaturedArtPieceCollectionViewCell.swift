@@ -28,14 +28,14 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     /// Metadata of art piece presented by cell.
     var artPiece: ArtMetadata? = nil {
         didSet {
-            guard var piece = artPiece else { return }
+            guard let piece = artPiece else { return }
             artPieceView.thumbnail = piece.thumbnail
             authorNameLabel.text = "\(piece.author)"
             dateLabel.text = "\(piece.prettyPublishedDate)"
             titleLabel.text = "\(piece.id)"
 
             // Sets view of art piece to initialized art piece view.
-            piece.view = piece.viewType.init(frame: bounds, artPieceMetadata: piece)
+//            piece.view = piece.viewType.init(frame: bounds, artPieceMetadata: piece)
             
             if let price = piece.price {
                 let priceTitle = "$\(price)"
@@ -231,7 +231,7 @@ class FeaturedArtPieceCollectionViewCell: UICollectionViewCell {
     /// Removes specific art piece view from parents view.
     func hideArtPiece() {
         guard let view = artView else { return }
-        view.removeFromSuperview()
+        artPieceView.removeSubview(artPieceView: view)
         artView = nil
     }
     

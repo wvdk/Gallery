@@ -23,11 +23,12 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
     /// Metadata of art piece presented by cell.
     var artPiece: ArtMetadata? = nil {
         didSet {
-            guard var piece = artPiece else { return }
+            guard let piece = artPiece else { return }
             artPieceView.thumbnail = piece.thumbnail
             titleLabel.text = "\(piece.id)"
             
-            piece.view = piece.viewType.init(frame: bounds, artPieceMetadata: piece)
+            // Sets view of art piece to initialized art piece view.
+//            piece.view = piece.viewType.init(frame: bounds, artPieceMetadata: piece)
         }
     }
     
@@ -35,7 +36,7 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
     
     private let artPieceView = FocusingView()
     
-    private let titleLabel = BodyLabel(color: .darkGray)
+    private let titleLabel = BodyLabel(color: .white)
     
     // MARK: - UICollectionViewCell properties
     
@@ -117,7 +118,7 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
     /// Removes specific art piece view from parents view.
     func hideArtPiece() {
         guard let view = artView else { return }
-        view.removeFromSuperview()
+        artPieceView.removeSubview(artPieceView: view)
         artView = nil
     }
 }
