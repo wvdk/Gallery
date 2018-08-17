@@ -118,7 +118,7 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
     /// Removes specific art piece view from parents view.
     func hideArtPiece() {
         guard let view = artView else { return }
-        view.removeFromSuperview()
+        artPieceView.removeSubview(artPieceView: view)
         artView = nil
     }
 }

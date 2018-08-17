@@ -77,6 +77,15 @@ class FocusingView: UIView {
         artPieceView.constraint(edgesTo: containerView)
     }
     
+    /// Removes a specific view from the receiver’s list of subviews.
+    /// - Parameters:
+    ///     - artPieceView: A new view of type `ArtView` to be removed.
+    func removeSubview(artPieceView: ArtView) {
+        if containerView.subviews.contains(artPieceView) {
+            artPieceView.removeFromSuperview()
+        }
+    }
+    
     // MARK: - UIFocusEnvironment update
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
