@@ -13,7 +13,16 @@ class MyViewController : UIViewController {
         
         view.addSubview(box)
         
-        box.loopInSuperview(duplicationCount: 3, with: [.moveHorizontallyWithIncrement(60), .rotateByDegrees(0.3)])        
+        box.loopInSuperview(duplicationCount: 3, with: [.moveHorizontallyWithIncrement(60), .rotateByDegrees(0.3)])
+        
+        
+        let line = UIView(frame: CGRect(x: 200, y: 200, width: 1, height: 200))
+        view.addSubview(line)
+        line.backgroundColor = .blue
+        line.loopInSuperview(duplicationCount: 2, with: [.rotateByDegrees(0.35), .updateOpacityRandomly])
+        
+        
+        
     }
     
     override func loadView() {

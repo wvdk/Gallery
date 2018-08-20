@@ -46,6 +46,8 @@ extension UIView {
         /// Rotate each view clockwise by degrees. Note: The CGFloat is 0.0-1.0, not 0-360.
         case rotateByDegrees(CGFloat)
         
+        /// Changes the alpha value of the view randomly between 0.1 and 1.0.
+        case updateOpacityRandomly
     }
     
     /// Creates a copy of the UIView.
@@ -90,6 +92,8 @@ extension UIView {
                     newView.transform = newView.transform.concatenating(newTransoform)
                     
                     currentRotationValue += rotation
+                case .updateOpacityRandomly:
+                    newView.alpha = CGFloat(Double(random()) + 0.1)
                 }
             }
         }
