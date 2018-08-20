@@ -38,16 +38,14 @@ public class A565zView: ArtView {
         
         addSubview(sceneKitView)
         sceneKitView.translatesAutoresizingMaskIntoConstraints = false
-        sceneKitView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        sceneKitView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        sceneKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        sceneKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        sceneKitView.constraint(edgesTo: self)
+        
         sceneKitView.scene = scene
         sceneKitView.allowsCameraControl = false
         
         scene.rootNode.addChildNode(containerNode)
         
-        createNodeAtCenter()
+        createNodeAtCenter()        
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -67,7 +65,6 @@ public class A565zView: ArtView {
         
         let action = SCNAction.scale(by: 10, duration: 10)
         planeNode.runAction(action)
-        
         containerNode.addChildNode(planeNode)
     }
 }

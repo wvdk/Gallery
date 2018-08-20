@@ -5,6 +5,7 @@
 //  Created by Wesley Van der Klomp on 3/25/18.
 //  Copyright © 2018 Gallery. All rights reserved.
 //
+
 import UIKit
 import SpriteKit
 
@@ -24,16 +25,13 @@ class A586qView: ArtView {
 
         addSubview(spriteKitView)
         spriteKitView.translatesAutoresizingMaskIntoConstraints = false
-        spriteKitView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        spriteKitView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        spriteKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        spriteKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        spriteKitView.constraint(edgesTo: self)
         
         spriteKitView.ignoresSiblingOrder = true
         spriteKitView.showsFPS = false
         spriteKitView.showsNodeCount = false
 
-        spriteKitView.presentScene(scene)
+        spriteKitView.presentScene(scene)        
     }
     
     public required init?(coder aDecoder: NSCoder) {

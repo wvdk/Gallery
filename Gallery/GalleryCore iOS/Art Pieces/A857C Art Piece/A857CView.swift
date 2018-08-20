@@ -26,10 +26,7 @@ class A857CView: ArtView {
         
         addSubview(spriteKitView)
         spriteKitView.translatesAutoresizingMaskIntoConstraints = false
-        spriteKitView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        spriteKitView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        spriteKitView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        spriteKitView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        spriteKitView.constraint(edgesTo: self)
         
         spriteKitView.ignoresSiblingOrder = true
         spriteKitView.showsFPS = false
@@ -39,7 +36,7 @@ class A857CView: ArtView {
         spriteKitView.presentScene(scene)
         
         scene.scaleMode = .aspectFill
-        scene.addChild(containerNode)
+        scene.addChild(containerNode)        
     }
     
     public required init?(coder aDecoder: NSCoder) {

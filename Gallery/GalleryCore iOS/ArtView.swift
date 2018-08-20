@@ -26,5 +26,4 @@ public class ArtView: UIView {
         
         print("ArtView with id \(artPieceMetadata.id) did move to super view.")
     }
-    
 }
