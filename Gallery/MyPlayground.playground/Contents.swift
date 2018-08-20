@@ -7,7 +7,7 @@ import ArtKit_iOS
 extension UIView {
     
     /// The transformation options you can pass in a UIView loopInSuperView function. Uses associated values for specifiying the amounts of transformation you'd like (usually in points, if not otherwise specified).
-    enum LooperOptions {
+    enum LoopingOptions {
         
         /// Move each view horizontally from the previous view by the provided CGFloat.
         case moveHorizontallyWithIncrement(CGFloat)
@@ -32,7 +32,7 @@ extension UIView {
     /// - Parameters:
     ///   - duplicationCount: The number of additional views you want to be created.
     ///   - options: The transformation settings you want to be applied to each view.
-    func loopInSuperview(duplicationCount: Int, with options: [LooperOptions]) {
+    func loopInSuperview(duplicationCount: Int, with options: [LoopingOptions]) {
         /// We start with an index of 2 - which seems weird but if very deliberate. If we use a starting index of 0, then multiply the origin points by that 0 index, it would bring the new view to the top left corner. Similarly if we start with 1, it will cover the original view.
         let startingIndex = 2
         let endingIndex = duplicationCount + startingIndex
