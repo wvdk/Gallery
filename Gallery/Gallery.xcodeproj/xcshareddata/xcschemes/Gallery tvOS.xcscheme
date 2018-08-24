@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "89134E1220E80C1300772E7F"
-               BuildableName = "Gallery TV.app"
-               BlueprintName = "Gallery TV"
+               BuildableName = "Gallery tvOS.app"
+               BlueprintName = "Gallery tvOS"
                ReferencedContainer = "container:Gallery.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "89134E1220E80C1300772E7F"
-            BuildableName = "Gallery TV.app"
-            BlueprintName = "Gallery TV"
+            BuildableName = "Gallery tvOS.app"
+            BlueprintName = "Gallery tvOS"
             ReferencedContainer = "container:Gallery.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "89134E1220E80C1300772E7F"
-            BuildableName = "Gallery TV.app"
-            BlueprintName = "Gallery TV"
+            BuildableName = "Gallery tvOS.app"
+            BlueprintName = "Gallery tvOS"
             ReferencedContainer = "container:Gallery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "89134E1220E80C1300772E7F"
-            BuildableName = "Gallery TV.app"
-            BlueprintName = "Gallery TV"
+            BuildableName = "Gallery tvOS.app"
+            BlueprintName = "Gallery tvOS"
             ReferencedContainer = "container:Gallery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
