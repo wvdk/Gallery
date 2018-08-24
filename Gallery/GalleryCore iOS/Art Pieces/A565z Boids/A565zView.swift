@@ -22,8 +22,17 @@ public class A565zView: ArtView {
         
         backgroundColor = .white
         
-        let boid = UIView()
+        let boid = UIView(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+        let image = UIImage(named: "Triangle", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        let imageView = UIImageView(image: image)
+        boid.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalTo: boid.widthAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: boid.heightAnchor).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: boid.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: boid.centerYAnchor).isActive = true
         
+        addSubview(boid)
         
     }
     

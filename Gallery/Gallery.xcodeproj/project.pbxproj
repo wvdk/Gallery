@@ -93,8 +93,7 @@
 		DE0B7FB120E3E352000B482F /* ArtMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* ArtMetadata.swift */; };
 		DE0B7FB220E3E357000B482F /* A565zView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA066D820C47FD700489BF8 /* A565zView.swift */; };
 		DE0B7FB320E3E35B000B482F /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929F4F1204AD54C000E5179 /* IDGenerator.swift */; };
-		DE23DFD921305FE400A79BEE /* Triangle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE23DFD721305FE400A79BEE /* Triangle@3x.png */; };
-		DE23DFDA21305FE400A79BEE /* Triangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE23DFD821305FE400A79BEE /* Triangle@2x.png */; };
+		DE23DFD921305FE400A79BEE /* Triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = DE23DFD721305FE400A79BEE /* Triangle.png */; };
 		DE26220620E967EA002F57C7 /* ArtKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; };
 		DE26220720E9681C002F57C7 /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
 		DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F8E2048F30300444EB8 /* AppDelegate.swift */; };
@@ -111,6 +110,7 @@
 		DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7F205B857900C40727 /* ArrayExtensions.swift */; };
 		DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */; };
 		DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */; };
+		DE75670C213062580067B5BD /* Triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = DE23DFD721305FE400A79BEE /* Triangle.png */; };
 		DEDB687720E946D900D102EB /* ArtKit_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DEDB687520E946D900D102EB /* ArtKit_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DEDB687F20E946EE00D102EB /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
 		DEDB688020E946EE00D102EB /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7F205B857900C40727 /* ArrayExtensions.swift */; };
@@ -243,8 +243,7 @@
 		DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_iOS.h; sourceTree = "<group>"; };
 		DE0B7FA620E3E337000B482F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE165CD2205B891F00E28C37 /* A736DActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = A736DActions.sks; sourceTree = "<group>"; };
-		DE23DFD721305FE400A79BEE /* Triangle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Triangle@3x.png"; sourceTree = "<group>"; };
-		DE23DFD821305FE400A79BEE /* Triangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Triangle@2x.png"; sourceTree = "<group>"; };
+		DE23DFD721305FE400A79BEE /* Triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Triangle.png; sourceTree = "<group>"; };
 		DE293F8B2048F30300444EB8 /* Gallery iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gallery iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE293F8E2048F30300444EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE293F902048F30300444EB8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -486,8 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				DEA066D820C47FD700489BF8 /* A565zView.swift */,
-				DE23DFD821305FE400A79BEE /* Triangle@2x.png */,
-				DE23DFD721305FE400A79BEE /* Triangle@3x.png */,
+				DE23DFD721305FE400A79BEE /* Triangle.png */,
 			);
 			path = "A565z Boids";
 			sourceTree = "<group>";
@@ -807,6 +805,7 @@
 				89C3866D20F49845004BF43F /* A857CFragmentShader.fsh in Resources */,
 				894C691C20F13899003A5387 /* A586qActions.sks in Resources */,
 				89485BD120F2A08F00046753 /* A736DActions.sks in Resources */,
+				DE75670C213062580067B5BD /* Triangle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,10 +815,9 @@
 			files = (
 				891549EC2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */,
 				89C3866C20F49845004BF43F /* A857CFragmentShader.fsh in Resources */,
-				DE23DFDA21305FE400A79BEE /* Triangle@2x.png in Resources */,
 				894C691920F13889003A5387 /* A586qActions.sks in Resources */,
 				89485BD020F2A08E00046753 /* A736DActions.sks in Resources */,
-				DE23DFD921305FE400A79BEE /* Triangle@3x.png in Resources */,
+				DE23DFD921305FE400A79BEE /* Triangle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
