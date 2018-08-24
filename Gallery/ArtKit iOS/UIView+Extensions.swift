@@ -75,7 +75,8 @@ extension UIView {
             // Duplicate original view
             let newView = self.copyView()
             self.superview?.addSubview(newView)
-            newView.backgroundColor = .blue
+            newView.layer.borderWidth = layer.borderWidth
+            newView.layer.borderColor = layer.borderColor
             
             // Apply transoforms based on options
             for option in options {
