@@ -22,12 +22,9 @@ public class A565zView: ArtView {
         
         backgroundColor = .white
         
-        let box = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-        addSubview(box)
-        box.backgroundColor = .white
-        box.layer.borderColor = UIColor.blue.cgColor
-        box.layer.borderWidth = 1.0
-        box.loopInSuperview(duplicationCount: 3, with: [UIView.LoopingOptions.moveHorizontallyWithIncrement(200)])
+        let boid = UIView()
+        
+        
     }
     
     public required init?(coder aDecoder: NSCoder) {
