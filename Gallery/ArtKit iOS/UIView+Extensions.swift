@@ -16,7 +16,7 @@ extension UIView {
     /// - Parameters:
     ///   - parent: the UIView that the view should fill
     ///   - edgeInsets: the amounts around each edge to inset the view by
-    func autolayoutFill(parent: UIView, edgeInsets: UIEdgeInsets = UIEdgeInsets.zero) {
+    public func autolayoutFill(parent: UIView, edgeInsets: UIEdgeInsets = UIEdgeInsets.zero) {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
@@ -32,7 +32,7 @@ extension UIView {
     /// Configure a UIView to be centered in its parent
     ///
     /// - Parameter parent: the parent to center it in
-    func autolayoutCenter(in parent: UIView) {
+    public func autolayoutCenter(in parent: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.centerXAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
         self.centerYAnchor.constraint(equalTo: parent.centerYAnchor).isActive = true
