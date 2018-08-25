@@ -8,11 +8,34 @@
 
 import UIKit
 
+// MARK: - AutoLayout methods
 extension UIView {
+
+    /// Configure a UIView to completely fill its parent, minus any edge insets
+    ///
+    /// - Parameters:
+    ///   - parent: the UIView that the view should fill
+    ///   - edgeInsets: the amounts around each edge to inset the view by
+    func autolayoutFill(parent: UIView, edgeInsets: UIEdgeInsets = UIEdgeInsets.zero) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+            self.leftAnchor.constraint(equalTo: parent.leftAnchor, constant: edgeInsets.left),
+            self.rightAnchor.constraint(equalTo: parent.rightAnchor, constant: -edgeInsets.right),
+            self.topAnchor.constraint(equalTo: parent.topAnchor, constant: edgeInsets.top),
+            self.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -edgeInsets.bottom)]
+        
+        NSLayoutConstraint.activate(constraints)
+        
+    }
     
-    public func addSingleTapGestureRecognizer(_ action: @escaping (UITapGestureRecognizer) -> Void) {
-        self.isUserInteractionEnabled = true
-        self.addGestureRecognizer(UITapGestureRecognizerWithClosure(closure: action))
+    /// Configure a UIView to be centered in its parent
+    ///
+    /// - Parameter parent: the parent to center it in
+    func autolayoutCenter(in parent: UIView) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.centerXAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
+        self.centerYAnchor.constraint(equalTo: parent.centerYAnchor).isActive = true
     }
     
     /// Sets constraints to the `view`, by default `constant` is 0.
@@ -24,7 +47,17 @@ extension UIView {
         constraints.append(self.topAnchor.constraint(equalTo: view.topAnchor, constant: constant))
         constraints.append(self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -constant))
         
-        NSLayoutConstraint.activate(constraints)        
+        NSLayoutConstraint.activate(constraints)
+    }
+
+}
+
+// MARK: - Gesture recognizer methods
+extension UIView {
+    
+    public func addSingleTapGestureRecognizer(_ action: @escaping (UITapGestureRecognizer) -> Void) {
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(UITapGestureRecognizerWithClosure(closure: action))
     }
     
 }
