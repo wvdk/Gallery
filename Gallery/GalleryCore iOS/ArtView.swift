@@ -8,9 +8,9 @@
 
 import UIKit
 
-public class ArtView: UIView {
+open class ArtView: UIView {
 
-    public let artPieceMetadata: ArtMetadata
+    open let artPieceMetadata: ArtMetadata
     
     public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
         self.artPieceMetadata = artPieceMetadata
@@ -21,9 +21,4 @@ public class ArtView: UIView {
         fatalError("init(coder:) has not been implemented. We're not currently using storyboards in the project. That's probably the issue.")
     }
     
-    override public func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        
-        print("ArtView with id \(artPieceMetadata.id) did move to super view.")
-    }
 }
