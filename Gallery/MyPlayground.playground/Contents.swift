@@ -2,23 +2,14 @@ import UIKit
 import PlaygroundSupport
 import GalleryCore_iOS
 
-
-struct Obstical {
-    
-    // position
-    // radius
-    
-}
-
+/// A Boid.
 struct Boid {
  
-    // direction
-    // position
-    
-    // Optional:
-    // size
-    // color
-    // created on frame number
+    // A 0 to 360 value indicating the direction this boid is moving.
+    let direction: Int
+
+    /// The current point at which this boid is located.
+    let position: CGPoint
     
 }
 
@@ -30,8 +21,15 @@ struct BoidLand {
     
     /// Updates the properties of each element in Boid Land by one from according to *the rules*.
     mutating func advanceToNextFrame() {
-        frameNumber += 1
+        frameNumber += 1   
         
+    }
+    
+    /// Adds a new boid to the enviroment.
+    ///
+    /// - Parameter position: The point at which you would like to place the new boid.
+    func addBoid(at position: CGPoint) {
+        let newBoid = Boid(direction: 0, position: position)
     }
     
 }
