@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SceneKit
 
 #if os(iOS)
 import ArtKit_iOS

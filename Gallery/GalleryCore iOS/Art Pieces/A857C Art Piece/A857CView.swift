@@ -32,7 +32,7 @@ class A857CView: ArtView {
         spriteKitView.showsFPS = false
         spriteKitView.showsNodeCount = false
 
-        sendSubview(toBack: spriteKitView)
+        sendSubviewToBack(spriteKitView)
         spriteKitView.presentScene(scene)
         
         scene.scaleMode = .aspectFill
