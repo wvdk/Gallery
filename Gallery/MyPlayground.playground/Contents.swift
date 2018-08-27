@@ -1,39 +1,58 @@
 import UIKit
 import PlaygroundSupport
-import ArtKit_iOS
+import GalleryCore_iOS
 
-//class MyViewController : UIViewController {
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//        let box = UIView()
-//        box.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
-//        box.backgroundColor = .red
-//        
-//        view.addSubview(box)
-//        
-//        box.loopInSuperview(duplicationCount: 3, with: [.moveHorizontallyWithIncrement(60), .rotateByDegrees(0.3)])
-//        
-//        let line = UIView(frame: CGRect(x: 200, y: 200, width: 1, height: 200))
-//        view.addSubview(line)
-//        line.backgroundColor = .blue
-//        line.loopInSuperview(duplicationCount: 2, with: [.rotateByDegrees(0.35), .updateOpacityRandomly])
-//    }
-//    
-//    override func loadView() {
-//        let view = UIView()
-//        view.backgroundColor = .white
-//
-//        let label = UILabel()
-//        label.frame = CGRect(x: 150, y: 200, width: 200, height: 20)
-//        label.text = "Hello World!"
-//        label.textColor = .black
-//        
-//        view.addSubview(label)
-//        self.view = view
-//    }
-//    
-//}
-//
-//PlaygroundPage.current.liveView = MyViewController()
+public class BoidsView: ArtView {
+    
+    public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
+        super.init(frame: frame, artPieceMetadata: artPieceMetadata)
+        
+        backgroundColor = .white
+        
+        let boid = UIView(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+        let image = UIImage(named: "Triangle", in: Bundle(for: A565zView.self), compatibleWith: nil)
+        let imageView = UIImageView(image: image)
+        boid.addSubview(imageView)
+        imageView.autolayoutFill(parent: boid)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalTo: boid.widthAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: boid.heightAnchor).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: boid.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: boid.centerYAnchor).isActive = true
+        
+        addSubview(boid)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+class MyViewController : UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        view.backgroundColor = UIColor.cyan
+        let metadata = ArtMetadata(id: "boids",
+                                   author: "wvdk",
+                                   prettyPublishedDate: "tbd",
+                                   description: nil,
+                                   price: nil,
+                                   viewType: BoidsView.self,
+                                   thumbnail: nil)
+        let boidsView = BoidsView(frame: CGRect(x: 10, y: 10, width: 300, height: 600), artPieceMetadata: metadata)
+        view.addSubview(boidsView)
+        boidsView.autolayoutFill(parent: view)
+        
+        
+        
+        
+    }
+    
+}
+
+PlaygroundPage.current.liveView = MyViewController()
+print("ran playground")
