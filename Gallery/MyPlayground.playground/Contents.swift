@@ -6,7 +6,7 @@ import GalleryCore_iOS
 struct Boid {
  
     // A 0 to 360 value indicating the direction this boid is moving.
-    let direction: Int
+    let direction: Double
 
     /// The current point at which this boid is located.
     let position: CGPoint
@@ -31,7 +31,7 @@ struct BoidLand {
     ///
     /// - Parameter position: The point at which you would like to place the new boid.
     mutating func addBoid(at position: CGPoint) {
-        boids.append(Boid(direction: 0, position: position))
+        boids.append(Boid(direction: Double.random(in: 0.0...360.0), position: position))
     }
     
 }
@@ -52,21 +52,23 @@ public class BoidView: ArtView {
         print("rendering frame: \(boidLand.frameNumber)")
         
         for boid in boidLand.boids {
-            let boid = UIView(frame: CGRect(x: boid.position.x,
+            let boidView = UIView(frame: CGRect(x: boid.position.x,
                                             y: boid.position.y,
                                             width: 50,
                                             height: 50))
             let image = UIImage(named: "Triangle", in: Bundle(for: A565zView.self), compatibleWith: nil)
             let imageView = UIImageView(image: image)
-            boid.addSubview(imageView)
-            imageView.autolayoutFill(parent: boid)
+            boidView.addSubview(imageView)
+            imageView.autolayoutFill(parent: boidView)
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.widthAnchor.constraint(equalTo: boid.widthAnchor).isActive = true
-            imageView.heightAnchor.constraint(equalTo: boid.heightAnchor).isActive = true
-            imageView.centerXAnchor.constraint(equalTo: boid.centerXAnchor).isActive = true
-            imageView.centerYAnchor.constraint(equalTo: boid.centerYAnchor).isActive = true
+            imageView.widthAnchor.constraint(equalTo: boidView.widthAnchor).isActive = true
+            imageView.heightAnchor.constraint(equalTo: boidView.heightAnchor).isActive = true
+            imageView.centerXAnchor.constraint(equalTo: boidView.centerXAnchor).isActive = true
+            imageView.centerYAnchor.constraint(equalTo: boidView.centerYAnchor).isActive = true
             
-            addSubview(boid)
+            boidView.transform = CGAffineTransform(rotationAngle: CGFloat(boid.direction / 360.0))
+            
+            addSubview(boidView)
         }
     }
     
