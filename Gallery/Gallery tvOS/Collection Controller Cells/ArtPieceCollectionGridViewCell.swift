@@ -71,8 +71,8 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
         
         artPieceView.addSingleTapGestureRecognizer { [weak self] recognizer in
             recognizer.allowedPressTypes = [
-                NSNumber(value: UIPressType.playPause.rawValue),
-                NSNumber(value: UIPressType.select.rawValue)
+                NSNumber(value: UIPress.PressType.playPause.rawValue),
+                NSNumber(value: UIPress.PressType.select.rawValue)
             ]
             
             if let strongSelf = self, let artPiece = self?.artPiece {

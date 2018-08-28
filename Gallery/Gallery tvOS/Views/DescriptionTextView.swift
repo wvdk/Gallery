@@ -26,7 +26,7 @@ class DescriptionTextView: UITextView {
         textAlignment = .justified
         
         isUserInteractionEnabled = true
-        panGestureRecognizer.allowedTouchTypes = [NSNumber(value: UITouchType.indirect.rawValue)]
+        panGestureRecognizer.allowedTouchTypes = [NSNumber(value: UITouch.TouchType.indirect.rawValue)]
 
         indicatorStyle = .white
         

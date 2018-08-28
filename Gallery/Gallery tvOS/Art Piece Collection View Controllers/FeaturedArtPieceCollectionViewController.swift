@@ -73,7 +73,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         guard let collectionView = collectionView else { return }
         
         collectionView.register(FeaturedArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: FeaturedArtPieceCollectionViewCell.identifier)
-        collectionView.decelerationRate = UIScrollViewDecelerationRateNormal
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.normal
         collectionView.delegate = self
         collectionView.dataSource = self
         

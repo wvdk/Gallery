@@ -17,11 +17,11 @@ class TabBarController: UITabBarController {
         
         let allArtPieceViewController = ArtPieceContainerViewController()
         allArtPieceViewController.tabBarItem = UITabBarItem(title: "ALL", image: nil, tag: 1)
-        allArtPieceViewController.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30)], for: .normal)
+        allArtPieceViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30)], for: .normal)
      
         let purchasedArtPieceViewController = UIViewController()
         purchasedArtPieceViewController.tabBarItem = UITabBarItem(title: "YOURS", image: nil, tag: 2)
-        purchasedArtPieceViewController.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30)], for: .normal)
+        purchasedArtPieceViewController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30)], for: .normal)
         
         let tabBarViewControllerList = [allArtPieceViewController, purchasedArtPieceViewController]
         self.viewControllers = tabBarViewControllerList

@@ -34,10 +34,10 @@ class ArtPieceContainerViewController: UIViewController {
         featuredArtPieceCollectionViewController.delegate = self
         artPieceCollectionGridViewController.delegate = self
 
-        addChildViewController(featuredArtPieceCollectionViewController)
+        addChild(featuredArtPieceCollectionViewController)
         view.addSubview(featuredArtPieceCollectionViewController.view)
         
-        addChildViewController(artPieceCollectionGridViewController)
+        addChild(artPieceCollectionGridViewController)
         view.addSubview(artPieceCollectionGridViewController.view)
         
         featuredArtPieceCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -53,8 +53,8 @@ class ArtPieceContainerViewController: UIViewController {
         artPieceCollectionGridViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         artPieceCollectionGridViewController.view.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
 
-        featuredArtPieceCollectionViewController.didMove(toParentViewController: self)
-        artPieceCollectionGridViewController.didMove(toParentViewController: self)
+        featuredArtPieceCollectionViewController.didMove(toParent: self)
+        artPieceCollectionGridViewController.didMove(toParent: self)
         
         artPieceCollectionGridViewController.view.addLayoutGuide(artPieceCollectionGridViewControllerFocusGuide)
         
