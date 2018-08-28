@@ -27,7 +27,7 @@ class A736DView: ArtView {
         spriteKitView.translatesAutoresizingMaskIntoConstraints = false
         spriteKitView.constraint(edgesTo: self)
         
-        sendSubviewToBack(spriteKitView)
+        sendSubview(toBack: spriteKitView)
                 
         spriteKitView.ignoresSiblingOrder = true
         spriteKitView.showsFPS = false

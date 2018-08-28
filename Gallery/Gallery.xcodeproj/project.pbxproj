@@ -111,6 +111,9 @@
 		DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */; };
 		DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */; };
 		DE69406B21359CB700778583 /* BoidLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69406A21359CB700778583 /* BoidLand.swift */; };
+		DE69406D21359CE600778583 /* Boid.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69406C21359CE600778583 /* Boid.swift */; };
+		DE69406E21359DDE00778583 /* BoidLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69406A21359CB700778583 /* BoidLand.swift */; };
+		DE69406F21359DE200778583 /* Boid.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69406C21359CE600778583 /* Boid.swift */; };
 		DE75670C213062580067B5BD /* Triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = DE23DFD721305FE400A79BEE /* Triangle.png */; };
 		DEDB687720E946D900D102EB /* ArtKit_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DEDB687520E946D900D102EB /* ArtKit_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DEDB687F20E946EE00D102EB /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
@@ -267,6 +270,7 @@
 		DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Light.otf"; sourceTree = "<group>"; };
 		DE69406A21359CB700778583 /* BoidLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoidLand.swift; sourceTree = "<group>"; };
+		DE69406C21359CE600778583 /* Boid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boid.swift; sourceTree = "<group>"; };
 		DE72BB9F20B8645400576999 /* ArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtView.swift; sourceTree = "<group>"; };
 		DEA066D820C47FD700489BF8 /* A565zView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A565zView.swift; sourceTree = "<group>"; };
 		DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArtKit_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -489,6 +493,7 @@
 				DEA066D820C47FD700489BF8 /* A565zView.swift */,
 				DE23DFD721305FE400A79BEE /* Triangle.png */,
 				DE69406A21359CB700778583 /* BoidLand.swift */,
+				DE69406C21359CE600778583 /* Boid.swift */,
 			);
 			path = "A565z Boids";
 			sourceTree = "<group>";
@@ -986,12 +991,14 @@
 				8970BCBA20E95F1A0006870D /* A565zView.swift in Sources */,
 				89C3866B20F49840004BF43F /* A857CView.swift in Sources */,
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
+				DE69406F21359DE200778583 /* Boid.swift in Sources */,
 				894C691D20F1389C003A5387 /* A736DScene.swift in Sources */,
 				8970BCB920E95F170006870D /* IDGenerator.swift in Sources */,
 				894C692020F13FB0003A5387 /* A586qScene.swift in Sources */,
 				8970BCBC20E95F200006870D /* ArtView.swift in Sources */,
 				89485BCF20F2A08B00046753 /* A736DView.swift in Sources */,
 				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
+				DE69406E21359DDE00778583 /* BoidLand.swift in Sources */,
 				894C691A20F13893003A5387 /* A994tView.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */,
 				894C691B20F13896003A5387 /* A586qView.swift in Sources */,
@@ -1005,6 +1012,7 @@
 				DE0B7FB220E3E357000B482F /* A565zView.swift in Sources */,
 				89C3866620F491F6004BF43F /* A857CView.swift in Sources */,
 				DE0B7FB020E3E34F000B482F /* ArtView.swift in Sources */,
+				DE69406D21359CE600778583 /* Boid.swift in Sources */,
 				894C691F20F13FAE003A5387 /* A586qScene.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
 				894C691820F13883003A5387 /* A736DScene.swift in Sources */,
@@ -1219,7 +1227,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "GalleryCore iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.GalleryCore.iOS;
@@ -1246,7 +1254,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "GalleryCore iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.GalleryCore.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1380,7 +1388,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2HHR6H4K6;
 				INFOPLIST_FILE = "Gallery iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1398,7 +1406,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2HHR6H4K6;
 				INFOPLIST_FILE = "Gallery iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1421,7 +1429,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "ArtKit iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.ArtKit.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1447,7 +1455,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "ArtKit iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.ArtKit.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
