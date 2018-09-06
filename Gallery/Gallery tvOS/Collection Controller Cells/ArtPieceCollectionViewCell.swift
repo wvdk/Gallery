@@ -43,7 +43,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         }
     }
     
-//    var isArtViewFocused = false
+    var isArtViewFocused = false
     
     private var artView: ArtView?
     private let artPieceView = FocusingView()
@@ -88,29 +88,14 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         }
         
         guard let view = artView else { return }
-        view.alpha = 0
-        artPieceView.addSubview(artPieceView: view)
-
-        UIView.animate(withDuration: 0.3) {
-            view.alpha = 1
-        }
+        artPieceView.show(subview: view)
     }
     
     /// Removes specific art piece view from parents view.
     func hideArtPiece() {
         guard let view = artView else { return }
-        UIView.animate(withDuration: 0.3,
-                       animations: {
-                        
-                        view.alpha = 0
-                    },
-                       completion: { [weak self] completed in
-                        if completed {
-                            view.alpha = 1
-                            self?.artPieceView.removeSubview(artPieceView: view)
-                            self?.artView = nil
-                        }
-                    })
+        artPieceView.hide(subview: view)
+        artView = nil
     }
     
     /// Transforms art piece scale to specified value.

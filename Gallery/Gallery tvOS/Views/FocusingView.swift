@@ -67,18 +67,39 @@ class FocusingView: UIView {
     
     /// Adds a specific view to the end of the receiver’s list of subviews.
     /// - Parameters:
-    ///     - artPieceView: A new view of type `ArtView` to be added.
-    func addSubview(artPieceView: ArtView) {
-        containerView.addSubview(artPieceView)
-        artPieceView.constraint(edgesTo: containerView)
+    ///     - subview: A new view of type `ArtView` to be added.
+    ///     - animated: Booleon set to true animates the specified subview appearance, by default set to true.
+    func show(subview: ArtView, animated: Bool = true) {
+        if animated {
+            subview.alpha = 0
+        }
+        containerView.addSubview(subview)
+        subview.constraint(edgesTo: containerView)
+        
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                subview.alpha = 1
+            }
+        }
     }
     
-    /// Removes a specific view from the receiver’s list of subviews.
+    /// Hides and removes a specific view from the receiver’s list of subviews.
     /// - Parameters:
-    ///     - artPieceView: A new view of type `ArtView` to be removed.
-    func removeSubview(artPieceView: ArtView) {
-        if containerView.subviews.contains(artPieceView) {
-            artPieceView.removeFromSuperview()
+    ///     - subview: A new view of type `ArtView` to be hidden/removed.
+    ///     - animated: Booleon set to true animates the specified subview disappearance, by default set to true.
+    func hide(subview: ArtView, animated: Bool = true) {
+        if containerView.subviews.contains(subview) {
+            if animated {
+                UIView.animate(withDuration: 0.2, animations: {
+                    subview.alpha = 0
+                }, completion: { completed in
+                    if completed {
+                        subview.removeFromSuperview()
+                    }
+                })
+            } else {
+                subview.removeFromSuperview()
+            }
         }
     }
     
@@ -119,8 +140,6 @@ class FocusingView: UIView {
     /// - Scales by 1.07.
     /// - Adds significant drop down shadow to the view's layer.
     private func setFocusedStyle() {
-        transform = CGAffineTransform(scaleX: 1.07, y: 1.07)
-
         layer.shadowRadius = 15
         layer.shadowOffset = CGSize(width: 0, height: 25)
     }
