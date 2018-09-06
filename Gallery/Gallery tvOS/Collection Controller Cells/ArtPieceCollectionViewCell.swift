@@ -36,6 +36,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    /// Cell's content (art piece view) edge inset.
     var contentViewEdgeInset: CGFloat = 0 {
         didSet {
             artPieceView.constraint(edgesTo: self, constant: contentViewEdgeInset)
@@ -50,18 +51,6 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     override var canBecomeFocused: Bool {
         // Cell cannot be focus to allow its subviews to become focused.
         return false
-    }
-    
-    override var isSelected: Bool {
-        didSet {
-            guard isSelected != oldValue else { return }
-            
-            if isSelected {
-                artPieceView.transform = CGAffineTransform(scaleX: 1.35, y: 1.35)
-            } else {
-                artPieceView.transform = CGAffineTransform(scaleX: 1, y: 1)
-            }
-        }
     }
     
     // MARK: - Initialization
@@ -105,6 +94,11 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         guard let view = artView else { return }
         artPieceView.removeSubview(artPieceView: view)
         artView = nil
+    }
+    
+    /// Transforms art piece scale to specified value.
+    func transformScale(to value: CGFloat) {
+        artPieceView.transform = CGAffineTransform(scaleX: value, y: value)
     }
 }
 
