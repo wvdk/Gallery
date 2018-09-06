@@ -76,7 +76,6 @@
 		89DEC69621091C2B009858CC /* FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC69421091C25009858CC /* FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift */; };
 		89DEC6B6210933DB009858CC /* ArtPieceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC6B5210933DB009858CC /* ArtPieceCollectionViewCell.swift */; };
 		89DEC6B7210A7B30009858CC /* SKSpriteNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */; };
-		89DEC6BF210BA20B009858CC /* FocusingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC6BB210BA1AB009858CC /* FocusingLabel.swift */; };
 		89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC6B8210B9C10009858CC /* FocusingView.swift */; };
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
 		89F343E7211BB7BB00468168 /* FocusingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F343E6211BB7BB00468168 /* FocusingViewDelegate.swift */; };
@@ -219,7 +218,6 @@
 		89DEC69421091C25009858CC /* FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		89DEC6B5210933DB009858CC /* ArtPieceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceCollectionViewCell.swift; sourceTree = "<group>"; };
 		89DEC6B8210B9C10009858CC /* FocusingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingView.swift; sourceTree = "<group>"; };
-		89DEC6BB210BA1AB009858CC /* FocusingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingLabel.swift; sourceTree = "<group>"; };
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = A857CFragmentShader.fsh; sourceTree = "<group>"; };
 		89F343E6211BB7BB00468168 /* FocusingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingViewDelegate.swift; sourceTree = "<group>"; };
@@ -358,7 +356,6 @@
 				89F343E6211BB7BB00468168 /* FocusingViewDelegate.swift */,
 				892E7B4921191AA500755957 /* DisabledFocusCollectionView.swift */,
 				8913D3442118C4FB00FBC9C5 /* DescriptionTextView.swift */,
-				89DEC6BB210BA1AB009858CC /* FocusingLabel.swift */,
 				89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */,
 			);
 			path = Views;
@@ -935,7 +932,6 @@
 				891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */,
 				89127CEA2126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift in Sources */,
 				892E7B4A21191AA500755957 /* DisabledFocusCollectionView.swift in Sources */,
-				89DEC6BF210BA20B009858CC /* FocusingLabel.swift in Sources */,
 				891549D7211283250041FE8A /* ArtPieceCollectionGridViewController+UICollectionViewDelegate.swift in Sources */,
 				89DEC6B6210933DB009858CC /* ArtPieceCollectionViewCell.swift in Sources */,
 				89DEC69621091C2B009858CC /* FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift in Sources */,

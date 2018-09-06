@@ -106,7 +106,6 @@ class FocusingView: UIView {
     // MARK: - UIFocusEnvironment update
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        
         // Animates view's appearance to be focused.
         if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
