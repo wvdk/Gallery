@@ -21,7 +21,6 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        
         // Returns if previous focus item is not in `self's` environment.
         guard let previouslyFocusedItem = context.previouslyFocusedItem, contains(previouslyFocusedItem) else { return }
         
@@ -64,9 +63,10 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDataSource {
     // MARK: - UICollectionViewDataSource implementation
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeaturedArtPieceCollectionViewCell.identifier, for: indexPath) as! FeaturedArtPieceCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionViewCell.identifier, for: indexPath) as! ArtPieceCollectionViewCell
 
         cell.delegate = self
+        cell.contentViewEdgeInset = 90
         cell.artPiece = MasterList.shared.activePieces[indexPath.item]
         
         return cell
@@ -78,11 +78,13 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegateFlow
     // MARK: - UICollectionViewDelegateFlowLayout implementation
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 1458, height: 727)
+        let width = view.frame.size.width * 1074 / 1920
+        let height = view.frame.size.height * 664 / 1119
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let constant = (view.frame.size.width - 1458) / 2
+        let constant = (view.frame.size.width - (view.frame.size.width * 1074 / 1920)) / 2
         return UIEdgeInsets(top: 0, left: constant, bottom: 0, right: constant)
     }
 }

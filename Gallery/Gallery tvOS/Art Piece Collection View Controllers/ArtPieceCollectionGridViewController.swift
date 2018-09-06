@@ -22,21 +22,11 @@ class ArtPieceCollectionGridViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Sets background view to dark `UIVisualEffectView`.
-        let blurredEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        
-        view.addSubview(blurredEffectView)
-        
-        blurredEffectView.translatesAutoresizingMaskIntoConstraints = false
-        blurredEffectView.constraint(edgesTo: view)
-
         setupCollectionView()
         
         guard let collectionView = self.collectionView else { return }
-        
+
         view.addSubview(collectionView)
-        
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.constraint(edgesTo: view)
     }
     
@@ -53,7 +43,7 @@ class ArtPieceCollectionGridViewController: UIViewController {
         
         guard let collectionView = collectionView else { return }
         
-        collectionView.register(ArtPieceCollectionGridViewCell.self, forCellWithReuseIdentifier: ArtPieceCollectionGridViewCell.identifier)
+        collectionView.register(ArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: ArtPieceCollectionViewCell.identifier)
         collectionView.decelerationRate = UIScrollViewDecelerationRateNormal
         collectionView.delegate = self
         collectionView.dataSource = self

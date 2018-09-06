@@ -1,6 +1,6 @@
 //
-//  ArtPieceCollectionGridViewCell+FocusingViewDelegate.swift
-//  Gallery TV
+//  ArtPieceCollectionViewCell+FocusingViewDelegate.swift
+//  Gallery
 //
 //  Created by Kristina Gelzinyte on 8/2/18.
 //  Copyright © 2018 Gallery of Generative Art. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension ArtPieceCollectionGridViewCell: FocusingViewDelegate {
+extension ArtPieceCollectionViewCell: FocusingViewDelegate {
     
     // MARK: - FocusingViewDelegate implementation
     

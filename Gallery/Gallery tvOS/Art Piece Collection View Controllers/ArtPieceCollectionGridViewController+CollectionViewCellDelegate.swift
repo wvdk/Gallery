@@ -8,16 +8,11 @@
 
 import GalleryCore_tvOS
 
-extension ArtPieceCollectionGridViewController: CollectionViewCellDelegate {
+extension ArtPieceCollectionGridViewController: ArtPieceCollectionViewCellDelegate {
     
     // MARK: - CollectionViewCellDelegate implementation
     
     func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: ArtMetadata) {
         delegate?.artPieceCollectionControllerDelegate(self, didSelectOpenArtPiece: didSelectOpenArtPiece)
-    }
-    
-    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtDescription: ArtMetadata) {
-        // `Cell` does not have an art piece description label.
-        return
     }
 }
