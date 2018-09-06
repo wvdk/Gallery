@@ -57,7 +57,6 @@ class ArtPieceDescriptionDisplayViewController: UIViewController {
         view.addSubview(dateLabel)
         view.addSubview(descriptionTextView)
         
-        backgroundView.translatesAutoresizingMaskIntoConstraints = false
         authorNameLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.translatesAutoresizingMaskIntoConstraints = false

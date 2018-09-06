@@ -24,7 +24,6 @@ class A586qView: ArtView {
         tag = 125
 
         addSubview(spriteKitView)
-        spriteKitView.translatesAutoresizingMaskIntoConstraints = false
         spriteKitView.constraint(edgesTo: self)
         
         spriteKitView.ignoresSiblingOrder = true

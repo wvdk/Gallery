@@ -39,7 +39,6 @@ class A994tView: ArtView {
         sceneKitView.backgroundColor = UIColor.white
         
         addSubview(sceneKitView)
-        sceneKitView.translatesAutoresizingMaskIntoConstraints = false
         sceneKitView.constraint(edgesTo: self)
         
         sceneKitView.scene = scene

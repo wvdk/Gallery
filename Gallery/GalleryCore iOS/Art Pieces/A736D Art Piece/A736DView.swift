@@ -24,7 +24,6 @@ class A736DView: ArtView {
         tag = 126
         
         addSubview(spriteKitView)
-        spriteKitView.translatesAutoresizingMaskIntoConstraints = false
         spriteKitView.constraint(edgesTo: self)
         
         sendSubview(toBack: spriteKitView)

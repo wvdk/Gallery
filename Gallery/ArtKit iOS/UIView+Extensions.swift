@@ -19,6 +19,8 @@ extension UIView {
     public func constraint(edgesTo view: UIView, constant: CGFloat = 0) {
         var constraints = [NSLayoutConstraint]()
         
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
         constraints.append(self.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: constant))
         constraints.append(self.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -constant))
         constraints.append(self.topAnchor.constraint(equalTo: view.topAnchor, constant: constant))

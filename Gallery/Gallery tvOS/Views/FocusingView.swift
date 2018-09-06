@@ -50,9 +50,6 @@ class FocusingView: UIView {
         addSubview(containerView)
         containerView.addSubview(thumbnailView)
         
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        thumbnailView.translatesAutoresizingMaskIntoConstraints = false
-        
         containerView.constraint(edgesTo: self)
         thumbnailView.constraint(edgesTo: containerView)
         
@@ -73,7 +70,6 @@ class FocusingView: UIView {
     ///     - artPieceView: A new view of type `ArtView` to be added.
     func addSubview(artPieceView: ArtView) {
         containerView.addSubview(artPieceView)
-        artPieceView.translatesAutoresizingMaskIntoConstraints = false
         artPieceView.constraint(edgesTo: containerView)
     }
     
@@ -143,7 +139,7 @@ class FocusingView: UIView {
     /// - Parameters:
     ///     - tiltValue: View's maximum tilt value in radians, by default it is 0.1.
     ///     - panValue: View's maximum pan value in points, by default it is 8.
-    private func addParallaxMotionEffect(tiltValue: CGFloat = 0.15, panValue: CGFloat = 15) {
+    private func addParallaxMotionEffect(tiltValue: CGFloat = 0.15, panValue: CGFloat = 20) {
         let yTilt = UIInterpolatingMotionEffect(keyPath: "layer.transform.rotation.y", type: .tiltAlongHorizontalAxis)
         yTilt.minimumRelativeValue = -tiltValue
         yTilt.maximumRelativeValue = tiltValue

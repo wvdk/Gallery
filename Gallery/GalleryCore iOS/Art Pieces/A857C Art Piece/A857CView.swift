@@ -25,7 +25,6 @@ class A857CView: ArtView {
         tag = 127
         
         addSubview(spriteKitView)
-        spriteKitView.translatesAutoresizingMaskIntoConstraints = false
         spriteKitView.constraint(edgesTo: self)
         
         spriteKitView.ignoresSiblingOrder = true
