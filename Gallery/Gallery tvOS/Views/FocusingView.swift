@@ -92,8 +92,11 @@ class FocusingView: UIView {
                 if let strongSelf = self {
                     strongSelf.setFocusedStyle()
                     strongSelf.addParallaxMotionEffect()
-                    strongSelf.delegate?.focusingViewDidBecomeFocused(strongSelf)
-                }}, completion: nil)
+                }}, completion: { [weak self] in
+                    if let strongSelf = self {
+                        strongSelf.delegate?.focusingViewDidBecomeFocused(strongSelf)
+                    }
+            })
         }
         
         // Animates view's appearance to be not focused.
@@ -102,8 +105,11 @@ class FocusingView: UIView {
                 if let strongSelf = self {
                     strongSelf.resetFocusedStyle()
                     strongSelf.removeParallaxMotionEffect()
-                    strongSelf.delegate?.focusingViewDidResignedFocus(strongSelf)
-                }}, completion: nil)
+                }}, completion: { [weak self] in
+                    if let strongSelf = self {
+                        strongSelf.delegate?.focusingViewDidResignedFocus(strongSelf)
+                    }
+            })
         }
     }
     
