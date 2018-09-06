@@ -24,7 +24,7 @@ extension ArtPieceCollectionGridViewController: UICollectionViewDelegate {
         // Animates selection of focused cells.
         if let nextFocusedView = context.nextFocusedView as? FocusingView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                nextFocusedView.transformScale(to: 1.2)
+                nextFocusedView.transformScale(to: 1.1)
             }, completion: nil)
         }
         
