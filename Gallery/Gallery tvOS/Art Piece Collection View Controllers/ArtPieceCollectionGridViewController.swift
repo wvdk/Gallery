@@ -51,8 +51,6 @@ class ArtPieceCollectionGridViewController: UIViewController {
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false
         
-        collectionView.remembersLastFocusedIndexPath = true
-        
-        collectionView.selectCell(at: collectionView.firstCellIndex)
+        collectionView.remembersLastFocusedIndexPath = true        
     }
 }
