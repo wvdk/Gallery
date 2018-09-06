@@ -12,9 +12,7 @@
 		89127CE62126284600208DCA /* ArtKit_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89127CEA2126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89127CE92126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift */; };
 		89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89134E1520E80C1300772E7F /* AppDelegate.swift */; };
-		89134E1820E80C1300772E7F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89134E1720E80C1300772E7F /* TabBarController.swift */; };
 		89134E1D20E80C1500772E7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89134E1C20E80C1500772E7F /* Assets.xcassets */; };
-		8913D3432118B43A00FBC9C5 /* ArtPieceDescriptionDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8913D3412118B3BE00FBC9C5 /* ArtPieceDescriptionDisplayViewController.swift */; };
 		8913D3452118C4FB00FBC9C5 /* DescriptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8913D3442118C4FB00FBC9C5 /* DescriptionTextView.swift */; };
 		891549CC21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */; };
 		891549CD21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */; };
@@ -184,10 +182,8 @@
 		89127CE92126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		89134E1320E80C1300772E7F /* Gallery tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gallery tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89134E1520E80C1300772E7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		89134E1720E80C1300772E7F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		89134E1C20E80C1500772E7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89134E1E20E80C1500772E7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8913D3412118B3BE00FBC9C5 /* ArtPieceDescriptionDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDescriptionDisplayViewController.swift; sourceTree = "<group>"; };
 		8913D3442118C4FB00FBC9C5 /* DescriptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextView.swift; sourceTree = "<group>"; };
 		891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		891549CE2112652E0041FE8A /* ArtPieceContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceContainerViewController.swift; sourceTree = "<group>"; };
@@ -342,12 +338,10 @@
 			isa = PBXGroup;
 			children = (
 				89134E1520E80C1300772E7F /* AppDelegate.swift */,
-				89134E1720E80C1300772E7F /* TabBarController.swift */,
 				891549CE2112652E0041FE8A /* ArtPieceContainerViewController.swift */,
 				891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */,
 				89127CE92126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift */,
 				891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */,
-				8913D3412118B3BE00FBC9C5 /* ArtPieceDescriptionDisplayViewController.swift */,
 				891549E02113ADF20041FE8A /* Art Piece Collection View Controllers */,
 				891549E12113AE0E0041FE8A /* Collection Controller Cells */,
 				891549DF2113ADCD0041FE8A /* Views */,
@@ -925,7 +919,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89134E1820E80C1300772E7F /* TabBarController.swift in Sources */,
 				89F343E7211BB7BB00468168 /* FocusingViewDelegate.swift in Sources */,
 				89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */,
 				89278ECC210F8AEC00CEEB3C /* DescriptionLabels.swift in Sources */,
@@ -940,7 +933,6 @@
 				891549D5211276820041FE8A /* ArtPieceCollectionGridViewController.swift in Sources */,
 				89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */,
 				891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */,
-				8913D3432118B43A00FBC9C5 /* ArtPieceDescriptionDisplayViewController.swift in Sources */,
 				89127CEA2126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift in Sources */,
 				892E7B4A21191AA500755957 /* DisabledFocusCollectionView.swift in Sources */,
 				89DEC6BF210BA20B009858CC /* FocusingLabel.swift in Sources */,
