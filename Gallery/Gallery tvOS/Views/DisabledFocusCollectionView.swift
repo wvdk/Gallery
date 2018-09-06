@@ -13,6 +13,7 @@ import UIKit
 /// Returns collection view with disabled focus property.
 class DisabledFocusCollectionView: UICollectionView {
 
+    /// Disables can become focused property to pass focus environment to child views.
     override var canBecomeFocused: Bool {
         return false
     }

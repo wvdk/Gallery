@@ -95,10 +95,8 @@ class ArtPieceContainerViewController: UIViewController {
         // Animates translation transform between view controllers.
         if featuredArtPieceCollectionViewController.contains(previouslyFocusedView), artPieceCollectionGridViewController.contains(nextFocusedView) {
             
-            // Sets preferred focus guide to `featuredArtPieceCollectionViewController` collection view selected cell.
-            if let focusingView = featuredArtPieceCollectionViewController.collectionView?.selectedCell?.subviews.first(where: { $0 is FocusingView}) {
-                artPieceCollectionGridViewControllerFocusGuide.preferredFocusEnvironments = [focusingView]
-            }
+            // Sets preferred focus guide to `previouslyFocusedView`, so coming back to controller would focus last selected item.
+            artPieceCollectionGridViewControllerFocusGuide.preferredFocusEnvironments = [previouslyFocusedView]
             
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
                 guard let translationY = self?.featuredArtPieceCollectionViewController.view.bounds.size.height else { return }

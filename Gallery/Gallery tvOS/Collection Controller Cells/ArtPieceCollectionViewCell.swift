@@ -43,8 +43,6 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var isArtViewFocused = false
-    
     private var artView: ArtView?
     private let artPieceView = FocusingView()
     

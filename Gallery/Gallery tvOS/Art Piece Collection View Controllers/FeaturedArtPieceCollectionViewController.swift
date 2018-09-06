@@ -88,7 +88,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         
         headerLabel.centerYAnchor.constraint(equalTo: headerContainerView.centerYAnchor).isActive = true
-        headerLabel.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor, constant: -50).isActive = true
+        headerLabel.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
         
         return headerContainerView
     }
