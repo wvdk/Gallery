@@ -136,6 +136,11 @@ class FocusingView: UIView {
     
     // MARK: - Focus appearance
     
+    /// Transforms scale to specified value.
+    func transformScale(to value: CGFloat) {
+        transform = CGAffineTransform(scaleX: value, y: value)
+    }
+    
     /// Sets focus style to the view:
     /// - Scales by 1.07.
     /// - Adds significant drop down shadow to the view's layer.
@@ -146,8 +151,6 @@ class FocusingView: UIView {
     
     /// Removes focus style from the view.
     private func resetFocusedStyle() {
-        transform = CGAffineTransform.identity
-        
         addDefaultShadow()
     }
     

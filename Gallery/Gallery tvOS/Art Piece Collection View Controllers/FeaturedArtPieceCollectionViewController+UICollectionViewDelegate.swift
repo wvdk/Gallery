@@ -21,42 +21,23 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        // Returns if previous focus item is not in `self's` environment.
-//        guard let previouslyFocusedItem = context.previouslyFocusedItem, contains(previouslyFocusedItem) else { return }
-        
         guard let nextFocusedIndexPath = context.nextFocusedIndexPath else { return }
-        
-        // Returns if focus item is in the same collection view cell.
-//        if let previouslyFocusedIndexPath = context.previouslyFocusedIndexPath, nextFocusedIndexPath == previouslyFocusedIndexPath {
-//            return
-//        }
         
         // Scroll manually to constrain cells in the center of the screen.
         collectionView.scrollToItem(at: nextFocusedIndexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
         
         // Animates selection of focused cells.
-        if let nextFocusedItem = context.nextFocusedItem,
-            let focusedCell = collectionView.cellForItem(at: nextFocusedIndexPath) as? ArtPieceCollectionViewCell,
-            focusedCell.contains(nextFocusedItem) {
-            
+        if let nextFocusedView = context.nextFocusedView as? FocusingView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                focusedCell.transformScale(to: 1.25)
+                nextFocusedView.transformScale(to: 1.25)
             }, completion: nil)
         }
 
         // Animates deselection of focused cells.
-        if let previouslyFocusedItem = context.previouslyFocusedItem,
-            let previouslyFocusedIndexPath = context.previouslyFocusedIndexPath,
-            let unfocusedCell = collectionView.cellForItem(at: previouslyFocusedIndexPath) as? ArtPieceCollectionViewCell,
-            unfocusedCell.contains(previouslyFocusedItem) {
-            
+        if let previouslyFocusedView = context.previouslyFocusedView as? FocusingView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                UIView.animate(withDuration: animationContext.duration * 0.5,
-                               delay: 0,
-                               options: .curveEaseOut,
-                               animations: {
-                                
-                                unfocusedCell.transformScale(to: 1)
+                UIView.animate(withDuration: animationContext.duration * 0.5, delay: 0, options: .curveEaseOut, animations: {
+                    previouslyFocusedView.transformScale(to: 1)
                 })
             }, completion: nil)
         }

@@ -95,11 +95,6 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         artPieceView.hide(subview: view)
         artView = nil
     }
-    
-    /// Transforms art piece scale to specified value.
-    func transformScale(to value: CGFloat) {
-        artPieceView.transform = CGAffineTransform(scaleX: value, y: value)
-    }
 }
 
 /// The object that acts as the delegate of the art piece collection view cells.
