@@ -16,7 +16,6 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
     /// The object that acts as the delegate of the `ArtPieceCollectionViewControllerDelegate`.
     weak var delegate: ArtPieceCollectionViewControllerDelegate? = nil
     
-//    private let headerView = UIView()
     private let rotatingLineViewTag = 10928
     
     /// Sets up rotating line view of 60 duplicates.
@@ -119,7 +118,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         
         if let lineView = headerView.subviews.first(where: { $0.tag == rotatingLineViewTag }) {
             for subview in lineView.subviews {
-                subview.rotate(duration: 30.0)
+                subview.rotate(duration: 10.0)
             }
         }
     }
