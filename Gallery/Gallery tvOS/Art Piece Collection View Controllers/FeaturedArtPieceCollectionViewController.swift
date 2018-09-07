@@ -16,6 +16,9 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
     /// The object that acts as the delegate of the `ArtPieceCollectionViewControllerDelegate`.
     weak var delegate: ArtPieceCollectionViewControllerDelegate? = nil
     
+//    private let headerView = UIView()
+    private let rotatingLineViewTag = 10928
+    
     /// Sets up rotating line view of 60 duplicates.
     private var rotatingLineView: UIView {
         let view = UIView()
@@ -37,17 +40,13 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
             ]
         )
         
-        for subview in view.subviews {
-            subview.rotate(duration: 50.0)
-        }
-        
         return view
     }
     
     /// Sets up header which consist of title "Gallery of Generative Art" and rotating lines.
-    private var headerView: UIView {
+    private lazy var headerView: UIView = {
         let headerContainerView = UIView()
-        
+
         let headerLabel = UILabel()
         headerLabel.font = UIFont.systemFont(ofSize: 35)
         headerLabel.textColor = UIColor(r: 173, g: 173, b: 173, alpha: 0.5)
@@ -58,6 +57,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         headerLabel.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
         
         let lineView = rotatingLineView
+        lineView.tag = rotatingLineViewTag
         headerContainerView.addSubview(lineView)
         lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor, constant: view.frame.size.width * 300 / 1920).isActive = true
@@ -66,7 +66,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         lineView.bottomAnchor.constraint(equalTo: headerContainerView.topAnchor, constant: view.frame.size.height * 200 / 1119).isActive = true
         
         return headerContainerView
-    }
+    }()
     
     /// Sets up `UICollectionView` with a horizontal scrolling direction.
     private var collectionView: DisabledFocusCollectionView {
@@ -98,20 +98,29 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let header = headerView
-        view.addSubview(header)
-        header.translatesAutoresizingMaskIntoConstraints = false
-        header.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        header.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        header.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        header.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        view.addSubview(headerView)
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 140).isActive = true
 
         let collection = collectionView
         view.addSubview(collection)
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.topAnchor.constraint(equalTo: header.bottomAnchor).isActive = true
+        collection.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
         collection.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collection.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collection.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let lineView = headerView.subviews.first(where: { $0.tag == rotatingLineViewTag }) {
+            for subview in lineView.subviews {
+                subview.rotate(duration: 30.0)
+            }
+        }
     }
 }
