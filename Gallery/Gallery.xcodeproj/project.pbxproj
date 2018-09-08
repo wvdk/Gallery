@@ -35,6 +35,18 @@
 		891549F721150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */; };
 		891549F921150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */; };
 		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
+		8919BE3221433F3500967B9A /* A1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3121433F3500967B9A /* A1View.swift */; };
+		8919BE3421433FBA00967B9A /* A1Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3321433FBA00967B9A /* A1Scene.swift */; };
+		8919BE3521433FBA00967B9A /* A1Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3321433FBA00967B9A /* A1Scene.swift */; };
+		8919BE3621433FBE00967B9A /* A1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3121433F3500967B9A /* A1View.swift */; };
+		8919BE3821433FF900967B9A /* BoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3721433FF900967B9A /* BoidNode.swift */; };
+		8919BE3921433FF900967B9A /* BoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3721433FF900967B9A /* BoidNode.swift */; };
+		8919BE3B214340A300967B9A /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3A214340A300967B9A /* CGFloat+Extension.swift */; };
+		8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
+		8919BE3E2143413700967B9A /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3A214340A300967B9A /* CGFloat+Extension.swift */; };
+		8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
+		8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
+		8919BE442143425D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
 		891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		89278ECC210F8AEC00CEEB3C /* DescriptionLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */; };
@@ -185,7 +197,7 @@
 		4F5BF21D204A31502C67DF16 /* Pods-ArtKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtKit/Pods-ArtKit.release.xcconfig"; sourceTree = "<group>"; };
 		890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailDismissAnimationController.swift; sourceTree = "<group>"; };
 		89127CE92126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift"; sourceTree = "<group>"; };
-		89134E1320E80C1300772E7F /* Gallery TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gallery TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89134E1320E80C1300772E7F /* Gallery TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Gallery TV.app"; path = "Gallery tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89134E1520E80C1300772E7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89134E1720E80C1300772E7F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		89134E1C20E80C1500772E7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -206,6 +218,12 @@
 		891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
+		8919BE3121433F3500967B9A /* A1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A1View.swift; sourceTree = "<group>"; };
+		8919BE3321433FBA00967B9A /* A1Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A1Scene.swift; sourceTree = "<group>"; };
+		8919BE3721433FF900967B9A /* BoidNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoidNode.swift; sourceTree = "<group>"; };
+		8919BE3A214340A300967B9A /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		8919BE3C2143413300967B9A /* CGVector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Extension.swift"; sourceTree = "<group>"; };
+		8919BE402143422D00967B9A /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		89278ECB210F8AEC00CEEB3C /* DescriptionLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabels.swift; sourceTree = "<group>"; };
@@ -402,6 +420,16 @@
 			path = "Collection Controller Cells";
 			sourceTree = "<group>";
 		};
+		8919BE4521434BDE00967B9A /* A1 Art Piece */ = {
+			isa = PBXGroup;
+			children = (
+				8919BE3121433F3500967B9A /* A1View.swift */,
+				8919BE3321433FBA00967B9A /* A1Scene.swift */,
+				8919BE3721433FF900967B9A /* BoidNode.swift */,
+			);
+			path = "A1 Art Piece";
+			sourceTree = "<group>";
+		};
 		89485BCE20F2A07000046753 /* A736D Art Piece */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +448,7 @@
 				894C691720EFC7CF003A5387 /* A586q Art Piece */,
 				DEA066D820C47FD700489BF8 /* A565zView.swift */,
 				894C691220EFC224003A5387 /* A994tView.swift */,
+				8919BE4521434BDE00967B9A /* A1 Art Piece */,
 			);
 			path = "Art Pieces";
 			sourceTree = "<group>";
@@ -534,6 +563,9 @@
 				892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */,
 				DE332B75205B7F3E00C40727 /* UIView+Extensions.swift */,
 				89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */,
+				8919BE3A214340A300967B9A /* CGFloat+Extension.swift */,
+				8919BE3C2143413300967B9A /* CGVector+Extension.swift */,
+				8919BE402143422D00967B9A /* CGPoint+Extension.swift */,
 				891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */,
 				DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */,
 				DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */,
@@ -974,9 +1006,12 @@
 				894C692020F13FB0003A5387 /* A586qScene.swift in Sources */,
 				8970BCBC20E95F200006870D /* ArtView.swift in Sources */,
 				89485BCF20F2A08B00046753 /* A736DView.swift in Sources */,
+				8919BE3621433FBE00967B9A /* A1View.swift in Sources */,
 				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
+				8919BE3921433FF900967B9A /* BoidNode.swift in Sources */,
 				894C691A20F13893003A5387 /* A994tView.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */,
+				8919BE3521433FBA00967B9A /* A1Scene.swift in Sources */,
 				894C691B20F13896003A5387 /* A586qView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -993,10 +1028,13 @@
 				894C691820F13883003A5387 /* A736DScene.swift in Sources */,
 				894C691620EFC5A0003A5387 /* A586qView.swift in Sources */,
 				894C691320EFC224003A5387 /* A994tView.swift in Sources */,
+				8919BE3421433FBA00967B9A /* A1Scene.swift in Sources */,
 				DE0B7FB320E3E35B000B482F /* IDGenerator.swift in Sources */,
+				8919BE3821433FF900967B9A /* BoidNode.swift in Sources */,
 				89485BCD20F29EF500046753 /* A736DView.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
 				DE0B7FB120E3E352000B482F /* ArtMetadata.swift in Sources */,
+				8919BE3221433F3500967B9A /* A1View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,6 +1059,9 @@
 			files = (
 				DE332B74205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift in Sources */,
 				891549CC21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */,
+				8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */,
+				8919BE3B214340A300967B9A /* CGFloat+Extension.swift in Sources */,
+				8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DE293FB420490E2000444EB8 /* NSObject+Extensions.swift in Sources */,
 				89278ED1210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,
 				89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */,
@@ -1039,6 +1080,9 @@
 			files = (
 				DEDB687F20E946EE00D102EB /* CustomOperators.swift in Sources */,
 				891549CD21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */,
+				8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */,
+				8919BE3E2143413700967B9A /* CGFloat+Extension.swift in Sources */,
+				8919BE442143425D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DEDB688220E946EE00D102EB /* SKNode+Extensions.swift in Sources */,
 				89278ED2210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,
 				DEDB688520E946EE00D102EB /* NSObject+Extensions.swift in Sources */,
