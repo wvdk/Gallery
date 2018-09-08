@@ -25,7 +25,6 @@ class ArtPieceDisplayViewController: UIViewController {
         let artView = artPieceMetadata.viewType.init(frame: view.bounds, artPieceMetadata: artPieceMetadata)
         
         view.addSubview(artView)
-        artView.translatesAutoresizingMaskIntoConstraints = false
         artView.constraint(edgesTo: view)
         
         let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeAction(_:)))

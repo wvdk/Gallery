@@ -50,9 +50,6 @@ class FocusingView: UIView {
         addSubview(containerView)
         containerView.addSubview(thumbnailView)
         
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        thumbnailView.translatesAutoresizingMaskIntoConstraints = false
-        
         containerView.constraint(edgesTo: self)
         thumbnailView.constraint(edgesTo: containerView)
         
@@ -70,34 +67,56 @@ class FocusingView: UIView {
     
     /// Adds a specific view to the end of the receiver’s list of subviews.
     /// - Parameters:
-    ///     - artPieceView: A new view of type `ArtView` to be added.
-    func addSubview(artPieceView: ArtView) {
-        containerView.addSubview(artPieceView)
-        artPieceView.translatesAutoresizingMaskIntoConstraints = false
-        artPieceView.constraint(edgesTo: containerView)
+    ///     - subview: A new view of type `ArtView` to be added.
+    ///     - animated: Booleon set to true animates the specified subview appearance, by default set to true.
+    func show(subview: ArtView, animated: Bool = true) {
+        if animated {
+            subview.alpha = 0
+        }
+        containerView.addSubview(subview)
+        subview.constraint(edgesTo: containerView)
+        
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                subview.alpha = 1
+            }
+        }
     }
     
-    /// Removes a specific view from the receiver’s list of subviews.
+    /// Hides and removes a specific view from the receiver’s list of subviews.
     /// - Parameters:
-    ///     - artPieceView: A new view of type `ArtView` to be removed.
-    func removeSubview(artPieceView: ArtView) {
-        if containerView.subviews.contains(artPieceView) {
-            artPieceView.removeFromSuperview()
+    ///     - subview: A new view of type `ArtView` to be hidden/removed.
+    ///     - animated: Booleon set to true animates the specified subview disappearance, by default set to true.
+    func hide(subview: ArtView, animated: Bool = true) {
+        if containerView.subviews.contains(subview) {
+            if animated {
+                UIView.animate(withDuration: 0.2, animations: {
+                    subview.alpha = 0
+                }, completion: { completed in
+                    if completed {
+                        subview.removeFromSuperview()
+                    }
+                })
+            } else {
+                subview.removeFromSuperview()
+            }
         }
     }
     
     // MARK: - UIFocusEnvironment update
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        
         // Animates view's appearance to be focused.
         if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
                 if let strongSelf = self {
                     strongSelf.setFocusedStyle()
                     strongSelf.addParallaxMotionEffect()
-                    strongSelf.delegate?.focusingViewDidBecomeFocused(strongSelf)
-                }}, completion: nil)
+                }}, completion: { [weak self] in
+                    if let strongSelf = self {
+                        strongSelf.delegate?.focusingViewDidBecomeFocused(strongSelf)
+                    }
+            })
         }
         
         // Animates view's appearance to be not focused.
@@ -106,27 +125,31 @@ class FocusingView: UIView {
                 if let strongSelf = self {
                     strongSelf.resetFocusedStyle()
                     strongSelf.removeParallaxMotionEffect()
-                    strongSelf.delegate?.focusingViewDidResignedFocus(strongSelf)
-                }}, completion: nil)
+                }}, completion: { [weak self] in
+                    if let strongSelf = self {
+                        strongSelf.delegate?.focusingViewDidResignedFocus(strongSelf)
+                    }
+            })
         }
     }
     
     // MARK: - Focus appearance
     
+    /// Transforms scale to specified value.
+    func transformScale(to value: CGFloat) {
+        transform = CGAffineTransform(scaleX: value, y: value)
+    }
+    
     /// Sets focus style to the view:
     /// - Scales by 1.07.
     /// - Adds significant drop down shadow to the view's layer.
     private func setFocusedStyle() {
-        transform = CGAffineTransform(scaleX: 1.07, y: 1.07)
-
         layer.shadowRadius = 15
         layer.shadowOffset = CGSize(width: 0, height: 25)
     }
     
     /// Removes focus style from the view.
     private func resetFocusedStyle() {
-        transform = CGAffineTransform.identity
-        
         addDefaultShadow()
     }
     
@@ -143,7 +166,7 @@ class FocusingView: UIView {
     /// - Parameters:
     ///     - tiltValue: View's maximum tilt value in radians, by default it is 0.1.
     ///     - panValue: View's maximum pan value in points, by default it is 8.
-    private func addParallaxMotionEffect(tiltValue: CGFloat = 0.15, panValue: CGFloat = 15) {
+    private func addParallaxMotionEffect(tiltValue: CGFloat = 0.15, panValue: CGFloat = 30) {
         let yTilt = UIInterpolatingMotionEffect(keyPath: "layer.transform.rotation.y", type: .tiltAlongHorizontalAxis)
         yTilt.minimumRelativeValue = -tiltValue
         yTilt.maximumRelativeValue = tiltValue
@@ -177,4 +200,24 @@ class FocusingView: UIView {
         
         self.artPieceViewParralaxMotionEffect = nil
     }
+}
+
+/// The object that acts as the delegate of the focusing view.
+///
+/// The delegate must adopt the FocusingViewDelegate protocol.
+///
+/// The delegate object is responsible for managing the focusing view focus state.
+protocol FocusingViewDelegate: class {
+    
+    /// Tells the delegate that the view became focused.
+    ///
+    /// - Parameters:
+    ///     - focusingView: An object informing the delegate that view became focused.
+    func focusingViewDidBecomeFocused(_ focusingView: FocusingView)
+    
+    /// Tells the delegate that the view resign the focus.
+    ///
+    /// - Parameters:
+    ///     - focusingView: An object informing the delegate that view resign focus.
+    func focusingViewDidResignedFocus(_ focusingView: FocusingView)
 }

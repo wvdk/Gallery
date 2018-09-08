@@ -1,8 +1,8 @@
 //
-//  ArtPieceCollectionGridViewCell.swift
+//  ArtPieceCollectionViewCell.swift
 //  Gallery TV
 //
-//  Created by Kristina Gelzinyte on 8/1/18.
+//  Created by Kristina Gelzinyte on 7/25/18.
 //  Copyright © 2018 Gallery of Generative Art. All rights reserved.
 //
 
@@ -10,33 +10,41 @@ import GalleryCore_tvOS
 
 /// A subclass of `UICollectionViewCell` which contains:
 /// - Art piece preview view.
-/// - Art piece title.
-class ArtPieceCollectionGridViewCell: UICollectionViewCell {
+/// - Description info:
+///     - Author name
+///     - Title
+///     - Date
+///     - Description
+/// - Purchase button.
+class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    static let identifier = "ArtPieceCollectionGridViewCellIdentifier"
+    static let identifier = "FeaturedArtPieceCollectionViewCellIdentifier"
     
     /// The object that acts as the delegate of the `CollectionViewCellDelegate`.
-    weak var delegate: CollectionViewCellDelegate?
+    weak var delegate: ArtPieceCollectionViewCellDelegate?
     
     /// Metadata of art piece presented by cell.
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let piece = artPiece else { return }
             artPieceView.thumbnail = piece.thumbnail
-            titleLabel.text = "\(piece.id)"
-            
+
             // Sets view of art piece to initialized art piece view.
 //            piece.view = piece.viewType.init(frame: bounds, artPieceMetadata: piece)
         }
     }
     
+    /// Cell's content (art piece view) edge inset.
+    var contentViewEdgeInset: CGFloat = 0 {
+        didSet {
+            artPieceView.constraint(edgesTo: self, constant: contentViewEdgeInset)
+        }
+    }
+    
     private var artView: ArtView?
-    
     private let artPieceView = FocusingView()
-    
-    private let titleLabel = BodyLabel(color: .white)
     
     // MARK: - UICollectionViewCell properties
     
@@ -44,31 +52,15 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
         // Cell cannot be focus to allow its subviews to become focused.
         return false
     }
-
+    
     // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        // Initially hide title label.
-        titleLabel.alpha = 0
-        
+                
         artPieceView.delegate = self
-        
         addSubview(artPieceView)
-        addSubview(titleLabel)
-        
-        artPieceView.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        artPieceView.topAnchor.constraint(equalTo: topAnchor, constant: 36).isActive = true
-        artPieceView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -36).isActive = true
-        artPieceView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 47).isActive = true
-        artPieceView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -47).isActive = true
-        
-        titleLabel.topAnchor.constraint(equalTo: artPieceView.bottomAnchor, constant: 15).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: artPieceView.centerXAnchor).isActive = true
-        
+
         artPieceView.addSingleTapGestureRecognizer { [weak self] recognizer in
             recognizer.allowedPressTypes = [
                 NSNumber(value: UIPressType.playPause.rawValue),
@@ -85,25 +77,7 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - UIFocusEnvironment update
-    
-    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        super.didUpdateFocus(in: context, with: coordinator)
-        
-        // Animate title label appearance.
-        // Title label is shown when cell is focused.
-        if artPieceView.isFocused {
-            coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
-                self?.titleLabel.alpha = 1
-                }, completion: nil)
-        } else {
-            coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
-                self?.titleLabel.alpha = 0
-                }, completion: nil)
-        }
-    }
-    
-    // MARK: - Art view appearance
+    // MARK: - Appearance
     
     /// Creates a new instance view of specific art piece and adds it to the `artPieceView`.
     func showArtPiece() {
@@ -112,13 +86,28 @@ class ArtPieceCollectionGridViewCell: UICollectionViewCell {
         }
         
         guard let view = artView else { return }
-        artPieceView.addSubview(artPieceView: view)
+        artPieceView.show(subview: view)
     }
     
     /// Removes specific art piece view from parents view.
     func hideArtPiece() {
         guard let view = artView else { return }
-        artPieceView.removeSubview(artPieceView: view)
+        artPieceView.hide(subview: view)
         artView = nil
     }
+}
+
+/// The object that acts as the delegate of the art piece collection view cells.
+///
+/// The delegate must adopt the ArtPieceCollectionViewCellDelegate protocol.
+///
+/// The delegate object is responsible for managing selection behavior for cell subviews.
+protocol ArtPieceCollectionViewCellDelegate: class {
+    
+    /// Tells the delegate that an art piece was selected to be opened.
+    ///
+    /// - Parameters:
+    ///     - cell: An item informing the delegate about the selected art piece.
+    ///     - didSelectOpenArtPiece: A selected to open art piece metadata.
+    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: ArtMetadata)
 }
