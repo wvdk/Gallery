@@ -29,7 +29,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let piece = artPiece else { return }
-            artPieceView.thumbnail = piece.thumbnail
+            focusingView.thumbnail = piece.thumbnail
 
             // Sets view of art piece to initialized art piece view.
 //            piece.view = piece.viewType.init(frame: bounds, artPieceMetadata: piece)
@@ -39,12 +39,12 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     /// Cell's content (art piece view) edge inset.
     var contentViewEdgeInset: CGFloat = 0 {
         didSet {
-            artPieceView.constraint(edgesTo: self, constant: contentViewEdgeInset)
+            focusingView.constraint(edgesTo: self, constant: contentViewEdgeInset)
         }
     }
     
     private var artView: ArtView?
-    private let artPieceView = FocusingView()
+    private var focusingView = FocusingView()
     
     // MARK: - UICollectionViewCell properties
     
@@ -58,16 +58,17 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
                 
-        artPieceView.delegate = self
-        addSubview(artPieceView)
+        focusingView.delegate = self
+        addSubview(focusingView)
 
-        artPieceView.addSingleTapGestureRecognizer { [weak self] recognizer in
+        focusingView.addSingleTapGestureRecognizer { [weak self] recognizer in
             recognizer.allowedPressTypes = [
                 NSNumber(value: UIPressType.playPause.rawValue),
                 NSNumber(value: UIPressType.select.rawValue)
             ]
             
             if let strongSelf = self, let artPiece = self?.artPiece {
+                strongSelf.hideArtPiece()
                 strongSelf.delegate?.collectionViewCell(strongSelf, didSelectOpenArtPiece: artPiece)
             }
         }
@@ -86,13 +87,13 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         }
         
         guard let view = artView else { return }
-        artPieceView.show(subview: view)
+        focusingView.show(subview: view)
     }
     
     /// Removes specific art piece view from parents view.
     func hideArtPiece() {
         guard let view = artView else { return }
-        artPieceView.hide(subview: view)
+        focusingView.hide(subview: view)
         artView = nil
     }
 }
