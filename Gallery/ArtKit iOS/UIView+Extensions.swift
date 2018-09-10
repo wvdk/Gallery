@@ -50,6 +50,9 @@ extension UIView {
         
         /// Changes the alpha value of the view randomly between 0.1 and 1.0.
         case updateOpacityRandomly
+        
+        /// Changes the alpha value of the view from 0.1 to 1.0.
+        case updateOpacityIncreasingly
     }
     
     /// Creates a copy of the UIView.
@@ -97,9 +100,36 @@ extension UIView {
                     currentRotationValue += rotation
                 case .updateOpacityRandomly:
                     newView.alpha = CGFloat(Double(random()) + 0.1)
+                    
+                case .updateOpacityIncreasingly:
+                    newView.alpha = CGFloat(0.1 + 0.9 * Double(i - startingIndex) / Double(duplicationCount))
                 }
             }
         }
     }
-    
 }
+
+// MARK: - Animation methods
+extension UIView {
+    
+    /// Adds a rotation transform to the view's layer.
+    ///
+    /// - Parameters:
+    ///   - byValue: Defines the angle the receiver uses to perform the rotation. By default equals to PI.
+    ///   - duration: Specifies the basic duration of the animation, in seconds. By default equals to 20.
+    ///   - repeatCount: Determines the number of times the animation will repeat. By default equals to infinity.
+    public func rotate(byValue: Float = .pi, duration: Double = 20, repeatCount: Float = .infinity) {
+        let kRotationAnimationKey = "com.Gallery.rotationanimationkey"
+        
+        if self.layer.animation(forKey: kRotationAnimationKey) == nil {
+            let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+            
+            rotationAnimation.byValue = byValue
+            rotationAnimation.duration = duration
+            rotationAnimation.repeatCount = repeatCount
+            
+            self.layer.add(rotationAnimation, forKey: nil)
+        }
+    }
+}
+
