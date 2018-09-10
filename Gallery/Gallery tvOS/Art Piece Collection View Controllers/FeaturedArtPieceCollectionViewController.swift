@@ -47,15 +47,6 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
     private lazy var headerView: UIView = {
         let headerContainerView = UIView()
 
-        let headerLabel = UILabel()
-        headerLabel.font = UIFont.systemFont(ofSize: 35)
-        headerLabel.textColor = UIColor(r: 173, g: 173, b: 173, alpha: 0.5)
-        headerLabel.text = "Gallery of Generative Art"
-        headerContainerView.addSubview(headerLabel)
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
-        headerLabel.centerYAnchor.constraint(equalTo: headerContainerView.centerYAnchor).isActive = true
-        headerLabel.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
-        
         let lineView = rotatingLineView
         lineView.tag = rotatingLineViewTag
         headerContainerView.addSubview(lineView)
@@ -65,6 +56,17 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         lineView.topAnchor.constraint(equalTo: headerContainerView.topAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
         lineView.bottomAnchor.constraint(equalTo: headerContainerView.topAnchor, constant: view.frame.size.height * 200 / 1119).isActive = true
         
+        let headerLabel = UILabel()
+        headerLabel.font = UIFont.systemFont(ofSize: 40)
+        headerLabel.textColor = UIColor(r: 173, g: 173, b: 173, alpha: 0.5)
+        headerLabel.text = "Gallery of Generative Art"
+        headerLabel.shadowColor = UIColor(r: 0, g: 0, b: 0, alpha: 0.1)
+        headerLabel.shadowOffset = CGSize(width: 0, height: 2)
+        headerContainerView.addSubview(headerLabel)
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerLabel.centerYAnchor.constraint(equalTo: headerContainerView.centerYAnchor).isActive = true
+        headerLabel.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
+        
         return headerContainerView
     }()
     
@@ -72,14 +74,11 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
     private var rotatingLineView: UIView {
         let view = UIView()
         
-        let line = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 250))
+        let line = UIView(frame: CGRect(x: 0, y: 0, width: 3, height: 500))
         view.addSubview(line)
         
-        line.layer.shadowOffset = CGSize(width: 1, height: 1)
-        line.layer.shadowColor = UIColor(r: 0, g: 0, b: 0, alpha: 0.5).cgColor
-        
         line.transform = CGAffineTransform(rotationAngle: -.pi / 4)
-        line.backgroundColor = UIColor(r: 173, g: 173, b: 173, alpha: 0.65)
+        line.backgroundColor = UIColor(r: 255, g: 255, b: 255, alpha: 1)
         line.alpha = 0.05
         
         line.loopInSuperview(duplicationCount: 60, with: [

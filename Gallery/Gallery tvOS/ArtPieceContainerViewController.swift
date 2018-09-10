@@ -75,8 +75,8 @@ class ArtPieceContainerViewController: UIViewController {
         view.layer.addSublayer(linearGradient)
         linearGradient.frame = view.bounds
         linearGradient.colors = [
-            UIColor(r: 146, g: 232, b: 201, alpha: 0.11).cgColor,
-            UIColor(r: 31, g: 50, b: 43, alpha: 0.65).cgColor,
+            UIColor(r: 186, g: 247, b: 253, alpha: 0.11).cgColor,
+            UIColor(r: 41, g: 56, b: 57, alpha: 0.65).cgColor,
             UIColor(r: 0, g: 0, b: 0, alpha: 1.0).cgColor
         ]
         linearGradient.locations = [
@@ -87,7 +87,7 @@ class ArtPieceContainerViewController: UIViewController {
 
         let center = CGPoint(x: view.bounds.width / 2, y: view.bounds.height / 2)
         let radius = view.frame.size.height * 790 / 1119
-        let colors = [UIColor(r: 126, g: 251, b: 248, alpha: 1).cgColor, UIColor(r: 255, g: 255, b: 255, alpha: 0).cgColor]
+        let colors = [UIColor(r: 186, g: 247, b: 253, alpha: 1).cgColor, UIColor(r: 255, g: 255, b: 255, alpha: 0).cgColor]
         let radialGradient = RadialGradientLayer(startCenter: center,
                                                  endCenter: center,
                                                  startRadius: 0,
@@ -104,8 +104,8 @@ class ArtPieceContainerViewController: UIViewController {
         diagonalGradient.startPoint = CGPoint(x: 1, y: 0)
         diagonalGradient.endPoint = CGPoint(x: 0, y: 1)
         diagonalGradient.colors = [
-            UIColor(r: 255, g: 255, b: 255, alpha: 1).cgColor,
-            UIColor(r: 31, g: 50, b: 43, alpha: 1).cgColor
+            UIColor(r: 186, g: 247, b: 253, alpha: 1).cgColor,
+            UIColor(r: 31, g: 50, b: 50, alpha: 1).cgColor
         ]
     }
     
