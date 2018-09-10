@@ -43,13 +43,6 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     
     private var focusingView = FocusingView()
     
-    // MARK: - UICollectionViewCell properties
-    
-    override var canBecomeFocused: Bool {
-        // Cell cannot be focus to allow its subviews to become focused.
-        return false
-    }
-    
     // MARK: - Initialization
     
     override init(frame: CGRect) {

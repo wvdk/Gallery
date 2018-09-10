@@ -56,16 +56,14 @@ class FocusingView: UIView {
         containerView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 8
         
-        setupDefaultShadow()
+        setDefaultShadow()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
         
-    // MARK: - Subview management.
-    
-    // MARK: - Appearance
+    // MARK: - Subview management
     
     /// Adds a specified `ArtView` view to the end of the receiver’s list of subviews.
     func showArtView() {
@@ -102,7 +100,7 @@ class FocusingView: UIView {
         // Animates view's appearance to be focused.
         if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
-                self?.setFocusedStyle()
+                self?.setFocusedStyleShadow()
                 
                 }, completion: { [weak self] in
                     self?.addParallaxMotionEffect()
@@ -116,7 +114,7 @@ class FocusingView: UIView {
             removeArtView()
             
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
-                self?.setupDefaultShadow()
+                self?.setDefaultShadow()
                 
                 UIView.animate(withDuration: animationContext.duration * 0.5, delay: 0, options: .curveEaseOut, animations: {
                     self?.transformScale(to: 1)
@@ -136,13 +134,13 @@ class FocusingView: UIView {
     /// Sets focus style to the view:
     /// - Scales by 1.07.
     /// - Adds significant drop down shadow to the view's layer.
-    private func setFocusedStyle() {
+    private func setFocusedStyleShadow() {
         layer.shadowRadius = 15
         layer.shadowOffset = CGSize(width: 0, height: 25)
     }
     
     /// Adds small drop down type shadow to the view's layer.
-    private func setupDefaultShadow() {
+    private func setDefaultShadow() {
         layer.shadowColor = UIColor.black.cgColor
 
         layer.shadowOpacity = 0.2
