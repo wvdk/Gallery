@@ -17,8 +17,8 @@ import ArtKit_tvOS
 
 public class A565zView: ArtView {
 
-    public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
-        super.init(frame: frame, artPieceMetadata: artPieceMetadata)
+    public required init(frame: CGRect) {
+        super.init(frame: frame)
         
         backgroundColor = .white
         

@@ -22,16 +22,10 @@ extension ArtPieceCollectionGridViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         // Animates selection of focused cells.
+        // Doing it here because collection views use the same focused view but different scale coefficient.
         if let nextFocusedView = context.nextFocusedView as? FocusingView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
                 nextFocusedView.transformScale(to: 1.1)
-            }, completion: nil)
-        }
-        
-        // Animates deselection of focused cells.
-        if let previouslyFocusedView = context.previouslyFocusedView as? FocusingView {
-            coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                previouslyFocusedView.transformScale(to: 1)
             }, completion: nil)
         }
     }

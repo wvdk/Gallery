@@ -19,10 +19,10 @@ class FocusingView: UIView {
     
     // MARK: - Properties
     
-    /// The object that acts as the delegate of the `FocusingViewDelegate`.
-    weak var delegate: FocusingViewDelegate?
+    /// An art piece type to be presented in receiver's view.
+    var artViewType: ArtView.Type? = nil
     
-    /// Thumbnail image of the art piece.
+    /// Thumbnail image of the art piece to be shown in receiver'v view.
     var thumbnail: UIImage? = nil {
         didSet {
             thumbnailView.image = thumbnail ?? UIImage(named: "defaultThumbnail")
@@ -48,88 +48,81 @@ class FocusingView: UIView {
         isUserInteractionEnabled = true
         
         addSubview(containerView)
-        containerView.addSubview(thumbnailView)
-        
         containerView.constraint(edgesTo: self)
+
+        containerView.addSubview(thumbnailView)
         thumbnailView.constraint(edgesTo: containerView)
         
         containerView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 8
         
-        addDefaultShadow()
+        setupDefaultShadow()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+        
     // MARK: - Subview management.
     
-    /// Adds a specific view to the end of the receiver’s list of subviews.
-    /// - Parameters:
-    ///     - subview: A new view of type `ArtView` to be added.
-    ///     - animated: Booleon set to true animates the specified subview appearance, by default set to true.
-    func show(subview: ArtView, animated: Bool = true) {
-        if animated {
-            subview.alpha = 0
-        }
-        containerView.addSubview(subview)
-        subview.constraint(edgesTo: containerView)
+    // MARK: - Appearance
+    
+    /// Adds a specified `ArtView` view to the end of the receiver’s list of subviews.
+    func showArtView() {
+        guard let artViewType = self.artViewType else { return }
         
-        if animated {
-            UIView.animate(withDuration: 0.3) {
-                subview.alpha = 1
-            }
+        let artView = artViewType.init(frame: bounds)
+        artView.alpha = 0
+        
+        containerView.addSubview(artView)
+        artView.constraint(edgesTo: containerView)
+        
+        UIView.animate(withDuration: 0.3) {
+            artView.alpha = 1
         }
     }
     
-    /// Hides and removes a specific view from the receiver’s list of subviews.
-    /// - Parameters:
-    ///     - subview: A new view of type `ArtView` to be hidden/removed.
-    ///     - animated: Booleon set to true animates the specified subview disappearance, by default set to true.
-    func hide(subview: ArtView, animated: Bool = true) {
-        if containerView.subviews.contains(subview) {
-            if animated {
-                UIView.animate(withDuration: 0.2, animations: {
-                    subview.alpha = 0
-                }, completion: { completed in
-                    if completed {
-                        subview.removeFromSuperview()
-                    }
-                })
-            } else {
-                subview.removeFromSuperview()
-            }
+    /// Fades out and removes a `ArtView` type views from the receiver’s list of subviews.
+    func removeArtView() {
+        let artViews = containerView.subviews.filter({ $0 as? ArtView != nil })
+        
+        artViews.forEach { view in
+            UIView.animate(withDuration: 0.2, animations: {
+                view.alpha = 0
+            }, completion: { _ in
+                view.removeFromSuperview()
+            })
         }
     }
     
     // MARK: - UIFocusEnvironment update
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        
         // Animates view's appearance to be focused.
         if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
-                if let strongSelf = self {
-                    strongSelf.setFocusedStyle()
-                    strongSelf.addParallaxMotionEffect()
-                }}, completion: { [weak self] in
-                    if let strongSelf = self {
-                        strongSelf.delegate?.focusingViewDidBecomeFocused(strongSelf)
-                    }
+                self?.setFocusedStyle()
+                
+                }, completion: { [weak self] in
+                    self?.addParallaxMotionEffect()
+                    self?.showArtView()
             })
         }
         
         // Animates view's appearance to be not focused.
         if let previouslyFocusedView = context.previouslyFocusedView as? FocusingView, previouslyFocusedView == self {
+            removeParallaxMotionEffect()
+            removeArtView()
+            
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
-                if let strongSelf = self {
-                    strongSelf.resetFocusedStyle()
-                    strongSelf.removeParallaxMotionEffect()
-                }}, completion: { [weak self] in
-                    if let strongSelf = self {
-                        strongSelf.delegate?.focusingViewDidResignedFocus(strongSelf)
-                    }
-            })
+                self?.setupDefaultShadow()
+                
+                UIView.animate(withDuration: animationContext.duration * 0.5, delay: 0, options: .curveEaseOut, animations: {
+                    self?.transformScale(to: 1)
+                })
+                
+                }, completion: nil)
         }
     }
     
@@ -148,13 +141,8 @@ class FocusingView: UIView {
         layer.shadowOffset = CGSize(width: 0, height: 25)
     }
     
-    /// Removes focus style from the view.
-    private func resetFocusedStyle() {
-        addDefaultShadow()
-    }
-    
     /// Adds small drop down type shadow to the view's layer.
-    private func addDefaultShadow() {
+    private func setupDefaultShadow() {
         layer.shadowColor = UIColor.black.cgColor
 
         layer.shadowOpacity = 0.2
@@ -200,24 +188,4 @@ class FocusingView: UIView {
         
         self.artPieceViewParralaxMotionEffect = nil
     }
-}
-
-/// The object that acts as the delegate of the focusing view.
-///
-/// The delegate must adopt the FocusingViewDelegate protocol.
-///
-/// The delegate object is responsible for managing the focusing view focus state.
-protocol FocusingViewDelegate: class {
-    
-    /// Tells the delegate that the view became focused.
-    ///
-    /// - Parameters:
-    ///     - focusingView: An object informing the delegate that view became focused.
-    func focusingViewDidBecomeFocused(_ focusingView: FocusingView)
-    
-    /// Tells the delegate that the view resign the focus.
-    ///
-    /// - Parameters:
-    ///     - focusingView: An object informing the delegate that view resign focus.
-    func focusingViewDidResignedFocus(_ focusingView: FocusingView)
 }
