@@ -19,13 +19,12 @@ class A857CView: ArtView {
     
     // MARK: - Initialization
     
-    public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
-        super.init(frame: frame, artPieceMetadata: artPieceMetadata)
+    public required init(frame: CGRect) {
+        super.init(frame: frame)
         
         tag = 127
         
         addSubview(spriteKitView)
-        spriteKitView.translatesAutoresizingMaskIntoConstraints = false
         spriteKitView.constraint(edgesTo: self)
         
         spriteKitView.ignoresSiblingOrder = true

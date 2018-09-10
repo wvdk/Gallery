@@ -10,9 +10,13 @@ import UIKit
 
 public class ArtView: UIView {
 
-    public let artPieceMetadata: ArtMetadata
+    public var artPieceMetadata: ArtMetadata?
     
-    public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
+    public override required init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    public init(frame: CGRect, artPieceMetadata: ArtMetadata) {
         self.artPieceMetadata = artPieceMetadata
         super.init(frame: frame)
     }
@@ -24,6 +28,6 @@ public class ArtView: UIView {
     override public func didMoveToSuperview() {
         super.didMoveToSuperview()
         
-        print("ArtView with id \(artPieceMetadata.id) did move to super view.")
+//        print("ArtView with id \(artPieceMetadata.id) did move to super view.")
     }
 }
