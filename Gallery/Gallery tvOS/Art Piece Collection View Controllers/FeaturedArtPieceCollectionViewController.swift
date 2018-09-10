@@ -16,7 +16,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
     /// The object that acts as the delegate of the `ArtPieceCollectionViewControllerDelegate`.
     weak var delegate: ArtPieceCollectionViewControllerDelegate?
     
-    var collectionView: DisabledFocusCollectionView?
+    var collectionView: UICollectionView?
     
     private let headerView = UIView()
     
@@ -50,15 +50,6 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // Updates cell appearance, when view bounds are calculated.
-        if let visibleCells = collectionView?.visibleCells as? [FeaturedArtPieceCollectionViewCell] {
-            visibleCells.forEach { $0.updateUI() }
-        }
-    }
-    
     // MARK: - Views setup
     
     /// Sets up `UICollectionView` with horizontal scrolling direction.
@@ -68,15 +59,15 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         
-        collectionView = DisabledFocusCollectionView(frame: view.frame, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         
         guard let collectionView = collectionView else { return }
         
-        collectionView.register(FeaturedArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: FeaturedArtPieceCollectionViewCell.identifier)
+        collectionView.register(ArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: ArtPieceCollectionViewCell.identifier)
         collectionView.decelerationRate = UIScrollViewDecelerationRateNormal
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+                
         collectionView.isScrollEnabled = false
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false
@@ -86,29 +77,18 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         collectionView.selectCell(at: collectionView.firstCellIndex)
     }
     
-    /// Sets up header which consist of title "Premium" and separator line.
+    /// Sets up header which consist of title "Gallery of Generative Art".
     private func setupHeaderView() -> UIView {
         let headerLabel = HeadlineLabel(isFontBold: false)
-        headerLabel.text = "Premium"
-        
-        let separatorView = UIView()
-        separatorView.backgroundColor = .gray
+        headerLabel.text = "Gallery of Generative Art"
         
         let headerContainerView = UIView()
-        
         headerContainerView.addSubview(headerLabel)
-        headerContainerView.addSubview(separatorView)
         
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
-        separatorView.translatesAutoresizingMaskIntoConstraints = false
         
-        separatorView.bottomAnchor.constraint(equalTo: headerContainerView.bottomAnchor).isActive = true
-        separatorView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor, constant: 180).isActive = true
-        separatorView.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor, constant: -180).isActive = true
-        separatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
-        
-        headerLabel.leadingAnchor.constraint(equalTo: separatorView.leadingAnchor).isActive = true
-        headerLabel.bottomAnchor.constraint(equalTo: separatorView.topAnchor, constant: -10).isActive = true
+        headerLabel.centerYAnchor.constraint(equalTo: headerContainerView.centerYAnchor).isActive = true
+        headerLabel.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
         
         return headerContainerView
     }

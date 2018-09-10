@@ -23,12 +23,4 @@ extension ArtPieceContainerViewController: ArtPieceCollectionViewControllerDeleg
         artPieceDetailController.delegate = self
         present(artPieceDetailController, animated: true, completion: nil)
     }
-    
-    func artPieceCollectionControllerDelegate(_ viewController: UIViewController, didSelectOpenArtDescription: ArtMetadata) {
-        
-        // Presents single art piece description full screen mode on top of existing context.
-        let artPieceDetailController = ArtPieceDescriptionDisplayViewController(artMetadata: didSelectOpenArtDescription)
-        artPieceDetailController.modalPresentationStyle = .overCurrentContext
-        present(artPieceDetailController, animated: true, completion: nil)
-    }
 }

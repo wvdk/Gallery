@@ -31,15 +31,17 @@ class ArtPieceContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBackgroundLayer()
+        
         featuredArtPieceCollectionViewController.delegate = self
         artPieceCollectionGridViewController.delegate = self
 
         addChildViewController(featuredArtPieceCollectionViewController)
         view.addSubview(featuredArtPieceCollectionViewController.view)
-        
+
         addChildViewController(artPieceCollectionGridViewController)
         view.addSubview(artPieceCollectionGridViewController.view)
-        
+
         featuredArtPieceCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
         artPieceCollectionGridViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
@@ -55,13 +57,54 @@ class ArtPieceContainerViewController: UIViewController {
 
         featuredArtPieceCollectionViewController.didMove(toParentViewController: self)
         artPieceCollectionGridViewController.didMove(toParentViewController: self)
-        
+
         artPieceCollectionGridViewController.view.addLayoutGuide(artPieceCollectionGridViewControllerFocusGuide)
-        
+
         artPieceCollectionGridViewControllerFocusGuide.topAnchor.constraint(equalTo: artPieceCollectionGridViewController.view.topAnchor).isActive = true
         artPieceCollectionGridViewControllerFocusGuide.leadingAnchor.constraint(equalTo: artPieceCollectionGridViewController.view.leadingAnchor).isActive = true
         artPieceCollectionGridViewControllerFocusGuide.trailingAnchor.constraint(equalTo: artPieceCollectionGridViewController.view.trailingAnchor).isActive = true
         artPieceCollectionGridViewControllerFocusGuide.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+    
+    // MARK: - Background setup
+    
+    private func setupBackgroundLayer() {
+        view.backgroundColor = .white
+        
+        let linearGradient = CAGradientLayer()
+        view.layer.addSublayer(linearGradient)
+        linearGradient.frame = view.bounds
+        linearGradient.colors = [
+            UIColor(r: 146, g: 232, b: 201, alpha: 0.11).cgColor,
+            UIColor(r: 31, g: 50, b: 43, alpha: 0.65).cgColor,
+            UIColor(r: 0, g: 0, b: 0, alpha: 1.0).cgColor
+        ]
+        linearGradient.locations = [
+            NSNumber(value: 0),
+            NSNumber(value: 1 - 950 / 1119),
+            NSNumber(value: 1 - 1082 / 1119)
+        ]
+
+        let radialGradient = RadialGradientLayer()
+        view.layer.addSublayer(radialGradient)
+        radialGradient.frame = view.bounds
+        radialGradient.opacity = 0.2
+        radialGradient.radius = view.frame.size.height * 790 / 1119
+        radialGradient.colors = [
+            UIColor(r: 126, g: 251, b: 248, alpha: 1),
+            UIColor(r: 255, g: 255, b: 255, alpha: 0)
+        ]
+        
+        let diagonalGradient = CAGradientLayer()
+        view.layer.addSublayer(diagonalGradient)
+        diagonalGradient.frame = view.bounds
+        diagonalGradient.opacity = 0.2
+        diagonalGradient.startPoint = CGPoint(x: 1, y: 0)
+        diagonalGradient.endPoint = CGPoint(x: 0, y: 1)
+        diagonalGradient.colors = [
+            UIColor(r: 255, g: 255, b: 255, alpha: 1).cgColor,
+            UIColor(r: 31, g: 50, b: 43, alpha: 1).cgColor
+        ]
     }
     
     // MARK: - UIFocusEnvironment update
@@ -95,10 +138,8 @@ class ArtPieceContainerViewController: UIViewController {
         // Animates translation transform between view controllers.
         if featuredArtPieceCollectionViewController.contains(previouslyFocusedView), artPieceCollectionGridViewController.contains(nextFocusedView) {
             
-            // Sets preferred focus guide to `featuredArtPieceCollectionViewController` collection view selected cell.
-            if let focusingView = featuredArtPieceCollectionViewController.collectionView?.selectedCell?.subviews.first(where: { $0 is FocusingView}) {
-                artPieceCollectionGridViewControllerFocusGuide.preferredFocusEnvironments = [focusingView]
-            }
+            // Sets preferred focus guide to `previouslyFocusedView`, so coming back to controller would focus last selected item.
+            artPieceCollectionGridViewControllerFocusGuide.preferredFocusEnvironments = [previouslyFocusedView]
             
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
                 guard let translationY = self?.featuredArtPieceCollectionViewController.view.bounds.size.height else { return }

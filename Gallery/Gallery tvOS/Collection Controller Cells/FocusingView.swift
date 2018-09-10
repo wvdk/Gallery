@@ -19,10 +19,10 @@ class FocusingView: UIView {
     
     // MARK: - Properties
     
-    /// The object that acts as the delegate of the `FocusingViewDelegate`.
-    weak var delegate: FocusingViewDelegate?
+    /// An art piece type to be presented in receiver's view.
+    var artViewType: ArtView.Type? = nil
     
-    /// Thumbnail image of the art piece.
+    /// Thumbnail image of the art piece to be shown in receiver'v view.
     var thumbnail: UIImage? = nil {
         didSet {
             thumbnailView.image = thumbnail ?? UIImage(named: "defaultThumbnail")
@@ -48,41 +48,48 @@ class FocusingView: UIView {
         isUserInteractionEnabled = true
         
         addSubview(containerView)
-        containerView.addSubview(thumbnailView)
-        
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        thumbnailView.translatesAutoresizingMaskIntoConstraints = false
-        
         containerView.constraint(edgesTo: self)
+
+        containerView.addSubview(thumbnailView)
         thumbnailView.constraint(edgesTo: containerView)
         
         containerView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 8
         
-        addDefaultShadow()
+        setDefaultShadow()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+        
+    // MARK: - Subview management
     
-    // MARK: - Subview management.
-    
-    /// Adds a specific view to the end of the receiver’s list of subviews.
-    /// - Parameters:
-    ///     - artPieceView: A new view of type `ArtView` to be added.
-    func addSubview(artPieceView: ArtView) {
-        containerView.addSubview(artPieceView)
-        artPieceView.translatesAutoresizingMaskIntoConstraints = false
-        artPieceView.constraint(edgesTo: containerView)
+    /// Adds a specified `ArtView` view to the end of the receiver’s list of subviews.
+    func showArtView() {
+        guard let artViewType = self.artViewType else { return }
+        
+        let artView = artViewType.init(frame: bounds)
+        artView.alpha = 0
+        
+        containerView.addSubview(artView)
+        artView.constraint(edgesTo: containerView)
+        
+        UIView.animate(withDuration: 0.3) {
+            artView.alpha = 1
+        }
     }
     
-    /// Removes a specific view from the receiver’s list of subviews.
-    /// - Parameters:
-    ///     - artPieceView: A new view of type `ArtView` to be removed.
-    func removeSubview(artPieceView: ArtView) {
-        if containerView.subviews.contains(artPieceView) {
-            artPieceView.removeFromSuperview()
+    /// Fades out and removes a `ArtView` type views from the receiver’s list of subviews.
+    func removeArtView() {
+        let artViews = containerView.subviews.filter({ $0 as? ArtView != nil })
+        
+        artViews.forEach { view in
+            UIView.animate(withDuration: 0.2, animations: {
+                view.alpha = 0
+            }, completion: { _ in
+                view.removeFromSuperview()
+            })
         }
     }
     
@@ -93,45 +100,47 @@ class FocusingView: UIView {
         // Animates view's appearance to be focused.
         if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
-                if let strongSelf = self {
-                    strongSelf.setFocusedStyle()
-                    strongSelf.addParallaxMotionEffect()
-                    strongSelf.delegate?.focusingViewDidBecomeFocused(strongSelf)
-                }}, completion: nil)
+                self?.setFocusedStyleShadow()
+                
+                }, completion: { [weak self] in
+                    self?.addParallaxMotionEffect()
+                    self?.showArtView()
+            })
         }
         
         // Animates view's appearance to be not focused.
         if let previouslyFocusedView = context.previouslyFocusedView as? FocusingView, previouslyFocusedView == self {
+            removeParallaxMotionEffect()
+            removeArtView()
+            
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
-                if let strongSelf = self {
-                    strongSelf.resetFocusedStyle()
-                    strongSelf.removeParallaxMotionEffect()
-                    strongSelf.delegate?.focusingViewDidResignedFocus(strongSelf)
-                }}, completion: nil)
+                self?.setDefaultShadow()
+                
+                UIView.animate(withDuration: animationContext.duration * 0.5, delay: 0, options: .curveEaseOut, animations: {
+                    self?.transformScale(to: 1)
+                })
+                
+                }, completion: nil)
         }
     }
     
     // MARK: - Focus appearance
     
+    /// Transforms scale to specified value.
+    func transformScale(to value: CGFloat) {
+        transform = CGAffineTransform(scaleX: value, y: value)
+    }
+    
     /// Sets focus style to the view:
     /// - Scales by 1.07.
     /// - Adds significant drop down shadow to the view's layer.
-    private func setFocusedStyle() {
-        transform = CGAffineTransform(scaleX: 1.07, y: 1.07)
-
+    private func setFocusedStyleShadow() {
         layer.shadowRadius = 15
         layer.shadowOffset = CGSize(width: 0, height: 25)
     }
     
-    /// Removes focus style from the view.
-    private func resetFocusedStyle() {
-        transform = CGAffineTransform.identity
-        
-        addDefaultShadow()
-    }
-    
     /// Adds small drop down type shadow to the view's layer.
-    private func addDefaultShadow() {
+    private func setDefaultShadow() {
         layer.shadowColor = UIColor.black.cgColor
 
         layer.shadowOpacity = 0.2
@@ -143,7 +152,7 @@ class FocusingView: UIView {
     /// - Parameters:
     ///     - tiltValue: View's maximum tilt value in radians, by default it is 0.1.
     ///     - panValue: View's maximum pan value in points, by default it is 8.
-    private func addParallaxMotionEffect(tiltValue: CGFloat = 0.15, panValue: CGFloat = 15) {
+    private func addParallaxMotionEffect(tiltValue: CGFloat = 0.15, panValue: CGFloat = 30) {
         let yTilt = UIInterpolatingMotionEffect(keyPath: "layer.transform.rotation.y", type: .tiltAlongHorizontalAxis)
         yTilt.minimumRelativeValue = -tiltValue
         yTilt.maximumRelativeValue = tiltValue
