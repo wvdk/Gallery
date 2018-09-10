@@ -16,7 +16,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
     /// The object that acts as the delegate of the `ArtPieceCollectionViewControllerDelegate`.
     weak var delegate: ArtPieceCollectionViewControllerDelegate?
     
-    var collectionView: DisabledFocusCollectionView?
+    var collectionView: UICollectionView?
     
     private let headerView = UIView()
     
@@ -59,7 +59,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         
-        collectionView = DisabledFocusCollectionView(frame: view.frame, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         
         guard let collectionView = collectionView else { return }
         
@@ -67,7 +67,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         collectionView.decelerationRate = UIScrollViewDecelerationRateNormal
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+                
         collectionView.isScrollEnabled = false
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false

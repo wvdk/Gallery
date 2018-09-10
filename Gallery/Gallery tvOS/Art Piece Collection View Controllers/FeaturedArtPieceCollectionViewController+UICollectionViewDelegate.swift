@@ -20,6 +20,10 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegate {
         return 1
     }
 
+    func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
         // Scroll manually to constrain cells in the center of the screen.

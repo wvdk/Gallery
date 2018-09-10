@@ -20,6 +20,10 @@ extension ArtPieceCollectionGridViewController: UICollectionViewDelegate {
         return 1
     }
     
+    func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         // Animates selection of focused cells.
         // Doing it here because collection views use the same focused view but different scale coefficient.
