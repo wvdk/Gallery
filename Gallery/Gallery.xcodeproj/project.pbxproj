@@ -65,13 +65,8 @@
 		8970BCBD20E95F220006870D /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
-		89C3866620F491F6004BF43F /* A857CView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3866520F491F6004BF43F /* A857CView.swift */; };
 		89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
-		89C3866B20F49840004BF43F /* A857CView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3866520F491F6004BF43F /* A857CView.swift */; };
-		89C3866C20F49845004BF43F /* A857CFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */; };
-		89C3866D20F49845004BF43F /* A857CFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */; };
 		89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
-		89DEC6932108DB19009858CC /* A857CFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */; };
 		89DEC69621091C2B009858CC /* FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC69421091C25009858CC /* FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift */; };
 		89DEC6B6210933DB009858CC /* ArtPieceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC6B5210933DB009858CC /* ArtPieceCollectionViewCell.swift */; };
 		89DEC6B7210A7B30009858CC /* SKSpriteNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */; };
@@ -210,13 +205,11 @@
 		8970BCAC20E95D160006870D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentationController.swift; sourceTree = "<group>"; };
 		89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentAnimationController.swift; sourceTree = "<group>"; };
-		89C3866520F491F6004BF43F /* A857CView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A857CView.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		89DEC69421091C25009858CC /* FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		89DEC6B5210933DB009858CC /* ArtPieceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceCollectionViewCell.swift; sourceTree = "<group>"; };
 		89DEC6B8210B9C10009858CC /* FocusingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingView.swift; sourceTree = "<group>"; };
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = A857CFragmentShader.fsh; sourceTree = "<group>"; };
 		9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3691700D8ECDC253DFFC376 /* Pods_ArtKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85DD3F3A1656418B116D049 /* Pods-Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gallery/Pods-Gallery.release.xcconfig"; sourceTree = "<group>"; };
@@ -391,7 +384,6 @@
 		894C691420EFC565003A5387 /* Art Pieces */ = {
 			isa = PBXGroup;
 			children = (
-				89C3866920F49451004BF43F /* A857C Art Piece */,
 				89485BCE20F2A07000046753 /* A736D Art Piece */,
 				894C691720EFC7CF003A5387 /* A586q Art Piece */,
 				DEA066D820C47FD700489BF8 /* A565zView.swift */,
@@ -427,15 +419,6 @@
 				89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */,
 			);
 			path = Transitions;
-			sourceTree = "<group>";
-		};
-		89C3866920F49451004BF43F /* A857C Art Piece */ = {
-			isa = PBXGroup;
-			children = (
-				89C3866520F491F6004BF43F /* A857CView.swift */,
-				89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */,
-			);
-			path = "A857C Art Piece";
 			sourceTree = "<group>";
 		};
 		DE0B7FA420E3E337000B482F /* GalleryCore iOS */ = {
@@ -766,7 +749,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				891549ED2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */,
-				89C3866D20F49845004BF43F /* A857CFragmentShader.fsh in Resources */,
 				894C691C20F13899003A5387 /* A586qActions.sks in Resources */,
 				89485BD120F2A08F00046753 /* A736DActions.sks in Resources */,
 			);
@@ -777,7 +759,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				891549EC2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */,
-				89C3866C20F49845004BF43F /* A857CFragmentShader.fsh in Resources */,
 				894C691920F13889003A5387 /* A586qActions.sks in Resources */,
 				89485BD020F2A08E00046753 /* A736DActions.sks in Resources */,
 			);
@@ -787,7 +768,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89DEC6932108DB19009858CC /* A857CFragmentShader.fsh in Resources */,
 				DE293F992048F30300444EB8 /* LaunchScreen.storyboard in Resources */,
 				891549EF2114E8F50041FE8A /* ArtPieceThumbails.xcassets in Resources */,
 				DE293F962048F30300444EB8 /* Assets.xcassets in Resources */,
@@ -935,7 +915,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8970BCBA20E95F1A0006870D /* A565zView.swift in Sources */,
-				89C3866B20F49840004BF43F /* A857CView.swift in Sources */,
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
 				894C691D20F1389C003A5387 /* A736DScene.swift in Sources */,
 				8970BCB920E95F170006870D /* IDGenerator.swift in Sources */,
@@ -954,7 +933,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE0B7FB220E3E357000B482F /* A565zView.swift in Sources */,
-				89C3866620F491F6004BF43F /* A857CView.swift in Sources */,
 				DE0B7FB020E3E34F000B482F /* ArtView.swift in Sources */,
 				894C691F20F13FAE003A5387 /* A586qScene.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
