@@ -85,15 +85,17 @@ class ArtPieceContainerViewController: UIViewController {
             NSNumber(value: 1 - 1082 / 1119)
         ]
 
-        let radialGradient = RadialGradientLayer()
+        let center = CGPoint(x: view.bounds.width / 2, y: view.bounds.height / 2)
+        let radius = view.frame.size.height * 790 / 1119
+        let colors = [UIColor(r: 126, g: 251, b: 248, alpha: 1).cgColor, UIColor(r: 255, g: 255, b: 255, alpha: 0).cgColor]
+        let radialGradient = RadialGradientLayer(startCenter: center,
+                                                 endCenter: center,
+                                                 startRadius: 0,
+                                                 endRadius: radius,
+                                                 colors: colors)
         view.layer.addSublayer(radialGradient)
         radialGradient.frame = view.bounds
         radialGradient.opacity = 0.2
-        radialGradient.radius = view.frame.size.height * 790 / 1119
-        radialGradient.colors = [
-            UIColor(r: 126, g: 251, b: 248, alpha: 1),
-            UIColor(r: 255, g: 255, b: 255, alpha: 0)
-        ]
         
         let diagonalGradient = CAGradientLayer()
         view.layer.addSublayer(diagonalGradient)
