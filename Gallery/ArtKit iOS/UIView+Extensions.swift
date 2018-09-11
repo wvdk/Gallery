@@ -34,7 +34,7 @@ extension UIView {
     /// - Parameters:
     ///   - parent: the UIView that the view should fill
     ///   - edgeInsets: the amounts around each edge to inset the view by
-    func autolayoutFill(parent: UIView, edgeInsets: UIEdgeInsets = UIEdgeInsets.zero) {
+    public func autolayoutFill(parent: UIView, edgeInsets: UIEdgeInsets = UIEdgeInsets.zero) {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [

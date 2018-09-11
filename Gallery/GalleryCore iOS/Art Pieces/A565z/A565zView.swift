@@ -31,7 +31,7 @@ public class A565zView: ArtView {
         
         let scene = SKScene(fileNamed: "A565zScene")
         let spriteKitView = SKView(frame: .zero)
-//        spriteKitView.
+//        spriteKitView.fill
     }
     
     public required init?(coder aDecoder: NSCoder) {
