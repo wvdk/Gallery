@@ -19,13 +19,13 @@ class KGBoidsThreeColumnsScene: SKScene {
     private lazy var boidNode2 = KGBoidNode(from: KGBoidShapes.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorld2Frame)
     private lazy var boidNode3 = KGBoidNode(from: KGBoidShapes.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorld3Frame)
 
-    private lazy var gameSceneWidth = size.width / 10
-    private lazy var gameSceneHeight = size.height - 100
+    private lazy var gameSceneWidth = size.width / 15
+    private lazy var gameSceneHeight = size.height - 300
     private lazy var gameSceneWorldFrame = CGRect(origin: CGPoint(x: size.width / 2 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
                                                   size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
-    private lazy var gameSceneWorld2Frame = CGRect(origin: CGPoint(x: size.width / 6 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
+    private lazy var gameSceneWorld2Frame = CGRect(origin: CGPoint(x: size.width / 4 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
                                                    size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
-    private lazy var gameSceneWorld3Frame = CGRect(origin: CGPoint(x: size.width * 5 / 6 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
+    private lazy var gameSceneWorld3Frame = CGRect(origin: CGPoint(x: size.width * 3 / 4 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
                                                    size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
     
     // MARK: - Lifecycle functions
@@ -40,15 +40,15 @@ class KGBoidsThreeColumnsScene: SKScene {
 //        testNode.fillColor = .red
 //        self.addChild(testNode)
         
-        for _ in 0...20 {
+        for _ in 0...30 {
             spit(boid: boidNode)
         }
         
-        for _ in 0...20 {
+        for _ in 0...30 {
             spit(boid: boidNode2)
         }
         
-        for _ in 0...20 {
+        for _ in 0...30 {
             spit(boid: boidNode3)
         }
         
@@ -70,12 +70,12 @@ class KGBoidsThreeColumnsScene: SKScene {
     }
     
     @objc func updateBoidAlignmentCoefficient() {
-        let random = CGFloat.random(min: 0, max: 0.5)
+        let random = CGFloat.random(min: 0, max: 1)
         
         guard let boid = allBoids.first else { return }
         let currentCoeficient = boid.alignmentCoefficient
 
-        if boid.alignmentCoefficient > 1 {
+        if boid.alignmentCoefficient > 1.6 {
             allBoids.forEach { $0.setProperty(alignmentCoefficient: currentCoeficient - random) }
         } else {
             allBoids.forEach { $0.setProperty(alignmentCoefficient: currentCoeficient + random) }
@@ -102,7 +102,7 @@ class KGBoidsThreeColumnsScene: SKScene {
                     return false
                 }
                 
-                if boid.position.distance(to: possiblyNeighbourBoid.position) < CGFloat(KGBoidNode.length * 4) {
+                if boid.position.distance(to: possiblyNeighbourBoid.position) < boid.length * 3 {
                     return true
                 }
                 

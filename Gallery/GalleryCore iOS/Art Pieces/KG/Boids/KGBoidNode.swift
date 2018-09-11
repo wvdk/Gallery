@@ -14,21 +14,8 @@ class KGBoidNode: SKShapeNode {
     // MARK: - Constants
     
     static let uniqueName = "Boid"
-    static let length = 20
-    
-    private let circle = SKShapeNode(rectOf: CGSize(width: 20, height: 20))
-    private let defaultColor = UIColor(white: 1, alpha: 0.2)
-    
-    private var boidsAlpha = CGFloat(0.3)
     
     // MARK: - Properties
-    
-    override var position: CGPoint {
-        didSet {
-            let normalizedY = position.y.normalize(to: confinementFrame.size.height + confinementFrame.origin.y)
-            fillColor = UIColor(red: normalizedY * normalizedY + 0.1, green: 0.1 * normalizedY, blue: 0.6 * normalizedY + 0.05, alpha: boidsAlpha)
-        }
-    }
     
     var initPosition: CGPoint {
         let xPosition = CGFloat.random(min: confinementFrame.origin.x, max: confinementFrame.origin.x + confinementFrame.size.width)
@@ -36,42 +23,31 @@ class KGBoidNode: SKShapeNode {
         return CGPoint(x: xPosition, y: yPosition)
     }
     
+    var length: CGFloat {
+        return path?.boundingBox.width ?? 20.0
+    }
+    
     var neightbourBoidNodes = [KGBoidNode]() {
         didSet {
-            guard neightbourBoidNodes.count != oldValue.count, neightbourBoidNodes.count > 0 else { return }
-            
-            let boidsCount = CGFloat(neightbourBoidNodes.count)
-            
-            if boidsCount > 10 {
-                boidsAlpha = 0.7
-                return
-            }
-            
-            if boidsCount > 6 {
-                boidsAlpha = 0.55
-                return
-            }
-            
-            if boidsCount > 3 {
-                boidsAlpha = 0.4
-                return
-            }
-            
-            boidsAlpha = 0.3
+            let neightbourBoidCount = neightbourBoidNodes.count
+            guard neightbourBoidCount != oldValue.count, neightbourBoidCount > 0 else { return }
+            setPropertyAlpha(for: neightbourBoidCount)
         }
     }
+    
+    private var confinementFrame = CGRect.zero
     
     private(set) var direction = CGVector.random(min: -10, max: 10)
     private var recentDirections = [CGVector]()
     
-    private var confinementFrame = CGRect.zero
+    private var boidsAlpha = CGFloat(0.3)
     
-    private var speedCoefficient = CGFloat(0.6)
-    private var separationCoefficient = CGFloat(0.35)
+    private var speedCoefficient = CGFloat(0.1)
+    private var separationCoefficient = CGFloat(3)
     private(set) var alignmentCoefficient = CGFloat(1)
     private(set) var cohesionCoefficient = CGFloat(1)
     
-    
+
     
     private var canUpdateBoidsPosition = true
     
@@ -83,46 +59,11 @@ class KGBoidNode: SKShapeNode {
         return confinementFrame.contains(position)
     }
     
-    
-    
-    private var alignmentVector: CGVector {
-        return averageNeighbourhoodBoidDirection
-    }
-    
-    private var cohesionVector: CGVector {
-        return position.vector(to: averageNeighbourhoodBoidPosition)
-    }
-    
-    private var separationVector: CGVector {
-        return averageNeighbourhoodBoidDistance.multiply(by: -1.0)
-    }
-    
-    private var averageNeighbourhoodBoidDirection: CGVector {
-        var neightbourBoidNodeDirection = [direction]
-        for neighbour in neightbourBoidNodes {
-            neightbourBoidNodeDirection.append(neighbour.direction)
+    override var position: CGPoint {
+        didSet {
+            let normalizedY = position.y.normalize(to: confinementFrame.size.height + confinementFrame.origin.y)
+            fillColor = UIColor(red: normalizedY * normalizedY + 0.1, green: 0.1 * normalizedY, blue: 0.4 * normalizedY + 0.3, alpha: boidsAlpha)
         }
-        return neightbourBoidNodeDirection.averageForCGVectors
-    }
-    
-    private var averageNeighbourhoodBoidPosition: CGPoint {
-        var neightbourBoidNodePosition = [position]
-        for neighbour in neightbourBoidNodes {
-            neightbourBoidNodePosition.append(neighbour.position)
-        }
-        return neightbourBoidNodePosition.averageForCGPoint
-    }
-    
-    private var averageNeighbourhoodBoidDistance: CGVector {
-        var neightbourBoidNodeDistance = [CGVector]()
-        for neighbour in neightbourBoidNodes {
-            neightbourBoidNodeDistance.append(position.vector(to: neighbour.position))
-        }
-        
-        let averageDistance = neightbourBoidNodeDistance.averageForCGVectors
-        let distance = averageDistance.length > CGFloat(KGBoidNode.length) / 2 ? averageDistance : CGVector(dx: KGBoidNode.length / 2, dy: KGBoidNode.length / 2)
-        
-        return distance
     }
     
     // MARK: - Initialization
@@ -137,20 +78,20 @@ class KGBoidNode: SKShapeNode {
         self.strokeColor = .clear
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateDirectionRandomness), userInfo: nil, repeats: true)
-        Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(spitTraceParticle), userInfo: nil, repeats: true)
+//        Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(spitTraceParticle), userInfo: nil, repeats: true)
     }
     
     // MARK: - Boid trace particle setup
     
-    @objc func spitTraceParticle() {
-        guard let traceNode = (self as? SKShapeNode)?.clone(withColor: true, withPosition: true) else { return }
-        self.parent?.addChild(traceNode)
-        
-        let fadeOut = SKAction.fadeOut(withDuration: 1)
-        traceNode.run(fadeOut) {
-            traceNode.removeFromParent()
-        }
-    }
+//    @objc func spitTraceParticle() {
+//        guard let traceNode = (self as? SKShapeNode)?.clone(withColor: true, withPosition: true) else { return }
+//        self.parent?.addChild(traceNode)
+//        
+//        let fadeOut = SKAction.fadeOut(withDuration: 1)
+//        traceNode.run(fadeOut) {
+//            traceNode.removeFromParent()
+//        }
+//    }
     
     // MARK: - Boid properties update
     
@@ -174,6 +115,50 @@ class KGBoidNode: SKShapeNode {
         self.cohesionCoefficient = cohesionCoefficient
     }
     
+    private func setPropertyAlpha(for neighbourCount: Int) {
+        if neighbourCount > 10 {
+            boidsAlpha = 0.7
+            return
+        }
+        
+        if neighbourCount > 6 {
+            boidsAlpha = 0.55
+            return
+        }
+        
+        if neighbourCount > 3 {
+            boidsAlpha = 0.4
+            return
+        }
+        
+        boidsAlpha = 0.3
+    }
+    
+    // MARK: - Boid arrangement
+    
+    private func arrangement(in neighbourhood: [KGBoidNode]) -> (alignmentVector: CGVector, cohesionVector: CGVector, separationVector: CGVector) {
+        var directions = [direction]
+        var positions = [position]
+        var distances = [CGVector]()
+        
+        for neighbour in neighbourhood {
+            directions.append(neighbour.direction)
+            positions.append(neighbour.position)
+            distances.append(position.vector(to: neighbour.position))
+        }
+        
+        let averageDirection = directions.averageForCGVectors
+        
+        let averagaPosition = positions.averageForCGPoint
+        let vectorToAveragePosition = position.vector(to: averagaPosition)
+        
+        let averageDistance = distances.averageForCGVectors
+        let distance = averageDistance.length > length / 2 ? averageDistance : CGVector(dx: length / 2, dy: length / 2)
+        
+        return (averageDirection, vectorToAveragePosition, distance)
+    }
+
+    
     // MARK: - Boid movement
     
     @objc private func updateDirectionRandomness() {
@@ -183,9 +168,11 @@ class KGBoidNode: SKShapeNode {
     func move() {
         if canUpdateBoidsPosition {
             if hasNeighbourBoids {
-                let aligment = alignmentVector.normalized.multiply(by: alignmentCoefficient)
-                let cohesion = cohesionVector.normalized.multiply(by: cohesionCoefficient)
-                let separation = separationVector.normalized.multiply(by: separationCoefficient)
+                let arragement = arrangement(in: neightbourBoidNodes)
+                
+                let aligment = arragement.alignmentVector.normalized.multiply(by: alignmentCoefficient)
+                let cohesion = arragement.cohesionVector.normalized.multiply(by: cohesionCoefficient)
+                let separation = arragement.separationVector.normalized.multiply(by: separationCoefficient)
                 
                 direction = aligment.add(cohesion).add(separation).multiply(by: 10)
             }
@@ -195,7 +182,7 @@ class KGBoidNode: SKShapeNode {
         }
         
         updatePosition()
-        updateRotation()
+//        updateRotation()
     }
     
     private func updatePosition() {
@@ -216,7 +203,7 @@ class KGBoidNode: SKShapeNode {
     
     private func updateRotation() {
         let averageDirection = recentDirections.averageForCGVectors
-        zRotation = averageDirection.normalized.angleToNormal * CGFloat.random(min: 0.97, max: 1.03)
+        zRotation = averageDirection.normalized.angleToNormal * CGFloat.random(min: 0.7, max: 1)
     }
     
     private func returnBoidToConfinementFrame() {
