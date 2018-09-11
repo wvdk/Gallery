@@ -41,6 +41,12 @@ class ArtPieceContainerViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(startLineAnimation), name: .UIApplicationDidBecomeActive, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        startLineAnimation()
+    }
+    
     // MARK: - Background setup
     
     private func setupBackgroundLayer() {
