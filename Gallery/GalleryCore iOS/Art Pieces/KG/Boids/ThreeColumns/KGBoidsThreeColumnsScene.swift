@@ -69,39 +69,29 @@ class KGBoidsThreeColumnsScene: SKScene {
         allBoids.append(cloneBoid)
     }
     
-    func updateBoidSpeednCoefficient(to value: CGFloat) {
-        allBoids.forEach { $0.speedCoefficient = value }
-    }
-    
-    func updateBoidSeparationCoefficient(to value: CGFloat) {
-        allBoids.forEach { $0.separationCoefficient = value }
-    }
-    
-    @objc func updateBoidAlignmentCoefficient(to value: CGFloat) {
-        if value <= 2 {
-            allBoids.forEach { $0.alignmentCoefficient = value}
+    @objc func updateBoidAlignmentCoefficient() {
+        let random = CGFloat.random(min: 0, max: 0.5)
+        
+        guard let boid = allBoids.first else { return }
+        let currentCoeficient = boid.alignmentCoefficient
+
+        if boid.alignmentCoefficient > 1 {
+            allBoids.forEach { $0.setProperty(alignmentCoefficient: currentCoeficient - random) }
         } else {
-            let random = CGFloat.random(min: 0, max: 0.5)
-            
-            if let boid = allBoids.first, boid.alignmentCoefficient > 1 {
-                allBoids.forEach { $0.alignmentCoefficient -= random}
-            } else {
-                allBoids.forEach { $0.alignmentCoefficient += random}
-            }
+            allBoids.forEach { $0.setProperty(alignmentCoefficient: currentCoeficient + random) }
         }
     }
     
-    @objc func updateBoidCohesionCoefficient(to value: CGFloat) {
-        if value <= 2 {
-            allBoids.forEach { $0.cohesionCoefficient = value }
+    @objc func updateBoidCohesionCoefficient() {
+        let random = CGFloat.random(min: 0, max: 1)
+        
+        guard let boid = allBoids.first else { return }
+        let currentCoeficient = boid.cohesionCoefficient
+
+        if let boid = allBoids.first, boid.cohesionCoefficient > 1 {
+            allBoids.forEach { $0.setProperty(cohesionCoefficient: currentCoeficient - random) }
         } else {
-            let random = CGFloat.random(min: 0, max: 1)
-            
-            if let boid = allBoids.first, boid.cohesionCoefficient > 1 {
-                allBoids.forEach { $0.cohesionCoefficient -= random}
-            } else {
-                allBoids.forEach { $0.cohesionCoefficient += random}
-            }
+            allBoids.forEach { $0.setProperty(cohesionCoefficient: currentCoeficient + random) }
         }
     }
     

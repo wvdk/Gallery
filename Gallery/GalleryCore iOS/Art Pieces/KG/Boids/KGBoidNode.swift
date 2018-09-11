@@ -61,15 +61,17 @@ class KGBoidNode: SKShapeNode {
         }
     }
     
-    var speedCoefficient = CGFloat(0.6)
-    var separationCoefficient = CGFloat(0.35)
-    var alignmentCoefficient = CGFloat(1.0)
-    var cohesionCoefficient = CGFloat(1.0)
-    
     private(set) var direction = CGVector.random(min: -10, max: 10)
     private var recentDirections = [CGVector]()
     
     private var confinementFrame = CGRect.zero
+    
+    private var speedCoefficient = CGFloat(0.6)
+    private var separationCoefficient = CGFloat(0.35)
+    private(set) var alignmentCoefficient = CGFloat(1)
+    private(set) var cohesionCoefficient = CGFloat(1)
+    
+    
     
     private var canUpdateBoidsPosition = true
     
@@ -80,6 +82,8 @@ class KGBoidNode: SKShapeNode {
     private var isBoidNodeInConfinementFrame: Bool {
         return confinementFrame.contains(position)
     }
+    
+    
     
     private var alignmentVector: CGVector {
         return averageNeighbourhoodBoidDirection
@@ -152,6 +156,22 @@ class KGBoidNode: SKShapeNode {
     
     func setProperty(confinementFrame: CGRect) {
         self.confinementFrame = confinementFrame
+    }
+    
+    func setProperty(speedCoefficient: CGFloat) {
+        self.speedCoefficient = speedCoefficient
+    }
+    
+    func setProperty(separationCoefficient: CGFloat) {
+        self.separationCoefficient = separationCoefficient
+    }
+    
+    func setProperty(alignmentCoefficient: CGFloat) {
+        self.alignmentCoefficient = alignmentCoefficient
+    }
+    
+    func setProperty(cohesionCoefficient: CGFloat) {
+        self.cohesionCoefficient = cohesionCoefficient
     }
     
     // MARK: - Boid movement
