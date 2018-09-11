@@ -57,8 +57,7 @@ class KGBoidsThreeColumnsScene: SKScene {
     }
         
     override func update(_ currentTime: TimeInterval) {
-        scanBoidsInNeighborhood()
-        allBoids.forEach { $0.move() }
+        updateBoidPositions()
     }
     
     // MARK: - Node control
@@ -95,9 +94,9 @@ class KGBoidsThreeColumnsScene: SKScene {
         }
     }
     
-    private func scanBoidsInNeighborhood() {
-        for boid in allBoids {
-            let neighbourBoids = allBoids.filter { possiblyNeighbourBoid in
+    private func updateBoidPositions() {
+        allBoids.forEach { boid in
+            let neighbourhood = allBoids.filter { possiblyNeighbourBoid in
                 guard boid != possiblyNeighbourBoid else {
                     return false
                 }
@@ -108,8 +107,7 @@ class KGBoidsThreeColumnsScene: SKScene {
                 
                 return false
             }
-            
-            boid.neightbourBoidNodes = neighbourBoids
+            boid.move(in: neighbourhood)
         }
     }
 }

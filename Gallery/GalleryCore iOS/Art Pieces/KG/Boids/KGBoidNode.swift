@@ -27,14 +27,6 @@ class KGBoidNode: SKShapeNode {
         return path?.boundingBox.width ?? 20.0
     }
     
-    var neightbourBoidNodes = [KGBoidNode]() {
-        didSet {
-            let neightbourBoidCount = neightbourBoidNodes.count
-            guard neightbourBoidCount != oldValue.count, neightbourBoidCount > 0 else { return }
-            setPropertyAlpha(for: neightbourBoidCount)
-        }
-    }
-    
     private var confinementFrame = CGRect.zero
     
     private(set) var direction = CGVector.random(min: -10, max: 10)
@@ -51,12 +43,15 @@ class KGBoidNode: SKShapeNode {
     
     private var canUpdateBoidsPosition = true
     
-    private var hasNeighbourBoids: Bool {
-        return !neightbourBoidNodes.isEmpty
-    }
-    
     private var isBoidNodeInConfinementFrame: Bool {
         return confinementFrame.contains(position)
+    }
+    
+    private var neighbourhoodBoidCount = 0 {
+        didSet {
+            guard neighbourhoodBoidCount > 0, neighbourhoodBoidCount != oldValue else { return }
+            setPropertyAlpha(for: neighbourhoodBoidCount)
+        }
     }
     
     override var position: CGPoint {
@@ -131,7 +126,7 @@ class KGBoidNode: SKShapeNode {
             return
         }
         
-        boidsAlpha = 0.3
+        boidsAlpha = 0.2
     }
     
     // MARK: - Boid arrangement
@@ -165,10 +160,12 @@ class KGBoidNode: SKShapeNode {
         direction = CGVector.random(min: -10, max: 10)
     }
     
-    func move() {
+    func move(in neighbourhood: [KGBoidNode]) {
         if canUpdateBoidsPosition {
-            if hasNeighbourBoids {
-                let arragement = arrangement(in: neightbourBoidNodes)
+            if !neighbourhood.isEmpty {
+                neighbourhoodBoidCount = neighbourhood.count
+                
+                let arragement = arrangement(in: neighbourhood)
                 
                 let aligment = arragement.alignmentVector.normalized.multiply(by: alignmentCoefficient)
                 let cohesion = arragement.cohesionVector.normalized.multiply(by: cohesionCoefficient)
@@ -178,7 +175,7 @@ class KGBoidNode: SKShapeNode {
             }
             
             recentDirections.append(direction)
-            recentDirections = Array(recentDirections.suffix(20))
+            recentDirections = Array(recentDirections.suffix(15))
         }
         
         updatePosition()
@@ -203,7 +200,7 @@ class KGBoidNode: SKShapeNode {
     
     private func updateRotation() {
         let averageDirection = recentDirections.averageForCGVectors
-        zRotation = averageDirection.normalized.angleToNormal * CGFloat.random(min: 0.7, max: 1)
+        zRotation = averageDirection.normalized.angleToNormal * CGFloat.random(min: 0.97, max: 1.03)
     }
     
     private func returnBoidToConfinementFrame() {
