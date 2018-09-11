@@ -17,7 +17,7 @@ class KGBoidNode: SKShapeNode {
     
     // MARK: - Properties
     
-    var initPosition: CGPoint {
+    var initialPosition: CGPoint {
         let xPosition = CGFloat.random(min: confinementFrame.origin.x, max: confinementFrame.origin.x + confinementFrame.size.width)
         let yPosition = CGFloat.random(min: confinementFrame.origin.y, max: confinementFrame.origin.y + confinementFrame.size.height)
         return CGPoint(x: xPosition, y: yPosition)
@@ -29,17 +29,15 @@ class KGBoidNode: SKShapeNode {
     
     private var confinementFrame = CGRect.zero
     
-    private(set) var direction = CGVector.random(min: -10, max: 10)
+    private var direction = CGVector.random(min: -10, max: 10)
     private var recentDirections = [CGVector]()
-    
-    private var boidsAlpha = CGFloat(0.3)
     
     private var speedCoefficient = CGFloat(0.1)
     private var separationCoefficient = CGFloat(3)
     private(set) var alignmentCoefficient = CGFloat(1)
     private(set) var cohesionCoefficient = CGFloat(1)
     
-
+    private var fillColorAlpha = CGFloat(0.3)
     
     private var canUpdateBoidsPosition = true
     
@@ -54,10 +52,14 @@ class KGBoidNode: SKShapeNode {
         }
     }
     
+    // MARK: - SKShapeNode properties
+    
     override var position: CGPoint {
         didSet {
+            guard position != oldValue, position.distance(to: oldValue) > 20 else { return }
+            
             let normalizedY = position.y.normalize(to: confinementFrame.size.height + confinementFrame.origin.y)
-            fillColor = UIColor(red: normalizedY * normalizedY + 0.1, green: 0.1 * normalizedY, blue: 0.4 * normalizedY + 0.3, alpha: boidsAlpha)
+            fillColor = UIColor(red: normalizedY * normalizedY + 0.1, green: 0.1 * normalizedY, blue: 0.4 * normalizedY + 0.3, alpha: fillColorAlpha)
         }
     }
     
@@ -112,21 +114,21 @@ class KGBoidNode: SKShapeNode {
     
     private func setPropertyAlpha(for neighbourCount: Int) {
         if neighbourCount > 10 {
-            boidsAlpha = 0.7
+            fillColorAlpha = 0.7
             return
         }
         
         if neighbourCount > 6 {
-            boidsAlpha = 0.55
+            fillColorAlpha = 0.55
             return
         }
         
         if neighbourCount > 3 {
-            boidsAlpha = 0.4
+            fillColorAlpha = 0.4
             return
         }
         
-        boidsAlpha = 0.2
+        fillColorAlpha = 0.2
     }
     
     // MARK: - Boid arrangement
@@ -229,7 +231,7 @@ extension KGBoidNode {
         let cloneNode = self.copy() as! KGBoidNode
         
         cloneNode.setProperty(confinementFrame: self.confinementFrame)
-        cloneNode.position = cloneNode.initPosition
+        cloneNode.position = cloneNode.initialPosition
         
         return cloneNode
     }
