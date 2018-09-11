@@ -49,22 +49,20 @@ class ArtPieceContainerViewController: UIViewController {
     }
     
     private func setupHeaderView() {
-        headerView.addSubview(loopingLinesView)
-        loopingLinesView.translatesAutoresizingMaskIntoConstraints = false
-        loopingLinesView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: view.frame.size.width * 300 / 1920).isActive = true
-        loopingLinesView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
-        
         let headerLabel = UILabel()
         headerLabel.font = UIFont.systemFont(ofSize: 40)
-        headerLabel.textColor = UIColor(r: 173, g: 173, b: 173, alpha: 0.5)
+        headerLabel.textColor = UIColor(r: 197, g: 218, b: 219, alpha: 0.5)
         headerLabel.text = "Gallery of Generative Art"
-        headerLabel.shadowColor = UIColor(r: 0, g: 0, b: 0, alpha: 0.1)
-        headerLabel.shadowOffset = CGSize(width: 0, height: 2)
         
         headerView.addSubview(headerLabel)
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         headerLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
         headerLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
+        
+        headerView.addSubview(loopingLinesView)
+        loopingLinesView.translatesAutoresizingMaskIntoConstraints = false
+        loopingLinesView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: view.frame.size.width * 300 / 1920).isActive = true
+        loopingLinesView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
         
         view.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false

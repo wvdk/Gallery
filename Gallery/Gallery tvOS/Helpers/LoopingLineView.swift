@@ -30,7 +30,7 @@ class LoopingLinesView: UIView {
     
     func rotate() {
         for subview in subviews {
-            subview.rotate(duration: 30.0)
+            subview.rotate(duration: 50.0)
         }
     }
 }
