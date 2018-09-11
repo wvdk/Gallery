@@ -1,5 +1,5 @@
 //
-//  BoidNode.swift
+//  KGBoidNode.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 9/7/18.
@@ -9,7 +9,7 @@
 
 import SpriteKit
 
-class BoidNode: SKShapeNode {
+class KGBoidNode: SKShapeNode {
     
     // MARK: - Constants
     
@@ -30,7 +30,7 @@ class BoidNode: SKShapeNode {
         }
     }
     
-    var neightbourBoidNodes = [BoidNode]() {
+    var neightbourBoidNodes = [KGBoidNode]() {
         didSet {
             guard neightbourBoidNodes.count != oldValue.count, neightbourBoidNodes.count > 0 else { return }
             
@@ -73,8 +73,8 @@ class BoidNode: SKShapeNode {
         //        triangleBezierPath.addLine(to: CGPoint(x: -BoidNode.length, y: 10))
         //        triangleBezierPath.addLine(to: CGPoint(x: 0, y: 0))
         
-        triangleBezierPath.move(to: CGPoint(x: -BoidNode.length, y: -10))
-        triangleBezierPath.addLine(to: CGPoint(x: -BoidNode.length, y: 10))
+        triangleBezierPath.move(to: CGPoint(x: -KGBoidNode.length, y: -10))
+        triangleBezierPath.addLine(to: CGPoint(x: -KGBoidNode.length, y: 10))
         triangleBezierPath.addLine(to: CGPoint(x: 0, y: 10))
         triangleBezierPath.addLine(to: CGPoint(x: 0, y: -10))
         
@@ -125,7 +125,7 @@ class BoidNode: SKShapeNode {
         }
         
         let averageDistance = neightbourBoidNodeDistance.averageForCGVectors
-        let distance = averageDistance.length > CGFloat(BoidNode.length) / 2 ? averageDistance : CGVector(dx: BoidNode.length / 2, dy: BoidNode.length / 2)
+        let distance = averageDistance.length > CGFloat(KGBoidNode.length) / 2 ? averageDistance : CGVector(dx: KGBoidNode.length / 2, dy: KGBoidNode.length / 2)
         
         return distance
     }
@@ -141,7 +141,7 @@ class BoidNode: SKShapeNode {
     override init() {
         super.init()
         
-        name = BoidNode.uniqueName
+        name = KGBoidNode.uniqueName
         path = boidPath
         //        fillColor = defaultColor
         strokeColor = .clear

@@ -28,12 +28,12 @@
 		891549F721150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */; };
 		891549F921150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */; };
 		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
-		8919BE3221433F3500967B9A /* A1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3121433F3500967B9A /* A1View.swift */; };
-		8919BE3421433FBA00967B9A /* A1Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3321433FBA00967B9A /* A1Scene.swift */; };
-		8919BE3521433FBA00967B9A /* A1Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3321433FBA00967B9A /* A1Scene.swift */; };
-		8919BE3621433FBE00967B9A /* A1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3121433F3500967B9A /* A1View.swift */; };
-		8919BE3821433FF900967B9A /* BoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3721433FF900967B9A /* BoidNode.swift */; };
-		8919BE3921433FF900967B9A /* BoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3721433FF900967B9A /* BoidNode.swift */; };
+		8919BE3221433F3500967B9A /* KGBoidsThreeColumnsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3121433F3500967B9A /* KGBoidsThreeColumnsView.swift */; };
+		8919BE3421433FBA00967B9A /* KGBoidsThreeColumnsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3321433FBA00967B9A /* KGBoidsThreeColumnsScene.swift */; };
+		8919BE3521433FBA00967B9A /* KGBoidsThreeColumnsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3321433FBA00967B9A /* KGBoidsThreeColumnsScene.swift */; };
+		8919BE3621433FBE00967B9A /* KGBoidsThreeColumnsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3121433F3500967B9A /* KGBoidsThreeColumnsView.swift */; };
+		8919BE3821433FF900967B9A /* KGBoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3721433FF900967B9A /* KGBoidNode.swift */; };
+		8919BE3921433FF900967B9A /* KGBoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3721433FF900967B9A /* KGBoidNode.swift */; };
 		8919BE3B214340A300967B9A /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3A214340A300967B9A /* CGFloat+Extension.swift */; };
 		8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
 		8919BE3E2143413700967B9A /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3A214340A300967B9A /* CGFloat+Extension.swift */; };
@@ -198,9 +198,9 @@
 		891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
-		8919BE3121433F3500967B9A /* A1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A1View.swift; sourceTree = "<group>"; };
-		8919BE3321433FBA00967B9A /* A1Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A1Scene.swift; sourceTree = "<group>"; };
-		8919BE3721433FF900967B9A /* BoidNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoidNode.swift; sourceTree = "<group>"; };
+		8919BE3121433F3500967B9A /* KGBoidsThreeColumnsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsThreeColumnsView.swift; sourceTree = "<group>"; };
+		8919BE3321433FBA00967B9A /* KGBoidsThreeColumnsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsThreeColumnsScene.swift; sourceTree = "<group>"; };
+		8919BE3721433FF900967B9A /* KGBoidNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidNode.swift; sourceTree = "<group>"; };
 		8919BE3A214340A300967B9A /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		8919BE3C2143413300967B9A /* CGVector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Extension.swift"; sourceTree = "<group>"; };
 		8919BE402143422D00967B9A /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
@@ -381,14 +381,12 @@
 			path = "Art Piece Collection View Controllers";
 			sourceTree = "<group>";
 		};
-		8919BE4521434BDE00967B9A /* A1 Art Piece */ = {
+		8919BE4521434BDE00967B9A /* KG */ = {
 			isa = PBXGroup;
 			children = (
-				8919BE3121433F3500967B9A /* A1View.swift */,
-				8919BE3321433FBA00967B9A /* A1Scene.swift */,
-				8919BE3721433FF900967B9A /* BoidNode.swift */,
+				89FE6CE6214829F1006372B1 /* Boids */,
 			);
-			path = "A1 Art Piece";
+			path = KG;
 			sourceTree = "<group>";
 		};
 		89485BCE20F2A07000046753 /* A736D Art Piece */ = {
@@ -408,7 +406,7 @@
 				894C691720EFC7CF003A5387 /* A586q Art Piece */,
 				DEA066D820C47FD700489BF8 /* A565zView.swift */,
 				894C691220EFC224003A5387 /* A994tView.swift */,
-				8919BE4521434BDE00967B9A /* A1 Art Piece */,
+				8919BE4521434BDE00967B9A /* KG */,
 			);
 			path = "Art Pieces";
 			sourceTree = "<group>";
@@ -440,6 +438,24 @@
 				89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */,
 			);
 			path = Transitions;
+			sourceTree = "<group>";
+		};
+		89FE6CE6214829F1006372B1 /* Boids */ = {
+			isa = PBXGroup;
+			children = (
+				89FE6CE721482A0D006372B1 /* ThreeColumns */,
+				8919BE3721433FF900967B9A /* KGBoidNode.swift */,
+			);
+			path = Boids;
+			sourceTree = "<group>";
+		};
+		89FE6CE721482A0D006372B1 /* ThreeColumns */ = {
+			isa = PBXGroup;
+			children = (
+				8919BE3121433F3500967B9A /* KGBoidsThreeColumnsView.swift */,
+				8919BE3321433FBA00967B9A /* KGBoidsThreeColumnsScene.swift */,
+			);
+			path = ThreeColumns;
 			sourceTree = "<group>";
 		};
 		DE0B7FA420E3E337000B482F /* GalleryCore iOS */ = {
@@ -945,12 +961,12 @@
 				894C692020F13FB0003A5387 /* A586qScene.swift in Sources */,
 				8970BCBC20E95F200006870D /* ArtView.swift in Sources */,
 				89485BCF20F2A08B00046753 /* A736DView.swift in Sources */,
-				8919BE3621433FBE00967B9A /* A1View.swift in Sources */,
+				8919BE3621433FBE00967B9A /* KGBoidsThreeColumnsView.swift in Sources */,
 				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
-				8919BE3921433FF900967B9A /* BoidNode.swift in Sources */,
+				8919BE3921433FF900967B9A /* KGBoidNode.swift in Sources */,
 				894C691A20F13893003A5387 /* A994tView.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */,
-				8919BE3521433FBA00967B9A /* A1Scene.swift in Sources */,
+				8919BE3521433FBA00967B9A /* KGBoidsThreeColumnsScene.swift in Sources */,
 				894C691B20F13896003A5387 /* A586qView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -966,13 +982,13 @@
 				894C691820F13883003A5387 /* A736DScene.swift in Sources */,
 				894C691620EFC5A0003A5387 /* A586qView.swift in Sources */,
 				894C691320EFC224003A5387 /* A994tView.swift in Sources */,
-				8919BE3421433FBA00967B9A /* A1Scene.swift in Sources */,
+				8919BE3421433FBA00967B9A /* KGBoidsThreeColumnsScene.swift in Sources */,
 				DE0B7FB320E3E35B000B482F /* IDGenerator.swift in Sources */,
-				8919BE3821433FF900967B9A /* BoidNode.swift in Sources */,
+				8919BE3821433FF900967B9A /* KGBoidNode.swift in Sources */,
 				89485BCD20F29EF500046753 /* A736DView.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
 				DE0B7FB120E3E352000B482F /* ArtMetadata.swift in Sources */,
-				8919BE3221433F3500967B9A /* A1View.swift in Sources */,
+				8919BE3221433F3500967B9A /* KGBoidsThreeColumnsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,7 +39,7 @@ public class MasterList {
         
         // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
         activePieces = [
-            ArtMetadata(id: "A1", author: "kg", prettyPublishedDate: "September 2018", viewType: A1View.self, thumbnail: nil),
+            ArtMetadata(id: "ThreeColumnBoids", author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsThreeColumnsView.self, thumbnail: nil),
             ArtMetadata(id: "A565z",
                         author: "wvdk",
                         prettyPublishedDate: "June 2018",

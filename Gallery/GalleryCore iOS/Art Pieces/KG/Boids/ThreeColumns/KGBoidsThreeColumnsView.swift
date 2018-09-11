@@ -1,5 +1,5 @@
 //
-//  A1View.swift
+//  KGBoidsThreeColumnsView.swift
 //  GalleryCore iOS
 //
 //  Created by Kristina Gelzinyte on 9/7/18.
@@ -9,11 +9,11 @@
 import UIKit
 import SpriteKit
 
-class A1View: ArtView {
+class KGBoidsThreeColumnsView: ArtView {
     
     // MARK: - Properties
     
-    private var scene = A1Scene()
+    private var scene = KGBoidsThreeColumnsScene()
     private let spriteKitView = SKView()
     
     // MARK: - Initialization

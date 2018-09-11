@@ -1,5 +1,5 @@
 //
-//  A1Scene.swift
+//  KGBoidsThreeColumnsScene.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 9/7/18.
@@ -9,24 +9,24 @@
 import SpriteKit
 import GameplayKit
 
-class A1Scene: SKScene {
+class KGBoidsThreeColumnsScene: SKScene {
     
     // MARK: - Properties
     
-    private var allBoids = [BoidNode]()
+    private var allBoids = [KGBoidNode]()
 
-    private lazy var boidNode = BoidNode(constrainedIn: gameSceneWorldFrame)
+    private lazy var boidNode = KGBoidNode(constrainedIn: gameSceneWorldFrame)
     
     private lazy var gameSceneWidth = size.width / 10
     private lazy var gameSceneHeight = size.height - 100
     private lazy var gameSceneWorldFrame = CGRect(origin: CGPoint(x: size.width / 2 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
                                      size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
     
-    private lazy var boidNode2 = BoidNode(constrainedIn: gameSceneWorld2Frame)
+    private lazy var boidNode2 = KGBoidNode(constrainedIn: gameSceneWorld2Frame)
     private lazy var gameSceneWorld2Frame = CGRect(origin: CGPoint(x: size.width / 6 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
                                                    size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
     
-    private lazy var boidNode3 = BoidNode(constrainedIn: gameSceneWorld3Frame)
+    private lazy var boidNode3 = KGBoidNode(constrainedIn: gameSceneWorld3Frame)
     private lazy var gameSceneWorld3Frame = CGRect(origin: CGPoint(x: size.width * 5 / 6 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
                                                    size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
     
@@ -74,8 +74,8 @@ class A1Scene: SKScene {
     
     // MARK: - Node control
     
-    func spit(boid: BoidNode, in frame: CGRect, at position: CGPoint) {
-        guard let newBoidNode = boid.copy() as? BoidNode else { return }
+    func spit(boid: KGBoidNode, in frame: CGRect, at position: CGPoint) {
+        guard let newBoidNode = boid.copy() as? KGBoidNode else { return }
         newBoidNode.updateConfinementFrame(frame: frame)
         newBoidNode.position = position
         self.addChild(newBoidNode)
@@ -125,7 +125,7 @@ class A1Scene: SKScene {
                     return false
                 }
                 
-                if boid.position.distance(to: possiblyNeighbourBoid.position) < CGFloat(BoidNode.length * 4) {
+                if boid.position.distance(to: possiblyNeighbourBoid.position) < CGFloat(KGBoidNode.length * 4) {
                     return true
                 }
                 
