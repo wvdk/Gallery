@@ -378,36 +378,36 @@
 			path = "Collection Controller Cells";
 			sourceTree = "<group>";
 		};
-		89485BCE20F2A07000046753 /* A736D Art Piece */ = {
+		89485BCE20F2A07000046753 /* A736D */ = {
 			isa = PBXGroup;
 			children = (
 				89485BCC20F29EF500046753 /* A736DView.swift */,
 				DE332B77205B84CE00C40727 /* A736DScene.swift */,
 				DE165CD2205B891F00E28C37 /* A736DActions.sks */,
 			);
-			path = "A736D Art Piece";
+			path = A736D;
 			sourceTree = "<group>";
 		};
 		894C691420EFC565003A5387 /* Art Pieces */ = {
 			isa = PBXGroup;
 			children = (
-				89C3866920F49451004BF43F /* A857C Art Piece */,
-				89485BCE20F2A07000046753 /* A736D Art Piece */,
-				894C691720EFC7CF003A5387 /* A586q Art Piece */,
-				DEA066D820C47FD700489BF8 /* A565zView.swift */,
-				894C691220EFC224003A5387 /* A994tView.swift */,
+				DEDA5AD12148123300C4E6C8 /* A565z */,
+				89C3866920F49451004BF43F /* A857C */,
+				89485BCE20F2A07000046753 /* A736D */,
+				894C691720EFC7CF003A5387 /* A586q */,
+				DEDA5AD22148126D00C4E6C8 /* A994t */,
 			);
 			path = "Art Pieces";
 			sourceTree = "<group>";
 		};
-		894C691720EFC7CF003A5387 /* A586q Art Piece */ = {
+		894C691720EFC7CF003A5387 /* A586q */ = {
 			isa = PBXGroup;
 			children = (
 				894C691520EFC5A0003A5387 /* A586qView.swift */,
 				894C691E20F13FAE003A5387 /* A586qScene.swift */,
 				DEEB709D20684F4200F4ACAD /* A586qActions.sks */,
 			);
-			path = "A586q Art Piece";
+			path = A586q;
 			sourceTree = "<group>";
 		};
 		8970BCAA20E95D160006870D /* GalleryCore tvOS */ = {
@@ -429,13 +429,13 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
-		89C3866920F49451004BF43F /* A857C Art Piece */ = {
+		89C3866920F49451004BF43F /* A857C */ = {
 			isa = PBXGroup;
 			children = (
 				89C3866520F491F6004BF43F /* A857CView.swift */,
 				89E96473205E87F1009B5420 /* A857CFragmentShader.fsh */,
 			);
-			path = "A857C Art Piece";
+			path = A857C;
 			sourceTree = "<group>";
 		};
 		DE0B7FA420E3E337000B482F /* GalleryCore iOS */ = {
@@ -526,6 +526,22 @@
 				DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DEDA5AD12148123300C4E6C8 /* A565z */ = {
+			isa = PBXGroup;
+			children = (
+				DEA066D820C47FD700489BF8 /* A565zView.swift */,
+			);
+			path = A565z;
+			sourceTree = "<group>";
+		};
+		DEDA5AD22148126D00C4E6C8 /* A994t */ = {
+			isa = PBXGroup;
+			children = (
+				894C691220EFC224003A5387 /* A994tView.swift */,
+			);
+			path = A994t;
 			sourceTree = "<group>";
 		};
 		DEDB687420E946D900D102EB /* ArtKit tvOS */ = {
