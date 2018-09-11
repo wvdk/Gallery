@@ -64,7 +64,7 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegateFlow
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.size.width * 1074 / 1920
-        let height = view.frame.size.height * 664 / 1119
+        let height = view.frame.size.height * 804 / 1119
         return CGSize(width: width, height: height)
     }
     
