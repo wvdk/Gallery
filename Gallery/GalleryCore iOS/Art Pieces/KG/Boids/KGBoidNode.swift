@@ -30,6 +30,16 @@ class KGBoidNode: SKShapeNode {
         }
     }
     
+    var initPosition: CGPoint {
+        let xPosition = CGFloat.random(min: confinementFrame.origin.x,
+                                       max: confinementFrame.origin.x + confinementFrame.size.width)
+        
+        let yPosition = CGFloat.random(min: confinementFrame.origin.y,
+                                       max: confinementFrame.origin.y + confinementFrame.size.height)
+        
+        return CGPoint(x: xPosition, y: yPosition)
+    }
+    
     var neightbourBoidNodes = [KGBoidNode]() {
         didSet {
             guard neightbourBoidNodes.count != oldValue.count, neightbourBoidNodes.count > 0 else { return }
@@ -132,10 +142,10 @@ class KGBoidNode: SKShapeNode {
     
     // MARK: - Initialization
     
-    convenience init(constrainedIn frame: CGRect) {
+    convenience init(confinementFrame: CGRect) {
         self.init()
         
-        confinementFrame = frame
+        self.confinementFrame = confinementFrame
     }
     
     override init() {
@@ -174,10 +184,10 @@ class KGBoidNode: SKShapeNode {
         }
     }
     
-    // MARK: - Boid confinement
+    // MARK: - Boid properties update
     
-    func updateConfinementFrame(frame: CGRect) {
-        confinementFrame = frame
+    func setProperty(confinementFrame: CGRect) {
+        self.confinementFrame = confinementFrame
     }
     
     // MARK: - Boid movement
@@ -241,5 +251,16 @@ class KGBoidNode: SKShapeNode {
         if position.y > confinementFrame.origin.y + confinementFrame.size.height {
             position.y = confinementFrame.origin.y
         }
+    }
+}
+
+extension KGBoidNode {
+    
+    /// Returns a copy of a receiver's node with exactly same confinement frame.
+    func clone() -> KGBoidNode {
+        let cloneNode = self.copy() as! KGBoidNode
+        cloneNode.setProperty(confinementFrame: self.confinementFrame)
+        cloneNode.position = cloneNode.initPosition
+        return cloneNode
     }
 }

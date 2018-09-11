@@ -15,19 +15,20 @@ class KGBoidsThreeColumnsScene: SKScene {
     
     private var allBoids = [KGBoidNode]()
 
-    private lazy var boidNode = KGBoidNode(constrainedIn: gameSceneWorldFrame)
-    
+    private lazy var boidNode = KGBoidNode(confinementFrame: gameSceneWorldFrame)
+    private lazy var boidNode2 = KGBoidNode(confinementFrame: gameSceneWorld2Frame)
+    private lazy var boidNode3 = KGBoidNode(confinementFrame: gameSceneWorld3Frame)
+
     private lazy var gameSceneWidth = size.width / 10
     private lazy var gameSceneHeight = size.height - 100
-    private lazy var gameSceneWorldFrame = CGRect(origin: CGPoint(x: size.width / 2 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
-                                     size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
-    
-    private lazy var boidNode2 = KGBoidNode(constrainedIn: gameSceneWorld2Frame)
-    private lazy var gameSceneWorld2Frame = CGRect(origin: CGPoint(x: size.width / 6 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
+    private lazy var gameSceneWorldFrame = CGRect(origin: CGPoint(x: size.width / 2 - gameSceneWidth / 2,
+                                                                  y: size.height / 2 - gameSceneHeight / 2),
+                                                  size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
+    private lazy var gameSceneWorld2Frame = CGRect(origin: CGPoint(x: size.width / 6 - gameSceneWidth / 2,
+                                                                   y: size.height / 2 - gameSceneHeight / 2),
                                                    size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
-    
-    private lazy var boidNode3 = KGBoidNode(constrainedIn: gameSceneWorld3Frame)
-    private lazy var gameSceneWorld3Frame = CGRect(origin: CGPoint(x: size.width * 5 / 6 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
+    private lazy var gameSceneWorld3Frame = CGRect(origin: CGPoint(x: size.width * 5 / 6 - gameSceneWidth / 2,
+                                                                   y: size.height / 2 - gameSceneHeight / 2),
                                                    size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
     
     // MARK: - Lifecycle functions
@@ -43,24 +44,15 @@ class KGBoidsThreeColumnsScene: SKScene {
 //        self.addChild(testNode)
         
         for _ in 0...20 {
-            spit(boid: boidNode, in: gameSceneWorldFrame, at: CGPoint(x: CGFloat.random(min: gameSceneWorldFrame.origin.x,
-                                                                                        max: gameSceneWorldFrame.origin.x + gameSceneWorldFrame.size.width),
-                                                                      y: CGFloat.random(min: gameSceneWorldFrame.origin.y,
-                                                                                        max: gameSceneWorldFrame.origin.y + gameSceneWorldFrame.size.height)))
+            spit(boid: boidNode)
         }
         
         for _ in 0...20 {
-            spit(boid: boidNode2, in: gameSceneWorld2Frame, at: CGPoint(x: CGFloat.random(min: gameSceneWorld2Frame.origin.x,
-                                                                                          max: gameSceneWorld2Frame.origin.x + gameSceneWorld2Frame.size.width),
-                                                                        y: CGFloat.random(min: gameSceneWorld2Frame.origin.y,
-                                                                                          max: gameSceneWorld2Frame.origin.y + gameSceneWorld2Frame.size.height)))
+            spit(boid: boidNode2)
         }
         
         for _ in 0...20 {
-            spit(boid: boidNode3, in: gameSceneWorld3Frame, at: CGPoint(x: CGFloat.random(min: gameSceneWorld3Frame.origin.x,
-                                                                                          max: gameSceneWorld3Frame.origin.x + gameSceneWorld3Frame.size.width),
-                                                                        y: CGFloat.random(min: gameSceneWorld3Frame.origin.y,
-                                                                                          max: gameSceneWorld3Frame.origin.y + gameSceneWorld3Frame.size.height)))
+            spit(boid: boidNode3)
         }
         
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateBoidAlignmentCoefficient), userInfo: nil, repeats: true)
@@ -74,12 +66,10 @@ class KGBoidsThreeColumnsScene: SKScene {
     
     // MARK: - Node control
     
-    func spit(boid: KGBoidNode, in frame: CGRect, at position: CGPoint) {
-        guard let newBoidNode = boid.copy() as? KGBoidNode else { return }
-        newBoidNode.updateConfinementFrame(frame: frame)
-        newBoidNode.position = position
-        self.addChild(newBoidNode)
-        allBoids.append(newBoidNode)
+    func spit(boid: KGBoidNode) {
+        let cloneBoid = boid.clone()
+        self.addChild(cloneBoid)
+        allBoids.append(cloneBoid)
     }
     
     func updateBoidSpeednCoefficient(to value: CGFloat) {
