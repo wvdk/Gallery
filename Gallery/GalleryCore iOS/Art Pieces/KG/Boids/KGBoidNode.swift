@@ -133,24 +133,18 @@ class KGBoidNode: SKShapeNode {
         self.strokeColor = .clear
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateDirectionRandomness), userInfo: nil, repeats: true)
-        Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(boidAfterParticles), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(spitTraceParticle), userInfo: nil, repeats: true)
     }
     
-    // MARK: - Boid particle setup
+    // MARK: - Boid trace particle setup
     
-    @objc func boidAfterParticles() {
-        if let copyCircle = circle.copy() as? SKShapeNode {
-            copyCircle.fillColor = fillColor
-            copyCircle.strokeColor = .clear
-            copyCircle.position = position
-            
-            self.parent?.addChild(copyCircle)
-            
-            let fadeOut = SKAction.fadeOut(withDuration: 1)
-            
-            copyCircle.run(fadeOut) {
-                copyCircle.removeFromParent()
-            }
+    @objc func spitTraceParticle() {
+        guard let traceNode = (self as? SKShapeNode)?.clone(withColor: true, withPosition: true) else { return }
+        self.parent?.addChild(traceNode)
+        
+        let fadeOut = SKAction.fadeOut(withDuration: 1)
+        traceNode.run(fadeOut) {
+            traceNode.removeFromParent()
         }
     }
     
@@ -227,7 +221,7 @@ class KGBoidNode: SKShapeNode {
 extension KGBoidNode {
     
     /// Returns a copy of a receiver's node with exactly same confinement frame.
-    func clone() -> KGBoidNode {
+    var clone: KGBoidNode {
         let cloneNode = self.copy() as! KGBoidNode
         
         cloneNode.setProperty(confinementFrame: self.confinementFrame)
@@ -237,47 +231,20 @@ extension KGBoidNode {
     }
 }
 
-/// The boid property list you can pass in a KGBoidNode init function.
-/// Uses associated values to specifie values.
-enum KGBoidProperties {
+extension SKShapeNode {
     
-    /// Creats trace particle every specified time interval in sec of type `CGFloat`.
-    case leavesTranceParticlesEverySec(CGFloat)
-    
-    case strokeColor(UIColor)
-    
-    case fillColor(UIColor)
-    
-    case customShape(CGPath)
-}
-
-enum KGBoidsShape {
-    
-    case square
-    case triangle
-    
-    func cgPathRepresentative(length: CGFloat) -> CGPath {
-        switch self {
-        case .square:
-            let squareBezierPath = UIBezierPath()
-
-            squareBezierPath.move(to: CGPoint(x: -length, y: -length / 2))
-            squareBezierPath.addLine(to: CGPoint(x: -length, y: length / 2))
-            squareBezierPath.addLine(to: CGPoint(x: 0, y: length / 2))
-            squareBezierPath.addLine(to: CGPoint(x: 0, y: -length / 2))
-            squareBezierPath.close()
-
-            return squareBezierPath.cgPath
-            
-        case .triangle:
-            let triangleBezierPath = UIBezierPath()
-            
-            triangleBezierPath.move(to: CGPoint(x: -length, y: -length / 2))
-            triangleBezierPath.addLine(to: CGPoint(x: -length, y: length / 2))
-            triangleBezierPath.addLine(to: CGPoint(x: 0, y: 0))
-            triangleBezierPath.close()
-
-            return triangleBezierPath.cgPath
+    func clone(withColor: Bool = true, withPosition: Bool = true) -> SKShapeNode {
+        let cloneNode = self.copy() as! SKShapeNode
+        
+        if withColor {
+            cloneNode.fillColor = self.fillColor
+            cloneNode.strokeColor = self.strokeColor
         }
+        
+        if withPosition {
+            cloneNode.position = self.position
+        }
+        
+        return cloneNode
     }
 }

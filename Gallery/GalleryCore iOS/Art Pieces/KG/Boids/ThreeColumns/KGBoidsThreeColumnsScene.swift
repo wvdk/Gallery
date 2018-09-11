@@ -15,20 +15,17 @@ class KGBoidsThreeColumnsScene: SKScene {
     
     private var allBoids = [KGBoidNode]()
 
-    private lazy var boidNode = KGBoidNode(from: KGBoidsShape.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorldFrame)
-    private lazy var boidNode2 = KGBoidNode(from: KGBoidsShape.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorld2Frame)
-    private lazy var boidNode3 = KGBoidNode(from: KGBoidsShape.square.cgPathRepresentative(length: 10), confinementFrame: gameSceneWorld3Frame)
+    private lazy var boidNode = KGBoidNode(from: KGBoidShapes.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorldFrame)
+    private lazy var boidNode2 = KGBoidNode(from: KGBoidShapes.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorld2Frame)
+    private lazy var boidNode3 = KGBoidNode(from: KGBoidShapes.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorld3Frame)
 
     private lazy var gameSceneWidth = size.width / 10
     private lazy var gameSceneHeight = size.height - 100
-    private lazy var gameSceneWorldFrame = CGRect(origin: CGPoint(x: size.width / 2 - gameSceneWidth / 2,
-                                                                  y: size.height / 2 - gameSceneHeight / 2),
+    private lazy var gameSceneWorldFrame = CGRect(origin: CGPoint(x: size.width / 2 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
                                                   size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
-    private lazy var gameSceneWorld2Frame = CGRect(origin: CGPoint(x: size.width / 6 - gameSceneWidth / 2,
-                                                                   y: size.height / 2 - gameSceneHeight / 2),
+    private lazy var gameSceneWorld2Frame = CGRect(origin: CGPoint(x: size.width / 6 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
                                                    size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
-    private lazy var gameSceneWorld3Frame = CGRect(origin: CGPoint(x: size.width * 5 / 6 - gameSceneWidth / 2,
-                                                                   y: size.height / 2 - gameSceneHeight / 2),
+    private lazy var gameSceneWorld3Frame = CGRect(origin: CGPoint(x: size.width * 5 / 6 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
                                                    size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
     
     // MARK: - Lifecycle functions
@@ -67,7 +64,7 @@ class KGBoidsThreeColumnsScene: SKScene {
     // MARK: - Node control
     
     func spit(boid: KGBoidNode) {
-        let cloneBoid = boid.clone()
+        let cloneBoid = boid.clone
         self.addChild(cloneBoid)
         allBoids.append(cloneBoid)
     }
