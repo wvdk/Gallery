@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SceneKit
+import SpriteKit
 
 #if os(iOS)
 import ArtKit_iOS
@@ -28,6 +28,10 @@ public class A565zView: ArtView {
         box.layer.borderColor = UIColor.blue.cgColor
         box.layer.borderWidth = 1.0
         box.loopInSuperview(duplicationCount: 3, with: [UIView.LoopingOptions.moveHorizontallyWithIncrement(200)])
+        
+        let scene = SKScene(fileNamed: "A565zScene")
+        let spriteKitView = SKView(frame: .zero)
+//        spriteKitView.
     }
     
     public required init?(coder aDecoder: NSCoder) {
