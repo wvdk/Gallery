@@ -103,6 +103,8 @@
 		DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */; };
 		DEDA5AD4214812BA00C4E6C8 /* A565zActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEDA5AD3214812BA00C4E6C8 /* A565zActions.sks */; };
 		DEDA5AD6214812F100C4E6C8 /* A565zScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEDA5AD5214812F100C4E6C8 /* A565zScene.sks */; };
+		DEDA5AD7214815D800C4E6C8 /* A565zScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEDA5AD5214812F100C4E6C8 /* A565zScene.sks */; };
+		DEDA5AD8214815DE00C4E6C8 /* A565zActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEDA5AD3214812BA00C4E6C8 /* A565zActions.sks */; };
 		DEDB687720E946D900D102EB /* ArtKit_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DEDB687520E946D900D102EB /* ArtKit_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DEDB687F20E946EE00D102EB /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB570205C3DA10022FBE2 /* CustomOperators.swift */; };
 		DEDB688020E946EE00D102EB /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7F205B857900C40727 /* ArrayExtensions.swift */; };
@@ -787,8 +789,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEDA5AD7214815D800C4E6C8 /* A565zScene.sks in Resources */,
 				891549ED2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */,
 				89C3866D20F49845004BF43F /* A857CFragmentShader.fsh in Resources */,
+				DEDA5AD8214815DE00C4E6C8 /* A565zActions.sks in Resources */,
 				894C691C20F13899003A5387 /* A586qActions.sks in Resources */,
 				89485BD120F2A08F00046753 /* A736DActions.sks in Resources */,
 			);

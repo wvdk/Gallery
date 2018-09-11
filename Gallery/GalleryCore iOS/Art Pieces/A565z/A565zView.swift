@@ -17,25 +17,50 @@ import ArtKit_tvOS
 
 public class A565zView: ArtView {
 
+    private lazy var scene: SKScene! = {
+        guard let gameScenePath = Bundle(for: type(of: self)).path(forResource: "A565zScene", ofType: "sks") else {
+            fatalError()
+        }
+        
+        guard let gameSceneData = FileManager.default.contents(atPath: gameScenePath) else {
+            fatalError()
+        }
+        
+        return NSKeyedUnarchiver.unarchiveObject(with: gameSceneData) as? SKScene
+    }()
+
     public required init(frame: CGRect) {
         super.init(frame: frame)
         
+
         backgroundColor = .white
-        
-        let box = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
-        addSubview(box)
-        box.backgroundColor = .white
-        box.layer.borderColor = UIColor.blue.cgColor
-        box.layer.borderWidth = 1.0
-        box.loopInSuperview(duplicationCount: 3, with: [UIView.LoopingOptions.moveHorizontallyWithIncrement(200)])
-        
-        let scene = SKScene(fileNamed: "A565zScene")
+
         let spriteKitView = SKView(frame: .zero)
-//        spriteKitView.fill
+        addSubview(spriteKitView)
+        spriteKitView.autolayoutFill(parent: self)
+        
+        sendSubview(toBack: spriteKitView)
+        
+        spriteKitView.ignoresSiblingOrder = true
+        spriteKitView.showsFPS = false
+        spriteKitView.showsNodeCount = false
+        spriteKitView.presentScene(scene)
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override public func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        
+        guard var size = newSuperview?.frame.size else { return }
+        if size == .zero {
+            size = superview?.frame.size ?? UIScreen.main.bounds.size
+        }
+        scene.size = size
+//        scene.clearScreen()
+    }
+
     
 }
