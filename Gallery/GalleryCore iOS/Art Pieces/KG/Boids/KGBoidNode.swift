@@ -31,12 +31,8 @@ class KGBoidNode: SKShapeNode {
     }
     
     var initPosition: CGPoint {
-        let xPosition = CGFloat.random(min: confinementFrame.origin.x,
-                                       max: confinementFrame.origin.x + confinementFrame.size.width)
-        
-        let yPosition = CGFloat.random(min: confinementFrame.origin.y,
-                                       max: confinementFrame.origin.y + confinementFrame.size.height)
-        
+        let xPosition = CGFloat.random(min: confinementFrame.origin.x, max: confinementFrame.origin.x + confinementFrame.size.width)
+        let yPosition = CGFloat.random(min: confinementFrame.origin.y, max: confinementFrame.origin.y + confinementFrame.size.height)
         return CGPoint(x: xPosition, y: yPosition)
     }
     
@@ -76,21 +72,6 @@ class KGBoidNode: SKShapeNode {
     private var confinementFrame = CGRect.zero
     
     private var canUpdateBoidsPosition = true
-    
-    private var boidPath: CGPath {
-        let triangleBezierPath = UIBezierPath()
-        //        triangleBezierPath.move(to: CGPoint(x: -BoidNode.length, y: -10))
-        //        triangleBezierPath.addLine(to: CGPoint(x: -BoidNode.length, y: 10))
-        //        triangleBezierPath.addLine(to: CGPoint(x: 0, y: 0))
-        
-        triangleBezierPath.move(to: CGPoint(x: -KGBoidNode.length, y: -10))
-        triangleBezierPath.addLine(to: CGPoint(x: -KGBoidNode.length, y: 10))
-        triangleBezierPath.addLine(to: CGPoint(x: 0, y: 10))
-        triangleBezierPath.addLine(to: CGPoint(x: 0, y: -10))
-        
-        triangleBezierPath.close()
-        return triangleBezierPath.cgPath
-    }
     
     private var hasNeighbourBoids: Bool {
         return !neightbourBoidNodes.isEmpty
@@ -142,28 +123,17 @@ class KGBoidNode: SKShapeNode {
     
     // MARK: - Initialization
     
-    convenience init(confinementFrame: CGRect) {
+    convenience init(from path: CGPath, confinementFrame: CGRect, properties: [KGBoidProperties]? = nil) {
         self.init()
         
         self.confinementFrame = confinementFrame
-    }
-    
-    override init() {
-        super.init()
+        self.path = path
         
-        name = KGBoidNode.uniqueName
-        path = boidPath
-        //        fillColor = defaultColor
-        strokeColor = .clear
+        self.name = KGBoidNode.uniqueName
+        self.strokeColor = .clear
         
-        let radom = Double(CGFloat.random(min: 0.2, max: 1.2))
-        Timer.scheduledTimer(timeInterval: radom, target: self, selector: #selector(updateDirectionRandomness), userInfo: nil, repeats: true)
-        
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateDirectionRandomness), userInfo: nil, repeats: true)
         Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(boidAfterParticles), userInfo: nil, repeats: true)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Boid particle setup
@@ -259,8 +229,55 @@ extension KGBoidNode {
     /// Returns a copy of a receiver's node with exactly same confinement frame.
     func clone() -> KGBoidNode {
         let cloneNode = self.copy() as! KGBoidNode
+        
         cloneNode.setProperty(confinementFrame: self.confinementFrame)
         cloneNode.position = cloneNode.initPosition
+        
         return cloneNode
+    }
+}
+
+/// The boid property list you can pass in a KGBoidNode init function.
+/// Uses associated values to specifie values.
+enum KGBoidProperties {
+    
+    /// Creats trace particle every specified time interval in sec of type `CGFloat`.
+    case leavesTranceParticlesEverySec(CGFloat)
+    
+    case strokeColor(UIColor)
+    
+    case fillColor(UIColor)
+    
+    case customShape(CGPath)
+}
+
+enum KGBoidsShape {
+    
+    case square
+    case triangle
+    
+    func cgPathRepresentative(length: CGFloat) -> CGPath {
+        switch self {
+        case .square:
+            let squareBezierPath = UIBezierPath()
+
+            squareBezierPath.move(to: CGPoint(x: -length, y: -length / 2))
+            squareBezierPath.addLine(to: CGPoint(x: -length, y: length / 2))
+            squareBezierPath.addLine(to: CGPoint(x: 0, y: length / 2))
+            squareBezierPath.addLine(to: CGPoint(x: 0, y: -length / 2))
+            squareBezierPath.close()
+
+            return squareBezierPath.cgPath
+            
+        case .triangle:
+            let triangleBezierPath = UIBezierPath()
+            
+            triangleBezierPath.move(to: CGPoint(x: -length, y: -length / 2))
+            triangleBezierPath.addLine(to: CGPoint(x: -length, y: length / 2))
+            triangleBezierPath.addLine(to: CGPoint(x: 0, y: 0))
+            triangleBezierPath.close()
+
+            return triangleBezierPath.cgPath
+        }
     }
 }

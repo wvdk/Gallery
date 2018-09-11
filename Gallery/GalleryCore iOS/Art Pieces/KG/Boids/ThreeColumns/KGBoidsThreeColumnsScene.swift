@@ -15,9 +15,9 @@ class KGBoidsThreeColumnsScene: SKScene {
     
     private var allBoids = [KGBoidNode]()
 
-    private lazy var boidNode = KGBoidNode(confinementFrame: gameSceneWorldFrame)
-    private lazy var boidNode2 = KGBoidNode(confinementFrame: gameSceneWorld2Frame)
-    private lazy var boidNode3 = KGBoidNode(confinementFrame: gameSceneWorld3Frame)
+    private lazy var boidNode = KGBoidNode(from: KGBoidsShape.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorldFrame)
+    private lazy var boidNode2 = KGBoidNode(from: KGBoidsShape.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorld2Frame)
+    private lazy var boidNode3 = KGBoidNode(from: KGBoidsShape.square.cgPathRepresentative(length: 10), confinementFrame: gameSceneWorld3Frame)
 
     private lazy var gameSceneWidth = size.width / 10
     private lazy var gameSceneHeight = size.height - 100
