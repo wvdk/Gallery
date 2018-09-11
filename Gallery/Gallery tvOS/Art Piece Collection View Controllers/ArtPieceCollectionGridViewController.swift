@@ -14,10 +14,10 @@ class ArtPieceCollectionGridViewController: UIViewController {
     // MARK: - Properties
 
     /// The object that acts as the delegate of the `ArtPieceCollectionViewControllerDelegate`.
-    weak var delegate: ArtPieceCollectionViewControllerDelegate? = nil
+    weak var delegate: ArtPieceCollectionViewControllerDelegate?
     
-    /// Sets up grid-like `UICollectionView` with vertical scrolling direction.
-    private var collectionView: UICollectionView {
+    /// Sets up `UICollectionView` with vertical scrolling direction.
+    private var gridCollectionView: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
@@ -43,8 +43,8 @@ class ArtPieceCollectionGridViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let collection = collectionView
-        view.addSubview(collection)
-        collection.constraint(edgesTo: view)
+        let collectionView = gridCollectionView
+        view.addSubview(collectionView)
+        collectionView.constraint(edgesTo: view)
     }
 }

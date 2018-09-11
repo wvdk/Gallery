@@ -22,7 +22,7 @@ class ArtPieceDisplayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let artView = artPieceMetadata.viewType.init(frame: view.bounds, artPieceMetadata: artPieceMetadata)
+        let artView = artPieceMetadata.viewType.init(frame: view.bounds)
         
         view.addSubview(artView)
         artView.constraint(edgesTo: view)

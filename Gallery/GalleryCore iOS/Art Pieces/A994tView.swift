@@ -19,8 +19,8 @@ class A994tView: ArtView {
     
     // MARK: - Initialization
 
-    public required init(frame: CGRect, artPieceMetadata: ArtMetadata) {
-        super.init(frame: frame, artPieceMetadata: artPieceMetadata)
+    public required init(frame: CGRect) {
+        super.init(frame: frame)
 
         tag = 124
 

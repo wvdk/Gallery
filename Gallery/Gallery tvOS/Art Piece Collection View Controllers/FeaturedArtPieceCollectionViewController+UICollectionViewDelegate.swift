@@ -20,25 +20,24 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegate {
         return 1
     }
 
+    func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        guard let nextFocusedIndexPath = context.nextFocusedIndexPath else { return }
         
         // Scroll manually to constrain cells in the center of the screen.
-        collectionView.scrollToItem(at: nextFocusedIndexPath, at: UICollectionViewScrollPosition.centeredHorizontally, animated: true)
+        if let nextFocusedIndexPath = context.nextFocusedIndexPath {
+            collectionView.scrollToItem(at: nextFocusedIndexPath,
+                                        at: UICollectionViewScrollPosition.centeredHorizontally,
+                                        animated: true)
+        }
         
         // Animates selection of focused cells.
+        // Doing it here because collection views use the same focused view but different scale coefficient.
         if let nextFocusedView = context.nextFocusedView as? FocusingView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
                 nextFocusedView.transformScale(to: 1.25)
-            }, completion: nil)
-        }
-
-        // Animates deselection of focused cells.
-        if let previouslyFocusedView = context.previouslyFocusedView as? FocusingView {
-            coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                UIView.animate(withDuration: animationContext.duration * 0.5, delay: 0, options: .curveEaseOut, animations: {
-                    previouslyFocusedView.transformScale(to: 1)
-                })
             }, completion: nil)
         }
     }
@@ -65,7 +64,7 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegateFlow
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.size.width * 1074 / 1920
-        let height = view.frame.size.height * 664 / 1119
+        let height = view.frame.size.height * 804 / 1119
         return CGSize(width: width, height: height)
     }
     
