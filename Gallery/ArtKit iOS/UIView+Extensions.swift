@@ -29,6 +29,24 @@ extension UIView {
         NSLayoutConstraint.activate(constraints)        
     }
     
+    /// Configure a UIView to completely fill its parent, minus any edge insets
+    ///
+    /// - Parameters:
+    ///   - parent: the UIView that the view should fill
+    ///   - edgeInsets: the amounts around each edge to inset the view by
+    func autolayoutFill(parent: UIView, edgeInsets: UIEdgeInsets = UIEdgeInsets.zero) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+            self.leftAnchor.constraint(equalTo: parent.leftAnchor, constant: edgeInsets.left),
+            self.rightAnchor.constraint(equalTo: parent.rightAnchor, constant: -edgeInsets.right),
+            self.topAnchor.constraint(equalTo: parent.topAnchor, constant: edgeInsets.top),
+            self.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -edgeInsets.bottom)]
+        
+        NSLayoutConstraint.activate(constraints)
+        
+    }
+    
 }
 
 // MARK: - Looping methods
