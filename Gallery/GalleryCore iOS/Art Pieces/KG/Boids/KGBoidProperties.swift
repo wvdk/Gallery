@@ -8,17 +8,14 @@
 
 /// The boid property list you can pass in a KGBoidNode init function.
 /// Uses associated values to specifie values.
-enum KGBoidProperties {
+enum KGBoidProperties: Equatable {
     
-    /// Creats trace particle every specified time interval in sec of type `CGFloat`.
-    case leavesTranceParticlesEverySec(CGFloat)
-    
+    /// Creats trace particle after specified distance `CGFloat`.
+    case leavesTranceBoidAtDistance(CGFloat)
+
     /// Sets boid stroke color to specified one.
     case strokeColor(UIColor)
-    
+
     /// Sets boid color to specified one.
     case fillColor(UIColor)
-    
-    /// Sets boids shape to specified one.
-    case customShape(CGPath)
 }

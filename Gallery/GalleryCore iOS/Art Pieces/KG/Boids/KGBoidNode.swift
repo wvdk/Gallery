@@ -33,6 +33,7 @@ class KGBoidNode: SKShapeNode {
     private var recentDirections = [CGVector]()
     
     private var referenceTraceBoidPosition = CGPoint.zero
+    private var traceBoidDistanceFromMasterBoid: CGFloat = 50.0
     
     private var speedCoefficient = CGFloat(0.2)
     private var separationCoefficient = CGFloat(1)
@@ -70,15 +71,42 @@ class KGBoidNode: SKShapeNode {
     convenience init(from path: CGPath, confinementFrame: CGRect, properties: [KGBoidProperties]? = nil) {
         self.init()
         
+        self.name = KGBoidNode.uniqueName
+        self.path = path
         self.confinementFrame = confinementFrame
         self.position = initialPosition
-        self.path = path
         
-        
-        self.name = KGBoidNode.uniqueName
-        self.strokeColor = .clear
+        self.setup(using: properties)
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateDirectionRandomness), userInfo: nil, repeats: true)
+    }
+    
+    private func setup(using properties: [KGBoidProperties]?) {
+        if let preferredProperties = properties {
+            for propery in preferredProperties {
+                switch propery {
+                case .leavesTranceBoidAtDistance(let distance):
+                    self.traceBoidDistanceFromMasterBoid = distance
+                    
+                case .fillColor(let color):
+                    self.fillColor = color
+                    
+                case .strokeColor(let color):
+                    self.strokeColor = color
+                }
+            }
+        }
+        
+        let strokeColorProperty = properties?.first(where: { strokeColorProperty in
+            if case .strokeColor = strokeColorProperty {
+                return true
+            }
+            return false
+        })
+        
+        if strokeColorProperty == nil {
+            self.strokeColor = .clear
+        }
     }
     
     // MARK: - Boid properties update
@@ -186,7 +214,7 @@ class KGBoidNode: SKShapeNode {
             }
         }
         
-        if referenceTraceBoidPosition.distance(to: position) > 50 {
+        if referenceTraceBoidPosition.distance(to: position) > traceBoidDistanceFromMasterBoid {
             referenceTraceBoidPosition = position
             spitTraceParticle()
         }

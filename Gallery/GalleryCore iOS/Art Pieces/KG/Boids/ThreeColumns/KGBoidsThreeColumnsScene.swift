@@ -15,21 +15,7 @@ class KGBoidsThreeColumnsScene: SKScene {
     
     private var allBoids = [KGBoidNode]()
 
-    private lazy var boidNode = KGBoidNode(from: KGBoidShapes.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorldFrame)
-    private lazy var boidNode2 = KGBoidNode(from: KGBoidShapes.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorld2Frame)
-    private lazy var boidNode3 = KGBoidNode(from: KGBoidShapes.square.cgPathRepresentative(length: 20), confinementFrame: gameSceneWorld3Frame)
-
-    private lazy var gameSceneWidth = size.width / 15
-    private lazy var gameSceneHeight = size.height - 300
-    
-    private lazy var gameSceneWorldFrame = CGRect(origin: CGPoint(x: size.width / 2 - gameSceneWidth, y: size.height / 2 - gameSceneHeight / 2),
-                                                  size: CGSize(width: 2 * gameSceneWidth, height: gameSceneHeight))
-    private lazy var gameSceneWorld2Frame = CGRect(origin: CGPoint(x: size.width / 4 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
-                                                   size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
-    private lazy var gameSceneWorld3Frame = CGRect(origin: CGPoint(x: size.width * 3 / 4 - gameSceneWidth / 2, y: size.height / 2 - gameSceneHeight / 2),
-                                                   size: CGSize(width: gameSceneWidth, height: gameSceneHeight))
-    
-    // MARK: - Lifecycle functions
+    // MARK: - Scene presentation
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -37,17 +23,7 @@ class KGBoidsThreeColumnsScene: SKScene {
         self.size = view.superview?.frame.size ?? UIScreen.main.nativeBounds.size
         self.backgroundColor = .black
 
-        for _ in 0...50 {
-            spit(boid: boidNode)
-        }
-        
-        for _ in 0...30 {
-            spit(boid: boidNode2)
-        }
-        
-        for _ in 0...30 {
-            spit(boid: boidNode3)
-        }
+        setupBoids()
         
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateBoidProperties), userInfo: nil, repeats: true)
     }
@@ -56,13 +32,45 @@ class KGBoidsThreeColumnsScene: SKScene {
         updateBoidPositions()
     }
     
-    // MARK: - Node control
+    // MARK: - Node setup
+    
+    func setupBoids() {
+        let sizeWidth = size.width / 15
+        let sizeHeight = size.height * ( 1 - 300 / 1119)
+        
+        let smallFrameSize = CGSize(width: sizeWidth, height: sizeHeight)
+        let doubleWidthFrameSize = CGSize(width: 2 * sizeWidth, height: sizeHeight)
+        
+        let centerFrame = CGRect(origin: CGPoint(x: size.width / 2 - sizeWidth, y: size.height / 2 - sizeHeight / 2), size: doubleWidthFrameSize)
+        let leftFrame = CGRect(origin: CGPoint(x: size.width / 4 - sizeWidth / 2, y: size.height / 2 - sizeHeight / 2), size: smallFrameSize)
+        let rightFrame = CGRect(origin: CGPoint(x: size.width * 3 / 4 - sizeWidth / 2, y: size.height / 2 - sizeHeight / 2),  size: smallFrameSize)
+        
+        let squareBoidPath = KGBoidShapes.square.cgPathRepresentative(length: size.width * 20 / 1920)
+        
+        let centerBoidNode = KGBoidNode(from: squareBoidPath, confinementFrame: centerFrame)
+        let leftBoidNode = KGBoidNode(from: squareBoidPath, confinementFrame: leftFrame)
+        let rightBoidNode = KGBoidNode(from: squareBoidPath, confinementFrame: rightFrame)
+        
+        for _ in 0...50 {
+            spit(boid: centerBoidNode)
+        }
+        
+        for _ in 0...30 {
+            spit(boid: leftBoidNode)
+        }
+        
+        for _ in 0...30 {
+            spit(boid: rightBoidNode)
+        }
+    }
     
     func spit(boid: KGBoidNode) {
         let cloneBoid = boid.clone
         self.addChild(cloneBoid)
         allBoids.append(cloneBoid)
     }
+    
+    // MARK: - Node control
     
     @objc func updateBoidProperties() {
         let deltaValue: CGFloat = 1.0
