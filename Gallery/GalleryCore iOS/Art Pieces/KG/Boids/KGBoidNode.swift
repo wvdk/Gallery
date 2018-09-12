@@ -32,12 +32,14 @@ class KGBoidNode: SKShapeNode {
     private var direction = CGVector.random(min: -10, max: 10)
     private var recentDirections = [CGVector]()
     
-    private var speedCoefficient = CGFloat(0.1)
-    private var separationCoefficient = CGFloat(3)
-    private(set) var alignmentCoefficient = CGFloat(1)
-    private(set) var cohesionCoefficient = CGFloat(1)
+    private var referenceTraceBoidPosition = CGPoint.zero
     
-    private var fillColorAlpha = CGFloat(0.3)
+    private var speedCoefficient = CGFloat(0.2)
+    private var separationCoefficient = CGFloat(1)
+    private(set) var alignmentCoefficient = CGFloat(0.8)
+    private(set) var cohesionCoefficient = CGFloat(-1)
+    
+    private var fillColorAlpha = CGFloat(0.4)
     
     private var canUpdateBoidsPosition = true
     
@@ -57,7 +59,7 @@ class KGBoidNode: SKShapeNode {
     override var position: CGPoint {
         didSet {
             guard position != oldValue, position.distance(to: oldValue) > 20 else { return }
-            
+
             let normalizedY = position.y.normalize(to: confinementFrame.size.height + confinementFrame.origin.y)
             fillColor = UIColor(red: normalizedY * normalizedY + 0.1, green: 0.1 * normalizedY, blue: 0.4 * normalizedY + 0.3, alpha: fillColorAlpha)
         }
@@ -69,26 +71,15 @@ class KGBoidNode: SKShapeNode {
         self.init()
         
         self.confinementFrame = confinementFrame
+        self.position = initialPosition
         self.path = path
+        
         
         self.name = KGBoidNode.uniqueName
         self.strokeColor = .clear
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateDirectionRandomness), userInfo: nil, repeats: true)
-//        Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(spitTraceParticle), userInfo: nil, repeats: true)
     }
-    
-    // MARK: - Boid trace particle setup
-    
-//    @objc func spitTraceParticle() {
-//        guard let traceNode = (self as? SKShapeNode)?.clone(withColor: true, withPosition: true) else { return }
-//        self.parent?.addChild(traceNode)
-//        
-//        let fadeOut = SKAction.fadeOut(withDuration: 1)
-//        traceNode.run(fadeOut) {
-//            traceNode.removeFromParent()
-//        }
-//    }
     
     // MARK: - Boid properties update
     
@@ -158,10 +149,6 @@ class KGBoidNode: SKShapeNode {
     
     // MARK: - Boid movement
     
-    @objc private func updateDirectionRandomness() {
-        direction = CGVector.random(min: -10, max: 10)
-    }
-    
     func move(in neighbourhood: [KGBoidNode]) {
         if canUpdateBoidsPosition {
             if !neighbourhood.isEmpty {
@@ -177,11 +164,11 @@ class KGBoidNode: SKShapeNode {
             }
             
             recentDirections.append(direction)
-            recentDirections = Array(recentDirections.suffix(15))
+            recentDirections = Array(recentDirections.suffix(5))
         }
         
         updatePosition()
-//        updateRotation()
+        updateRotation()
     }
     
     private func updatePosition() {
@@ -198,11 +185,16 @@ class KGBoidNode: SKShapeNode {
                 self?.canUpdateBoidsPosition = true
             }
         }
+        
+        if referenceTraceBoidPosition.distance(to: position) > 50 {
+            referenceTraceBoidPosition = position
+            spitTraceParticle()
+        }
     }
     
     private func updateRotation() {
         let averageDirection = recentDirections.averageForCGVectors
-        zRotation = averageDirection.normalized.angleToNormal * CGFloat.random(min: 0.97, max: 1.03)
+        zRotation = averageDirection.normalized.angleToNormal
     }
     
     private func returnBoidToConfinementFrame() {
@@ -222,6 +214,22 @@ class KGBoidNode: SKShapeNode {
             position.y = confinementFrame.origin.y
         }
     }
+    
+    @objc private func updateDirectionRandomness() {
+        direction = CGVector.random(min: -10, max: 10)
+    }
+    
+    // MARK: - Boid trace particle setup
+    
+    @objc func spitTraceParticle() {
+        let traceNode = self.clone(color: fillColor, position: position)
+        self.parent?.addChild(traceNode)
+        
+        let fadeOut = SKAction.fadeOut(withDuration: 1.5)
+        traceNode.run(fadeOut) {
+            traceNode.removeFromParent()
+        }
+    }
 }
 
 extension KGBoidNode {
@@ -235,22 +243,11 @@ extension KGBoidNode {
         
         return cloneNode
     }
-}
 
-extension SKShapeNode {
-    
-    func clone(withColor: Bool = true, withPosition: Bool = true) -> SKShapeNode {
-        let cloneNode = self.copy() as! SKShapeNode
-        
-        if withColor {
-            cloneNode.fillColor = self.fillColor
-            cloneNode.strokeColor = self.strokeColor
-        }
-        
-        if withPosition {
-            cloneNode.position = self.position
-        }
-        
+    func clone(color: UIColor, position: CGPoint) -> SKShapeNode {
+        let cloneNode = (self as SKShapeNode).copy() as! SKShapeNode
+        cloneNode.fillColor = color
+        cloneNode.position = position
         return cloneNode
     }
 }
