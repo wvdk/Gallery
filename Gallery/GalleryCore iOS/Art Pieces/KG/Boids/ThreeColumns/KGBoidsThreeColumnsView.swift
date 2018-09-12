@@ -28,8 +28,8 @@ class KGBoidsThreeColumnsView: ArtView {
         spriteKitView.constraint(edgesTo: self)
         
         spriteKitView.ignoresSiblingOrder = true
-        spriteKitView.showsFPS = true
-        spriteKitView.showsNodeCount = true
+        spriteKitView.showsFPS = false
+        spriteKitView.showsNodeCount = false
     }
     
     public required init?(coder aDecoder: NSCoder) {
