@@ -9,6 +9,9 @@
 
 import SpriteKit
 
+/// A node set to be a boid of type SKShapeNode.
+///
+/// Has swarm behaviour qualities, which can be adjusted, if position in neighbourhood of other boids.
 class KGBoidNode: SKShapeNode {
     
     // MARK: - Constants
@@ -17,14 +20,29 @@ class KGBoidNode: SKShapeNode {
     
     // MARK: - Properties
     
+    /// A KGBoidNode delegate instance.
+    weak var delegate: KGBoidNodeDelegate? = nil
+    
+    /// Returns a position in confinement frame for just initialized node.
     var initialPosition: CGPoint {
         let xPosition = CGFloat.random(min: confinementFrame.origin.x, max: confinementFrame.origin.x + confinementFrame.size.width)
         let yPosition = CGFloat.random(min: confinementFrame.origin.y, max: confinementFrame.origin.y + confinementFrame.size.height)
         return CGPoint(x: xPosition, y: yPosition)
     }
     
+    /// Returns a receiver's node length.
     var length: CGFloat {
         return path?.boundingBox.width ?? 20.0
+    }
+    
+    /// Returns a copy of a receiver's node with exactly same confinement frame.
+    var clone: KGBoidNode {
+        let cloneNode = self.copy() as! KGBoidNode
+        
+        cloneNode.setProperty(confinementFrame: self.confinementFrame)
+        cloneNode.position = cloneNode.initialPosition
+        
+        return cloneNode
     }
     
     private var confinementFrame = CGRect.zero
@@ -40,7 +58,7 @@ class KGBoidNode: SKShapeNode {
     private(set) var alignmentCoefficient = CGFloat(0.8)
     private(set) var cohesionCoefficient = CGFloat(-1)
     
-    private var fillColorAlpha = CGFloat(0.4)
+    private(set) var fillColorAlpha = CGFloat(0.4)
     
     private var canUpdateBoidsPosition = true
     
@@ -60,9 +78,7 @@ class KGBoidNode: SKShapeNode {
     override var position: CGPoint {
         didSet {
             guard position != oldValue, position.distance(to: oldValue) > 20 else { return }
-
-            let normalizedY = position.y.normalize(to: confinementFrame.size.height + confinementFrame.origin.y)
-            fillColor = UIColor(red: normalizedY * normalizedY + 0.1, green: 0.1 * normalizedY, blue: 0.4 * normalizedY + 0.3, alpha: fillColorAlpha)
+            delegate?.kgBoidNode(self, didUpdate: position)
         }
     }
     
@@ -131,6 +147,10 @@ class KGBoidNode: SKShapeNode {
         self.cohesionCoefficient = cohesionCoefficient
     }
     
+    func setProperty(fillColor: UIColor) {
+        self.fillColor = fillColor
+    }
+    
     private func setPropertyAlpha(for neighbourCount: Int) {
         if neighbourCount > 10 {
             fillColorAlpha = 0.7
@@ -138,16 +158,16 @@ class KGBoidNode: SKShapeNode {
         }
         
         if neighbourCount > 6 {
-            fillColorAlpha = 0.55
+            fillColorAlpha = 0.6
             return
         }
         
         if neighbourCount > 3 {
-            fillColorAlpha = 0.4
+            fillColorAlpha = 0.45
             return
         }
         
-        fillColorAlpha = 0.2
+        fillColorAlpha = 0.4
     }
     
     // MARK: - Boid arrangement
@@ -177,6 +197,7 @@ class KGBoidNode: SKShapeNode {
     
     // MARK: - Boid movement
     
+    /// Updates boid's position and rotations based on neighbourhood/swarm boids.
     func move(in neighbourhood: [KGBoidNode]) {
         if canUpdateBoidsPosition {
             if !neighbourhood.isEmpty {
@@ -260,22 +281,17 @@ class KGBoidNode: SKShapeNode {
     }
 }
 
-extension KGBoidNode {
+/// The object that acts as the delegate of KGBoidNode.
+///
+/// The delegate must adopt the KGBoidNodeDelegate protocol.
+///
+/// The delegate object is responsible for managing node's position updates.
+protocol KGBoidNodeDelegate: class {
     
-    /// Returns a copy of a receiver's node with exactly same confinement frame.
-    var clone: KGBoidNode {
-        let cloneNode = self.copy() as! KGBoidNode
-        
-        cloneNode.setProperty(confinementFrame: self.confinementFrame)
-        cloneNode.position = cloneNode.initialPosition
-        
-        return cloneNode
-    }
-
-    func clone(color: UIColor, position: CGPoint) -> SKShapeNode {
-        let cloneNode = (self as SKShapeNode).copy() as! SKShapeNode
-        cloneNode.fillColor = color
-        cloneNode.position = position
-        return cloneNode
-    }
+    /// Tells the delegate that the boid node has changed it's position.
+    ///
+    /// - Parameters:
+    ///     - node: A node which position has changed.
+    ///     - position: A new node's position.
+    func kgBoidNode(_ node: KGBoidNode, didUpdate position: CGPoint)
 }

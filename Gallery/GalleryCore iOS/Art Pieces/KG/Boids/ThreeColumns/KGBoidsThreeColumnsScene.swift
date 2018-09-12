@@ -66,6 +66,7 @@ class KGBoidsThreeColumnsScene: SKScene {
     
     func spit(boid: KGBoidNode) {
         let cloneBoid = boid.clone
+        cloneBoid.delegate = self
         self.addChild(cloneBoid)
         allBoids.append(cloneBoid)
     }
@@ -111,8 +112,23 @@ class KGBoidsThreeColumnsScene: SKScene {
                 
                 return false
             }
+            
             boid.move(in: neighbourhood)
         }
+    }
+}
+
+// MARK: - KGBoidNodeDelegate implementation
+
+extension KGBoidsThreeColumnsScene: KGBoidNodeDelegate {
+    
+    func kgBoidNode(_ node: KGBoidNode, didUpdate position: CGPoint) {
+        let normalizedY = node.position.y.normalize(to: size.height)
+        let fillColor = UIColor(red: normalizedY * normalizedY + 0.1,
+                                green: 0.1 * normalizedY,
+                                blue: 0.4 * normalizedY + 0.3,
+                                alpha: node.fillColorAlpha)
+        node.setProperty(fillColor: fillColor)
     }
 }
 

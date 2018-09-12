@@ -40,6 +40,8 @@
 		8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
 		8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
 		8919BE442143425D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
+		891C75922149B3D30037FEA3 /* SKShapeNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */; };
+		891C75932149B3D70037FEA3 /* SKShapeNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */; };
 		891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		89278ED1210FB33200CEEB3C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */; };
@@ -208,6 +210,7 @@
 		8919BE3A214340A300967B9A /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		8919BE3C2143413300967B9A /* CGVector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Extension.swift"; sourceTree = "<group>"; };
 		8919BE402143422D00967B9A /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
+		891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKShapeNode+Extension.swift"; sourceTree = "<group>"; };
 		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -536,6 +539,7 @@
 				DE332B7D205B856800C40727 /* GlobalFunctions.swift */,
 				DE332B79205B852600C40727 /* SKNode+Extensions.swift */,
 				892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */,
+				891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */,
 				DE332B75205B7F3E00C40727 /* UIView+Extensions.swift */,
 				89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */,
 				8919BE3A214340A300967B9A /* CGFloat+Extension.swift */,
@@ -1033,6 +1037,7 @@
 				89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */,
 				DE332B7E205B856800C40727 /* GlobalFunctions.swift in Sources */,
 				DE332B7A205B852600C40727 /* SKNode+Extensions.swift in Sources */,
+				891C75922149B3D30037FEA3 /* SKShapeNode+Extension.swift in Sources */,
 				DE332B76205B7F3E00C40727 /* UIView+Extensions.swift in Sources */,
 				DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */,
 				DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */,
@@ -1054,6 +1059,7 @@
 				DEDB688520E946EE00D102EB /* NSObject+Extensions.swift in Sources */,
 				DEDB688620E946EE00D102EB /* UIColor+Extensions.swift in Sources */,
 				DEDB688320E946EE00D102EB /* UIView+Extensions.swift in Sources */,
+				891C75932149B3D70037FEA3 /* SKShapeNode+Extension.swift in Sources */,
 				DEDB688420E946EE00D102EB /* UITapGestureRecognizerWithClosure.swift in Sources */,
 				DEDB688020E946EE00D102EB /* ArrayExtensions.swift in Sources */,
 				DEDB688120E946EE00D102EB /* GlobalFunctions.swift in Sources */,
