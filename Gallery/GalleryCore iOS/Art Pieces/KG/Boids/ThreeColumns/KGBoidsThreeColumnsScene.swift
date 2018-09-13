@@ -123,7 +123,7 @@ class KGBoidsThreeColumnsScene: SKScene {
 extension KGBoidsThreeColumnsScene: KGBoidNodeDelegate {
     
     func kgBoidNode(_ node: KGBoidNode, didUpdate position: CGPoint) {
-        let normalizedY = node.position.y.normalize(to: size.height)
+        let normalizedY = node.position.y / size.height
         let fillColor = UIColor(red: normalizedY * normalizedY + 0.1,
                                 green: 0.1 * normalizedY,
                                 blue: 0.4 * normalizedY + 0.3,

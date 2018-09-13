@@ -295,3 +295,12 @@ protocol KGBoidNodeDelegate: class {
     ///     - position: A new node's position.
     func kgBoidNode(_ node: KGBoidNode, didUpdate position: CGPoint)
 }
+
+extension CGVector {
+    
+    /// Returns normalized to 1 CGVector.
+    fileprivate var normalized: CGVector {
+        let maxComponent = max(abs(dx), abs(dy))
+        return self.divide(by: maxComponent)
+    }
+}

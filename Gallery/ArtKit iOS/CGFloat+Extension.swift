@@ -19,9 +19,4 @@ extension CGFloat {
     public static var random: CGFloat {
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
     }
-    
-    /// Returns a normalized to specified value.
-    public func normalize(to value: CGFloat) -> CGFloat {
-        return self / value
-    }
 }

@@ -21,12 +21,6 @@ extension CGVector {
         return CGFloat(angle)
     }
     
-    /// Returns normalized CGVector.
-    public var normalized: CGVector {
-        let maxComponent = max(abs(dx), abs(dy))
-        return self.divide(by: maxComponent)
-    }
-    
     /// Returns CGVector divided by specified value.
     public func divide(by value: CGFloat) -> CGVector {
         return CGVector(dx: dx / value, dy: dy / value)
