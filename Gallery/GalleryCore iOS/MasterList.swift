@@ -39,6 +39,7 @@ public class MasterList {
         
         // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
         activePieces = [
+            ArtMetadata(id: "ThreeColumnBoids", author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsThreeColumnsView.self, thumbnail: nil),
             ArtMetadata(id: "A565z",
                         author: "wvdk",
                         prettyPublishedDate: "June 2018",
@@ -54,7 +55,6 @@ public class MasterList {
 //                        thumbnail: UIImage(named: "A994t")),
             ArtMetadata(id: "A586q", author: "wvdk", prettyPublishedDate: "June 2018", price: 0.99, viewType: A586qView.self, thumbnail: UIImage(named: "A586q")),
             ArtMetadata(id: "A736D", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A736DView.self, thumbnail: UIImage(named: "A736D")),
-            ArtMetadata(id: "a.857C", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A857CView.self, thumbnail: nil)
         ]
     }
     
