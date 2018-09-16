@@ -39,13 +39,13 @@ public class MasterList {
         
         // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
         activePieces = [
-            ArtMetadata(id: "ThreeColumnBoids", author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsThreeColumnsView.self, thumbnail: nil),
-            ArtMetadata(id: "A565z",
-                        author: "wvdk",
-                        prettyPublishedDate: "June 2018",
-                        description: "I made my art piece. I made it very pretty. And few more words.",
-                        viewType: A565zView.self,
-                        thumbnail: UIImage(named: "A565z")),
+//            ArtMetadata(id: "ThreeColumnBoids", author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsThreeColumnsView.self, thumbnail: nil),
+//            ArtMetadata(id: "A565z",
+//                        author: "wvdk",
+//                        prettyPublishedDate: "June 2018",
+//                        description: "I made my art piece. I made it very pretty. And few more words.",
+//                        viewType: A565zView.self,
+//                        thumbnail: UIImage(named: "A565z")),
 //            ArtMetadata(id: "A994t",
 //                        author: "Kristina Gelzinyte",
 //                        prettyPublishedDate: "June 2018",
@@ -53,8 +53,8 @@ public class MasterList {
 //                        price: 99.99,
 //                        viewType: A994tView.self,
 //                        thumbnail: UIImage(named: "A994t")),
-            ArtMetadata(id: "A586q", author: "wvdk", prettyPublishedDate: "June 2018", price: 0.99, viewType: A586qView.self, thumbnail: UIImage(named: "A586q")),
-            ArtMetadata(id: "A736D", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A736DView.self, thumbnail: UIImage(named: "A736D")),
+//            ArtMetadata(id: "A586q", author: "wvdk", prettyPublishedDate: "June 2018", price: 0.99, viewType: A586qView.self, thumbnail: UIImage(named: "A586q")),
+//            ArtMetadata(id: "A736D", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A736DView.self, thumbnail: UIImage(named: "A736D")),
         ]
     }
     
