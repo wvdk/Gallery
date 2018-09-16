@@ -26,7 +26,7 @@ class A736DView: ArtView {
         addSubview(spriteKitView)
         spriteKitView.constraint(edgesTo: self)
         
-        sendSubview(toBack: spriteKitView)
+        sendSubviewToBack(spriteKitView)
                 
         spriteKitView.ignoresSiblingOrder = true
         spriteKitView.showsFPS = false
