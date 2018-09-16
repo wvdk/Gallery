@@ -261,7 +261,7 @@
 		DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArtKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE293FA920490E1100444EB8 /* ArtKit_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtKit_iOS.h; sourceTree = "<group>"; };
-		DE293FAA20490E1100444EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE293FAA20490E1100444EB8 /* Info_iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_iOS.plist; sourceTree = "<group>"; };
 		DE2AEFAF204B0F6900C65CA4 /* ArtPieceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailViewController.swift; sourceTree = "<group>"; };
 		DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterList.swift; sourceTree = "<group>"; };
 		DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerWithClosure.swift; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 		DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Light.otf"; sourceTree = "<group>"; };
 		DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArtKit_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDB687520E946D900D102EB /* ArtKit_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtKit_tvOS.h; sourceTree = "<group>"; };
-		DEDB687620E946D900D102EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEDB687620E946D900D102EB /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,9 +413,9 @@
 				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
 				891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */,
 				DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */,
+				8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */,
 				DE0B7FA620E3E337000B482F /* Info_iOS.plist */,
 				8970BCAC20E95D160006870D /* Info_tvOS.plist */,
-				8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */,
 			);
 			path = GalleryCore;
 			sourceTree = "<group>";
@@ -511,8 +511,7 @@
 			children = (
 				DE293F8D2048F30300444EB8 /* Gallery iOS */,
 				89134E1420E80C1300772E7F /* Gallery tvOS */,
-				DE293FA820490E1100444EB8 /* ArtKit iOS */,
-				DEDB687420E946D900D102EB /* ArtKit tvOS */,
+				DE293FA820490E1100444EB8 /* ArtKit */,
 				DE0B7FA420E3E337000B482F /* GalleryCore */,
 				DE293F8C2048F30300444EB8 /* Products */,
 				5516CC5723D6F68448980550 /* Pods */,
@@ -551,7 +550,7 @@
 			path = "Gallery iOS";
 			sourceTree = "<group>";
 		};
-		DE293FA820490E1100444EB8 /* ArtKit iOS */ = {
+		DE293FA820490E1100444EB8 /* ArtKit */ = {
 			isa = PBXGroup;
 			children = (
 				89CBB570205C3DA10022FBE2 /* CustomOperators.swift */,
@@ -570,9 +569,11 @@
 				DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */,
 				DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */,
 				DE293FA920490E1100444EB8 /* ArtKit_iOS.h */,
-				DE293FAA20490E1100444EB8 /* Info.plist */,
+				DEDB687520E946D900D102EB /* ArtKit_tvOS.h */,
+				DE293FAA20490E1100444EB8 /* Info_iOS.plist */,
+				DEDB687620E946D900D102EB /* Info_tvOS.plist */,
 			);
-			path = "ArtKit iOS";
+			path = ArtKit;
 			sourceTree = "<group>";
 		};
 		DE3BD6442055FBC200FD3298 /* Fonts */ = {
@@ -581,15 +582,6 @@
 				DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		DEDB687420E946D900D102EB /* ArtKit tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				DEDB687520E946D900D102EB /* ArtKit_tvOS.h */,
-				DEDB687620E946D900D102EB /* Info.plist */,
-			);
-			path = "ArtKit tvOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1441,7 +1433,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "ArtKit iOS/Info.plist";
+				INFOPLIST_FILE = ArtKit/Info_iOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1467,7 +1459,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "ArtKit iOS/Info.plist";
+				INFOPLIST_FILE = ArtKit/Info_iOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1493,7 +1485,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "ArtKit tvOS/Info.plist";
+				INFOPLIST_FILE = ArtKit/Info_tvOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1520,7 +1512,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "ArtKit tvOS/Info.plist";
+				INFOPLIST_FILE = ArtKit/Info_tvOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
