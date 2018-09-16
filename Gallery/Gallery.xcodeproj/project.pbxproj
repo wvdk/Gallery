@@ -87,6 +87,21 @@
 		DE16C539214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52A214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift */; };
 		DE16C53A214ED93A0082BB34 /* KGBoidProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */; };
 		DE16C53B214ED93A0082BB34 /* KGBoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52C214ED93A0082BB34 /* KGBoidNode.swift */; };
+		DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C518214ED93A0082BB34 /* A565zView.swift */; };
+		DE16C53E214EE49A0082BB34 /* A565zScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE16C519214ED93A0082BB34 /* A565zScene.sks */; };
+		DE16C53F214EE49C0082BB34 /* A565zActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE16C51A214ED93A0082BB34 /* A565zActions.sks */; };
+		DE16C540214EE4B10082BB34 /* A736DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C51C214ED93A0082BB34 /* A736DView.swift */; };
+		DE16C541214EE4B30082BB34 /* A736DScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C51D214ED93A0082BB34 /* A736DScene.swift */; };
+		DE16C542214EE4B50082BB34 /* A736DActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE16C51E214ED93A0082BB34 /* A736DActions.sks */; };
+		DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C520214ED93A0082BB34 /* A586qScene.swift */; };
+		DE16C544214EE4BB0082BB34 /* A586qView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C521214ED93A0082BB34 /* A586qView.swift */; };
+		DE16C545214EE4BE0082BB34 /* A586qActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE16C522214ED93A0082BB34 /* A586qActions.sks */; };
+		DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C524214ED93A0082BB34 /* A994tView.swift */; };
+		DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */; };
+		DE16C548214EE4CA0082BB34 /* KGBoidProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */; };
+		DE16C549214EE4CC0082BB34 /* KGBoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52C214ED93A0082BB34 /* KGBoidNode.swift */; };
+		DE16C54A214EE4D00082BB34 /* KGBoidsThreeColumnsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C529214ED93A0082BB34 /* KGBoidsThreeColumnsScene.swift */; };
+		DE16C54B214EE4D20082BB34 /* KGBoidsThreeColumnsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52A214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift */; };
 		DE26220620E967EA002F57C7 /* ArtKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; };
 		DE26220720E9681C002F57C7 /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
 		DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F8E2048F30300444EB8 /* AppDelegate.swift */; };
@@ -817,6 +832,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE16C53F214EE49C0082BB34 /* A565zActions.sks in Resources */,
+				DE16C542214EE4B50082BB34 /* A736DActions.sks in Resources */,
+				DE16C53E214EE49A0082BB34 /* A565zScene.sks in Resources */,
+				DE16C545214EE4BE0082BB34 /* A586qActions.sks in Resources */,
 				891549ED2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -983,11 +1002,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE16C548214EE4CA0082BB34 /* KGBoidProperties.swift in Sources */,
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
 				8970BCB920E95F170006870D /* IDGenerator.swift in Sources */,
 				8970BCBC20E95F200006870D /* ArtView.swift in Sources */,
 				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
+				DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */,
+				DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */,
+				DE16C540214EE4B10082BB34 /* A736DView.swift in Sources */,
+				DE16C544214EE4BB0082BB34 /* A586qView.swift in Sources */,
+				DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */,
+				DE16C54A214EE4D00082BB34 /* KGBoidsThreeColumnsScene.swift in Sources */,
+				DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */,
+				DE16C541214EE4B30082BB34 /* A736DScene.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */,
+				DE16C549214EE4CC0082BB34 /* KGBoidNode.swift in Sources */,
+				DE16C54B214EE4D20082BB34 /* KGBoidsThreeColumnsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

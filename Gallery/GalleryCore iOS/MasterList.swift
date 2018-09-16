@@ -40,12 +40,12 @@ public class MasterList {
         // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
         activePieces = [
 //            ArtMetadata(id: "ThreeColumnBoids", author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsThreeColumnsView.self, thumbnail: nil),
-//            ArtMetadata(id: "A565z",
-//                        author: "wvdk",
-//                        prettyPublishedDate: "June 2018",
-//                        description: "I made my art piece. I made it very pretty. And few more words.",
-//                        viewType: A565zView.self,
-//                        thumbnail: UIImage(named: "A565z")),
+            ArtMetadata(id: "A565z",
+                        author: "wvdk",
+                        prettyPublishedDate: "June 2018",
+                        description: "I made my art piece. I made it very pretty. And few more words.",
+                        viewType: A565zView.self,
+                        thumbnail: UIImage(named: "A565z")),
 //            ArtMetadata(id: "A994t",
 //                        author: "Kristina Gelzinyte",
 //                        prettyPublishedDate: "June 2018",

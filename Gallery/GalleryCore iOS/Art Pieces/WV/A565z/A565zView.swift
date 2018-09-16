@@ -39,7 +39,7 @@ public class A565zView: ArtView {
         addSubview(spriteKitView)
         spriteKitView.autolayoutFill(parent: self)
         
-        sendSubview(toBack: spriteKitView)
+        sendSubviewToBack(spriteKitView)
         
         spriteKitView.ignoresSiblingOrder = true
         spriteKitView.showsFPS = false
