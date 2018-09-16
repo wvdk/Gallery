@@ -41,7 +41,7 @@ class InfoBarView: UIView {
             it.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
             it.widthAnchor.constraint(equalToConstant: 45).isActive = true
             it.heightAnchor.constraint(equalToConstant: 45).isActive = true
-            it.setImage(#imageLiteral(resourceName: "closeButton"), for: UIControlState.normal)
+            it.setImage(#imageLiteral(resourceName: "closeButton"), for: UIControl.State.normal)
             it.alpha = 0.75
         }
         

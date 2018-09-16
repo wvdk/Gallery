@@ -29,7 +29,7 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegate {
         // Scroll manually to constrain cells in the center of the screen.
         if let nextFocusedIndexPath = context.nextFocusedIndexPath {
             collectionView.scrollToItem(at: nextFocusedIndexPath,
-                                        at: UICollectionViewScrollPosition.centeredHorizontally,
+                                        at: UICollectionView.ScrollPosition.centeredHorizontally,
                                         animated: true)
         }
         

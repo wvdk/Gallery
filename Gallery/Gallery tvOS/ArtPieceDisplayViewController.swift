@@ -28,7 +28,7 @@ class ArtPieceDisplayViewController: UIViewController {
         artView.constraint(edgesTo: view)
         
         let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeAction(_:)))
-        menuTapGestureRecognizer.allowedPressTypes = [NSNumber(value: Int8(UIPressType.menu.rawValue))]
+        menuTapGestureRecognizer.allowedPressTypes = [NSNumber(value: Int8(UIPress.PressType.menu.rawValue))]
         view.addGestureRecognizer(menuTapGestureRecognizer)
     }
     

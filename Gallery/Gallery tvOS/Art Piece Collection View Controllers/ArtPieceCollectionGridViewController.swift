@@ -26,7 +26,7 @@ class ArtPieceCollectionGridViewController: UIViewController {
         let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         
         collectionView.register(ArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: ArtPieceCollectionViewCell.identifier)
-        collectionView.decelerationRate = UIScrollViewDecelerationRateNormal
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.normal
         collectionView.delegate = self
         collectionView.dataSource = self
         
