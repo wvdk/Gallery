@@ -29,7 +29,7 @@ public class A565zView: ArtView {
         return NSKeyedUnarchiver.unarchiveObject(with: gameSceneData) as? SKScene
     }()
 
-    public required init(frame: CGRect) {
+    public required override init(frame: CGRect) {
         super.init(frame: frame)
         
 

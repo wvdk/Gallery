@@ -8,6 +8,8 @@
 
 import UIKit
 
+public typealias ArtView = UIView
+
 /// A struct which represents an art piece for display in this gallery.
 public struct ArtMetadata {
     

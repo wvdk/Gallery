@@ -18,7 +18,7 @@ class A736DView: ArtView {
     
     // MARK: - Initialization
     
-    public required init(frame: CGRect) {
+    public required override init(frame: CGRect) {
         super.init(frame: frame)
         
         tag = 126
