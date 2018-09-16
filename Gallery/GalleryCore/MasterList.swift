@@ -7,9 +7,8 @@
 //
 
 import UIKit
-//import FirebaseDatabase
 
-/// A singleton master list of all art pieces, and only active pieces. The active list (which is kept on Firebase) is what should be presented to the user.
+/// A singleton master list of all art pieces, and only active pieces. The active list is what should be presented to the user.
 /// To be informed when it has been received for the first time or updated you should observe the `didUpdateActivePieces` notification via `NotificationCenter.default` and refresh your presentation.
 public class MasterList {
 
@@ -20,23 +19,6 @@ public class MasterList {
     ///
     /// Also starts up the firebase observer.
     private init() {
-//        let ref = Database.database().reference().child("activePieces")
-//
-//        ref.observe(.value) { snapshot in
-//            if let pieceIds = snapshot.value as? [String] {
-//                var foundPieces = [ArtMetadata]()
-//                for id in pieceIds {
-//                    if let foundPiece = self.allPieces.first(where: { $0.id == id }) {
-//                        foundPieces.append(foundPiece)
-//                    }
-//                }
-//
-//                self.activePieces = foundPieces
-//            } else {
-//                self.activePieces = []
-//            }
-//        }
-        
         // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
         activePieces = [
             ArtMetadata(id: "ThreeColumnBoids", author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsThreeColumnsView.self, thumbnail: nil),
