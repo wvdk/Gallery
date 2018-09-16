@@ -419,10 +419,7 @@
 		DE16C516214ED93A0082BB34 /* Art Pieces */ = {
 			isa = PBXGroup;
 			children = (
-				DE16C517214ED93A0082BB34 /* A565z */,
-				DE16C51B214ED93A0082BB34 /* A736D */,
-				DE16C51F214ED93A0082BB34 /* A586q */,
-				DE16C523214ED93A0082BB34 /* A994t */,
+				DE16C53C214ED9D40082BB34 /* WV */,
 				DE16C525214ED93A0082BB34 /* KG */,
 			);
 			path = "Art Pieces";
@@ -492,6 +489,17 @@
 				DE16C52A214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift */,
 			);
 			path = ThreeColumns;
+			sourceTree = "<group>";
+		};
+		DE16C53C214ED9D40082BB34 /* WV */ = {
+			isa = PBXGroup;
+			children = (
+				DE16C523214ED93A0082BB34 /* A994t */,
+				DE16C51F214ED93A0082BB34 /* A586q */,
+				DE16C51B214ED93A0082BB34 /* A736D */,
+				DE16C517214ED93A0082BB34 /* A565z */,
+			);
+			path = WV;
 			sourceTree = "<group>";
 		};
 		DE293F822048F30300444EB8 = {
