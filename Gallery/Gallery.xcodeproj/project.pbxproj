@@ -28,6 +28,20 @@
 		891549F721150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */; };
 		891549F921150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */; };
 		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
+		8919BE3221433F3500967B9A /* KGBoidsThreeColumnsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3121433F3500967B9A /* KGBoidsThreeColumnsView.swift */; };
+		8919BE3421433FBA00967B9A /* KGBoidsThreeColumnsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3321433FBA00967B9A /* KGBoidsThreeColumnsScene.swift */; };
+		8919BE3521433FBA00967B9A /* KGBoidsThreeColumnsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3321433FBA00967B9A /* KGBoidsThreeColumnsScene.swift */; };
+		8919BE3621433FBE00967B9A /* KGBoidsThreeColumnsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3121433F3500967B9A /* KGBoidsThreeColumnsView.swift */; };
+		8919BE3821433FF900967B9A /* KGBoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3721433FF900967B9A /* KGBoidNode.swift */; };
+		8919BE3921433FF900967B9A /* KGBoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3721433FF900967B9A /* KGBoidNode.swift */; };
+		8919BE3B214340A300967B9A /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3A214340A300967B9A /* CGFloat+Extension.swift */; };
+		8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
+		8919BE3E2143413700967B9A /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3A214340A300967B9A /* CGFloat+Extension.swift */; };
+		8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
+		8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
+		8919BE442143425D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
+		891C75922149B3D30037FEA3 /* SKShapeNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */; };
+		891C75932149B3D70037FEA3 /* SKShapeNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */; };
 		891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
 		892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */; };
 		89278ED1210FB33200CEEB3C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */; };
@@ -72,6 +86,10 @@
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
 		89E295EA21473E3F0042F1CB /* LoopingLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E295E921473E3F0042F1CB /* LoopingLineView.swift */; };
 		89E295ED214740BE0042F1CB /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */; };
+		89FE6CE921483869006372B1 /* KGBoidProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE6CE821483869006372B1 /* KGBoidProperties.swift */; };
+		89FE6CEA21483869006372B1 /* KGBoidProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE6CE821483869006372B1 /* KGBoidProperties.swift */; };
+		89FE6CEC21485E4A006372B1 /* KGBoidShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE6CEB21485E4A006372B1 /* KGBoidShapes.swift */; };
+		89FE6CED21485E4A006372B1 /* KGBoidShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE6CEB21485E4A006372B1 /* KGBoidShapes.swift */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
 		DE0B7FAB20E3E337000B482F /* GalleryCore_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -186,6 +204,13 @@
 		891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
+		8919BE3121433F3500967B9A /* KGBoidsThreeColumnsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsThreeColumnsView.swift; sourceTree = "<group>"; };
+		8919BE3321433FBA00967B9A /* KGBoidsThreeColumnsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsThreeColumnsScene.swift; sourceTree = "<group>"; };
+		8919BE3721433FF900967B9A /* KGBoidNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidNode.swift; sourceTree = "<group>"; };
+		8919BE3A214340A300967B9A /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		8919BE3C2143413300967B9A /* CGVector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Extension.swift"; sourceTree = "<group>"; };
+		8919BE402143422D00967B9A /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
+		891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKShapeNode+Extension.swift"; sourceTree = "<group>"; };
 		891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		892673B8205591A8001819D1 /* ArtPieceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceTableViewCell.swift; sourceTree = "<group>"; };
 		89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -210,6 +235,8 @@
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89E295E921473E3F0042F1CB /* LoopingLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingLineView.swift; sourceTree = "<group>"; };
 		89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
+		89FE6CE821483869006372B1 /* KGBoidProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidProperties.swift; sourceTree = "<group>"; };
+		89FE6CEB21485E4A006372B1 /* KGBoidShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidShapes.swift; sourceTree = "<group>"; };
 		9E6F4FE3F89081107CDE4D33 /* Pods_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3691700D8ECDC253DFFC376 /* Pods_ArtKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85DD3F3A1656418B116D049 /* Pods-Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gallery/Pods-Gallery.release.xcconfig"; sourceTree = "<group>"; };
@@ -363,6 +390,14 @@
 			path = "Art Piece Collection View Controllers";
 			sourceTree = "<group>";
 		};
+		8919BE4521434BDE00967B9A /* KG */ = {
+			isa = PBXGroup;
+			children = (
+				89FE6CE6214829F1006372B1 /* Boids */,
+			);
+			path = KG;
+			sourceTree = "<group>";
+		};
 		89485BCE20F2A07000046753 /* A736D Art Piece */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +415,7 @@
 				894C691720EFC7CF003A5387 /* A586q Art Piece */,
 				DEA066D820C47FD700489BF8 /* A565zView.swift */,
 				894C691220EFC224003A5387 /* A994tView.swift */,
+				8919BE4521434BDE00967B9A /* KG */,
 			);
 			path = "Art Pieces";
 			sourceTree = "<group>";
@@ -411,6 +447,26 @@
 				89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */,
 			);
 			path = Transitions;
+			sourceTree = "<group>";
+		};
+		89FE6CE6214829F1006372B1 /* Boids */ = {
+			isa = PBXGroup;
+			children = (
+				89FE6CE721482A0D006372B1 /* ThreeColumns */,
+				8919BE3721433FF900967B9A /* KGBoidNode.swift */,
+				89FE6CE821483869006372B1 /* KGBoidProperties.swift */,
+				89FE6CEB21485E4A006372B1 /* KGBoidShapes.swift */,
+			);
+			path = Boids;
+			sourceTree = "<group>";
+		};
+		89FE6CE721482A0D006372B1 /* ThreeColumns */ = {
+			isa = PBXGroup;
+			children = (
+				8919BE3121433F3500967B9A /* KGBoidsThreeColumnsView.swift */,
+				8919BE3321433FBA00967B9A /* KGBoidsThreeColumnsScene.swift */,
+			);
+			path = ThreeColumns;
 			sourceTree = "<group>";
 		};
 		DE0B7FA420E3E337000B482F /* GalleryCore iOS */ = {
@@ -483,8 +539,12 @@
 				DE332B7D205B856800C40727 /* GlobalFunctions.swift */,
 				DE332B79205B852600C40727 /* SKNode+Extensions.swift */,
 				892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */,
+				891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */,
 				DE332B75205B7F3E00C40727 /* UIView+Extensions.swift */,
 				89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */,
+				8919BE3A214340A300967B9A /* CGFloat+Extension.swift */,
+				8919BE3C2143413300967B9A /* CGVector+Extension.swift */,
+				8919BE402143422D00967B9A /* CGPoint+Extension.swift */,
 				891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */,
 				DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */,
 				DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */,
@@ -907,15 +967,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				8970BCBA20E95F1A0006870D /* A565zView.swift in Sources */,
+				89FE6CED21485E4A006372B1 /* KGBoidShapes.swift in Sources */,
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
 				894C691D20F1389C003A5387 /* A736DScene.swift in Sources */,
+				89FE6CEA21483869006372B1 /* KGBoidProperties.swift in Sources */,
 				8970BCB920E95F170006870D /* IDGenerator.swift in Sources */,
 				894C692020F13FB0003A5387 /* A586qScene.swift in Sources */,
 				8970BCBC20E95F200006870D /* ArtView.swift in Sources */,
 				89485BCF20F2A08B00046753 /* A736DView.swift in Sources */,
+				8919BE3621433FBE00967B9A /* KGBoidsThreeColumnsView.swift in Sources */,
 				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
+				8919BE3921433FF900967B9A /* KGBoidNode.swift in Sources */,
 				894C691A20F13893003A5387 /* A994tView.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */,
+				8919BE3521433FBA00967B9A /* KGBoidsThreeColumnsScene.swift in Sources */,
 				894C691B20F13896003A5387 /* A586qView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -925,16 +990,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE0B7FB220E3E357000B482F /* A565zView.swift in Sources */,
+				89FE6CEC21485E4A006372B1 /* KGBoidShapes.swift in Sources */,
 				DE0B7FB020E3E34F000B482F /* ArtView.swift in Sources */,
 				894C691F20F13FAE003A5387 /* A586qScene.swift in Sources */,
+				89FE6CE921483869006372B1 /* KGBoidProperties.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
 				894C691820F13883003A5387 /* A736DScene.swift in Sources */,
 				894C691620EFC5A0003A5387 /* A586qView.swift in Sources */,
 				894C691320EFC224003A5387 /* A994tView.swift in Sources */,
+				8919BE3421433FBA00967B9A /* KGBoidsThreeColumnsScene.swift in Sources */,
 				DE0B7FB320E3E35B000B482F /* IDGenerator.swift in Sources */,
+				8919BE3821433FF900967B9A /* KGBoidNode.swift in Sources */,
 				89485BCD20F29EF500046753 /* A736DView.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
 				DE0B7FB120E3E352000B482F /* ArtMetadata.swift in Sources */,
+				8919BE3221433F3500967B9A /* KGBoidsThreeColumnsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,11 +1029,15 @@
 			files = (
 				DE332B74205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift in Sources */,
 				891549CC21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */,
+				8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */,
+				8919BE3B214340A300967B9A /* CGFloat+Extension.swift in Sources */,
+				8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DE293FB420490E2000444EB8 /* NSObject+Extensions.swift in Sources */,
 				89278ED1210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,
 				89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */,
 				DE332B7E205B856800C40727 /* GlobalFunctions.swift in Sources */,
 				DE332B7A205B852600C40727 /* SKNode+Extensions.swift in Sources */,
+				891C75922149B3D30037FEA3 /* SKShapeNode+Extension.swift in Sources */,
 				DE332B76205B7F3E00C40727 /* UIView+Extensions.swift in Sources */,
 				DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */,
 				DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */,
@@ -977,11 +1051,15 @@
 			files = (
 				DEDB687F20E946EE00D102EB /* CustomOperators.swift in Sources */,
 				891549CD21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */,
+				8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */,
+				8919BE3E2143413700967B9A /* CGFloat+Extension.swift in Sources */,
+				8919BE442143425D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DEDB688220E946EE00D102EB /* SKNode+Extensions.swift in Sources */,
 				89278ED2210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,
 				DEDB688520E946EE00D102EB /* NSObject+Extensions.swift in Sources */,
 				DEDB688620E946EE00D102EB /* UIColor+Extensions.swift in Sources */,
 				DEDB688320E946EE00D102EB /* UIView+Extensions.swift in Sources */,
+				891C75932149B3D70037FEA3 /* SKShapeNode+Extension.swift in Sources */,
 				DEDB688420E946EE00D102EB /* UITapGestureRecognizerWithClosure.swift in Sources */,
 				DEDB688020E946EE00D102EB /* ArrayExtensions.swift in Sources */,
 				DEDB688120E946EE00D102EB /* GlobalFunctions.swift in Sources */,

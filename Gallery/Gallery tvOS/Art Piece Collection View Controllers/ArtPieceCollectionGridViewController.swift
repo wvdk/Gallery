@@ -8,6 +8,7 @@
 
 import GalleryCore_tvOS
 
+/// A subclass of `UIViewController` which contains all art piece grid-like collection view with a vertical scrolling direction.
 class ArtPieceCollectionGridViewController: UIViewController {
 
     // MARK: - Properties
