@@ -94,7 +94,6 @@
 		DE16C541214EE4B30082BB34 /* A736DScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C51D214ED93A0082BB34 /* A736DScene.swift */; };
 		DE16C542214EE4B50082BB34 /* A736DActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE16C51E214ED93A0082BB34 /* A736DActions.sks */; };
 		DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C520214ED93A0082BB34 /* A586qScene.swift */; };
-		DE16C544214EE4BB0082BB34 /* A586qView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C521214ED93A0082BB34 /* A586qView.swift */; };
 		DE16C545214EE4BE0082BB34 /* A586qActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE16C522214ED93A0082BB34 /* A586qActions.sks */; };
 		DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C524214ED93A0082BB34 /* A994tView.swift */; };
 		DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */; };
@@ -102,6 +101,7 @@
 		DE16C549214EE4CC0082BB34 /* KGBoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52C214ED93A0082BB34 /* KGBoidNode.swift */; };
 		DE16C54A214EE4D00082BB34 /* KGBoidsThreeColumnsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C529214ED93A0082BB34 /* KGBoidsThreeColumnsScene.swift */; };
 		DE16C54B214EE4D20082BB34 /* KGBoidsThreeColumnsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52A214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift */; };
+		DE16C54C214EE60F0082BB34 /* A586qView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C521214ED93A0082BB34 /* A586qView.swift */; };
 		DE26220620E967EA002F57C7 /* ArtKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; };
 		DE26220720E9681C002F57C7 /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
 		DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293F8E2048F30300444EB8 /* AppDelegate.swift */; };
@@ -222,7 +222,7 @@
 		8959050C20754B8200300B62 /* InfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBarView.swift; sourceTree = "<group>"; };
 		8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_tvOS.h; sourceTree = "<group>"; };
-		8970BCAC20E95D160006870D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8970BCAC20E95D160006870D /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
 		89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentationController.swift; sourceTree = "<group>"; };
 		89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentAnimationController.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 		C8F56E034DED53BF3FE96DF6 /* Pods-Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gallery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gallery/Pods-Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 		DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_iOS.h; sourceTree = "<group>"; };
-		DE0B7FA620E3E337000B482F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE0B7FA620E3E337000B482F /* Info_iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_iOS.plist; sourceTree = "<group>"; };
 		DE16C518214ED93A0082BB34 /* A565zView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = A565zView.swift; sourceTree = "<group>"; };
 		DE16C519214ED93A0082BB34 /* A565zScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = A565zScene.sks; sourceTree = "<group>"; };
 		DE16C51A214ED93A0082BB34 /* A565zActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = A565zActions.sks; sourceTree = "<group>"; };
@@ -396,15 +396,6 @@
 			path = "Art Piece Collection View Controllers";
 			sourceTree = "<group>";
 		};
-		8970BCAA20E95D160006870D /* GalleryCore tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */,
-				8970BCAC20E95D160006870D /* Info.plist */,
-			);
-			path = "GalleryCore tvOS";
-			sourceTree = "<group>";
-		};
 		89BB28252097808B004B33F0 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,7 +406,7 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
-		DE0B7FA420E3E337000B482F /* GalleryCore iOS */ = {
+		DE0B7FA420E3E337000B482F /* GalleryCore */ = {
 			isa = PBXGroup;
 			children = (
 				8929F4F1204AD54C000E5179 /* IDGenerator.swift */,
@@ -426,9 +417,11 @@
 				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
 				891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */,
 				DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */,
-				DE0B7FA620E3E337000B482F /* Info.plist */,
+				DE0B7FA620E3E337000B482F /* Info_iOS.plist */,
+				8970BCAC20E95D160006870D /* Info_tvOS.plist */,
+				8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */,
 			);
-			path = "GalleryCore iOS";
+			path = GalleryCore;
 			sourceTree = "<group>";
 		};
 		DE16C516214ED93A0082BB34 /* Art Pieces */ = {
@@ -524,8 +517,7 @@
 				89134E1420E80C1300772E7F /* Gallery tvOS */,
 				DE293FA820490E1100444EB8 /* ArtKit iOS */,
 				DEDB687420E946D900D102EB /* ArtKit tvOS */,
-				DE0B7FA420E3E337000B482F /* GalleryCore iOS */,
-				8970BCAA20E95D160006870D /* GalleryCore tvOS */,
+				DE0B7FA420E3E337000B482F /* GalleryCore */,
 				DE293F8C2048F30300444EB8 /* Products */,
 				5516CC5723D6F68448980550 /* Pods */,
 				454237023F322D583FA3D42C /* Frameworks */,
@@ -1010,9 +1002,9 @@
 				DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */,
 				DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */,
 				DE16C540214EE4B10082BB34 /* A736DView.swift in Sources */,
-				DE16C544214EE4BB0082BB34 /* A586qView.swift in Sources */,
 				DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */,
 				DE16C54A214EE4D00082BB34 /* KGBoidsThreeColumnsScene.swift in Sources */,
+				DE16C54C214EE60F0082BB34 /* A586qView.swift in Sources */,
 				DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */,
 				DE16C541214EE4B30082BB34 /* A736DScene.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */,
@@ -1197,7 +1189,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "GalleryCore tvOS/Info.plist";
+				INFOPLIST_FILE = GalleryCore/Info_tvOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1224,7 +1216,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "GalleryCore tvOS/Info.plist";
+				INFOPLIST_FILE = GalleryCore/Info_tvOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1251,7 +1243,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "GalleryCore iOS/Info.plist";
+				INFOPLIST_FILE = GalleryCore/Info_iOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1278,7 +1270,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "GalleryCore iOS/Info.plist";
+				INFOPLIST_FILE = GalleryCore/Info_iOS.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
