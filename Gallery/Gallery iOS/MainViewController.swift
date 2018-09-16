@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
             it.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
             it.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             it.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            it.separatorStyle = UITableViewCellSeparatorStyle.none
+            it.separatorStyle = UITableViewCell.SeparatorStyle.none
             it.tableHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 86))
         }
         

@@ -71,7 +71,7 @@ class ArtPieceDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        view.bringSubview(toFront: infoBarView)
+        view.bringSubviewToFront(infoBarView)
         infoBarView.show()
     }
     

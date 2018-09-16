@@ -31,7 +31,7 @@ class ArtPieceTableViewCell: UITableViewCell {
                 self.piece?.view = preexistingView
                 self.previewContainerView = preexistingView
             } else {
-                let artPieceView = piece.viewType.init(frame: previewContainerView.frame, artPieceMetadata: piece)
+                let artPieceView = piece.viewType.init(frame: previewContainerView.frame)
                 
                 previewContainerView.addSubview(artPieceView)
                 artPieceView.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +53,7 @@ class ArtPieceTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         backgroundColor = .clear
