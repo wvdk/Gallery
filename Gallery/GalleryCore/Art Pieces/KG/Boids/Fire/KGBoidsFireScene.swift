@@ -110,7 +110,7 @@ class KGBoidsFireScene: SKScene {
         
         let min = confinementFrame.origin.x + confinementFrame.size.width / 2 - confinementFrame.size.width * 100 / 1920
         let max = confinementFrame.origin.x + confinementFrame.size.width / 2 + confinementFrame.size.width * 100 / 1920
-        let newPosition = CGPoint(x: CGFloat.random(min: min, max: max), y: confinementFrame.origin.y + 5)
+        let newPosition = CGPoint(x: CGFloat.random(in: min...max), y: confinementFrame.origin.y + 5)
         
         node.setProperty(position: newPosition)
         

@@ -28,9 +28,7 @@
 		891549F721150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */; };
 		891549F921150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */; };
 		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
-		8919BE3B214340A300967B9A /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3A214340A300967B9A /* CGFloat+Extension.swift */; };
 		8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
-		8919BE3E2143413700967B9A /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3A214340A300967B9A /* CGFloat+Extension.swift */; };
 		8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
 		8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
 		8919BE442143425D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
@@ -215,7 +213,6 @@
 		891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
-		8919BE3A214340A300967B9A /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		8919BE3C2143413300967B9A /* CGVector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Extension.swift"; sourceTree = "<group>"; };
 		8919BE402143422D00967B9A /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKShapeNode+Extension.swift"; sourceTree = "<group>"; };
@@ -564,7 +561,6 @@
 				DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */,
 				891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */,
 				DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */,
-				8919BE3A214340A300967B9A /* CGFloat+Extension.swift */,
 				8919BE3C2143413300967B9A /* CGVector+Extension.swift */,
 				8919BE402143422D00967B9A /* CGPoint+Extension.swift */,
 				899F2BE5215015860095D5D3 /* CGRect+Extension.swift */,
@@ -953,7 +949,6 @@
 				891549CC21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */,
 				8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */,
 				899F2BD92150111F0095D5D3 /* UIImage+Extension.swift in Sources */,
-				8919BE3B214340A300967B9A /* CGFloat+Extension.swift in Sources */,
 				8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DE293FB420490E2000444EB8 /* NSObject+Extensions.swift in Sources */,
 				89278ED1210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,
@@ -979,7 +974,6 @@
 				891549CD21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */,
 				8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */,
 				899F2BDA2150111F0095D5D3 /* UIImage+Extension.swift in Sources */,
-				8919BE3E2143413700967B9A /* CGFloat+Extension.swift in Sources */,
 				8919BE442143425D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DEDB688220E946EE00D102EB /* SKNode+Extensions.swift in Sources */,
 				89278ED2210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,

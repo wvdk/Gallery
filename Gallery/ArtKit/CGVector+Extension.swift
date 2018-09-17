@@ -38,9 +38,8 @@ extension CGVector {
     
     /// Returns random vector from the range.
     public static func random(min: CGFloat, max: CGFloat) -> CGVector {
-        let x = CGFloat.random(min: min, max: max)
-        let y = CGFloat.random(min: min, max: max)
-        
+        let x = CGFloat.random(in: min...max)
+        let y = CGFloat.random(in: min...max)
         return CGVector(dx: x, dy: y)
     }
 }

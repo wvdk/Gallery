@@ -117,7 +117,7 @@ extension UIView {
                     
                     currentRotationValue += rotation
                 case .updateOpacityRandomly:
-                    newView.alpha = CGFloat(Double(random()) + 0.1)
+                    newView.alpha = CGFloat.random(in: 0...0.9) + 0.1
                     
                 case .updateOpacityIncreasingly:
                     newView.alpha = CGFloat(0.1 + 0.9 * Double(i - startingIndex) / Double(duplicationCount))

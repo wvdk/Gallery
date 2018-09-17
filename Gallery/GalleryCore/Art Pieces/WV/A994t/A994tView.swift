@@ -68,23 +68,23 @@ class A994tView: ArtView {
     func scattering() {
         for i in -20...20 {
             let a = Double(i)
-            createSquareAt(x: random() * a, y: random() * a, z: 0)
+            createSquareAt(x: Double.random(in: 0...0.9) * a, y: Double.random(in: 0...0.9) * a, z: 0)
         }
         
         for i in -20...20 {
             let a = Double(i)
-            createSquareAt(x: (random() * a) * -1, y: (random() * a), z: 0)
+            createSquareAt(x: (Double.random(in: 0...0.9) * a) * -1, y: (Double.random(in: 0...0.9) * a), z: 0)
         }
         
         for i in -20...20 {
             let a = Double(i)
-            createSquareAt(x: (random() * a), y: (random() * a) * -1, z: 0)
+            createSquareAt(x: (Double.random(in: 0...0.9) * a), y: (Double.random(in: 0...0.9) * a) * -1, z: 0)
         }
     }
     
     func createGrouping(offset: Double) {
         for _ in 0...150 {
-            createSquareAt(x: random() +||- offset, y: random() +||- offset, z: 0)
+            createSquareAt(x: Double.random(in: 0...0.9) +||- offset, y: Double.random(in: 0...0.9) +||- offset, z: 0)
         }
     }
     
@@ -96,7 +96,7 @@ class A994tView: ArtView {
         planeNode.position = SCNVector3(x: Float(x), y: Float(y), z: Float(z))
         
         //        if flipACoin() {
-        let rotate = SCNAction.rotate(by: 5.0, around: SCNVector3(0, 1, 0), duration: random() + 0.5)
+        let rotate = SCNAction.rotate(by: 5.0, around: SCNVector3(0, 1, 0), duration: Double.random(in: 0...0.9) + 0.5)
         let rotateForever = SCNAction.repeatForever(rotate)
         planeNode.runAction(rotateForever)
         //        } else {

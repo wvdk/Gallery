@@ -68,9 +68,9 @@ class A586qScene: SKScene {
         
         for i in 0...20 {
             let whiteRect = SKSpriteNode()
-            whiteRect.color = UIColor.white.withAlphaComponent(CGFloat(min(random(), 0.6)))
+            whiteRect.color = UIColor.white.withAlphaComponent(CGFloat(min(CGFloat.random(in: 0...0.9), 0.6)))
             whiteRect.position = CGPoint(x: self.size.width / 2, y: CGFloat(i * rectHeight))
-            whiteRect.size = CGSize(width: rectWidth + Int(arc4random_uniform(UInt32(rectWidth))), height: rectHeight)
+            whiteRect.size = CGSize(width: rectWidth + Int.random(in: 0...rectWidth), height: rectHeight)
             
             self.addChild(whiteRect)
             
