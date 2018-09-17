@@ -57,6 +57,8 @@
 		899F2BD7215010FB0095D5D3 /* SKTexture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */; };
 		899F2BD92150111F0095D5D3 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */; };
 		899F2BDA2150111F0095D5D3 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */; };
+		899F2BDC215011800095D5D3 /* KGBoidsFireScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */; };
+		899F2BDD215011800095D5D3 /* KGBoidsFireScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */; };
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
 		89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
@@ -224,6 +226,7 @@
 		8970BCAC20E95D160006870D /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
 		899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKTexture+Extension.swift"; sourceTree = "<group>"; };
 		899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsFireScene.swift; sourceTree = "<group>"; };
 		89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentationController.swift; sourceTree = "<group>"; };
 		89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentAnimationController.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
@@ -456,6 +459,7 @@
 			children = (
 				DE16C528214ED93A0082BB34 /* ThreeColumns */,
 				DE16C52C214ED93A0082BB34 /* KGBoidNode.swift */,
+				899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */,
 				DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */,
 				DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */,
 			);
@@ -868,6 +872,7 @@
 				DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */,
 				DE16C540214EE4B10082BB34 /* A736DView.swift in Sources */,
 				DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */,
+				899F2BDD215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
 				DE16C54A214EE4D00082BB34 /* KGBoidsThreeColumnsScene.swift in Sources */,
 				DE16C54C214EE60F0082BB34 /* A586qView.swift in Sources */,
 				DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */,
@@ -890,6 +895,7 @@
 				DE16C539214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
 				DE16C530214ED93A0082BB34 /* A736DView.swift in Sources */,
+				899F2BDC215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
 				DE0B7FB320E3E35B000B482F /* IDGenerator.swift in Sources */,
 				DE16C536214ED93A0082BB34 /* A994tView.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
