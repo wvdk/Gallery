@@ -179,12 +179,12 @@ class KGBoidNode: SKShapeNode {
             distances.append(position.vector(to: neighbour.position))
         }
         
-        let averageDirection = directions.averageForCGVectors
+        let averageDirection = directions.average
         
-        let averagaPosition = positions.averageForCGPoint
+        let averagaPosition = positions.average
         let vectorToAveragePosition = position.vector(to: averagaPosition)
         
-        let averageDistance = distances.averageForCGVectors
+        let averageDistance = distances.average
         let distance = averageDistance.length > length / 2 ? averageDistance : CGVector(dx: length / 2, dy: length / 2)
         
         return (averageDirection, vectorToAveragePosition, distance)
@@ -232,13 +232,13 @@ class KGBoidNode: SKShapeNode {
     }
     
     private func updatePosition() {
-        let averageDirection = recentDirections.averageForCGVectors.multiply(by: speedCoefficient)
+        let averageDirection = recentDirections.average.multiply(by: speedCoefficient)
         position.x += averageDirection.dx
         position.y += averageDirection.dy
     }
     
     private func updateRotation() {
-        let averageDirection = recentDirections.averageForCGVectors
+        let averageDirection = recentDirections.average
         zRotation = averageDirection.normalized.angleToNormal
     }
     
@@ -263,5 +263,14 @@ class KGBoidNode: SKShapeNode {
         traceNode.run(fadeOut) {
             traceNode.removeFromParent()
         }
+    }
+}
+
+extension CGVector {
+    
+    /// Returns normalized to 1 CGVector.
+    fileprivate var normalized: CGVector {
+        let maxComponent = max(abs(dx), abs(dy))
+        return self.divide(by: maxComponent)
     }
 }
