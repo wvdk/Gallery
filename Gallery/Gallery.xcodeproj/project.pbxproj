@@ -375,6 +375,15 @@
 			path = "Art Piece Collection View Controllers";
 			sourceTree = "<group>";
 		};
+		899F2BE1215011E10095D5D3 /* Fire */ = {
+			isa = PBXGroup;
+			children = (
+				899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */,
+				899F2BDE215011C40095D5D3 /* KGBoidsFireView.swift */,
+			);
+			path = Fire;
+			sourceTree = "<group>";
+		};
 		89BB28252097808B004B33F0 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,10 +469,9 @@
 		DE16C526214ED93A0082BB34 /* Boids */ = {
 			isa = PBXGroup;
 			children = (
+				899F2BE1215011E10095D5D3 /* Fire */,
 				DE16C528214ED93A0082BB34 /* ThreeColumns */,
 				DE16C52C214ED93A0082BB34 /* KGBoidNode.swift */,
-				899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */,
-				899F2BDE215011C40095D5D3 /* KGBoidsFireView.swift */,
 				DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */,
 				DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */,
 			);
