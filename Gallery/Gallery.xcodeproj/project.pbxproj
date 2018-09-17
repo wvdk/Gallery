@@ -43,8 +43,7 @@
 		892F534921067D1300AC8C45 /* ArtKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; };
 		892F534A21067D1300AC8C45 /* ArtKit_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		892F534E2107A5E600AC8C45 /* SKSpriteNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */; };
-		894C2C632141F20F001CAE52 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
-		8958AE88210672E20067286F /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8958AE88210672E20067286F /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8959050D20754B8200300B62 /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959050C20754B8200300B62 /* InfoBarView.swift */; };
 		8959454A20E9609900DF123D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
 		8959454B20E9609900DF123D /* GalleryCore_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -52,6 +51,8 @@
 		8970BCB920E95F170006870D /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929F4F1204AD54C000E5179 /* IDGenerator.swift */; };
 		8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* ArtMetadata.swift */; };
 		8970BCBD20E95F220006870D /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
+		899F2BD321500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
+		899F2BD421500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
 		89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
@@ -178,7 +179,7 @@
 			files = (
 				DE0B7FAB20E3E337000B482F /* GalleryCore_iOS.framework in Embed Frameworks */,
 				892F534A21067D1300AC8C45 /* ArtKit_iOS.framework in Embed Frameworks */,
-				8958AE88210672E20067286F /* BuildFile in Embed Frameworks */,
+				8958AE88210672E20067286F /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,7 +342,6 @@
 			isa = PBXGroup;
 			children = (
 				89DEC6B8210B9C10009858CC /* FocusingView.swift */,
-				894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */,
 				89E295E921473E3F0042F1CB /* LoopingLineView.swift */,
 				89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */,
 			);
@@ -448,10 +448,10 @@
 		DE16C526214ED93A0082BB34 /* Boids */ = {
 			isa = PBXGroup;
 			children = (
-				DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */,
 				DE16C528214ED93A0082BB34 /* ThreeColumns */,
-				DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */,
 				DE16C52C214ED93A0082BB34 /* KGBoidNode.swift */,
+				DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */,
+				DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */,
 			);
 			path = Boids;
 			sourceTree = "<group>";
@@ -524,18 +524,19 @@
 				89CBB570205C3DA10022FBE2 /* CustomOperators.swift */,
 				DE332B7F205B857900C40727 /* ArrayExtensions.swift */,
 				DE332B7D205B856800C40727 /* GlobalFunctions.swift */,
+				894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */,
 				DE332B79205B852600C40727 /* SKNode+Extensions.swift */,
 				892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */,
 				891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */,
 				DE332B75205B7F3E00C40727 /* UIView+Extensions.swift */,
 				89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */,
+				DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */,
+				891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */,
+				DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */,
 				8919BE3A214340A300967B9A /* CGFloat+Extension.swift */,
 				8919BE3C2143413300967B9A /* CGVector+Extension.swift */,
 				8919BE402143422D00967B9A /* CGPoint+Extension.swift */,
-				891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */,
-				DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */,
 				DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */,
-				DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */,
 				DE293FA920490E1100444EB8 /* ArtKit_iOS.h */,
 				DEDB687520E946D900D102EB /* ArtKit_tvOS.h */,
 				DE293FAA20490E1100444EB8 /* Info_iOS.plist */,
@@ -837,7 +838,6 @@
 				891549D2211267690041FE8A /* FeaturedArtPieceCollectionViewController.swift in Sources */,
 				891549D5211276820041FE8A /* ArtPieceCollectionGridViewController.swift in Sources */,
 				89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */,
-				894C2C632141F20F001CAE52 /* RadialGradientLayer.swift in Sources */,
 				891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */,
 				89E295EA21473E3F0042F1CB /* LoopingLineView.swift in Sources */,
 				89127CEA2126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift in Sources */,
@@ -923,6 +923,7 @@
 				DE332B7A205B852600C40727 /* SKNode+Extensions.swift in Sources */,
 				891C75922149B3D30037FEA3 /* SKShapeNode+Extension.swift in Sources */,
 				DE332B76205B7F3E00C40727 /* UIView+Extensions.swift in Sources */,
+				899F2BD321500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */,
 				DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */,
 				DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */,
 				892F534E2107A5E600AC8C45 /* SKSpriteNode+Extension.swift in Sources */,
@@ -945,6 +946,7 @@
 				DEDB688320E946EE00D102EB /* UIView+Extensions.swift in Sources */,
 				891C75932149B3D70037FEA3 /* SKShapeNode+Extension.swift in Sources */,
 				DEDB688420E946EE00D102EB /* UITapGestureRecognizerWithClosure.swift in Sources */,
+				899F2BD421500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */,
 				DEDB688020E946EE00D102EB /* ArrayExtensions.swift in Sources */,
 				DEDB688120E946EE00D102EB /* GlobalFunctions.swift in Sources */,
 				89DEC6B7210A7B30009858CC /* SKSpriteNode+Extension.swift in Sources */,

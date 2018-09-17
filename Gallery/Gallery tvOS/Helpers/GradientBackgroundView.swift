@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GalleryCore_tvOS
 
 class GradientBackgroundView: UIView {
     
