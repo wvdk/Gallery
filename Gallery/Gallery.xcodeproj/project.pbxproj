@@ -61,6 +61,8 @@
 		899F2BDD215011800095D5D3 /* KGBoidsFireScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */; };
 		899F2BDF215011C40095D5D3 /* KGBoidsFireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BDE215011C40095D5D3 /* KGBoidsFireView.swift */; };
 		899F2BE0215011C40095D5D3 /* KGBoidsFireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BDE215011C40095D5D3 /* KGBoidsFireView.swift */; };
+		899F2BE3215012C90095D5D3 /* KGObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */; };
+		899F2BE4215012C90095D5D3 /* KGObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */; };
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
 		89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
@@ -230,6 +232,7 @@
 		899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsFireScene.swift; sourceTree = "<group>"; };
 		899F2BDE215011C40095D5D3 /* KGBoidsFireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsFireView.swift; sourceTree = "<group>"; };
+		899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGObstacleNode.swift; sourceTree = "<group>"; };
 		89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentationController.swift; sourceTree = "<group>"; };
 		89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentAnimationController.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
@@ -472,6 +475,7 @@
 				899F2BE1215011E10095D5D3 /* Fire */,
 				DE16C528214ED93A0082BB34 /* ThreeColumns */,
 				DE16C52C214ED93A0082BB34 /* KGBoidNode.swift */,
+				899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */,
 				DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */,
 				DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */,
 			);
@@ -888,6 +892,7 @@
 				899F2BE0215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
 				DE16C54A214EE4D00082BB34 /* KGBoidsThreeColumnsScene.swift in Sources */,
 				DE16C54C214EE60F0082BB34 /* A586qView.swift in Sources */,
+				899F2BE4215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */,
 				DE16C541214EE4B30082BB34 /* A736DScene.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */,
@@ -912,6 +917,7 @@
 				899F2BDF215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
 				DE0B7FB320E3E35B000B482F /* IDGenerator.swift in Sources */,
 				DE16C536214ED93A0082BB34 /* A994tView.swift in Sources */,
+				899F2BE3215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
 				DE16C538214ED93A0082BB34 /* KGBoidsThreeColumnsScene.swift in Sources */,
 				DE0B7FB120E3E352000B482F /* ArtMetadata.swift in Sources */,
