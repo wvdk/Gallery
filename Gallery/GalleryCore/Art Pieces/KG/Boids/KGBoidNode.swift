@@ -220,9 +220,9 @@ class KGBoidNode: SKShapeNode {
     }
     
     func bounce(of obstacle: KGObstacleNode) {
-        let averageDirection = recentDirections.averageForCGVectors.normalized
+        let averageDirection = recentDirections.average.normalized
         let directions = [averageDirection, obstacle.direction]
-        let newBoidDirection = directions.averageForCGVectors.multiply(by: 10)
+        let newBoidDirection = directions.average.multiply(by: 10)
         
         direction = newBoidDirection
         recentDirections = [direction]

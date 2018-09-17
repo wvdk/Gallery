@@ -123,8 +123,8 @@ class KGBoidsFireScene: SKScene {
     // MARK: - Node appearance
     
     fileprivate func updateAppearance(for node: KGBoidNode) {
-        let normalizedY = node.position.y.normalize(to: size.height)
-        let normalizedX = node.position.x.normalize(to: size.width)
+        let normalizedY = node.position.y / size.height
+        let normalizedX = node.position.x / size.width
         
         let radius = sqrt(pow(normalizedY, 2) + pow(normalizedX - 0.5, 2))
         
