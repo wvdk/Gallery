@@ -7,14 +7,14 @@
 //
 
 import SpriteKit
-import GameplayKit
 
 class KGBoidsThreeColumnsScene: SKScene {
     
     // MARK: - Properties
     
     private var allBoids = [KGBoidNode]()
-
+    private var obstacles = [KGObstacleNode]()
+    
     // MARK: - Scene presentation
     
     override func didMove(to view: SKView) {
@@ -22,113 +22,112 @@ class KGBoidsThreeColumnsScene: SKScene {
         
         self.size = view.superview?.frame.size ?? UIScreen.main.nativeBounds.size
         self.backgroundColor = .black
-
-        setupBoids()
         
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateBoidProperties), userInfo: nil, repeats: true)
+        let sizeWidth = size.width / 4
+        let sizeHeight = size.height * ( 1 - 300 / 1119)
+        
+        let confinementFrame = CGRect(origin: CGPoint(x: size.width / 2 - sizeWidth / 2, y: size.height / 2 - sizeHeight / 2),
+                                      size: CGSize(width: sizeWidth, height: sizeHeight))
+        
+        setupObstacleNodes(for: confinementFrame)
+        setupBoids(in: confinementFrame)
     }
-        
+    
     override func update(_ currentTime: TimeInterval) {
         updateBoidPositions()
     }
     
     // MARK: - Node setup
     
-    func setupBoids() {
-        let sizeWidth = size.width / 15
-        let sizeHeight = size.height * ( 1 - 300 / 1119)
+    private func setupBoids(in frame: CGRect) {
+        let boidLength = size.width * 5 / 1920
+        let squareBoidPath = KGBoidShapes.square.cgPathRepresentative(length: boidLength)
+        let boidNode = KGBoidNode(from: squareBoidPath, properties: [.fillColor(.red)]) // .leavesTranceBoidAtDistance(boidLength),
         
-        let smallFrameSize = CGSize(width: sizeWidth, height: sizeHeight)
-        let doubleWidthFrameSize = CGSize(width: 2 * sizeWidth, height: sizeHeight)
+        //        let confinementFrame = CGRect(origin: CGPoint(x: -frame.size.width / 2, y: -frame.size.height / 2), size: frame.size)
         
-        let centerFrame = CGRect(origin: CGPoint(x: size.width / 2 - sizeWidth, y: size.height / 2 - sizeHeight / 2), size: doubleWidthFrameSize)
-        let leftFrame = CGRect(origin: CGPoint(x: size.width / 4 - sizeWidth / 2, y: size.height / 2 - sizeHeight / 2), size: smallFrameSize)
-        let rightFrame = CGRect(origin: CGPoint(x: size.width * 3 / 4 - sizeWidth / 2, y: size.height / 2 - sizeHeight / 2),  size: smallFrameSize)
-        
-        let squareBoidPath = KGBoidShapes.square.cgPathRepresentative(length: size.width * 20 / 1920)
-        
-        let centerBoidNode = KGBoidNode(from: squareBoidPath, confinementFrame: centerFrame)
-        let leftBoidNode = KGBoidNode(from: squareBoidPath, confinementFrame: leftFrame)
-        let rightBoidNode = KGBoidNode(from: squareBoidPath, confinementFrame: rightFrame)
-        
-        for _ in 0...50 {
-            spit(boid: centerBoidNode)
-        }
-        
-        for _ in 0...30 {
-            spit(boid: leftBoidNode)
-        }
-        
-        for _ in 0...30 {
-            spit(boid: rightBoidNode)
+        for _ in 0...500 {
+            spitCopy(of: boidNode, in: frame)
         }
     }
     
-    func spit(boid: KGBoidNode) {
-        let cloneBoid = boid.clone
-        cloneBoid.delegate = self
+    private func spitCopy(of boid: KGBoidNode, in frame: CGRect) {
+        let cloneBoid = boid.clone(at: frame.randomPoint)
+        
+        cloneBoid.setProperty(cohesionCoefficient: -0.1)
+        cloneBoid.setProperty(alignmentCoefficient: 0.5)
+        cloneBoid.setProperty(separationCoefficient: 0.01)
+        cloneBoid.setProperty(speedCoefficient: 0.3)
+        
         self.addChild(cloneBoid)
         allBoids.append(cloneBoid)
     }
     
-    // MARK: - Node control
-    
-    @objc func updateBoidProperties() {
-        let deltaValue: CGFloat = 1.0
+    private func setupObstacleNodes(for frame: CGRect) {
+        let frameThinkness: CGFloat = size.width * 40 / 1920
         
-        guard let boid = allBoids.first else { return }
-        let currentCoeficient = boid.cohesionCoefficient
-
-        if currentCoeficient > 0 {
-            self.run(SKAction.fadeOut(withDuration: 1)) { [weak self] in
-                self?.allBoids.forEach { boid in
-                    boid.setProperty(cohesionCoefficient: currentCoeficient - 3 * deltaValue)
-                    boid.setProperty(alignmentCoefficient: 2)
-                }
-                
-                self?.run(SKAction.wait(forDuration: 1.5)) {
-                    self?.alpha = 1
-                }
-            }
-           
-        } else {
-            allBoids.forEach {
-                $0.setProperty(cohesionCoefficient: currentCoeficient + deltaValue / 5)
-                $0.setProperty(alignmentCoefficient: 1)
-            }
-        }
+        let leftFrame = CGRect(x: frame.origin.x,
+                               y: frame.origin.y,
+                               width: frameThinkness,
+                               height: frame.size.height)
+        
+        let rightFrame = CGRect(x: frame.origin.x + frame.size.width - frameThinkness,
+                                y: frame.origin.y,
+                                width: frameThinkness,
+                                height: frame.size.height)
+        
+        let bottomFrame = CGRect(x: frame.origin.x,
+                                 y: frame.origin.y,
+                                 width: frame.size.width,
+                                 height: frameThinkness)
+        
+        let topFrame = CGRect(x: frame.origin.x,
+                              y: frame.origin.y + frame.size.height - frameThinkness,
+                              width: frame.size.width,
+                              height: frameThinkness)
+        
+        let leftNode = KGObstacleNode(frame: leftFrame, direction: CGVector(dx: 1, dy: 0))
+        let rightNode = KGObstacleNode(frame: rightFrame, direction: CGVector(dx: -1, dy: 0))
+        let bottomNode = KGObstacleNode(frame: bottomFrame, direction: CGVector(dx: 0, dy: 1))
+        let topNode = KGObstacleNode(frame: topFrame, direction: CGVector(dx: 0, dy: -1))
+        
+        self.addChild(leftNode)
+        self.addChild(rightNode)
+        self.addChild(bottomNode)
+        self.addChild(topNode)
+        
+        obstacles.append(leftNode)
+        obstacles.append(rightNode)
+        obstacles.append(bottomNode)
+        obstacles.append(topNode)
     }
+    
+    // MARK: - Node control
     
     private func updateBoidPositions() {
         allBoids.forEach { boid in
-            let neighbourhood = allBoids.filter { possiblyNeighbourBoid in
-                guard boid != possiblyNeighbourBoid else {
-                    return false
+            for obstacle in obstacles {
+                if boid.canUpdatePosition, obstacle.contains(boid.position) {
+                    boid.bounce(of: obstacle)
+                    
+                    return
                 }
-                
-                if boid.position.distance(to: possiblyNeighbourBoid.position) < boid.length * 2 {
-                    return true
-                }
-                
-                return false
             }
             
-            boid.move(in: neighbourhood)
+            //            let neighbourhood = allBoids.filter { possiblyNeighbourBoid in
+            //                guard boid != possiblyNeighbourBoid else {
+            //                    return false
+            //                }
+            //
+            //                if boid.position.distance(to: possiblyNeighbourBoid.position) < boid.length * 2 {
+            //                    return true
+            //                }
+            //
+            //                return false
+            //            }
+            //
+            //            boid.move(in: neighbourhood)
+            boid.move(in: [])
         }
     }
 }
-
-// MARK: - KGBoidNodeDelegate implementation
-
-extension KGBoidsThreeColumnsScene: KGBoidNodeDelegate {
-    
-    func kgBoidNode(_ node: KGBoidNode, didUpdate position: CGPoint) {
-        let normalizedY = node.position.y / size.height
-        let fillColor = UIColor(red: normalizedY * normalizedY + 0.1,
-                                green: 0.1 * normalizedY,
-                                blue: 0.4 * normalizedY + 0.3,
-                                alpha: node.fillColorAlpha)
-        node.setProperty(fillColor: fillColor)
-    }
-}
-
