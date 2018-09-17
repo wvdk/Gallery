@@ -63,6 +63,8 @@
 		899F2BE0215011C40095D5D3 /* KGBoidsFireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BDE215011C40095D5D3 /* KGBoidsFireView.swift */; };
 		899F2BE3215012C90095D5D3 /* KGObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */; };
 		899F2BE4215012C90095D5D3 /* KGObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */; };
+		899F2BE82150158C0095D5D3 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE5215015860095D5D3 /* CGRect+Extension.swift */; };
+		899F2BE92150158C0095D5D3 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE5215015860095D5D3 /* CGRect+Extension.swift */; };
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
 		89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
@@ -233,6 +235,7 @@
 		899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsFireScene.swift; sourceTree = "<group>"; };
 		899F2BDE215011C40095D5D3 /* KGBoidsFireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsFireView.swift; sourceTree = "<group>"; };
 		899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGObstacleNode.swift; sourceTree = "<group>"; };
+		899F2BE5215015860095D5D3 /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentationController.swift; sourceTree = "<group>"; };
 		89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentAnimationController.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
@@ -564,6 +567,7 @@
 				8919BE3A214340A300967B9A /* CGFloat+Extension.swift */,
 				8919BE3C2143413300967B9A /* CGVector+Extension.swift */,
 				8919BE402143422D00967B9A /* CGPoint+Extension.swift */,
+				899F2BE5215015860095D5D3 /* CGRect+Extension.swift */,
 				DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */,
 				DE293FA920490E1100444EB8 /* ArtKit_iOS.h */,
 				DEDB687520E946D900D102EB /* ArtKit_tvOS.h */,
@@ -953,6 +957,7 @@
 				8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DE293FB420490E2000444EB8 /* NSObject+Extensions.swift in Sources */,
 				89278ED1210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,
+				899F2BE82150158C0095D5D3 /* CGRect+Extension.swift in Sources */,
 				89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */,
 				DE332B7E205B856800C40727 /* GlobalFunctions.swift in Sources */,
 				DE332B7A205B852600C40727 /* SKNode+Extensions.swift in Sources */,
@@ -978,6 +983,7 @@
 				8919BE442143425D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DEDB688220E946EE00D102EB /* SKNode+Extensions.swift in Sources */,
 				89278ED2210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,
+				899F2BE92150158C0095D5D3 /* CGRect+Extension.swift in Sources */,
 				DEDB688520E946EE00D102EB /* NSObject+Extensions.swift in Sources */,
 				DEDB688620E946EE00D102EB /* UIColor+Extensions.swift in Sources */,
 				DEDB688320E946EE00D102EB /* UIView+Extensions.swift in Sources */,
