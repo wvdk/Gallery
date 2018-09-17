@@ -33,7 +33,8 @@ class FocusingView: UIView {
     
     private let containerView = UIView()
     private let thumbnailView = UIImageView()
-    
+    private var artViewTag = 502934
+
     // MARK: - UIView properties
     
     override var canBecomeFocused: Bool {
@@ -71,6 +72,7 @@ class FocusingView: UIView {
         
         let artView = artViewType.init(frame: bounds)
         artView.alpha = 0
+        artView.tag = artViewTag
         
         containerView.addSubview(artView)
         artView.constraint(edgesTo: containerView)
@@ -82,7 +84,7 @@ class FocusingView: UIView {
     
     /// Fades out and removes a `ArtView` type views from the receiver’s list of subviews.
     func removeArtView() {
-        let artViews = containerView.subviews.filter({ $0 as? ArtView != nil })
+        let artViews = containerView.subviews.filter({ $0.tag == artViewTag })
         
         artViews.forEach { view in
             UIView.animate(withDuration: 0.2, animations: {
