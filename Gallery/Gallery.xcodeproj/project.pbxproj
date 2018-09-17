@@ -53,6 +53,10 @@
 		8970BCBD20E95F220006870D /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
 		899F2BD321500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
 		899F2BD421500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
+		899F2BD6215010FB0095D5D3 /* SKTexture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */; };
+		899F2BD7215010FB0095D5D3 /* SKTexture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */; };
+		899F2BD92150111F0095D5D3 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */; };
+		899F2BDA2150111F0095D5D3 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */; };
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
 		89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
@@ -218,6 +222,8 @@
 		8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_tvOS.h; sourceTree = "<group>"; };
 		8970BCAC20E95D160006870D /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
+		899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKTexture+Extension.swift"; sourceTree = "<group>"; };
+		899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentationController.swift; sourceTree = "<group>"; };
 		89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentAnimationController.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
@@ -528,8 +534,10 @@
 				DE332B79205B852600C40727 /* SKNode+Extensions.swift */,
 				892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */,
 				891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */,
+				899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */,
 				DE332B75205B7F3E00C40727 /* UIView+Extensions.swift */,
 				89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */,
+				899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */,
 				DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */,
 				891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */,
 				DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */,
@@ -914,6 +922,7 @@
 				DE332B74205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift in Sources */,
 				891549CC21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */,
 				8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */,
+				899F2BD92150111F0095D5D3 /* UIImage+Extension.swift in Sources */,
 				8919BE3B214340A300967B9A /* CGFloat+Extension.swift in Sources */,
 				8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DE293FB420490E2000444EB8 /* NSObject+Extensions.swift in Sources */,
@@ -923,6 +932,7 @@
 				DE332B7A205B852600C40727 /* SKNode+Extensions.swift in Sources */,
 				891C75922149B3D30037FEA3 /* SKShapeNode+Extension.swift in Sources */,
 				DE332B76205B7F3E00C40727 /* UIView+Extensions.swift in Sources */,
+				899F2BD6215010FB0095D5D3 /* SKTexture+Extension.swift in Sources */,
 				899F2BD321500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */,
 				DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */,
 				DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */,
@@ -937,6 +947,7 @@
 				DEDB687F20E946EE00D102EB /* CustomOperators.swift in Sources */,
 				891549CD21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */,
 				8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */,
+				899F2BDA2150111F0095D5D3 /* UIImage+Extension.swift in Sources */,
 				8919BE3E2143413700967B9A /* CGFloat+Extension.swift in Sources */,
 				8919BE442143425D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DEDB688220E946EE00D102EB /* SKNode+Extensions.swift in Sources */,
@@ -946,6 +957,7 @@
 				DEDB688320E946EE00D102EB /* UIView+Extensions.swift in Sources */,
 				891C75932149B3D70037FEA3 /* SKShapeNode+Extension.swift in Sources */,
 				DEDB688420E946EE00D102EB /* UITapGestureRecognizerWithClosure.swift in Sources */,
+				899F2BD7215010FB0095D5D3 /* SKTexture+Extension.swift in Sources */,
 				899F2BD421500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */,
 				DEDB688020E946EE00D102EB /* ArrayExtensions.swift in Sources */,
 				DEDB688120E946EE00D102EB /* GlobalFunctions.swift in Sources */,
