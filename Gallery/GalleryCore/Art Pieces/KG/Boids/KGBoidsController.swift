@@ -49,9 +49,11 @@ class KGBoidsController {
             if let obstacleInTheWay = obstacles.first(where: { $0.intercepts(withBoid: boid.position) }) {
                 boid.bounce(of: obstacleInTheWay)
                 
-                boid.canUpdatePosition = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    boid.canUpdatePosition = true
+                if boid.canUpdatePosition {
+                    boid.canUpdatePosition = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        boid.canUpdatePosition = true
+                    }
                 }
                 
                 return
@@ -87,6 +89,7 @@ class KGBoidsController {
     
     private func loadBoidToBucket(boid: KGBoidNode) {
         guard let boidsPosition = boidsPosition(boid: boid) else {
+            boid.bucketHashValue = nil
             NSLog("Boid is out of confinement frame.")
             return
         }
