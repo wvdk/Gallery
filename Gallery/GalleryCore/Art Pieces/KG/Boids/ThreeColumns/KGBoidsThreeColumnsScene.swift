@@ -13,7 +13,7 @@ class KGBoidsThreeColumnsScene: SKScene {
     // MARK: - Properties
     
     private var boidsController: KGBoidsController!
-    private var canEstimateBoidsNeighbourhood = true
+    private var canEstimateBoidsNeighbourhood = false
 
     // MARK: - Scene presentation
     
@@ -23,7 +23,7 @@ class KGBoidsThreeColumnsScene: SKScene {
         self.size = view.superview?.frame.size ?? UIScreen.main.nativeBounds.size
         self.backgroundColor = .black
         
-        let boidsLength = size.width * 5 / 1920
+        let boidsLength = size.width * 7 / 1920
         let sizeWidth = size.height / 2
         let sizeHeight = size.height / 2
         let confinementFrame = CGRect(origin: CGPoint(x: size.width / 2 - sizeWidth / 2, y: size.height / 2 - sizeHeight / 2),
@@ -31,11 +31,21 @@ class KGBoidsThreeColumnsScene: SKScene {
         
         boidsController = KGBoidsController(bucketSize: boidsLength * 2, confinementFrame: confinementFrame)
         
-//        setupRectangularObstacleNodes(for: confinementFrame)
+        setupBackgroundNode()
         setupCirculatObstacleNode(for: confinementFrame)
-        setupBoids(in: confinementFrame, boidsLength: boidsLength)
+        
+        let initialLeftFrame = CGRect(x: -frame.size.width,
+                                      y: confinementFrame.midY,
+                                      width: frame.size.width * 1.5 - confinementFrame.size.width / 2,
+                                      height: 5)
+        let initialRightFrame = CGRect(x: frame.size.width / 2 + confinementFrame.size.width / 2,
+                                       y: confinementFrame.midY,
+                                       width: frame.size.width * 1.5 - confinementFrame.size.width / 2,
+                                       height: 5)
+        
+        setupBoids(in: initialLeftFrame, boidsLength: boidsLength)
+        setupBoids(in: initialRightFrame, boidsLength: boidsLength)
     }
-    
     
     override func update(_ currentTime: TimeInterval) {
         if canEstimateBoidsNeighbourhood {
@@ -50,27 +60,40 @@ class KGBoidsThreeColumnsScene: SKScene {
     
     // MARK: - Node setup
     
+    private func setupBackgroundNode() {
+        let linearGradient = CAGradientLayer()
+        linearGradient.frame = CGRect(origin: .zero, size: size)
+        linearGradient.colors = [
+            UIColor.black.cgColor,
+            UIColor(r: 93, g: 0, b: 0).cgColor,
+            UIColor.black.cgColor
+        ]
+        
+        let texture = SKTexture(layer: linearGradient, size: size)
+        let node = SKSpriteNode(texture: texture, size: size)
+        node.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        node.zPosition = 0
+        
+        addChild(node)
+    }
+    
     private func setupBoids(in frame: CGRect, boidsLength: CGFloat) {
         let path = KGBoidShapes.circle.cgPathRepresentative(length: boidsLength)
-        let boid = KGBoidNode(from: path, properties: [.fillColor(.red)])
+        let boid = KGBoidNode(from: path, properties: [.fillColor(.red), .initialDirection(.zero)])
+        boid.zPosition = 10
         
-        let initialFrame = CGRect(x: frame.midX - frame.size.width / 4,
-                                       y: frame.midY - frame.size.height / 4,
-                                       width: frame.size.width / 2,
-                                       height: frame.size.height / 2)
-        
-        for _ in 0...1000 {
-            spitCopy(of: boid, in: initialFrame)
+        for _ in 0...400 {
+            spitCopy(of: boid, at: frame.randomPoint)
         }
     }
     
-    private func spitCopy(of boid: KGBoidNode, in frame: CGRect) {
-        let cloneBoid = boid.clone(at: frame.randomPoint)
+    private func spitCopy(of boid: KGBoidNode, at position: CGPoint) {
+        let cloneBoid = boid.clone(at: position)
         
         cloneBoid.setProperty(cohesionCoefficient: -0.2)
         cloneBoid.setProperty(alignmentCoefficient: 0.8)
         cloneBoid.setProperty(separationCoefficient: 0)
-        cloneBoid.setProperty(speedCoefficient: 0.3)
+        cloneBoid.setProperty(speedCoefficient: 0.25)
         
         self.addChild(cloneBoid)
         boidsController.add(boid: cloneBoid)
@@ -78,6 +101,7 @@ class KGBoidsThreeColumnsScene: SKScene {
     
     private func setupCirculatObstacleNode(for frame: CGRect) {
         let node = KGObstacleNode(doghnutIn: frame)
+        node.zPosition = 9
         self.addChild(node)
         boidsController.add(obstacle: node)
     }
