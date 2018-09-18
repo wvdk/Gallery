@@ -1,5 +1,5 @@
 //
-//  KGBoidsThreeColumnsView.swift
+//  KGBoidsSunView.swift
 //  GalleryCore iOS
 //
 //  Created by Kristina Gelzinyte on 9/7/18.
@@ -9,11 +9,11 @@
 import UIKit
 import SpriteKit
 
-class KGBoidsThreeColumnsView: ArtView {
+class KGBoidsSunView: ArtView {
     
     // MARK: - Properties
     
-    private var scene = KGBoidsThreeColumnsScene()
+    private var scene = KGBoidsSunScene()
     private let spriteKitView = SKView()
     
     // MARK: - Initialization

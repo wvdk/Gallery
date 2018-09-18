@@ -21,7 +21,7 @@ public class MasterList {
     private init() {
         // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
         activePieces = [
-            ArtMetadata(id: "ThreeColumnBoids", author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsThreeColumnsView.self, thumbnail: nil),
+            ArtMetadata(id: "SunBoids", author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsSunView.self, thumbnail: nil),
             ArtMetadata(id: "FireBoids", author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsFireView.self, thumbnail: nil),
             ArtMetadata(id: "A565z", author: "wvdk", prettyPublishedDate: "June 2018", viewType: A565zView.self, thumbnail: UIImage(named: "A565z"))
         ]

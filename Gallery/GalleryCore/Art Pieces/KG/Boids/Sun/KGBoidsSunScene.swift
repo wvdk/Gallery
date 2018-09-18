@@ -1,5 +1,5 @@
 //
-//  KGBoidsThreeColumnsScene.swift
+//  KGBoidsSunScene.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 9/7/18.
@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class KGBoidsThreeColumnsScene: SKScene {
+class KGBoidsSunScene: SKScene {
     
     // MARK: - Properties
     
