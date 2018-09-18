@@ -40,7 +40,7 @@ class KGBoidsController {
         obstacles.append(obstacle)
     }
     
-    func updateBoidsPosition() {
+    func updateBoidsPositionInNeighbourhood() {
         setupEmptyBucket()
         
         boids.forEach { loadBoidToBucket(boid: $0) }
@@ -48,15 +48,25 @@ class KGBoidsController {
         boids.forEach { boid in
             if let obstacleInTheWay = obstacles.first(where: { $0.contains(boid.position) }) {
                 boid.bounce(of: obstacleInTheWay)
+                
+                boid.canUpdatePosition = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    boid.canUpdatePosition = true
+                }
+                
                 return
             }
             
-            if let bucketHashValue = boid.bucketHashValue, let neighbours = buckets[bucketHashValue], neighbours.count > 1 {
+            if boid.canUpdatePosition, let bucketHashValue = boid.bucketHashValue, let neighbours = buckets[bucketHashValue], neighbours.count > 1 {
                 boid.move(in: neighbours)
             } else {
                 boid.move()
             }
         }
+    }
+    
+    func updateBoidsPosition() {
+        boids.forEach { $0.move() }
     }
     
     // MARK: - Bucket management
