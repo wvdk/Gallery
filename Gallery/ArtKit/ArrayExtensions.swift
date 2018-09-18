@@ -16,7 +16,11 @@ extension Array {
 extension Array where Element == CGPoint {
     
     /// Returns the average of all elements in the `CGPoint` array.
-    public var average: CGPoint {
+    public var average: CGPoint? {
+        guard self.count > 0 else {
+            return nil
+        }
+        
         let total = reduce(CGPoint.zero) { (result, element) -> CGPoint in
             return CGPoint(x: result.x + element.x, y: result.y + element.y)
         }
@@ -28,7 +32,11 @@ extension Array where Element == CGPoint {
 extension Array where Element == CGVector {
     
     /// Returns the average of all elements in the `CGVector` array.
-    public var average: CGVector {
+    public var average: CGVector? {
+        guard self.count > 0 else {
+            return nil
+        }
+        
         let total = reduce(CGVector.zero) { (result, element) -> CGVector in
             return CGVector(dx: result.dx + element.dx, dy: result.dy + element.dy)
         }

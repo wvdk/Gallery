@@ -24,11 +24,14 @@ class KGBoidNode: SKShapeNode {
         return path?.boundingBox.width ?? 20.0
     }
     
+    var bucketHashValue: Int?
+    
     /// Returns a copy of a receiver's node with exactly same confinement frame.
     func clone(at position: CGPoint) -> KGBoidNode {
         let cloneNode = self.copy() as! KGBoidNode
         
         cloneNode.position = position
+        cloneNode.direction = CGVector.random(min: -10, max: 10)
         
         cloneNode.exclusivelyUpDirection = self.exclusivelyUpDirection
         cloneNode.traceBoidDistanceFromMasterBoid = self.traceBoidDistanceFromMasterBoid
@@ -166,38 +169,13 @@ class KGBoidNode: SKShapeNode {
         fillColorAlpha = 0.5
     }
     
-    // MARK: - Boid arrangement
-    
-    private func arrangement(in neighbourhood: [KGBoidNode]) -> (alignmentVector: CGVector, cohesionVector: CGVector, separationVector: CGVector) {
-        var directions = [direction]
-        var positions = [position]
-        var distances = [CGVector]()
-        
-        for neighbour in neighbourhood {
-            directions.append(neighbour.direction)
-            positions.append(neighbour.position)
-            distances.append(position.vector(to: neighbour.position))
-        }
-        
-        let averageDirection = directions.average
-        
-        let averagaPosition = positions.average
-        let vectorToAveragePosition = position.vector(to: averagaPosition)
-        
-        let averageDistance = distances.average
-        let distance = averageDistance.length > length / 2 ? averageDistance : CGVector(dx: length / 2, dy: length / 2)
-        
-        return (averageDirection, vectorToAveragePosition, distance)
-    }
-    
-    
     // MARK: - Boid movement
     
     /// Updates boid's position and rotations based on neighbourhood/swarm boids.
-    func move(in neighbourhood: [KGBoidNode]) {
-        if !neighbourhood.isEmpty {
-            neighbourhoodBoidCount = neighbourhood.count
-            
+    func move(in neighbourhood: [KGBoidNode] = []) {
+        neighbourhoodBoidCount = neighbourhood.count
+
+        if neighbourhoodBoidCount > 0 {
             let arragement = arrangement(in: neighbourhood)
             
             let aligment = arragement.alignmentVector.normalized.multiply(by: alignmentCoefficient)
@@ -220,26 +198,36 @@ class KGBoidNode: SKShapeNode {
     }
     
     func bounce(of obstacle: KGObstacleNode) {
-        let averageDirection = recentDirections.average.normalized
-        let directions = [averageDirection, obstacle.direction]
-        let newBoidDirection = directions.average.multiply(by: 10)
-        
-        direction = newBoidDirection
+        if recentDirections.count == 0 {
+            NSLog("bounce - averageDirection count = 0")
+            direction = obstacle.direction.multiply(by: -10)
+        } else {
+            let averageDirection = recentDirections.average!.normalized
+            let directions = [averageDirection, obstacle.direction]
+            let newBoidDirection = directions.average!.multiply(by: 10)
+            direction = newBoidDirection
+        }
+       
         recentDirections = [direction]
-        
         updatePosition()
-        //        updateRotation()
     }
     
     private func updatePosition() {
-        let averageDirection = recentDirections.average.multiply(by: speedCoefficient)
+        guard recentDirections.count > 0 else {
+            NSLog("updatePosition - averageDirection count = 0")
+            return
+        }
+        
+        let averageDirection = recentDirections.average!.multiply(by: speedCoefficient)
+        
         position.x += averageDirection.dx
         position.y += averageDirection.dy
     }
     
     private func updateRotation() {
-        let averageDirection = recentDirections.average
-        zRotation = averageDirection.normalized.angleToNormal
+        if let averageDirection = recentDirections.average {
+            zRotation = averageDirection.normalized.angleToNormal
+        }
     }
     
     private func leaveTraceBoidIfNeeded() {
@@ -250,8 +238,32 @@ class KGBoidNode: SKShapeNode {
     }
     
     @objc private func updateDirectionRandomness() {
-        direction = CGVector.random(min: -10, max: 10)
+        direction = CGVector.random(min: -10, max: 10)        
     }
+    
+    // MARK: - Boid arrangement
+    
+    private func arrangement(in neighbourhood: [KGBoidNode]) -> (alignmentVector: CGVector, cohesionVector: CGVector, separationVector: CGVector) {
+        var directions = [direction]
+        var positions = [position]
+        var distances = [CGVector]()
+        
+        for neighbour in neighbourhood {
+            directions.append(neighbour.direction)
+            positions.append(neighbour.position)
+            distances.append(position.vector(to: neighbour.position))
+        }
+        
+        if let averageDirection = directions.average, let averagaPosition = positions.average, let averageDistance = distances.average {
+            let vectorToAveragePosition = position.vector(to: averagaPosition)
+            let distance = averageDistance.length > length / 2 ? averageDistance : CGVector(dx: -length / 2, dy: -length / 2)
+            return (averageDirection, vectorToAveragePosition, distance)
+        }
+        
+        return (.zero, .zero, .zero)
+    }
+    
+    
     
     // MARK: - Boid trace particle setup
     
@@ -271,6 +283,11 @@ extension CGVector {
     /// Returns normalized to 1 CGVector.
     fileprivate var normalized: CGVector {
         let maxComponent = max(abs(dx), abs(dy))
+        
+        if maxComponent == 0 {
+            return .zero
+        }
+        
         return self.divide(by: maxComponent)
     }
 }
