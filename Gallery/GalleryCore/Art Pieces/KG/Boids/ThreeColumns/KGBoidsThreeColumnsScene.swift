@@ -24,18 +24,15 @@ class KGBoidsThreeColumnsScene: SKScene {
         self.backgroundColor = .black
         
         let boidsLength = size.width * 5 / 1920
-        let sizeWidth = size.width / 2
+        let sizeWidth = size.height / 2
         let sizeHeight = size.height / 2
         let confinementFrame = CGRect(origin: CGPoint(x: size.width / 2 - sizeWidth / 2, y: size.height / 2 - sizeHeight / 2),
                                       size: CGSize(width: sizeWidth, height: sizeHeight))
         
-//        let test = SKShapeNode(rect: confinementFrame)
-//        test.fillColor = .yellow
-//        self.addChild(test)
-        
         boidsController = KGBoidsController(bucketSize: boidsLength * 2, confinementFrame: confinementFrame)
         
-        setupObstacleNodes(for: confinementFrame)
+//        setupRectangularObstacleNodes(for: confinementFrame)
+        setupCirculatObstacleNode(for: confinementFrame)
         setupBoids(in: confinementFrame, boidsLength: boidsLength)
     }
     
@@ -62,7 +59,7 @@ class KGBoidsThreeColumnsScene: SKScene {
                                        width: frame.size.width / 2,
                                        height: frame.size.height / 2)
         
-        for _ in 0...900 {
+        for _ in 0...1000 {
             spitCopy(of: boid, in: initialFrame)
         }
     }
@@ -73,13 +70,19 @@ class KGBoidsThreeColumnsScene: SKScene {
         cloneBoid.setProperty(cohesionCoefficient: -0.2)
         cloneBoid.setProperty(alignmentCoefficient: 0.8)
         cloneBoid.setProperty(separationCoefficient: 0)
-        cloneBoid.setProperty(speedCoefficient: 0.2)
+        cloneBoid.setProperty(speedCoefficient: 0.3)
         
         self.addChild(cloneBoid)
         boidsController.add(boid: cloneBoid)
     }
     
-    private func setupObstacleNodes(for frame: CGRect) {
+    private func setupCirculatObstacleNode(for frame: CGRect) {
+        let node = KGObstacleNode(doghnutIn: frame)
+        self.addChild(node)
+        boidsController.add(obstacle: node)
+    }
+    
+    private func setupRectangularObstacleNodes(for frame: CGRect) {
         let frameThinkness: CGFloat = size.width * 40 / 1920
         
         let leftFrame = CGRect(x: frame.origin.x,
@@ -102,10 +105,10 @@ class KGBoidsThreeColumnsScene: SKScene {
                               width: frame.size.width - 2 * frameThinkness,
                               height: frameThinkness)
         
-        let leftNode = KGObstacleNode(frame: leftFrame, direction: CGVector(dx: 1, dy: 0))
-        let rightNode = KGObstacleNode(frame: rightFrame, direction: CGVector(dx: -1, dy: 0))
-        let bottomNode = KGObstacleNode(frame: bottomFrame, direction: CGVector(dx: 0, dy: 1))
-        let topNode = KGObstacleNode(frame: topFrame, direction: CGVector(dx: 0, dy: -1))
+        let leftNode = KGObstacleNode(rectangleOfFrame: leftFrame, direction: CGVector(dx: 1, dy: 0))
+        let rightNode = KGObstacleNode(rectangleOfFrame: rightFrame, direction: CGVector(dx: -1, dy: 0))
+        let bottomNode = KGObstacleNode(rectangleOfFrame: bottomFrame, direction: CGVector(dx: 0, dy: 1))
+        let topNode = KGObstacleNode(rectangleOfFrame: topFrame, direction: CGVector(dx: 0, dy: -1))
         
         self.addChild(leftNode)
         self.addChild(rightNode)
