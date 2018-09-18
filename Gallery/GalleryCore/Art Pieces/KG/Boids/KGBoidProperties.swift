@@ -24,4 +24,7 @@ enum KGBoidProperties: Equatable {
     
     /// Set boids confinement frame.
     case confinementFrame(CGRect)
+    
+    /// Set initial direction direction for the boid.
+    case initialDirection(CGVector)
 }

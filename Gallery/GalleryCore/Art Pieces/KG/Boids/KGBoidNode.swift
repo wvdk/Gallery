@@ -33,7 +33,7 @@ class KGBoidNode: SKShapeNode {
         let cloneNode = self.copy() as! KGBoidNode
         
         cloneNode.position = position
-        cloneNode.direction = CGVector.random(min: -10, max: 10)
+        cloneNode.direction = self.initialDirection ?? CGVector.random(min: -10, max: 10)
         
         cloneNode.exclusivelyUpDirection = self.exclusivelyUpDirection
         cloneNode.traceBoidDistanceFromMasterBoid = self.traceBoidDistanceFromMasterBoid
@@ -55,6 +55,7 @@ class KGBoidNode: SKShapeNode {
     private var direction = CGVector.random(min: -10, max: 10)
     private var recentDirections = [CGVector]()
     private var exclusivelyUpDirection = false
+    private var initialDirection: CGVector?
     
     private var referenceBoidPosition = CGPoint.zero
     private var referenceTraceBoidPosition = CGPoint.zero
@@ -108,6 +109,9 @@ class KGBoidNode: SKShapeNode {
                 case .confinementFrame(let frame):
                     self.confinementFrame = frame
                     
+                case .initialDirection(let direction):
+                    self.initialDirection = direction
+                    self.direction = direction
                 }
             }
         }
