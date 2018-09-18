@@ -184,7 +184,7 @@ class KGBoidNode: SKShapeNode {
     func move(in neighbourhood: [KGBoidNode] = []) {
         neighbourhoodBoidCount = neighbourhood.count
 
-        if neighbourhoodBoidCount > 0 {
+        if neighbourhoodBoidCount > 1 {
             let arragement = arrangement(in: neighbourhood)
             
             let aligment = arragement.alignmentVector.normalized.multiply(by: alignmentCoefficient)
@@ -257,8 +257,8 @@ class KGBoidNode: SKShapeNode {
     // MARK: - Boid arrangement
     
     private func arrangement(in neighbourhood: [KGBoidNode]) -> (alignmentVector: CGVector, cohesionVector: CGVector, separationVector: CGVector) {
-        var directions = [direction]
-        var positions = [position]
+        var directions = [CGVector]()
+        var positions = [CGPoint]()
         var distances = [CGVector]()
         
         for neighbour in neighbourhood {

@@ -23,7 +23,7 @@ class KGObstacleNode: SKShapeNode {
         self.init(rect: frame)
         self.name = KGObstacleNode.uniqueName
         
-        self.fillColor = .clear
+        self.fillColor = .blue
         self.strokeColor = .blue
         //        self.alpha = 0
         
