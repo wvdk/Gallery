@@ -46,7 +46,7 @@ class KGBoidsController {
         boids.forEach { loadBoidToBucket(boid: $0) }
         
         boids.forEach { boid in
-            if let obstacleInTheWay = obstacles.first(where: { $0.contains(boid.position) }) {
+            if let obstacleInTheWay = obstacles.first(where: { $0.intercepts(withBoid: boid.position) }) {
                 boid.bounce(of: obstacleInTheWay)
                 
                 boid.canUpdatePosition = false

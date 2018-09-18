@@ -213,10 +213,10 @@ class KGBoidNode: SKShapeNode {
     func bounce(of obstacle: KGObstacleNode) {
         if recentDirections.count == 0 {
             NSLog("bounce - averageDirection count = 0")
-            direction = obstacle.direction.multiply(by: -10)
+            direction = obstacle.direction(at: self.position).multiply(by: -10)
         } else {
             let averageDirection = recentDirections.average!.normalized
-            let directions = [averageDirection, obstacle.direction]
+            let directions = [averageDirection, obstacle.direction(at: self.position)]
             let newBoidDirection = directions.average!.multiply(by: 10)
             direction = newBoidDirection
         }
