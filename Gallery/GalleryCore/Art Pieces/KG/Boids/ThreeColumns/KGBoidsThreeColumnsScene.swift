@@ -15,6 +15,9 @@ class KGBoidsThreeColumnsScene: SKScene {
     private var allBoids = [KGBoidNode]()
     private var obstacles = [KGObstacleNode]()
     
+    private var buckets = [[KGBoidNode]?]()
+    private var confinementFrame = CGRect.zero
+    
     // MARK: - Scene presentation
     
     override func didMove(to view: SKView) {
@@ -24,38 +27,49 @@ class KGBoidsThreeColumnsScene: SKScene {
         self.backgroundColor = .black
         
         let sizeWidth = size.width / 4
-        let sizeHeight = size.height * ( 1 - 300 / 1119)
+        let sizeHeight = size.height / 2
         
         let confinementFrame = CGRect(origin: CGPoint(x: size.width / 2 - sizeWidth / 2, y: size.height / 2 - sizeHeight / 2),
                                       size: CGSize(width: sizeWidth, height: sizeHeight))
         
+//        let test = SKShapeNode(rect: confinementFrame)
+//        test.fillColor = .yellow
+//        self.addChild(test)
+        
+        self.confinementFrame = confinementFrame
+        
+        let boidsLength = size.width * 10 / 1920
+        
+        setupEmptyBucket(for: confinementFrame, boidsLength: boidsLength)
         setupObstacleNodes(for: confinementFrame)
-        setupBoids(in: confinementFrame)
+        
+        let centerFrame = CGRect(x: confinementFrame.midX - confinementFrame.size.width / 4,
+                                 y: confinementFrame.midY - confinementFrame.size.height / 4,
+                                 width: confinementFrame.size.width / 2,
+                                 height: confinementFrame.size.height / 2)
+        setupBoids(in: centerFrame, boidsLength: boidsLength)
     }
     
     override func update(_ currentTime: TimeInterval) {
-        updateBoidPositions()
+        updateBoids()
     }
     
     // MARK: - Node setup
     
-    private func setupBoids(in frame: CGRect) {
-        let boidLength = size.width * 5 / 1920
-        let squareBoidPath = KGBoidShapes.square.cgPathRepresentative(length: boidLength)
-        let boidNode = KGBoidNode(from: squareBoidPath, properties: [.fillColor(.red)]) // .leavesTranceBoidAtDistance(boidLength),
-        
-        //        let confinementFrame = CGRect(origin: CGPoint(x: -frame.size.width / 2, y: -frame.size.height / 2), size: frame.size)
+    private func setupBoids(in frame: CGRect, boidsLength: CGFloat) {
+        let path = KGBoidShapes.circle.cgPathRepresentative(length: boidsLength)
+        let boid = KGBoidNode(from: path, properties: [.fillColor(.red)])
         
         for _ in 0...500 {
-            spitCopy(of: boidNode, in: frame)
+            spitCopy(of: boid, in: frame)
         }
     }
     
     private func spitCopy(of boid: KGBoidNode, in frame: CGRect) {
         let cloneBoid = boid.clone(at: frame.randomPoint)
         
-        cloneBoid.setProperty(cohesionCoefficient: -0.1)
-        cloneBoid.setProperty(alignmentCoefficient: 0.5)
+        cloneBoid.setProperty(cohesionCoefficient: -0.4)
+        cloneBoid.setProperty(alignmentCoefficient: 0.3)
         cloneBoid.setProperty(separationCoefficient: 0.01)
         cloneBoid.setProperty(speedCoefficient: 0.3)
         
@@ -76,14 +90,14 @@ class KGBoidsThreeColumnsScene: SKScene {
                                 width: frameThinkness,
                                 height: frame.size.height)
         
-        let bottomFrame = CGRect(x: frame.origin.x,
+        let bottomFrame = CGRect(x: frame.origin.x + frameThinkness,
                                  y: frame.origin.y,
-                                 width: frame.size.width,
+                                 width: frame.size.width - 2 * frameThinkness,
                                  height: frameThinkness)
         
-        let topFrame = CGRect(x: frame.origin.x,
+        let topFrame = CGRect(x: frame.origin.x + frameThinkness,
                               y: frame.origin.y + frame.size.height - frameThinkness,
-                              width: frame.size.width,
+                              width: frame.size.width - 2 * frameThinkness,
                               height: frameThinkness)
         
         let leftNode = KGObstacleNode(frame: leftFrame, direction: CGVector(dx: 1, dy: 0))
@@ -103,31 +117,60 @@ class KGBoidsThreeColumnsScene: SKScene {
     }
     
     // MARK: - Node control
-    
-    private func updateBoidPositions() {
+
+    private func updateBoids() {
+        setupEmptyBucket(for: confinementFrame, boidsLength: allBoids.first!.length)
+        
         allBoids.forEach { boid in
-            for obstacle in obstacles {
-                if boid.canUpdatePosition, obstacle.contains(boid.position) {
-                    boid.bounce(of: obstacle)
-                    
-                    return
-                }
+            placeBoidToBucket(boid: boid)
+        }
+        
+        allBoids.forEach { boid in
+            if let bucketHashValue = boid.bucketHashValue, let neighbours = buckets[bucketHashValue]?.filter({ $0 != boid }), neighbours.count > 0 {
+                boid.move(in: neighbours)
+            } else {
+                boid.move()
             }
             
-            //            let neighbourhood = allBoids.filter { possiblyNeighbourBoid in
-            //                guard boid != possiblyNeighbourBoid else {
-            //                    return false
-            //                }
-            //
-            //                if boid.position.distance(to: possiblyNeighbourBoid.position) < boid.length * 2 {
-            //                    return true
-            //                }
-            //
-            //                return false
-            //            }
-            //
-            //            boid.move(in: neighbourhood)
-            boid.move(in: [])
+            if let obstacleInTheWay = obstacles.first(where: { $0.contains(boid.position) }) {
+                boid.bounce(of: obstacleInTheWay)
+            }
         }
+    }
+    
+    // MARK: - Bucket management
+    
+    private func placeBoidToBucket(boid: KGBoidNode) {
+        let hashValue = hash(for: boid.position, boidsLength: boid.length, in: confinementFrame)
+        boid.bucketHashValue = hashValue
+        
+        if buckets[hashValue] == nil {
+            buckets[hashValue] = []
+        }
+        
+        buckets[hashValue]!.append(boid)
+    }
+    
+    private func setupEmptyBucket(for frame: CGRect, boidsLength: CGFloat) {
+        let columnCount = Int(confinementFrame.size.width / (boidsLength * 3))
+        let rowCount = Int(confinementFrame.size.height / (boidsLength * 3))
+        
+        buckets = [nil]
+        for _ in 0..<columnCount * rowCount {
+            buckets.append(nil)
+        }
+    }
+    
+    private func hash(for boidPosition: CGPoint, boidsLength: CGFloat, in frame: CGRect) -> Int {
+        let boidsAdjustedPosition = CGPoint(x: boidPosition.x - confinementFrame.origin.x, y: boidPosition.y - confinementFrame.origin.y)
+        
+        if boidsAdjustedPosition.x < 0 || boidsAdjustedPosition.y < 0 || boidsAdjustedPosition.x > frame.size.width || boidsAdjustedPosition.y > frame.size.height {
+            return 0
+        }
+        
+        let column = Int(boidsAdjustedPosition.x / (boidsLength * 3))
+        let row = Int(boidsAdjustedPosition.y / (boidsLength * 3))
+        
+        return column * row
     }
 }
