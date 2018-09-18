@@ -15,6 +15,7 @@ class KGBoidNode: SKShapeNode {
     
     // MARK: - Constants
     
+    /// The unique boids name.
     static let uniqueName = "Boid"
     
     // MARK: - Properties
@@ -24,6 +25,7 @@ class KGBoidNode: SKShapeNode {
         return path?.boundingBox.width ?? 20.0
     }
     
+    /// Unique hash value used for sorting boids to buckets.
     var bucketHashValue: Int?
     
     /// Returns a copy of a receiver's node with exactly same confinement frame.
@@ -40,10 +42,12 @@ class KGBoidNode: SKShapeNode {
         return cloneNode
     }
     
+    /// Boolean indicating if boid is in confinement frame.
     var isNodeInConfinementFrame: Bool {
         return confinementFrame?.contains(self.position) ?? false
     }
     
+    /// Boolean indicating if boids postion can be updated, used for returning boid back to confinement frame.
     var canUpdatePosition = true
     
     private(set) var confinementFrame: CGRect?
@@ -171,7 +175,12 @@ class KGBoidNode: SKShapeNode {
     
     // MARK: - Boid movement
     
-    /// Updates boid's position and rotations based on neighbourhood/swarm boids.
+    /// Updates boid's position and rotations.
+    /// If neighbourhood has more that 0 boids, calculate boids swarm behavior.
+    /// Otherwise move in the same direction.
+    ///
+    /// - Parameters:
+    ///   - neighbourhood: An array of adjacent boid nodes.
     func move(in neighbourhood: [KGBoidNode] = []) {
         neighbourhoodBoidCount = neighbourhood.count
 
@@ -197,6 +206,10 @@ class KGBoidNode: SKShapeNode {
         leaveTraceBoidIfNeeded()
     }
     
+    /// Updates boid's position based on obstacle node normal vector (direction).
+    ///
+    /// - Parameters:
+    ///   - obstacle: An obstacle node the boid is going to bounce off.
     func bounce(of obstacle: KGObstacleNode) {
         if recentDirections.count == 0 {
             NSLog("bounce - averageDirection count = 0")
@@ -263,11 +276,9 @@ class KGBoidNode: SKShapeNode {
         return (.zero, .zero, .zero)
     }
     
-    
-    
     // MARK: - Boid trace particle setup
     
-    @objc func spitTraceParticle() {
+    @objc private func spitTraceParticle() {
         let traceNode = self.clone(color: fillColor, position: position)
         self.parent?.addChild(traceNode)
         
