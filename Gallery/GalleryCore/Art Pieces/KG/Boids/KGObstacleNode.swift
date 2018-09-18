@@ -41,7 +41,7 @@ class KGObstacleNode: SKShapeNode {
     convenience init(doghnutIn frame: CGRect) {
         self.init(ellipseIn: frame)
         
-        self.strokeColor = .white
+        self.fillColor = .white
         self.lineWidth = 1
         
         self.shape = .circle
