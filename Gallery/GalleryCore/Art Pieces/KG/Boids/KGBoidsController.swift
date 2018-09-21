@@ -57,9 +57,7 @@ class KGBoidsController {
                 }
                 
                 return
-            }
-            
-            if boid.canUpdatePosition, let bucketHashValue = boid.bucketHashValue, let neighbours = buckets[bucketHashValue], neighbours.count > 1 {
+            } else if boid.canUpdatePosition, let bucketHashValue = boid.bucketHashValue, let neighbours = buckets[bucketHashValue], neighbours.count > 1 {
                 boid.move(in: neighbours)
             } else {
                 boid.move()
