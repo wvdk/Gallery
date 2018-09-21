@@ -25,12 +25,17 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     /// The object that acts as the delegate of the `CollectionViewCellDelegate`.
     weak var delegate: ArtPieceCollectionViewCellDelegate?
     
+    var showsPreviewOnFocus = true
+    
     /// Metadata of art piece presented by cell.
     var artPiece: ArtMetadata? = nil {
         didSet {
             guard let piece = artPiece else { return }
             focusingView.thumbnail = piece.thumbnail
-            focusingView.artViewType = piece.viewType
+            
+            if showsPreviewOnFocus {
+                focusingView.artViewType = piece.viewType
+            }
         }
     }
     
