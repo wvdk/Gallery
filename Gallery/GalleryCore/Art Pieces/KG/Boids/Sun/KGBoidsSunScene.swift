@@ -21,7 +21,7 @@ class KGBoidsSunScene: SKScene {
         super.didMove(to: view)
         
         self.size = view.superview?.frame.size ?? UIScreen.main.nativeBounds.size
-        self.backgroundColor = .black
+        self.backgroundColor = UIColor(r: 93, g: 0, b: 0)
         
         let boidsLength = size.width * 7 / 1920
         let sizeWidth = size.height / 2
@@ -45,6 +45,10 @@ class KGBoidsSunScene: SKScene {
         
         setupBoids(in: initialLeftFrame, boidsLength: boidsLength)
         setupBoids(in: initialRightFrame, boidsLength: boidsLength)
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            self?.updateColor()
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -60,12 +64,30 @@ class KGBoidsSunScene: SKScene {
     
     // MARK: - Node setup
     
+    var colorIndex = 0
+
+    private func updateColor() {
+        var color: UIColor
+        colorIndex += 5
+
+        if colorIndex < 95 {
+            color = UIColor(r: 93, g: 0, b: colorIndex)
+        } else if colorIndex > 190 {
+            color = UIColor(r: 0, g: 0, b: 0)
+            colorIndex = 0
+        } else {
+            color = UIColor(r: 93 - colorIndex + 95, g: 0, b: 93)
+        }
+        
+        self.run(SKAction.colorize(with: color, colorBlendFactor: 1, duration: 1))
+    }
+    
     private func setupBackgroundNode() {
         let linearGradient = CAGradientLayer()
         linearGradient.frame = CGRect(origin: .zero, size: size)
         linearGradient.colors = [
             UIColor.black.cgColor,
-            UIColor(r: 93, g: 0, b: 0).cgColor,
+            UIColor(r: 0, g: 0, b: 0, alpha: 0).cgColor,
             UIColor.black.cgColor
         ]
         
@@ -79,10 +101,10 @@ class KGBoidsSunScene: SKScene {
     
     private func setupBoids(in frame: CGRect, boidsLength: CGFloat) {
         let path = KGBoidShapes.circle.cgPathRepresentative(length: boidsLength)
-        let boid = KGBoidNode(from: path, properties: [.fillColor(.red), .initialDirection(.zero)])
+        let boid = KGBoidNode(from: path, properties: [.fillColor(UIColor(r: 0, g: 0, b: 0)), .initialDirection(.zero)])
         boid.zPosition = 10
         
-        for _ in 0...400 {
+        for _ in 0...200 {
             spitCopy(of: boid, at: frame.randomPoint)
         }
     }
