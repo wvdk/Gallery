@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class KGBoidsSunView: ArtView {
+class KGBoidsSunView: UIView {
     
     // MARK: - Properties
     

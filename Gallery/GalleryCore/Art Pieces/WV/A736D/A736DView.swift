@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class A736DView: ArtView {
+class A736DView: UIView {
     
     // MARK: - Properties
     

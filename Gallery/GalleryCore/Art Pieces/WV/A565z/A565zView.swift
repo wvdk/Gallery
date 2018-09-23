@@ -15,7 +15,7 @@ import ArtKit_iOS
 import ArtKit_tvOS
 #endif
 
-public class A565zView: ArtView {
+public class A565zView: UIView {
 
     private lazy var scene: SKScene! = {
         guard let gameScenePath = Bundle(for: type(of: self)).path(forResource: "A565zScene", ofType: "sks") else {

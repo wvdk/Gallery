@@ -9,7 +9,7 @@
 import UIKit
 import SceneKit
 
-class A994tView: ArtView {
+class A994tView: UIView {
     
     // MARK: - Properties
 

@@ -509,10 +509,10 @@
 		DE293F822048F30300444EB8 = {
 			isa = PBXGroup;
 			children = (
-				DE293F8D2048F30300444EB8 /* Gallery iOS */,
-				89134E1420E80C1300772E7F /* Gallery tvOS */,
 				DE293FA820490E1100444EB8 /* ArtKit */,
 				DE0B7FA420E3E337000B482F /* GalleryCore */,
+				89134E1420E80C1300772E7F /* Gallery tvOS */,
+				DE293F8D2048F30300444EB8 /* Gallery iOS */,
 				DE293F8C2048F30300444EB8 /* Products */,
 			);
 			sourceTree = "<group>";

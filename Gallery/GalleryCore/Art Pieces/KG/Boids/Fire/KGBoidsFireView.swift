@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class KGBoidsFireView: ArtView {
+class KGBoidsFireView: UIView {
     
     // MARK: - Properties
     

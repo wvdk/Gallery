@@ -8,7 +8,7 @@
 
 import GalleryCore_tvOS
 
-/// A subclass of `UIViewController`, which displays single art piece view `ArtView` in full screen mode.
+/// A subclass of `UIViewController`, which displays single art piece view `UIView` in full screen mode.
 class ArtPieceDisplayViewController: UIViewController {
     
     // MARK: - Properties

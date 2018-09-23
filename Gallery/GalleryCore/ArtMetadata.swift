@@ -8,8 +8,6 @@
 
 import UIKit
 
-public typealias ArtView = UIView
-
 /// A struct which represents an art piece for display in this gallery.
 public struct ArtMetadata {
     
@@ -34,10 +32,10 @@ public struct ArtMetadata {
     }
     
     /// The Type of the view which contains all the content of this art piece.
-    public var viewType: ArtView.Type
+    public var viewType: UIView.Type
     
     /// <#Description#>
-    public var view: ArtView? = nil
+    public var view: UIView? = nil
     
     /// Thumbnail image of the art piece.
     public var thumbnail: UIImage?
@@ -59,7 +57,7 @@ public struct ArtMetadata {
     ///   - prettyPublishedDate: Formatted MMMM yyyy (e.g. June 2018)
     ///   - viewType: <#viewType description#>
     ///   - thumbnail: <#thumbnail description#>
-    public init(id: ArtID, author: String, prettyPublishedDate: String, description: String? = nil, price: Double? = nil, viewType: ArtView.Type, thumbnail: UIImage?) {
+    public init(id: ArtID, author: String, prettyPublishedDate: String, description: String? = nil, price: Double? = nil, viewType: UIView.Type, thumbnail: UIImage?) {
         self.id = id
         self.author = author
         self.published = ArtMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()

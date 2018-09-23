@@ -66,7 +66,7 @@ class FocusingView: UIView {
         
     // MARK: - Subview management
     
-    /// Adds a specified `ArtView` view to the end of the receiver’s list of subviews.
+    /// Adds a specified `UIView` view to the end of the receiver’s list of subviews.
     func showArtView() {
         guard let artViewType = self.artViewType else { return }
         
@@ -82,7 +82,7 @@ class FocusingView: UIView {
         }
     }
     
-    /// Fades out and removes a `ArtView` type views from the receiver’s list of subviews.
+    /// Fades out and removes a `UIView` type views from the receiver’s list of subviews.
     func removeArtView() {
         let artViews = containerView.subviews.filter({ $0.tag == artViewTag })
         
