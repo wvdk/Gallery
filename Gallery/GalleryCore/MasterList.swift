@@ -22,7 +22,7 @@ public class MasterList {
         activePieces = [
             PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsSunView.self, thumbnail: nil),
             PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsFireView.self, thumbnail: nil),
-            PieceMetadata(author: "wvdk", prettyPublishedDate: "June 2018", viewType: A565zView.self, thumbnail: UIImage(named: "A565z"))
+            PieceMetadata(author: "WVDK", prettyPublishedDate: "June 2018", viewType: A565zView.self, thumbnail: UIImage(named: "A565z"))
         ]
     }
     
