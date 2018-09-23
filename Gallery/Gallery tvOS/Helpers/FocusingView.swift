@@ -20,7 +20,7 @@ class FocusingView: UIView {
     // MARK: - Properties
     
     /// An art piece type to be presented in receiver's view.
-    var artViewType: ArtView.Type? = nil
+    var artViewType: UIView.Type? = nil
     
     /// Thumbnail image of the art piece to be shown in receiver'v view.
     var thumbnail: UIImage? = nil {

@@ -11,9 +11,6 @@ import UIKit
 /// A struct which represents an art piece for display in this gallery.
 public struct ArtMetadata {
     
-    /// The unique ID for this ArtPiece. These are generated using `IDGenerator`.
-    public let id: ArtID
-    
     /// The name of the person who created this piece.
     public let author: String
     
@@ -57,8 +54,7 @@ public struct ArtMetadata {
     ///   - prettyPublishedDate: Formatted MMMM yyyy (e.g. June 2018)
     ///   - viewType: <#viewType description#>
     ///   - thumbnail: <#thumbnail description#>
-    public init(id: ArtID, author: String, prettyPublishedDate: String, description: String? = nil, price: Double? = nil, viewType: UIView.Type, thumbnail: UIImage?) {
-        self.id = id
+    public init(author: String, prettyPublishedDate: String, description: String? = nil, price: Double? = nil, viewType: UIView.Type, thumbnail: UIImage?) {
         self.author = author
         self.published = ArtMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
         self.description = description
