@@ -46,7 +46,7 @@
 		8959454A20E9609900DF123D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
 		8959454B20E9609900DF123D /* GalleryCore_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8970BCAD20E95D160006870D /* GalleryCore_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* ArtMetadata.swift */; };
+		8970BCBB20E95F1D0006870D /* PieceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* PieceMetadata.swift */; };
 		8970BCBD20E95F220006870D /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
 		899F2BD321500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
 		899F2BD421500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
@@ -79,7 +79,7 @@
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
 		DE0B7FAB20E3E337000B482F /* GalleryCore_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
-		DE0B7FB120E3E352000B482F /* ArtMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* ArtMetadata.swift */; };
+		DE0B7FB120E3E352000B482F /* PieceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* PieceMetadata.swift */; };
 		DE16C52D214ED93A0082BB34 /* A565zView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C518214ED93A0082BB34 /* A565zView.swift */; };
 		DE16C52E214ED93A0082BB34 /* A565zScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE16C519214ED93A0082BB34 /* A565zScene.sks */; };
 		DE16C52F214ED93A0082BB34 /* A565zActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE16C51A214ED93A0082BB34 /* A565zActions.sks */; };
@@ -277,7 +277,7 @@
 		DE332B79205B852600C40727 /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		DE332B7D205B856800C40727 /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		DE332B7F205B857900C40727 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
-		DE39D70420B321960087788C /* ArtMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtMetadata.swift; sourceTree = "<group>"; };
+		DE39D70420B321960087788C /* PieceMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceMetadata.swift; sourceTree = "<group>"; };
 		DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Light.otf"; sourceTree = "<group>"; };
 		DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArtKit_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -402,7 +402,7 @@
 			children = (
 				891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */,
 				DE16C516214ED93A0082BB34 /* Pieces */,
-				DE39D70420B321960087788C /* ArtMetadata.swift */,
+				DE39D70420B321960087788C /* PieceMetadata.swift */,
 				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
 				891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */,
 				DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */,
@@ -895,7 +895,7 @@
 				899F2BE4215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */,
 				DE16C541214EE4B30082BB34 /* A736DScene.swift in Sources */,
-				8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */,
+				8970BCBB20E95F1D0006870D /* PieceMetadata.swift in Sources */,
 				DE16C549214EE4CC0082BB34 /* KGBoidNode.swift in Sources */,
 				DE16C54B214EE4D20082BB34 /* KGBoidsSunView.swift in Sources */,
 			);
@@ -920,7 +920,7 @@
 				899F2BE3215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
 				DE16C538214ED93A0082BB34 /* KGBoidsSunScene.swift in Sources */,
-				DE0B7FB120E3E352000B482F /* ArtMetadata.swift in Sources */,
+				DE0B7FB120E3E352000B482F /* PieceMetadata.swift in Sources */,
 				DE16C534214ED93A0082BB34 /* A586qView.swift in Sources */,
 				DE16C537214ED93A0082BB34 /* KGBoidShapes.swift in Sources */,
 			);

@@ -12,7 +12,7 @@ extension ArtPieceContainerViewController: ArtPieceCollectionViewControllerDeleg
     
     // MARK: - ArtPieceViewControllerDelegate implementation
     
-    func artPieceCollectionControllerDelegate(_ viewController: UIViewController, didSelectOpenArtPiece: ArtMetadata) {
+    func artPieceCollectionControllerDelegate(_ viewController: UIViewController, didSelectOpenArtPiece: PieceMetadata) {
         
         // Presents single art piece full screen mode.
         if self.artPieceDetailController == nil {

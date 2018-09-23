@@ -20,5 +20,5 @@ protocol ArtPieceCollectionViewControllerDelegate: class {
     /// - Parameters:
     ///     - viewController: A view controller object informing the delegate about the selected art piece.
     ///     - didSelectOpenArtPiece: A selected to open art piece metadata.
-    func artPieceCollectionControllerDelegate(_ viewController: UIViewController, didSelectOpenArtPiece: ArtMetadata)
+    func artPieceCollectionControllerDelegate(_ viewController: UIViewController, didSelectOpenArtPiece: PieceMetadata)
 }

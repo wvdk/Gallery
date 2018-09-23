@@ -15,7 +15,7 @@ class ArtPieceDisplayViewController: UIViewController {
     
     weak var delegate: ArtPieceDisplayViewControllerDelegate?
     
-    private var artPieceMetadata: ArtMetadata
+    private var artPieceMetadata: PieceMetadata
 
     // MARK: - Lifecycle functions
 
@@ -40,7 +40,7 @@ class ArtPieceDisplayViewController: UIViewController {
     ///     - artMetadata: Metadata of the art piece which will to be presented.
     ///
     /// - Returns: `UIViewController` with child view of art piece.
-    init(artMetadata: ArtMetadata) {
+    init(artMetadata: PieceMetadata) {
         self.artPieceMetadata = artMetadata
         
         super.init(nibName: nil, bundle: nil)

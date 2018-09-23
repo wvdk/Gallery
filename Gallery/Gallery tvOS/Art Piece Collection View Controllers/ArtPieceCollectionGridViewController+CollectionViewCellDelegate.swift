@@ -12,7 +12,7 @@ extension ArtPieceCollectionGridViewController: ArtPieceCollectionViewCellDelega
     
     // MARK: - CollectionViewCellDelegate implementation
     
-    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: ArtMetadata) {
+    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: PieceMetadata) {
         delegate?.artPieceCollectionControllerDelegate(self, didSelectOpenArtPiece: didSelectOpenArtPiece)
     }
 }

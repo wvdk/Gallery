@@ -21,13 +21,13 @@ public class MasterList {
     private init() {
         // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
         activePieces = [
-            ArtMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsSunView.self, thumbnail: nil),
-            ArtMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsFireView.self, thumbnail: nil),
-            ArtMetadata(author: "wvdk", prettyPublishedDate: "June 2018", viewType: A565zView.self, thumbnail: UIImage(named: "A565z"))
+            PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsSunView.self, thumbnail: nil),
+            PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsFireView.self, thumbnail: nil),
+            PieceMetadata(author: "wvdk", prettyPublishedDate: "June 2018", viewType: A565zView.self, thumbnail: UIImage(named: "A565z"))
         ]
     }
     
-    public var activePieces = [ArtMetadata]() {
+    public var activePieces = [PieceMetadata]() {
         didSet {
             NotificationCenter.default.post(name: MasterList.didUpdateActivePieces, object: nil, userInfo: nil)
         }

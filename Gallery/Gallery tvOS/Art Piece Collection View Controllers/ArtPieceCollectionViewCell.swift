@@ -28,7 +28,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     var showsPreviewOnFocus = true
     
     /// Metadata of art piece presented by cell.
-    var artPiece: ArtMetadata? = nil {
+    var artPiece: PieceMetadata? = nil {
         didSet {
             guard let piece = artPiece else { return }
             focusingView.thumbnail = piece.thumbnail
@@ -84,5 +84,5 @@ protocol ArtPieceCollectionViewCellDelegate: class {
     /// - Parameters:
     ///     - cell: An item informing the delegate about the selected art piece.
     ///     - didSelectOpenArtPiece: A selected to open art piece metadata.
-    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: ArtMetadata)
+    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: PieceMetadata)
 }

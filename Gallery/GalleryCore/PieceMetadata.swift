@@ -1,5 +1,5 @@
 //
-//  ArtMetadata.swift
+//  PieceMetadata.swift
 //  Gallery
 //
 //  Created by Wesley Van der Klomp on 5/21/18.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// A struct which represents an art piece for display in this gallery.
-public struct ArtMetadata {
+public struct PieceMetadata {
     
     /// The name of the person who created this piece.
     public let author: String
@@ -25,7 +25,7 @@ public struct ArtMetadata {
     
     /// A computed property returning a pretty formatted string of the `published` date.
     public var prettyPublishedDate: String {
-        return ArtMetadata.dateFormatter.string(from: self.published)
+        return PieceMetadata.dateFormatter.string(from: self.published)
     }
     
     /// The Type of the view which contains all the content of this art piece.
@@ -44,7 +44,7 @@ public struct ArtMetadata {
         return formatter
     }
     
-    /// Creates an instance of the `ArtMetadata` struct.
+    /// Creates an instance of the `PieceMetadata` struct.
     ///
     /// - Parameters:
     ///   - id: <#id description#>
@@ -56,7 +56,7 @@ public struct ArtMetadata {
     ///   - thumbnail: <#thumbnail description#>
     public init(author: String, prettyPublishedDate: String, description: String? = nil, price: Double? = nil, viewType: UIView.Type, thumbnail: UIImage?) {
         self.author = author
-        self.published = ArtMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
+        self.published = PieceMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
         self.description = description
         self.price = price
 //        self.viewController = viewController
