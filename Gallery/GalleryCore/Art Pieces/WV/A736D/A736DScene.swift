@@ -92,7 +92,7 @@ class A736DScene: SKScene {
             self.clearScreen()
             
             guard let delay = self.clearScreenDelay else { return }
-            self.recursivelyTriggerClearScreen(after: delay +||- (random() * 0.3))
+            self.recursivelyTriggerClearScreen(after: delay +||- (Double.random(in: 0...0.9) * 0.3))
         })
     }
     
@@ -134,7 +134,7 @@ class A736DScene: SKScene {
             let whiteRect = SKSpriteNode()
             whiteRect.color = .white
             whiteRect.position = CGPoint(x: self.size.width / 2, y: CGFloat(i * rectHeight))
-            whiteRect.size = CGSize(width: rectWidth + Int(arc4random_uniform(UInt32(rectWidth))), height: rectHeight)
+            whiteRect.size = CGSize(width: rectWidth + Int.random(in: 0...rectWidth), height: rectHeight)
             
             self.addChild(whiteRect)
             

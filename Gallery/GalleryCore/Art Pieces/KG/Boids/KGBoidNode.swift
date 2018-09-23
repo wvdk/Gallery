@@ -6,7 +6,6 @@
 //  Copyright © 2018 Gallery of Generative Art. All rights reserved.
 //
 
-
 import SpriteKit
 
 /// A node set to be a boid of type SKShapeNode.
@@ -16,55 +15,61 @@ class KGBoidNode: SKShapeNode {
     
     // MARK: - Constants
     
+    /// The unique boids name.
     static let uniqueName = "Boid"
     
     // MARK: - Properties
-    
-    /// A KGBoidNode delegate instance.
-    weak var delegate: KGBoidNodeDelegate? = nil
-    
-    /// Returns a position in confinement frame for just initialized node.
-    var initialPosition: CGPoint {
-        let xPosition = CGFloat.random(min: confinementFrame.origin.x, max: confinementFrame.origin.x + confinementFrame.size.width)
-        let yPosition = CGFloat.random(min: confinementFrame.origin.y, max: confinementFrame.origin.y + confinementFrame.size.height)
-        return CGPoint(x: xPosition, y: yPosition)
-    }
     
     /// Returns a receiver's node length.
     var length: CGFloat {
         return path?.boundingBox.width ?? 20.0
     }
     
+    /// Unique hash value used for sorting boids to buckets.
+    var bucketHashValue: Int?
+    
     /// Returns a copy of a receiver's node with exactly same confinement frame.
-    var clone: KGBoidNode {
+    func clone(at position: CGPoint) -> KGBoidNode {
         let cloneNode = self.copy() as! KGBoidNode
         
-        cloneNode.setProperty(confinementFrame: self.confinementFrame)
-        cloneNode.position = cloneNode.initialPosition
+        cloneNode.position = position
+        cloneNode.direction = self.initialDirection ?? CGVector.random(min: -10, max: 10)
+        
+        cloneNode.exclusivelyUpDirection = self.exclusivelyUpDirection
+        cloneNode.traceBoidDistanceFromMasterBoid = self.traceBoidDistanceFromMasterBoid
+        cloneNode.confinementFrame = self.confinementFrame
         
         return cloneNode
     }
     
-    private var confinementFrame = CGRect.zero
+    /// Boolean indicating if boid is in confinement frame.
+    var isNodeInConfinementFrame: Bool {
+        return confinementFrame?.contains(self.position) ?? false
+    }
+    
+    /// Boolean indicating if boids postion can be updated, used for returning boid back to confinement frame.
+    var canUpdatePosition = true
+    
+    private(set) var confinementFrame: CGRect?
     
     private var direction = CGVector.random(min: -10, max: 10)
     private var recentDirections = [CGVector]()
+    private var exclusivelyUpDirection = false
+    private var initialDirection: CGVector?
     
+    private var referenceBoidPosition = CGPoint.zero
     private var referenceTraceBoidPosition = CGPoint.zero
-    private var traceBoidDistanceFromMasterBoid: CGFloat = 50.0
+    
+    private var traceBoidDistanceFromMasterBoid: CGFloat?
     
     private var speedCoefficient = CGFloat(0.2)
     private var separationCoefficient = CGFloat(1)
-    private(set) var alignmentCoefficient = CGFloat(0.8)
-    private(set) var cohesionCoefficient = CGFloat(-1)
+    private(set) var alignmentCoefficient = CGFloat(1)
+    private(set) var cohesionCoefficient = CGFloat(1)
     
     private(set) var fillColorAlpha = CGFloat(0.4)
     
     private var canUpdateBoidsPosition = true
-    
-    private var isBoidNodeInConfinementFrame: Bool {
-        return confinementFrame.contains(position)
-    }
     
     private var neighbourhoodBoidCount = 0 {
         didSet {
@@ -73,25 +78,13 @@ class KGBoidNode: SKShapeNode {
         }
     }
     
-    // MARK: - SKShapeNode properties
-    
-    override var position: CGPoint {
-        didSet {
-            guard position != oldValue, position.distance(to: oldValue) > 20 else { return }
-            delegate?.kgBoidNode(self, didUpdate: position)
-        }
-    }
-    
     // MARK: - Initialization
     
-    convenience init(from path: CGPath, confinementFrame: CGRect, properties: [KGBoidProperties]? = nil) {
+    convenience init(from path: CGPath, properties: [KGBoidProperties]? = nil) {
         self.init()
         
         self.name = KGBoidNode.uniqueName
         self.path = path
-        self.confinementFrame = confinementFrame
-        self.position = initialPosition
-        
         self.setup(using: properties)
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateDirectionRandomness), userInfo: nil, repeats: true)
@@ -109,6 +102,16 @@ class KGBoidNode: SKShapeNode {
                     
                 case .strokeColor(let color):
                     self.strokeColor = color
+                    
+                case .upDirection:
+                    self.exclusivelyUpDirection = true
+                    
+                case .confinementFrame(let frame):
+                    self.confinementFrame = frame
+                    
+                case .initialDirection(let direction):
+                    self.initialDirection = direction
+                    self.direction = direction
                 }
             }
         }
@@ -126,10 +129,6 @@ class KGBoidNode: SKShapeNode {
     }
     
     // MARK: - Boid properties update
-    
-    func setProperty(confinementFrame: CGRect) {
-        self.confinementFrame = confinementFrame
-    }
     
     func setProperty(speedCoefficient: CGFloat) {
         self.speedCoefficient = speedCoefficient
@@ -151,30 +150,119 @@ class KGBoidNode: SKShapeNode {
         self.fillColor = fillColor
     }
     
+    func setProperty(alpha: CGFloat) {
+        self.alpha = alpha
+    }
+    
+    func setProperty(position: CGPoint) {
+        self.position = position
+    }
+    
     private func setPropertyAlpha(for neighbourCount: Int) {
         if neighbourCount > 10 {
-            fillColorAlpha = 0.7
+            fillColorAlpha = 0.75
             return
         }
         
         if neighbourCount > 6 {
-            fillColorAlpha = 0.6
+            fillColorAlpha = 0.65
             return
         }
         
         if neighbourCount > 3 {
-            fillColorAlpha = 0.45
+            fillColorAlpha = 0.55
             return
         }
         
-        fillColorAlpha = 0.4
+        fillColorAlpha = 0.5
+    }
+    
+    // MARK: - Boid movement
+    
+    /// Updates boid's position and rotations.
+    /// If neighbourhood has more that 0 boids, calculate boids swarm behavior.
+    /// Otherwise move in the same direction.
+    ///
+    /// - Parameters:
+    ///   - neighbourhood: An array of adjacent boid nodes.
+    func move(in neighbourhood: [KGBoidNode] = []) {
+        neighbourhoodBoidCount = neighbourhood.count
+
+        if neighbourhoodBoidCount > 1 {
+            let arragement = arrangement(in: neighbourhood)
+            
+            let aligment = arragement.alignmentVector.normalized.multiply(by: alignmentCoefficient)
+            let cohesion = arragement.cohesionVector.normalized.multiply(by: cohesionCoefficient)
+            let separation = arragement.separationVector.normalized.multiply(by: separationCoefficient)
+            
+            direction = aligment.add(cohesion).add(separation).multiply(by: 10)
+        }
+        
+        if exclusivelyUpDirection {
+            direction.dy = 7
+        }
+        
+        recentDirections.append(direction)
+        recentDirections = Array(recentDirections.suffix(5))
+        
+        updatePosition()
+        updateRotation()
+        leaveTraceBoidIfNeeded()
+    }
+    
+    /// Updates boid's position based on obstacle node normal vector (direction).
+    ///
+    /// - Parameters:
+    ///   - obstacle: An obstacle node the boid is going to bounce off.
+    func bounce(of obstacle: KGObstacleNode) {
+        if recentDirections.count == 0 {
+            NSLog("bounce - averageDirection count = 0")
+            direction = obstacle.direction(at: self.position).multiply(by: -10)
+        } else {
+            let averageDirection = recentDirections.average!.normalized
+            let directions = [averageDirection, obstacle.direction(at: self.position)]
+            let newBoidDirection = directions.average!.multiply(by: 10)
+            direction = newBoidDirection
+        }
+       
+        recentDirections = [direction]
+        updatePosition()
+    }
+    
+    private func updatePosition() {
+        guard recentDirections.count > 0 else {
+            NSLog("updatePosition - averageDirection count = 0")
+            return
+        }
+        
+        let averageDirection = recentDirections.average!.multiply(by: speedCoefficient)
+        
+        position.x += averageDirection.dx
+        position.y += averageDirection.dy
+    }
+    
+    private func updateRotation() {
+        if let averageDirection = recentDirections.average {
+            zRotation = averageDirection.normalized.angleToNormal
+        }
+    }
+    
+    private func leaveTraceBoidIfNeeded() {
+        if let distance = traceBoidDistanceFromMasterBoid, referenceTraceBoidPosition.distance(to: position) > distance {
+            referenceTraceBoidPosition = position
+            spitTraceParticle()
+        }
+    }
+    
+    @objc private func updateDirectionRandomness() {
+        direction = CGVector.random(min: -10, max: 10)        
     }
     
     // MARK: - Boid arrangement
     
     private func arrangement(in neighbourhood: [KGBoidNode]) -> (alignmentVector: CGVector, cohesionVector: CGVector, separationVector: CGVector) {
-        var directions = [direction]
-        var positions = [position]
+        var directions = [CGVector]()
+        var positions = [CGPoint]()
         var distances = [CGVector]()
         
         for neighbour in neighbourhood {
@@ -183,94 +271,18 @@ class KGBoidNode: SKShapeNode {
             distances.append(position.vector(to: neighbour.position))
         }
         
-        let averageDirection = directions.average
-        
-        let averagaPosition = positions.average
-        let vectorToAveragePosition = position.vector(to: averagaPosition)
-        
-        let averageDistance = distances.average
-        let distance = averageDistance.length > length / 2 ? averageDistance : CGVector(dx: length / 2, dy: length / 2)
-        
-        return (averageDirection, vectorToAveragePosition, distance)
-    }
-
-    
-    // MARK: - Boid movement
-    
-    /// Updates boid's position and rotations based on neighbourhood/swarm boids.
-    func move(in neighbourhood: [KGBoidNode]) {
-        if canUpdateBoidsPosition {
-            if !neighbourhood.isEmpty {
-                neighbourhoodBoidCount = neighbourhood.count
-                
-                let arragement = arrangement(in: neighbourhood)
-                
-                let aligment = arragement.alignmentVector.normalized.multiply(by: alignmentCoefficient)
-                let cohesion = arragement.cohesionVector.normalized.multiply(by: cohesionCoefficient)
-                let separation = arragement.separationVector.normalized.multiply(by: separationCoefficient)
-                
-                direction = aligment.add(cohesion).add(separation).multiply(by: 10)
-            }
-            
-            recentDirections.append(direction)
-            recentDirections = Array(recentDirections.suffix(5))
+        if let averageDirection = directions.average, let averagaPosition = positions.average, let averageDistance = distances.average {
+            let vectorToAveragePosition = position.vector(to: averagaPosition)
+            let distance = averageDistance.length > length / 2 ? averageDistance : CGVector(dx: -length / 2, dy: -length / 2)
+            return (averageDirection, vectorToAveragePosition, distance)
         }
         
-        updatePosition()
-        updateRotation()
-    }
-    
-    private func updatePosition() {
-        let averageDirection = recentDirections.average.multiply(by: speedCoefficient)
-        
-        position.x += averageDirection.dx
-        position.y += averageDirection.dy
-        
-        if canUpdateBoidsPosition, !isBoidNodeInConfinementFrame {
-            returnBoidToConfinementFrame()
-            
-            canUpdateBoidsPosition = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-                self?.canUpdateBoidsPosition = true
-            }
-        }
-        
-        if referenceTraceBoidPosition.distance(to: position) > traceBoidDistanceFromMasterBoid {
-            referenceTraceBoidPosition = position
-            spitTraceParticle()
-        }
-    }
-    
-    private func updateRotation() {
-        let averageDirection = recentDirections.average
-        zRotation = averageDirection.normalized.angleToNormal
-    }
-    
-    private func returnBoidToConfinementFrame() {
-        if position.x < confinementFrame.origin.x {
-            position.x = confinementFrame.origin.x + confinementFrame.size.width
-        }
-        
-        if position.x > confinementFrame.origin.x + confinementFrame.size.width {
-            position.x = confinementFrame.origin.x
-        }
-        
-        if position.y < confinementFrame.origin.y {
-            position.y = confinementFrame.origin.y + confinementFrame.size.height
-        }
-        
-        if position.y > confinementFrame.origin.y + confinementFrame.size.height {
-            position.y = confinementFrame.origin.y
-        }
-    }
-    
-    @objc private func updateDirectionRandomness() {
-        direction = CGVector.random(min: -10, max: 10)
+        return (.zero, .zero, .zero)
     }
     
     // MARK: - Boid trace particle setup
     
-    @objc func spitTraceParticle() {
+    @objc private func spitTraceParticle() {
         let traceNode = self.clone(color: fillColor, position: position)
         self.parent?.addChild(traceNode)
         
@@ -281,26 +293,16 @@ class KGBoidNode: SKShapeNode {
     }
 }
 
-/// The object that acts as the delegate of KGBoidNode.
-///
-/// The delegate must adopt the KGBoidNodeDelegate protocol.
-///
-/// The delegate object is responsible for managing node's position updates.
-protocol KGBoidNodeDelegate: class {
-    
-    /// Tells the delegate that the boid node has changed it's position.
-    ///
-    /// - Parameters:
-    ///     - node: A node which position has changed.
-    ///     - position: A new node's position.
-    func kgBoidNode(_ node: KGBoidNode, didUpdate position: CGPoint)
-}
-
 extension CGVector {
     
     /// Returns normalized to 1 CGVector.
     fileprivate var normalized: CGVector {
         let maxComponent = max(abs(dx), abs(dy))
+        
+        if maxComponent == 0 {
+            return .zero
+        }
+        
         return self.divide(by: maxComponent)
     }
 }

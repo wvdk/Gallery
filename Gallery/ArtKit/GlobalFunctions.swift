@@ -9,12 +9,7 @@ import Foundation
 
 /// Produces a random Bool.
 public func flipACoin() -> Bool {
-    return arc4random_uniform(2) > 0
-}
-
-/// Returns a random Double between 0.0 and 0.9
-public func random() -> Double {
-    return Double(arc4random_uniform(UInt32(10))) * 0.1
+    return Bool.random()
 }
 
 /// Runs the provided black after a delay.

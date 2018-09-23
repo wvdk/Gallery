@@ -18,4 +18,13 @@ enum KGBoidProperties: Equatable {
 
     /// Sets boid color to specified one.
     case fillColor(UIColor)
+    
+    /// Set boids direction to upwards.
+    case upDirection
+    
+    /// Set boids confinement frame.
+    case confinementFrame(CGRect)
+    
+    /// Set initial direction direction for the boid.
+    case initialDirection(CGVector)
 }

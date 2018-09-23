@@ -18,6 +18,12 @@ enum KGBoidShapes {
     /// Triangle shape.
     case triangle
     
+    /// Line shape.
+    case line
+    
+    /// Circle shape.
+    case circle
+    
     /// Returns CGPath for chosen shape.
     ///
     /// - Parameters:
@@ -44,6 +50,23 @@ enum KGBoidShapes {
             triangleBezierPath.close()
             
             return triangleBezierPath.cgPath
+            
+        case .line:
+            let lineBezierPath = UIBezierPath()
+            
+            lineBezierPath.move(to: CGPoint(x: -length, y: -1))
+            lineBezierPath.addLine(to: CGPoint(x: -length, y: 1))
+            lineBezierPath.addLine(to: CGPoint(x: 0, y: 1))
+            lineBezierPath.addLine(to: CGPoint(x: 0, y: -1))
+            lineBezierPath.close()
+            
+            return lineBezierPath.cgPath
+            
+        case .circle:
+            let circleRect = CGRect.init(x: -length / 2, y: -length / 2, width: length, height: length)
+            let circleBezierPath = UIBezierPath.init(ovalIn: circleRect)
+            
+            return circleBezierPath.cgPath
         }
     }
 }

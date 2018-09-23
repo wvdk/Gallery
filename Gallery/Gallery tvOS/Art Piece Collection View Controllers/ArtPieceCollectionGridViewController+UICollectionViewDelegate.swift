@@ -29,7 +29,7 @@ extension ArtPieceCollectionGridViewController: UICollectionViewDelegate {
         // Doing it here because collection views use the same focused view but different scale coefficient.
         if let nextFocusedView = context.nextFocusedView as? FocusingView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                nextFocusedView.transformScale(to: 1.1)
+                nextFocusedView.transformScale(to: 1.3)
             }, completion: nil)
         }
     }
@@ -44,6 +44,7 @@ extension ArtPieceCollectionGridViewController: UICollectionViewDataSource {
         
         cell.delegate = self
         cell.contentViewEdgeInset = 30
+        cell.showsPreviewOnFocus = false
         cell.artPiece = MasterList.shared.activePieces[indexPath.item]
         
         return cell

@@ -28,9 +28,7 @@
 		891549F721150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */; };
 		891549F921150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */; };
 		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
-		8919BE3B214340A300967B9A /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3A214340A300967B9A /* CGFloat+Extension.swift */; };
 		8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
-		8919BE3E2143413700967B9A /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3A214340A300967B9A /* CGFloat+Extension.swift */; };
 		8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
 		8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
 		8919BE442143425D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
@@ -43,8 +41,7 @@
 		892F534921067D1300AC8C45 /* ArtKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; };
 		892F534A21067D1300AC8C45 /* ArtKit_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		892F534E2107A5E600AC8C45 /* SKSpriteNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */; };
-		894C2C632141F20F001CAE52 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
-		8958AE88210672E20067286F /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8958AE88210672E20067286F /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8959050D20754B8200300B62 /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959050C20754B8200300B62 /* InfoBarView.swift */; };
 		8959454A20E9609900DF123D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
 		8959454B20E9609900DF123D /* GalleryCore_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -52,6 +49,22 @@
 		8970BCB920E95F170006870D /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929F4F1204AD54C000E5179 /* IDGenerator.swift */; };
 		8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* ArtMetadata.swift */; };
 		8970BCBD20E95F220006870D /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
+		899F2BD321500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
+		899F2BD421500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
+		899F2BD6215010FB0095D5D3 /* SKTexture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */; };
+		899F2BD7215010FB0095D5D3 /* SKTexture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */; };
+		899F2BD92150111F0095D5D3 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */; };
+		899F2BDA2150111F0095D5D3 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */; };
+		899F2BDC215011800095D5D3 /* KGBoidsFireScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */; };
+		899F2BDD215011800095D5D3 /* KGBoidsFireScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */; };
+		899F2BDF215011C40095D5D3 /* KGBoidsFireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BDE215011C40095D5D3 /* KGBoidsFireView.swift */; };
+		899F2BE0215011C40095D5D3 /* KGBoidsFireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BDE215011C40095D5D3 /* KGBoidsFireView.swift */; };
+		899F2BE3215012C90095D5D3 /* KGObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */; };
+		899F2BE4215012C90095D5D3 /* KGObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */; };
+		899F2BE82150158C0095D5D3 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE5215015860095D5D3 /* CGRect+Extension.swift */; };
+		899F2BE92150158C0095D5D3 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE5215015860095D5D3 /* CGRect+Extension.swift */; };
+		899F2BEB215086400095D5D3 /* KGBoidsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BEA215086400095D5D3 /* KGBoidsController.swift */; };
+		899F2BEC215086400095D5D3 /* KGBoidsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BEA215086400095D5D3 /* KGBoidsController.swift */; };
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
 		89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
@@ -80,8 +93,8 @@
 		DE16C535214ED93A0082BB34 /* A586qActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DE16C522214ED93A0082BB34 /* A586qActions.sks */; };
 		DE16C536214ED93A0082BB34 /* A994tView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C524214ED93A0082BB34 /* A994tView.swift */; };
 		DE16C537214ED93A0082BB34 /* KGBoidShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */; };
-		DE16C538214ED93A0082BB34 /* KGBoidsThreeColumnsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C529214ED93A0082BB34 /* KGBoidsThreeColumnsScene.swift */; };
-		DE16C539214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52A214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift */; };
+		DE16C538214ED93A0082BB34 /* KGBoidsSunScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C529214ED93A0082BB34 /* KGBoidsSunScene.swift */; };
+		DE16C539214ED93A0082BB34 /* KGBoidsSunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52A214ED93A0082BB34 /* KGBoidsSunView.swift */; };
 		DE16C53A214ED93A0082BB34 /* KGBoidProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */; };
 		DE16C53B214ED93A0082BB34 /* KGBoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52C214ED93A0082BB34 /* KGBoidNode.swift */; };
 		DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C518214ED93A0082BB34 /* A565zView.swift */; };
@@ -96,8 +109,8 @@
 		DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */; };
 		DE16C548214EE4CA0082BB34 /* KGBoidProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */; };
 		DE16C549214EE4CC0082BB34 /* KGBoidNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52C214ED93A0082BB34 /* KGBoidNode.swift */; };
-		DE16C54A214EE4D00082BB34 /* KGBoidsThreeColumnsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C529214ED93A0082BB34 /* KGBoidsThreeColumnsScene.swift */; };
-		DE16C54B214EE4D20082BB34 /* KGBoidsThreeColumnsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52A214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift */; };
+		DE16C54A214EE4D00082BB34 /* KGBoidsSunScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C529214ED93A0082BB34 /* KGBoidsSunScene.swift */; };
+		DE16C54B214EE4D20082BB34 /* KGBoidsSunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C52A214ED93A0082BB34 /* KGBoidsSunView.swift */; };
 		DE16C54C214EE60F0082BB34 /* A586qView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE16C521214ED93A0082BB34 /* A586qView.swift */; };
 		DE26220620E967EA002F57C7 /* ArtKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; };
 		DE26220720E9681C002F57C7 /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
@@ -178,7 +191,7 @@
 			files = (
 				DE0B7FAB20E3E337000B482F /* GalleryCore_iOS.framework in Embed Frameworks */,
 				892F534A21067D1300AC8C45 /* ArtKit_iOS.framework in Embed Frameworks */,
-				8958AE88210672E20067286F /* BuildFile in Embed Frameworks */,
+				8958AE88210672E20067286F /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +215,6 @@
 		891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
-		8919BE3A214340A300967B9A /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		8919BE3C2143413300967B9A /* CGVector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Extension.swift"; sourceTree = "<group>"; };
 		8919BE402143422D00967B9A /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKShapeNode+Extension.swift"; sourceTree = "<group>"; };
@@ -217,6 +229,13 @@
 		8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_tvOS.h; sourceTree = "<group>"; };
 		8970BCAC20E95D160006870D /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
+		899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKTexture+Extension.swift"; sourceTree = "<group>"; };
+		899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsFireScene.swift; sourceTree = "<group>"; };
+		899F2BDE215011C40095D5D3 /* KGBoidsFireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsFireView.swift; sourceTree = "<group>"; };
+		899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGObstacleNode.swift; sourceTree = "<group>"; };
+		899F2BE5215015860095D5D3 /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
+		899F2BEA215086400095D5D3 /* KGBoidsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsController.swift; sourceTree = "<group>"; };
 		89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentationController.swift; sourceTree = "<group>"; };
 		89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentAnimationController.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
@@ -240,8 +259,8 @@
 		DE16C522214ED93A0082BB34 /* A586qActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = A586qActions.sks; sourceTree = "<group>"; };
 		DE16C524214ED93A0082BB34 /* A994tView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = A994tView.swift; sourceTree = "<group>"; };
 		DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGBoidShapes.swift; sourceTree = "<group>"; };
-		DE16C529214ED93A0082BB34 /* KGBoidsThreeColumnsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGBoidsThreeColumnsScene.swift; sourceTree = "<group>"; };
-		DE16C52A214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGBoidsThreeColumnsView.swift; sourceTree = "<group>"; };
+		DE16C529214ED93A0082BB34 /* KGBoidsSunScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGBoidsSunScene.swift; sourceTree = "<group>"; };
+		DE16C52A214ED93A0082BB34 /* KGBoidsSunView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGBoidsSunView.swift; sourceTree = "<group>"; };
 		DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGBoidProperties.swift; sourceTree = "<group>"; };
 		DE16C52C214ED93A0082BB34 /* KGBoidNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGBoidNode.swift; sourceTree = "<group>"; };
 		DE293F8B2048F30300444EB8 /* Gallery iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gallery iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,7 +360,6 @@
 			isa = PBXGroup;
 			children = (
 				89DEC6B8210B9C10009858CC /* FocusingView.swift */,
-				894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */,
 				89E295E921473E3F0042F1CB /* LoopingLineView.swift */,
 				89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */,
 			);
@@ -361,6 +379,15 @@
 				89DEC6B5210933DB009858CC /* ArtPieceCollectionViewCell.swift */,
 			);
 			path = "Art Piece Collection View Controllers";
+			sourceTree = "<group>";
+		};
+		899F2BE1215011E10095D5D3 /* Fire */ = {
+			isa = PBXGroup;
+			children = (
+				899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */,
+				899F2BDE215011C40095D5D3 /* KGBoidsFireView.swift */,
+			);
+			path = Fire;
 			sourceTree = "<group>";
 		};
 		89BB28252097808B004B33F0 /* Transitions */ = {
@@ -448,21 +475,24 @@
 		DE16C526214ED93A0082BB34 /* Boids */ = {
 			isa = PBXGroup;
 			children = (
-				DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */,
-				DE16C528214ED93A0082BB34 /* ThreeColumns */,
-				DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */,
+				899F2BE1215011E10095D5D3 /* Fire */,
+				DE16C528214ED93A0082BB34 /* Sun */,
 				DE16C52C214ED93A0082BB34 /* KGBoidNode.swift */,
+				899F2BEA215086400095D5D3 /* KGBoidsController.swift */,
+				899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */,
+				DE16C52B214ED93A0082BB34 /* KGBoidProperties.swift */,
+				DE16C527214ED93A0082BB34 /* KGBoidShapes.swift */,
 			);
 			path = Boids;
 			sourceTree = "<group>";
 		};
-		DE16C528214ED93A0082BB34 /* ThreeColumns */ = {
+		DE16C528214ED93A0082BB34 /* Sun */ = {
 			isa = PBXGroup;
 			children = (
-				DE16C529214ED93A0082BB34 /* KGBoidsThreeColumnsScene.swift */,
-				DE16C52A214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift */,
+				DE16C529214ED93A0082BB34 /* KGBoidsSunScene.swift */,
+				DE16C52A214ED93A0082BB34 /* KGBoidsSunView.swift */,
 			);
-			path = ThreeColumns;
+			path = Sun;
 			sourceTree = "<group>";
 		};
 		DE16C53C214ED9D40082BB34 /* WV */ = {
@@ -524,18 +554,21 @@
 				89CBB570205C3DA10022FBE2 /* CustomOperators.swift */,
 				DE332B7F205B857900C40727 /* ArrayExtensions.swift */,
 				DE332B7D205B856800C40727 /* GlobalFunctions.swift */,
+				894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */,
 				DE332B79205B852600C40727 /* SKNode+Extensions.swift */,
 				892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */,
 				891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */,
+				899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */,
 				DE332B75205B7F3E00C40727 /* UIView+Extensions.swift */,
 				89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */,
-				8919BE3A214340A300967B9A /* CGFloat+Extension.swift */,
-				8919BE3C2143413300967B9A /* CGVector+Extension.swift */,
-				8919BE402143422D00967B9A /* CGPoint+Extension.swift */,
+				899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */,
+				DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */,
 				891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */,
 				DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */,
+				8919BE3C2143413300967B9A /* CGVector+Extension.swift */,
+				8919BE402143422D00967B9A /* CGPoint+Extension.swift */,
+				899F2BE5215015860095D5D3 /* CGRect+Extension.swift */,
 				DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */,
-				DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */,
 				DE293FA920490E1100444EB8 /* ArtKit_iOS.h */,
 				DEDB687520E946D900D102EB /* ArtKit_tvOS.h */,
 				DE293FAA20490E1100444EB8 /* Info_iOS.plist */,
@@ -837,7 +870,6 @@
 				891549D2211267690041FE8A /* FeaturedArtPieceCollectionViewController.swift in Sources */,
 				891549D5211276820041FE8A /* ArtPieceCollectionGridViewController.swift in Sources */,
 				89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */,
-				894C2C632141F20F001CAE52 /* RadialGradientLayer.swift in Sources */,
 				891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */,
 				89E295EA21473E3F0042F1CB /* LoopingLineView.swift in Sources */,
 				89127CEA2126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift in Sources */,
@@ -859,14 +891,18 @@
 				DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */,
 				DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */,
 				DE16C540214EE4B10082BB34 /* A736DView.swift in Sources */,
+				899F2BEC215086400095D5D3 /* KGBoidsController.swift in Sources */,
 				DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */,
-				DE16C54A214EE4D00082BB34 /* KGBoidsThreeColumnsScene.swift in Sources */,
+				899F2BDD215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
+				899F2BE0215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
+				DE16C54A214EE4D00082BB34 /* KGBoidsSunScene.swift in Sources */,
 				DE16C54C214EE60F0082BB34 /* A586qView.swift in Sources */,
+				899F2BE4215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */,
 				DE16C541214EE4B30082BB34 /* A736DScene.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* ArtMetadata.swift in Sources */,
 				DE16C549214EE4CC0082BB34 /* KGBoidNode.swift in Sources */,
-				DE16C54B214EE4D20082BB34 /* KGBoidsThreeColumnsView.swift in Sources */,
+				DE16C54B214EE4D20082BB34 /* KGBoidsSunView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,13 +915,17 @@
 				DE16C52D214ED93A0082BB34 /* A565zView.swift in Sources */,
 				DE16C53B214ED93A0082BB34 /* KGBoidNode.swift in Sources */,
 				DE16C531214ED93A0082BB34 /* A736DScene.swift in Sources */,
-				DE16C539214ED93A0082BB34 /* KGBoidsThreeColumnsView.swift in Sources */,
+				DE16C539214ED93A0082BB34 /* KGBoidsSunView.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
+				899F2BEB215086400095D5D3 /* KGBoidsController.swift in Sources */,
 				DE16C530214ED93A0082BB34 /* A736DView.swift in Sources */,
+				899F2BDC215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
+				899F2BDF215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
 				DE0B7FB320E3E35B000B482F /* IDGenerator.swift in Sources */,
 				DE16C536214ED93A0082BB34 /* A994tView.swift in Sources */,
+				899F2BE3215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
-				DE16C538214ED93A0082BB34 /* KGBoidsThreeColumnsScene.swift in Sources */,
+				DE16C538214ED93A0082BB34 /* KGBoidsSunScene.swift in Sources */,
 				DE0B7FB120E3E352000B482F /* ArtMetadata.swift in Sources */,
 				DE16C534214ED93A0082BB34 /* A586qView.swift in Sources */,
 				DE16C537214ED93A0082BB34 /* KGBoidShapes.swift in Sources */,
@@ -914,15 +954,18 @@
 				DE332B74205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift in Sources */,
 				891549CC21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */,
 				8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */,
-				8919BE3B214340A300967B9A /* CGFloat+Extension.swift in Sources */,
+				899F2BD92150111F0095D5D3 /* UIImage+Extension.swift in Sources */,
 				8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DE293FB420490E2000444EB8 /* NSObject+Extensions.swift in Sources */,
 				89278ED1210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,
+				899F2BE82150158C0095D5D3 /* CGRect+Extension.swift in Sources */,
 				89CBB571205C3DA10022FBE2 /* CustomOperators.swift in Sources */,
 				DE332B7E205B856800C40727 /* GlobalFunctions.swift in Sources */,
 				DE332B7A205B852600C40727 /* SKNode+Extensions.swift in Sources */,
 				891C75922149B3D30037FEA3 /* SKShapeNode+Extension.swift in Sources */,
 				DE332B76205B7F3E00C40727 /* UIView+Extensions.swift in Sources */,
+				899F2BD6215010FB0095D5D3 /* SKTexture+Extension.swift in Sources */,
+				899F2BD321500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */,
 				DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */,
 				DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */,
 				892F534E2107A5E600AC8C45 /* SKSpriteNode+Extension.swift in Sources */,
@@ -936,15 +979,18 @@
 				DEDB687F20E946EE00D102EB /* CustomOperators.swift in Sources */,
 				891549CD21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */,
 				8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */,
-				8919BE3E2143413700967B9A /* CGFloat+Extension.swift in Sources */,
+				899F2BDA2150111F0095D5D3 /* UIImage+Extension.swift in Sources */,
 				8919BE442143425D00967B9A /* CGPoint+Extension.swift in Sources */,
 				DEDB688220E946EE00D102EB /* SKNode+Extensions.swift in Sources */,
 				89278ED2210FB33200CEEB3C /* UILabel+Extension.swift in Sources */,
+				899F2BE92150158C0095D5D3 /* CGRect+Extension.swift in Sources */,
 				DEDB688520E946EE00D102EB /* NSObject+Extensions.swift in Sources */,
 				DEDB688620E946EE00D102EB /* UIColor+Extensions.swift in Sources */,
 				DEDB688320E946EE00D102EB /* UIView+Extensions.swift in Sources */,
 				891C75932149B3D70037FEA3 /* SKShapeNode+Extension.swift in Sources */,
 				DEDB688420E946EE00D102EB /* UITapGestureRecognizerWithClosure.swift in Sources */,
+				899F2BD7215010FB0095D5D3 /* SKTexture+Extension.swift in Sources */,
+				899F2BD421500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */,
 				DEDB688020E946EE00D102EB /* ArrayExtensions.swift in Sources */,
 				DEDB688120E946EE00D102EB /* GlobalFunctions.swift in Sources */,
 				89DEC6B7210A7B30009858CC /* SKSpriteNode+Extension.swift in Sources */,
@@ -997,7 +1043,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				INFOPLIST_FILE = "Gallery tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.tvOS;
@@ -1020,7 +1066,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				INFOPLIST_FILE = "Gallery tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.tvOS;
@@ -1041,7 +1087,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1068,7 +1114,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1095,7 +1141,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1122,7 +1168,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1261,7 +1307,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				INFOPLIST_FILE = "Gallery iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
@@ -1278,7 +1324,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				INFOPLIST_FILE = "Gallery iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
@@ -1296,7 +1342,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1321,7 +1367,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1347,7 +1393,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1374,7 +1420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
