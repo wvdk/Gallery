@@ -401,7 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */,
-				DE16C516214ED93A0082BB34 /* Art Pieces */,
+				DE16C516214ED93A0082BB34 /* Pieces */,
 				DE39D70420B321960087788C /* ArtMetadata.swift */,
 				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
 				891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */,
@@ -413,13 +413,13 @@
 			path = GalleryCore;
 			sourceTree = "<group>";
 		};
-		DE16C516214ED93A0082BB34 /* Art Pieces */ = {
+		DE16C516214ED93A0082BB34 /* Pieces */ = {
 			isa = PBXGroup;
 			children = (
 				DE16C53C214ED9D40082BB34 /* WV */,
 				DE16C525214ED93A0082BB34 /* KG */,
 			);
-			path = "Art Pieces";
+			path = Pieces;
 			sourceTree = "<group>";
 		};
 		DE16C517214ED93A0082BB34 /* A565z */ = {
