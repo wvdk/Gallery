@@ -46,7 +46,7 @@ class KGBoidsSunScene: SKScene {
         setupBoids(in: initialLeftFrame, boidsLength: boidsLength)
         setupBoids(in: initialRightFrame, boidsLength: boidsLength)
         
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { [weak self] _ in
             self?.updateColor()
         }
     }
@@ -79,7 +79,7 @@ class KGBoidsSunScene: SKScene {
             color = UIColor(r: 93 - colorIndex + 95, g: 0, b: 93)
         }
         
-        self.run(SKAction.colorize(with: color, colorBlendFactor: 1, duration: 1))
+        self.run(SKAction.colorize(with: color, colorBlendFactor: 1, duration: 3))
     }
     
     private func setupBackgroundNode() {
