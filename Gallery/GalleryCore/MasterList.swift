@@ -19,7 +19,6 @@ public class MasterList {
     ///
     /// Also starts up the firebase observer.
     private init() {
-        // TODO: Removing the firebase stuff because it's not cooperating and that's not the problem I want to solve right now.
         activePieces = [
             PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsSunView.self, thumbnail: nil),
             PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsFireView.self, thumbnail: nil),
