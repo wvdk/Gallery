@@ -32,6 +32,16 @@
 		8916D1F9215DA7CE007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
 		8916D1FF215DA8DC007816C6 /* ConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* ConvexHullScanController.swift */; };
 		8916D200215DA8DC007816C6 /* ConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* ConvexHullScanController.swift */; };
+		8916D202215DA96C007816C6 /* ConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* ConvexHullScanAlgorithm.swift */; };
+		8916D203215DA96C007816C6 /* ConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* ConvexHullScanAlgorithm.swift */; };
+		8916D205215DA995007816C6 /* ConexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D204215DA995007816C6 /* ConexHull.swift */; };
+		8916D206215DA995007816C6 /* ConexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D204215DA995007816C6 /* ConexHull.swift */; };
+		8916D208215DAA10007816C6 /* LineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D207215DAA10007816C6 /* LineLayer.swift */; };
+		8916D209215DAA10007816C6 /* LineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D207215DAA10007816C6 /* LineLayer.swift */; };
+		8916D20B215DAA21007816C6 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20A215DAA21007816C6 /* Line.swift */; };
+		8916D20C215DAA21007816C6 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20A215DAA21007816C6 /* Line.swift */; };
+		8916D20E215DAA36007816C6 /* LineDrawingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20D215DAA36007816C6 /* LineDrawingAction.swift */; };
+		8916D20F215DAA36007816C6 /* LineDrawingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20D215DAA36007816C6 /* LineDrawingAction.swift */; };
 		8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
 		8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
 		8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
@@ -219,6 +229,11 @@
 		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
 		8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHullView.swift; sourceTree = "<group>"; };
 		8916D1FE215DA8DC007816C6 /* ConvexHullScanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvexHullScanController.swift; sourceTree = "<group>"; };
+		8916D201215DA96C007816C6 /* ConvexHullScanAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvexHullScanAlgorithm.swift; sourceTree = "<group>"; };
+		8916D204215DA995007816C6 /* ConexHull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexHull.swift; sourceTree = "<group>"; };
+		8916D207215DAA10007816C6 /* LineLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineLayer.swift; sourceTree = "<group>"; };
+		8916D20A215DAA21007816C6 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		8916D20D215DAA36007816C6 /* LineDrawingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineDrawingAction.swift; sourceTree = "<group>"; };
 		8919BE3C2143413300967B9A /* CGVector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Extension.swift"; sourceTree = "<group>"; };
 		8919BE402143422D00967B9A /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKShapeNode+Extension.swift"; sourceTree = "<group>"; };
@@ -389,6 +404,11 @@
 			children = (
 				8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */,
 				8916D1FE215DA8DC007816C6 /* ConvexHullScanController.swift */,
+				8916D201215DA96C007816C6 /* ConvexHullScanAlgorithm.swift */,
+				8916D204215DA995007816C6 /* ConexHull.swift */,
+				8916D20A215DAA21007816C6 /* Line.swift */,
+				8916D207215DAA10007816C6 /* LineLayer.swift */,
+				8916D20D215DAA36007816C6 /* LineDrawingAction.swift */,
 			);
 			path = ConvexHull;
 			sourceTree = "<group>";
@@ -873,6 +893,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8916D206215DA995007816C6 /* ConexHull.swift in Sources */,
 				89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */,
 				891549F521150BE00041FE8A /* ArtPieceCollectionViewControllerDelegate.swift in Sources */,
 				891549F721150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */,
@@ -881,15 +902,19 @@
 				891549F121150AF80041FE8A /* FeaturedArtPieceCollectionViewController+CollectionViewCellDelegate.swift in Sources */,
 				891549D2211267690041FE8A /* FeaturedArtPieceCollectionViewController.swift in Sources */,
 				891549D5211276820041FE8A /* ArtPieceCollectionGridViewController.swift in Sources */,
+				8916D20C215DAA21007816C6 /* Line.swift in Sources */,
 				89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */,
 				891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */,
 				8916D200215DA8DC007816C6 /* ConvexHullScanController.swift in Sources */,
+				8916D203215DA96C007816C6 /* ConvexHullScanAlgorithm.swift in Sources */,
 				89E295EA21473E3F0042F1CB /* LoopingLineView.swift in Sources */,
 				8916D1F9215DA7CE007816C6 /* KGConvexHullView.swift in Sources */,
 				89127CEA2126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift in Sources */,
 				891549D7211283250041FE8A /* ArtPieceCollectionGridViewController+UICollectionViewDelegate.swift in Sources */,
 				89DEC6B6210933DB009858CC /* ArtPieceCollectionViewCell.swift in Sources */,
 				89E295ED214740BE0042F1CB /* GradientBackgroundView.swift in Sources */,
+				8916D209215DAA10007816C6 /* LineLayer.swift in Sources */,
+				8916D20F215DAA36007816C6 /* LineDrawingAction.swift in Sources */,
 				89DEC69621091C2B009858CC /* FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -951,13 +976,18 @@
 				89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */,
 				8916D1F8215DA7CE007816C6 /* KGConvexHullView.swift in Sources */,
 				890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */,
+				8916D20E215DAA36007816C6 /* LineDrawingAction.swift in Sources */,
 				DE2AEFB0204B0F6900C65CA4 /* ArtPieceDetailViewController.swift in Sources */,
 				8959050D20754B8200300B62 /* InfoBarView.swift in Sources */,
+				8916D20B215DAA21007816C6 /* Line.swift in Sources */,
 				DE293F912048F30300444EB8 /* MainViewController.swift in Sources */,
 				8916D1FF215DA8DC007816C6 /* ConvexHullScanController.swift in Sources */,
 				DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */,
+				8916D205215DA995007816C6 /* ConexHull.swift in Sources */,
 				892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */,
 				89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */,
+				8916D208215DAA10007816C6 /* LineLayer.swift in Sources */,
+				8916D202215DA96C007816C6 /* ConvexHullScanAlgorithm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
