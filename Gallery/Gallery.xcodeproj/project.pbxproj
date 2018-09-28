@@ -28,20 +28,20 @@
 		891549F721150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */; };
 		891549F921150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */; };
 		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
-		8916D1F8215DA7CE007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
-		8916D1F9215DA7CE007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
-		8916D1FF215DA8DC007816C6 /* KGConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */; };
-		8916D200215DA8DC007816C6 /* KGConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */; };
-		8916D202215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */; };
-		8916D203215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */; };
-		8916D205215DA995007816C6 /* KGConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D204215DA995007816C6 /* KGConvexHull.swift */; };
-		8916D206215DA995007816C6 /* KGConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D204215DA995007816C6 /* KGConvexHull.swift */; };
-		8916D208215DAA10007816C6 /* KGLineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D207215DAA10007816C6 /* KGLineLayer.swift */; };
-		8916D209215DAA10007816C6 /* KGLineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D207215DAA10007816C6 /* KGLineLayer.swift */; };
-		8916D20B215DAA21007816C6 /* KGLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20A215DAA21007816C6 /* KGLine.swift */; };
-		8916D20C215DAA21007816C6 /* KGLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20A215DAA21007816C6 /* KGLine.swift */; };
-		8916D20E215DAA36007816C6 /* KGLineDrawingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20D215DAA36007816C6 /* KGLineDrawingAction.swift */; };
-		8916D20F215DAA36007816C6 /* KGLineDrawingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20D215DAA36007816C6 /* KGLineDrawingAction.swift */; };
+		8916D210215DACB3007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
+		8916D211215DACB4007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
+		8916D212215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */; };
+		8916D213215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */; };
+		8916D214215DACBB007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */; };
+		8916D215215DACBC007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */; };
+		8916D216215DACC0007816C6 /* KGConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D204215DA995007816C6 /* KGConvexHull.swift */; };
+		8916D217215DACC0007816C6 /* KGConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D204215DA995007816C6 /* KGConvexHull.swift */; };
+		8916D218215DACC4007816C6 /* KGLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20A215DAA21007816C6 /* KGLine.swift */; };
+		8916D219215DACC4007816C6 /* KGLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20A215DAA21007816C6 /* KGLine.swift */; };
+		8916D21A215DACC8007816C6 /* KGLineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D207215DAA10007816C6 /* KGLineLayer.swift */; };
+		8916D21B215DACC8007816C6 /* KGLineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D207215DAA10007816C6 /* KGLineLayer.swift */; };
+		8916D21C215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20D215DAA36007816C6 /* KGLineDrawingAction.swift */; };
+		8916D21D215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20D215DAA36007816C6 /* KGLineDrawingAction.swift */; };
 		8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
 		8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
 		8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
@@ -893,7 +893,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8916D206215DA995007816C6 /* KGConvexHull.swift in Sources */,
 				89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */,
 				891549F521150BE00041FE8A /* ArtPieceCollectionViewControllerDelegate.swift in Sources */,
 				891549F721150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */,
@@ -902,19 +901,13 @@
 				891549F121150AF80041FE8A /* FeaturedArtPieceCollectionViewController+CollectionViewCellDelegate.swift in Sources */,
 				891549D2211267690041FE8A /* FeaturedArtPieceCollectionViewController.swift in Sources */,
 				891549D5211276820041FE8A /* ArtPieceCollectionGridViewController.swift in Sources */,
-				8916D20C215DAA21007816C6 /* KGLine.swift in Sources */,
 				89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */,
 				891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */,
-				8916D200215DA8DC007816C6 /* KGConvexHullScanController.swift in Sources */,
-				8916D203215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 				89E295EA21473E3F0042F1CB /* LoopingLineView.swift in Sources */,
-				8916D1F9215DA7CE007816C6 /* KGConvexHullView.swift in Sources */,
 				89127CEA2126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift in Sources */,
 				891549D7211283250041FE8A /* ArtPieceCollectionGridViewController+UICollectionViewDelegate.swift in Sources */,
 				89DEC6B6210933DB009858CC /* ArtPieceCollectionViewCell.swift in Sources */,
 				89E295ED214740BE0042F1CB /* GradientBackgroundView.swift in Sources */,
-				8916D209215DAA10007816C6 /* KGLineLayer.swift in Sources */,
-				8916D20F215DAA36007816C6 /* KGLineDrawingAction.swift in Sources */,
 				89DEC69621091C2B009858CC /* FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -923,21 +916,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8916D213215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */,
+				8916D217215DACC0007816C6 /* KGConvexHull.swift in Sources */,
 				DE16C548214EE4CA0082BB34 /* KGBoidProperties.swift in Sources */,
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
 				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
 				DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */,
+				8916D219215DACC4007816C6 /* KGLine.swift in Sources */,
 				DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */,
 				DE16C540214EE4B10082BB34 /* A736DView.swift in Sources */,
 				899F2BEC215086400095D5D3 /* KGBoidsController.swift in Sources */,
 				DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */,
+				8916D21B215DACC8007816C6 /* KGLineLayer.swift in Sources */,
 				899F2BDD215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
 				899F2BE0215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
+				8916D215215DACBC007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 				DE16C54A214EE4D00082BB34 /* KGBoidsSunScene.swift in Sources */,
 				DE16C54C214EE60F0082BB34 /* A586qView.swift in Sources */,
 				899F2BE4215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */,
+				8916D21D215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */,
 				DE16C541214EE4B30082BB34 /* A736DScene.swift in Sources */,
+				8916D211215DACB4007816C6 /* KGConvexHullView.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* PieceMetadata.swift in Sources */,
 				DE16C549214EE4CC0082BB34 /* KGBoidNode.swift in Sources */,
 				DE16C54B214EE4D20082BB34 /* KGBoidsSunView.swift in Sources */,
@@ -948,21 +948,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8916D212215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */,
+				8916D216215DACC0007816C6 /* KGConvexHull.swift in Sources */,
 				DE16C53A214ED93A0082BB34 /* KGBoidProperties.swift in Sources */,
 				DE16C533214ED93A0082BB34 /* A586qScene.swift in Sources */,
 				DE16C52D214ED93A0082BB34 /* A565zView.swift in Sources */,
 				DE16C53B214ED93A0082BB34 /* KGBoidNode.swift in Sources */,
+				8916D218215DACC4007816C6 /* KGLine.swift in Sources */,
 				DE16C531214ED93A0082BB34 /* A736DScene.swift in Sources */,
 				DE16C539214ED93A0082BB34 /* KGBoidsSunView.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
 				899F2BEB215086400095D5D3 /* KGBoidsController.swift in Sources */,
+				8916D21A215DACC8007816C6 /* KGLineLayer.swift in Sources */,
 				DE16C530214ED93A0082BB34 /* A736DView.swift in Sources */,
 				899F2BDC215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
+				8916D214215DACBB007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 				899F2BDF215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
 				DE16C536214ED93A0082BB34 /* A994tView.swift in Sources */,
 				899F2BE3215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
+				8916D21C215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */,
 				DE16C538214ED93A0082BB34 /* KGBoidsSunScene.swift in Sources */,
+				8916D210215DACB3007816C6 /* KGConvexHullView.swift in Sources */,
 				DE0B7FB120E3E352000B482F /* PieceMetadata.swift in Sources */,
 				DE16C534214ED93A0082BB34 /* A586qView.swift in Sources */,
 				DE16C537214ED93A0082BB34 /* KGBoidShapes.swift in Sources */,
@@ -974,20 +981,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */,
-				8916D1F8215DA7CE007816C6 /* KGConvexHullView.swift in Sources */,
 				890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */,
-				8916D20E215DAA36007816C6 /* KGLineDrawingAction.swift in Sources */,
 				DE2AEFB0204B0F6900C65CA4 /* ArtPieceDetailViewController.swift in Sources */,
 				8959050D20754B8200300B62 /* InfoBarView.swift in Sources */,
-				8916D20B215DAA21007816C6 /* KGLine.swift in Sources */,
 				DE293F912048F30300444EB8 /* MainViewController.swift in Sources */,
-				8916D1FF215DA8DC007816C6 /* KGConvexHullScanController.swift in Sources */,
 				DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */,
-				8916D205215DA995007816C6 /* KGConvexHull.swift in Sources */,
 				892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */,
 				89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */,
-				8916D208215DAA10007816C6 /* KGLineLayer.swift in Sources */,
-				8916D202215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
