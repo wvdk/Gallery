@@ -21,6 +21,7 @@ class KGConvexHullView: UIView {
         super.init(frame: frame)
         
         backgroundColor = .black
+        layer.opacity = 0.9
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -36,6 +37,16 @@ class KGConvexHullView: UIView {
     // MARK: - Art piece setup
     
     fileprivate func restartConvexHull() {
+        layer.sublayers!.forEach { sublayer in
+            let hideAnimation = CABasicAnimation(keyPath: "opacity")
+            hideAnimation.fillMode = CAMediaTimingFillMode.forwards
+            hideAnimation.toValue = 0
+            hideAnimation.beginTime = CACurrentMediaTime()
+            hideAnimation.duration = 10.0
+            hideAnimation.isRemovedOnCompletion = false
+            sublayer.add(hideAnimation, forKey: "hideLayer")
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [weak self] in
             self?.layer.sublayers?.forEach { $0.removeAllAnimations() }
             self?.layer.sublayers?.removeAll()
@@ -92,13 +103,13 @@ class KGConvexHullView: UIView {
         let lineLayer = KGLineLayer(from: action.line.cgPath, with: action.line.uuid)
         layer.addSublayer(lineLayer)
         
-        let drawAnimation = CABasicAnimation(keyPath: "opacity")
-        drawAnimation.fillMode = CAMediaTimingFillMode.forwards
-        drawAnimation.toValue = 1
-        drawAnimation.beginTime = beginTime + duration * Double(action.index)
-        drawAnimation.duration = duration
-        drawAnimation.isRemovedOnCompletion = false
-        lineLayer.add(drawAnimation, forKey: "showLine")
+        let showAnimation = CABasicAnimation(keyPath: "opacity")
+        showAnimation.fillMode = CAMediaTimingFillMode.forwards
+        showAnimation.toValue = 1
+        showAnimation.beginTime = beginTime + duration * Double(action.index)
+        showAnimation.duration = duration
+        showAnimation.isRemovedOnCompletion = false
+        lineLayer.add(showAnimation, forKey: "showLine")
     }
     
     private func removeLine(with action: KGLineDrawingAction, beginTime: TimeInterval, duration: Double) {
@@ -114,12 +125,12 @@ class KGConvexHullView: UIView {
             return
         }
         
-        let drawAnimation = CABasicAnimation(keyPath: "opacity")
-        drawAnimation.fillMode = CAMediaTimingFillMode.forwards
-        drawAnimation.toValue = 0
-        drawAnimation.beginTime = beginTime + duration * Double(action.index)
-        drawAnimation.duration = duration / 2
-        drawAnimation.isRemovedOnCompletion = false
-        lineToRemove!.add(drawAnimation, forKey: "hideLine")
+        let hideAnimation = CABasicAnimation(keyPath: "opacity")
+        hideAnimation.fillMode = CAMediaTimingFillMode.forwards
+        hideAnimation.toValue = 0
+        hideAnimation.beginTime = beginTime + duration * Double(action.index)
+        hideAnimation.duration = duration / 2
+        hideAnimation.isRemovedOnCompletion = false
+        lineToRemove!.add(hideAnimation, forKey: "hideLine")
     }
 }
