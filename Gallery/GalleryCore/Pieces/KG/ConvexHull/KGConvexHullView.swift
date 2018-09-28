@@ -33,7 +33,7 @@ class KGConvexHullView: UIView {
     
     // MARK: - Drawing actions
     
-    private func perform(lineDrawingActions: [LineDrawingAction]) {
+    private func perform(lineDrawingActions: [KGLineDrawingAction]) {
         let duration = 0.3
         let initialTime = CACurrentMediaTime()
         
@@ -47,8 +47,8 @@ class KGConvexHullView: UIView {
         }
     }
     
-    private func addLine(with action: LineDrawingAction, beginTime: TimeInterval, duration: Double) {
-        let lineLayer = LineLayer(from: action.line.cgPath, with: action.line.uuid)
+    private func addLine(with action: KGLineDrawingAction, beginTime: TimeInterval, duration: Double) {
+        let lineLayer = KGLineLayer(from: action.line.cgPath, with: action.line.uuid)
         layer.addSublayer(lineLayer)
         
         let drawAnimation = CABasicAnimation(keyPath: "opacity")
@@ -60,9 +60,9 @@ class KGConvexHullView: UIView {
         lineLayer.add(drawAnimation, forKey: "showLine")
     }
     
-    private func removeLine(with action: LineDrawingAction, beginTime: TimeInterval, duration: Double) {
+    private func removeLine(with action: KGLineDrawingAction, beginTime: TimeInterval, duration: Double) {
         let lineToRemove = layer.sublayers?.first { layer in
-            if let lineLayer = layer as? LineLayer, lineLayer.uuid == action.line.uuid {
+            if let lineLayer = layer as? KGLineLayer, lineLayer.uuid == action.line.uuid {
                 return true
             }
             return false

@@ -12,7 +12,7 @@ class KGConvexHullScanController {
     
     // MARK: - Properties
     
-    var convexHullScanActions: [LineDrawingAction] {
+    var convexHullScanActions: [KGLineDrawingAction] {
         return pointActionBuffer
     }
     
@@ -20,7 +20,7 @@ class KGConvexHullScanController {
     
     private let algorithm = KGConvexHullScanAlgorithm()
     
-    fileprivate var pointActionBuffer = [LineDrawingAction]()
+    fileprivate var pointActionBuffer = [KGLineDrawingAction]()
     fileprivate var actionIndex = 0
     
     // MARK: - Initialization
@@ -43,14 +43,14 @@ class KGConvexHullScanController {
 
 extension KGConvexHullScanController: ConvexHullScanAlgorithmDelegate {
     
-    func convexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didAddLine line: Line) {
-        let action = LineDrawingAction(line: line, type: .addition, index: actionIndex)
+    func kgConvexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didAddLine line: KGLine) {
+        let action = KGLineDrawingAction(line: line, type: .addition, index: actionIndex)
         pointActionBuffer.append(action)
         actionIndex += 1
     }
     
-    func convexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didRemoveLine line: Line) {
-        let action = LineDrawingAction(line: line, type: .removal, index: actionIndex)
+    func kgConvexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didRemoveLine line: KGLine) {
+        let action = KGLineDrawingAction(line: line, type: .removal, index: actionIndex)
         pointActionBuffer.append(action)
         actionIndex += 1
     }

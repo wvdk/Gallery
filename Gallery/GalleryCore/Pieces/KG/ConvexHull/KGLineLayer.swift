@@ -1,5 +1,5 @@
 //
-//  LineLayer.swift
+//  KGLineLayer.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 9/27/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LineLayer: CAShapeLayer {
+class KGLineLayer: CAShapeLayer {
     
     private(set) var uuid: String!
     

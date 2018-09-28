@@ -1,5 +1,5 @@
 //
-//  Line.swift
+//  KGLine.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 9/27/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Line {
+struct KGLine {
     
     let startPoint: CGPoint
     let endPoint: CGPoint

@@ -1,5 +1,5 @@
 //
-//  LineDrawingAction.swift
+//  KGLineDrawingAction.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 9/27/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct LineDrawingAction {
+struct KGLineDrawingAction {
     
     enum ActionType {
         case addition
@@ -16,10 +16,10 @@ struct LineDrawingAction {
     }
     
     let index: Int
-    let line: Line
+    let line: KGLine
     let type: ActionType
     
-    init(line: Line, type: ActionType, index: Int) {
+    init(line: KGLine, type: ActionType, index: Int) {
         self.line = line
         self.type = type
         self.index = index

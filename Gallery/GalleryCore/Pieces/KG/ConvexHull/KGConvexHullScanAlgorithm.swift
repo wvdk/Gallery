@@ -33,24 +33,24 @@ class KGConvexHullScanAlgorithm {
             return firstPoint.x < secondPoint.x
         }
         
-        var lines = [Line]()
+        var lines = [KGLine]()
         
         func requestLineAddition(fromPoint: CGPoint, toPoint: CGPoint) {
-            let line = Line(startPoint: fromPoint, endPoint: toPoint)
-            delegate?.convexHullScanAlgorithm(self, didAddLine: line)
+            let line = KGLine(startPoint: fromPoint, endPoint: toPoint)
+            delegate?.kgConvexHullScanAlgorithm(self, didAddLine: line)
             lines.append(line)
         }
         
         func requestRemovalOfMiddleOfLastThreePointLines() {
-            delegate?.convexHullScanAlgorithm(self, didRemoveLine: lines.last!)
+            delegate?.kgConvexHullScanAlgorithm(self, didRemoveLine: lines.last!)
             lines.removeLast()
             
-            delegate?.convexHullScanAlgorithm(self, didRemoveLine: lines.last!)
+            delegate?.kgConvexHullScanAlgorithm(self, didRemoveLine: lines.last!)
             lines.removeLast()
         }
         
         // Compute upper hull by starting with leftmost two points.
-        let upperHull = ConexHull(sortedPoints[0], sortedPoints[1])
+        let upperHull = KGConvexHull(sortedPoints[0], sortedPoints[1])
         requestLineAddition(fromPoint: sortedPoints[0], toPoint: sortedPoints[1])
         for index in 2..<count {
             upperHull.add(point: sortedPoints[index])
@@ -64,7 +64,7 @@ class KGConvexHullScanAlgorithm {
         }
         
         // Compute lower hull by starting with rightmost two points
-        let lowerHull = ConexHull(sortedPoints[count - 1], sortedPoints[count - 2])
+        let lowerHull = KGConvexHull(sortedPoints[count - 1], sortedPoints[count - 2])
         requestLineAddition(fromPoint: sortedPoints[count - 1], toPoint: sortedPoints[count - 2])
         for index in (0...(count - 3)).reversed() {
             lowerHull.add(point: sortedPoints[index])
@@ -86,7 +86,7 @@ class KGConvexHullScanAlgorithm {
 
 protocol ConvexHullScanAlgorithmDelegate: class {
     
-    func convexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didAddLine line: Line)
+    func kgConvexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didAddLine line: KGLine)
     
-    func convexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didRemoveLine line: Line)
+    func kgConvexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didRemoveLine line: KGLine)
 }

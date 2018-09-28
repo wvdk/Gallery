@@ -1,5 +1,5 @@
 //
-//  ConexHull.swift
+//  KGConvexHull.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 9/27/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConexHull {
+class KGConvexHull {
     
     // MARK: - Parameters
     
@@ -70,7 +70,7 @@ class ConexHull {
         points.remove(at: hullPointsCount - 2)
     }
     
-    func mergePoints(with lowerHull: ConexHull) -> [CGPoint] {
+    func mergePoints(with lowerHull: KGConvexHull) -> [CGPoint] {
         var hullPoints = self.points
         
         let lowerHullPoints = lowerHull.points.dropFirst().dropLast()
