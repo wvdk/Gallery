@@ -1,5 +1,5 @@
 //
-//  ConvexHullScanAlgorithm.swift
+//  KGConvexHullScanAlgorithm.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 9/27/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConvexHullScanAlgorithm {
+class KGConvexHullScanAlgorithm {
     
     // MARK: - Properties
     
@@ -86,7 +86,7 @@ class ConvexHullScanAlgorithm {
 
 protocol ConvexHullScanAlgorithmDelegate: class {
     
-    func convexHullScanAlgorithm(_ algorithm: ConvexHullScanAlgorithm, didAddLine line: Line)
+    func convexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didAddLine line: Line)
     
-    func convexHullScanAlgorithm(_ algorithm: ConvexHullScanAlgorithm, didRemoveLine line: Line)
+    func convexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didRemoveLine line: Line)
 }

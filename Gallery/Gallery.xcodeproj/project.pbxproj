@@ -30,10 +30,10 @@
 		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
 		8916D1F8215DA7CE007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
 		8916D1F9215DA7CE007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
-		8916D1FF215DA8DC007816C6 /* ConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* ConvexHullScanController.swift */; };
-		8916D200215DA8DC007816C6 /* ConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* ConvexHullScanController.swift */; };
-		8916D202215DA96C007816C6 /* ConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* ConvexHullScanAlgorithm.swift */; };
-		8916D203215DA96C007816C6 /* ConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* ConvexHullScanAlgorithm.swift */; };
+		8916D1FF215DA8DC007816C6 /* KGConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */; };
+		8916D200215DA8DC007816C6 /* KGConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */; };
+		8916D202215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */; };
+		8916D203215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */; };
 		8916D205215DA995007816C6 /* ConexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D204215DA995007816C6 /* ConexHull.swift */; };
 		8916D206215DA995007816C6 /* ConexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D204215DA995007816C6 /* ConexHull.swift */; };
 		8916D208215DAA10007816C6 /* LineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D207215DAA10007816C6 /* LineLayer.swift */; };
@@ -228,8 +228,8 @@
 		891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
 		8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHullView.swift; sourceTree = "<group>"; };
-		8916D1FE215DA8DC007816C6 /* ConvexHullScanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvexHullScanController.swift; sourceTree = "<group>"; };
-		8916D201215DA96C007816C6 /* ConvexHullScanAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvexHullScanAlgorithm.swift; sourceTree = "<group>"; };
+		8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHullScanController.swift; sourceTree = "<group>"; };
+		8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHullScanAlgorithm.swift; sourceTree = "<group>"; };
 		8916D204215DA995007816C6 /* ConexHull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexHull.swift; sourceTree = "<group>"; };
 		8916D207215DAA10007816C6 /* LineLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineLayer.swift; sourceTree = "<group>"; };
 		8916D20A215DAA21007816C6 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
@@ -403,8 +403,8 @@
 			isa = PBXGroup;
 			children = (
 				8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */,
-				8916D1FE215DA8DC007816C6 /* ConvexHullScanController.swift */,
-				8916D201215DA96C007816C6 /* ConvexHullScanAlgorithm.swift */,
+				8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */,
+				8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */,
 				8916D204215DA995007816C6 /* ConexHull.swift */,
 				8916D20A215DAA21007816C6 /* Line.swift */,
 				8916D207215DAA10007816C6 /* LineLayer.swift */,
@@ -905,8 +905,8 @@
 				8916D20C215DAA21007816C6 /* Line.swift in Sources */,
 				89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */,
 				891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */,
-				8916D200215DA8DC007816C6 /* ConvexHullScanController.swift in Sources */,
-				8916D203215DA96C007816C6 /* ConvexHullScanAlgorithm.swift in Sources */,
+				8916D200215DA8DC007816C6 /* KGConvexHullScanController.swift in Sources */,
+				8916D203215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 				89E295EA21473E3F0042F1CB /* LoopingLineView.swift in Sources */,
 				8916D1F9215DA7CE007816C6 /* KGConvexHullView.swift in Sources */,
 				89127CEA2126353D00208DCA /* ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift in Sources */,
@@ -981,13 +981,13 @@
 				8959050D20754B8200300B62 /* InfoBarView.swift in Sources */,
 				8916D20B215DAA21007816C6 /* Line.swift in Sources */,
 				DE293F912048F30300444EB8 /* MainViewController.swift in Sources */,
-				8916D1FF215DA8DC007816C6 /* ConvexHullScanController.swift in Sources */,
+				8916D1FF215DA8DC007816C6 /* KGConvexHullScanController.swift in Sources */,
 				DE293F8F2048F30300444EB8 /* AppDelegate.swift in Sources */,
 				8916D205215DA995007816C6 /* ConexHull.swift in Sources */,
 				892673B9205591A8001819D1 /* ArtPieceTableViewCell.swift in Sources */,
 				89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */,
 				8916D208215DAA10007816C6 /* LineLayer.swift in Sources */,
-				8916D202215DA96C007816C6 /* ConvexHullScanAlgorithm.swift in Sources */,
+				8916D202215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

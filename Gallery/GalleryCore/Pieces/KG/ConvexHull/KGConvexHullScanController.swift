@@ -1,5 +1,5 @@
 //
-//  ConvexHullScanController.swift
+//  KGConvexHullScanController.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 9/27/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConvexHullScanController {
+class KGConvexHullScanController {
     
     // MARK: - Properties
     
@@ -18,7 +18,7 @@ class ConvexHullScanController {
     
     private(set) var points = [CGPoint]()
     
-    private let algorithm = ConvexHullScanAlgorithm()
+    private let algorithm = KGConvexHullScanAlgorithm()
     
     fileprivate var pointActionBuffer = [LineDrawingAction]()
     fileprivate var actionIndex = 0
@@ -41,15 +41,15 @@ class ConvexHullScanController {
     }
 }
 
-extension ConvexHullScanController: ConvexHullScanAlgorithmDelegate {
+extension KGConvexHullScanController: ConvexHullScanAlgorithmDelegate {
     
-    func convexHullScanAlgorithm(_ algorithm: ConvexHullScanAlgorithm, didAddLine line: Line) {
+    func convexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didAddLine line: Line) {
         let action = LineDrawingAction(line: line, type: .addition, index: actionIndex)
         pointActionBuffer.append(action)
         actionIndex += 1
     }
     
-    func convexHullScanAlgorithm(_ algorithm: ConvexHullScanAlgorithm, didRemoveLine line: Line) {
+    func convexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didRemoveLine line: Line) {
         let action = LineDrawingAction(line: line, type: .removal, index: actionIndex)
         pointActionBuffer.append(action)
         actionIndex += 1
