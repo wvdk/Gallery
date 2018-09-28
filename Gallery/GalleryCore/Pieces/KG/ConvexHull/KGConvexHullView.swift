@@ -37,17 +37,19 @@ class KGConvexHullView: UIView {
     // MARK: - Art piece setup
     
     fileprivate func restartConvexHull() {
+        let hideDuration = 3.0
+        
         layer.sublayers!.forEach { sublayer in
             let hideAnimation = CABasicAnimation(keyPath: "opacity")
             hideAnimation.fillMode = CAMediaTimingFillMode.forwards
             hideAnimation.toValue = 0
             hideAnimation.beginTime = CACurrentMediaTime()
-            hideAnimation.duration = 10.0
+            hideAnimation.duration = hideDuration
             hideAnimation.isRemovedOnCompletion = false
             sublayer.add(hideAnimation, forKey: "hideLayer")
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + hideDuration) { [weak self] in
             self?.layer.sublayers?.forEach { $0.removeAllAnimations() }
             self?.layer.sublayers?.removeAll()
             self?.setupAndScanConvexHull()
@@ -59,18 +61,12 @@ class KGConvexHullView: UIView {
     private func setupAndScanConvexHull() {
         let pointsCount = Int.random(in: 20...50)
 
-        let height = CGFloat.random(in: 200...self.frame.height)
-        let width = CGFloat.random(in: 200...self.frame.width)
+        let height = CGFloat.random(in: 300...self.frame.height)
+        let width = CGFloat.random(in: 600...self.frame.width)
         let convexHullRectange = CGRect(x: self.frame.size.width / 2 - width / 2,
                                         y: self.frame.size.height / 2 - height / 2,
                                         width: width,
                                         height: height)
-        
-//                let testView = UIView(frame: convexHullRectange)
-//                testView.backgroundColor = .red
-//                self.addSubview(testView)
-//                self.sendSubviewToBack(testView)
-//        
         
         controller.setup(pointCount: pointsCount, in: convexHullRectange)
         controller.compute()
@@ -105,7 +101,7 @@ class KGConvexHullView: UIView {
         
         let showAnimation = CABasicAnimation(keyPath: "opacity")
         showAnimation.fillMode = CAMediaTimingFillMode.forwards
-        showAnimation.toValue = 1
+        showAnimation.toValue = 0.95
         showAnimation.beginTime = beginTime + duration * Double(action.index)
         showAnimation.duration = duration
         showAnimation.isRemovedOnCompletion = false
