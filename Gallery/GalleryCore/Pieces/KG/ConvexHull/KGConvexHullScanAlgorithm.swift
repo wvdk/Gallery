@@ -12,7 +12,7 @@ class KGConvexHullScanAlgorithm {
     
     // MARK: - Properties
     
-    weak var delegate: ConvexHullScanAlgorithmDelegate? = nil
+    weak var delegate: KGConvexHullScanAlgorithmDelegate? = nil
     
     // MARK: - Compute method
     
@@ -84,7 +84,7 @@ class KGConvexHullScanAlgorithm {
     }
 }
 
-protocol ConvexHullScanAlgorithmDelegate: class {
+protocol KGConvexHullScanAlgorithmDelegate: class {
     
     func kgConvexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didAddLine line: KGLine)
     

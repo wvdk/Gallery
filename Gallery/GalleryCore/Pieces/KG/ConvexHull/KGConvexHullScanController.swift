@@ -41,7 +41,7 @@ class KGConvexHullScanController {
     }
 }
 
-extension KGConvexHullScanController: ConvexHullScanAlgorithmDelegate {
+extension KGConvexHullScanController: KGConvexHullScanAlgorithmDelegate {
     
     func kgConvexHullScanAlgorithm(_ algorithm: KGConvexHullScanAlgorithm, didAddLine line: KGLine) {
         let action = KGLineDrawingAction(line: line, type: .addition, index: actionIndex)
