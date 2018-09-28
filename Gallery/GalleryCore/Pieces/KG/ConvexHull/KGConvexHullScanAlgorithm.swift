@@ -72,7 +72,7 @@ class KGConvexHullScanAlgorithm {
             
             while lowerHull.hasThree, lowerHull.areLastThreeNonRight {
                 lowerHull.removeMiddleOfLastThree()
-                requestRemovalOfMiddleOfLastThreePointLines()
+//                requestRemovalOfMiddleOfLastThreePointLines()
                 requestLineAddition(fromPoint: lowerHull.points[lowerHull.hullPointsCount - 2], toPoint: lowerHull.points[lowerHull.hullPointsCount - 1])
             }
         }

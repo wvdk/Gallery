@@ -13,7 +13,7 @@ class KGConvexHullView: UIView {
     
     // MARK: - Properties
     
-    
+    var controller = KGConvexHullScanController()
     
     // MARK: - Initialization
     
@@ -22,33 +22,43 @@ class KGConvexHullView: UIView {
         
         backgroundColor = .black
         
-        let convexHullRectange = CGRect(x: 0,
-                                        y: self.frame.size.height / 4,
-                                        width: self.frame.size.width,
-                                        height: self.frame.size.height / 2)
-
-        
-        let controller = KGConvexHullScanController(pointCount: 10, in: convexHullRectange)
-        //        graphView.draw(points: controller.points)
-        
-        controller.compute()
-        let actions = controller.convexHullScanActions
-        perform(lineDrawingActions: actions)
+        setupAndScanConvexHull()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
+    
+    // MARK: - Convex Hull Scan
+    
+    private func setupAndScanConvexHull() {
+        let height = CGFloat.random(in: 200...self.frame.height)
+        let width = CGFloat.random(in: 200...self.frame.width)
         
+        let convexHullRectange = CGRect(x: self.frame.size.width / 2 - width / 2,
+                                        y: self.frame.size.height / 2 - height / 2,
+                                        width: width,
+                                        height: height)
+        
+        //        let testView = UIView(frame: convexHullRectange)
+        //        testView.backgroundColor = .red
+        //        self.addSubview(testView)
+        //        self.sendSubviewToBack(testView)
+        
+        let pointsCount = Int.random(in: 20...50)
+        
+        controller.setup(pointCount: pointsCount, in: convexHullRectange)
+        controller.compute()
+        
+        let actions = controller.convexHullScanActions
+        perform(lineDrawingActions: actions)
     }
     
     // MARK: - Drawing actions
     
     private func perform(lineDrawingActions: [KGLineDrawingAction]) {
-        let duration = 0.3
+        let duration = 0.1
         let initialTime = CACurrentMediaTime()
         
         for action in lineDrawingActions {

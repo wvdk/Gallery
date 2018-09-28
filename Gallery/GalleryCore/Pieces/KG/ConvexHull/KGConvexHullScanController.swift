@@ -25,7 +25,7 @@ class KGConvexHullScanController {
     
     // MARK: - Initialization
     
-    init(pointCount: Int, in rect: CGRect) {
+    func setup(pointCount: Int, in rect: CGRect) {
         for _ in 0...pointCount {
             let newPoint = CGPoint(x: CGFloat.random(in: rect.minX...rect.maxX), y: CGFloat.random(in: rect.minY...rect.maxY))
             points.append(newPoint)
