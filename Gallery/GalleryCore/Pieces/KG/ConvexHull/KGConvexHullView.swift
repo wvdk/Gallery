@@ -20,6 +20,20 @@ class KGConvexHullView: UIView {
     public required override init(frame: CGRect) {
         super.init(frame: frame)
         
+        backgroundColor = .black
+        
+        let convexHullRectange = CGRect(x: 0,
+                                        y: self.frame.size.height / 4,
+                                        width: self.frame.size.width,
+                                        height: self.frame.size.height / 2)
+
+        
+        let controller = KGConvexHullScanController(pointCount: 10, in: convexHullRectange)
+        //        graphView.draw(points: controller.points)
+        
+        controller.compute()
+        let actions = controller.convexHullScanActions
+        perform(lineDrawingActions: actions)
     }
     
     public required init?(coder aDecoder: NSCoder) {
