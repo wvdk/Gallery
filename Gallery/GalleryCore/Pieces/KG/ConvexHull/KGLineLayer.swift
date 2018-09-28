@@ -19,7 +19,7 @@ class KGLineLayer: CAShapeLayer {
         
         self.path = path
         self.strokeColor = color
-        self.lineWidth = 2
+        self.lineWidth = 1
         self.opacity = 0
     }
 }

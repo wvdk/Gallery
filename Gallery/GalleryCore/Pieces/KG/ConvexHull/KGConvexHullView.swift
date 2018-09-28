@@ -21,18 +21,22 @@ class KGConvexHullView: UIView {
         super.init(frame: frame)
         
         backgroundColor = .black
-        
-        setupAndScanConvexHull()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        
+        setupAndScanConvexHull()
+    }
+    
     // MARK: - Art piece setup
     
     fileprivate func restartConvexHull() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [weak self] in
             self?.layer.sublayers?.forEach { $0.removeAllAnimations() }
             self?.layer.sublayers?.removeAll()
             self?.setupAndScanConvexHull()
@@ -62,6 +66,10 @@ class KGConvexHullView: UIView {
         
         let actions = controller.convexHullScanActions
         perform(lineDrawingActions: actions)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(actions.count) * 0.1) { [weak self] in
+            self?.restartConvexHull()
+        }
     }
     
     // MARK: - Drawing actions
@@ -70,23 +78,17 @@ class KGConvexHullView: UIView {
         let duration = 0.1
         let initialTime = CACurrentMediaTime()
         
-        for (index, action) in lineDrawingActions.enumerated() {
-            var isActionLast = false
-            
-            if index == lineDrawingActions.count - 1 {
-                isActionLast = true
-            }
-            
+        for action in lineDrawingActions {
             switch action.type {
             case .addition:
-                addLine(with: action, isActionLast: isActionLast, beginTime: initialTime, duration: duration)
+                addLine(with: action, beginTime: initialTime, duration: duration)
             case .removal:
-                removeLine(with: action, isActionLast: isActionLast, beginTime: initialTime, duration: duration)
+                removeLine(with: action, beginTime: initialTime, duration: duration)
             }
         }
     }
     
-    private func addLine(with action: KGLineDrawingAction, isActionLast: Bool, beginTime: TimeInterval, duration: Double) {
+    private func addLine(with action: KGLineDrawingAction, beginTime: TimeInterval, duration: Double) {
         let lineLayer = KGLineLayer(from: action.line.cgPath, with: action.line.uuid)
         layer.addSublayer(lineLayer)
         
@@ -96,15 +98,10 @@ class KGConvexHullView: UIView {
         drawAnimation.beginTime = beginTime + duration * Double(action.index)
         drawAnimation.duration = duration
         drawAnimation.isRemovedOnCompletion = false
-        
-        if isActionLast {
-            drawAnimation.delegate = self
-        }
-        
         lineLayer.add(drawAnimation, forKey: "showLine")
     }
     
-    private func removeLine(with action: KGLineDrawingAction, isActionLast: Bool, beginTime: TimeInterval, duration: Double) {
+    private func removeLine(with action: KGLineDrawingAction, beginTime: TimeInterval, duration: Double) {
         let lineToRemove = layer.sublayers?.first { layer in
             if let lineLayer = layer as? KGLineLayer, lineLayer.uuid == action.line.uuid {
                 return true
@@ -123,18 +120,6 @@ class KGConvexHullView: UIView {
         drawAnimation.beginTime = beginTime + duration * Double(action.index)
         drawAnimation.duration = duration / 2
         drawAnimation.isRemovedOnCompletion = false
-        
-        if isActionLast {
-            drawAnimation.delegate = self
-        }
-        
         lineToRemove!.add(drawAnimation, forKey: "hideLine")
-    }
-}
-
-extension KGConvexHullView: CAAnimationDelegate {
-    
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        restartConvexHull()
     }
 }
