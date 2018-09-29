@@ -28,6 +28,20 @@
 		891549F721150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */; };
 		891549F921150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */; };
 		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
+		8916D210215DACB3007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
+		8916D211215DACB4007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
+		8916D212215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */; };
+		8916D213215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */; };
+		8916D214215DACBB007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */; };
+		8916D215215DACBC007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */; };
+		8916D216215DACC0007816C6 /* KGConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D204215DA995007816C6 /* KGConvexHull.swift */; };
+		8916D217215DACC0007816C6 /* KGConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D204215DA995007816C6 /* KGConvexHull.swift */; };
+		8916D218215DACC4007816C6 /* KGLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20A215DAA21007816C6 /* KGLine.swift */; };
+		8916D219215DACC4007816C6 /* KGLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20A215DAA21007816C6 /* KGLine.swift */; };
+		8916D21A215DACC8007816C6 /* KGLineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D207215DAA10007816C6 /* KGLineLayer.swift */; };
+		8916D21B215DACC8007816C6 /* KGLineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D207215DAA10007816C6 /* KGLineLayer.swift */; };
+		8916D21C215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20D215DAA36007816C6 /* KGLineDrawingAction.swift */; };
+		8916D21D215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D20D215DAA36007816C6 /* KGLineDrawingAction.swift */; };
 		8919BE3D2143413300967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
 		8919BE3F2143413A00967B9A /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE3C2143413300967B9A /* CGVector+Extension.swift */; };
 		8919BE412143422D00967B9A /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8919BE402143422D00967B9A /* CGPoint+Extension.swift */; };
@@ -213,6 +227,13 @@
 		891549F621150D4C0041FE8A /* ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceContainerViewController+ArtPieceViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		891549F821150DD40041FE8A /* ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
+		8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHullView.swift; sourceTree = "<group>"; };
+		8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHullScanController.swift; sourceTree = "<group>"; };
+		8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHullScanAlgorithm.swift; sourceTree = "<group>"; };
+		8916D204215DA995007816C6 /* KGConvexHull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHull.swift; sourceTree = "<group>"; };
+		8916D207215DAA10007816C6 /* KGLineLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGLineLayer.swift; sourceTree = "<group>"; };
+		8916D20A215DAA21007816C6 /* KGLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGLine.swift; sourceTree = "<group>"; };
+		8916D20D215DAA36007816C6 /* KGLineDrawingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGLineDrawingAction.swift; sourceTree = "<group>"; };
 		8919BE3C2143413300967B9A /* CGVector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Extension.swift"; sourceTree = "<group>"; };
 		8919BE402143422D00967B9A /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		891C75912149B3D30037FEA3 /* SKShapeNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKShapeNode+Extension.swift"; sourceTree = "<group>"; };
@@ -378,6 +399,20 @@
 			path = "Art Piece Collection View Controllers";
 			sourceTree = "<group>";
 		};
+		8916D1FD215DA82B007816C6 /* ConvexHull */ = {
+			isa = PBXGroup;
+			children = (
+				8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */,
+				8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */,
+				8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */,
+				8916D204215DA995007816C6 /* KGConvexHull.swift */,
+				8916D20A215DAA21007816C6 /* KGLine.swift */,
+				8916D207215DAA10007816C6 /* KGLineLayer.swift */,
+				8916D20D215DAA36007816C6 /* KGLineDrawingAction.swift */,
+			);
+			path = ConvexHull;
+			sourceTree = "<group>";
+		};
 		899F2BE1215011E10095D5D3 /* Fire */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +498,7 @@
 		DE16C525214ED93A0082BB34 /* KG */ = {
 			isa = PBXGroup;
 			children = (
+				8916D1FD215DA82B007816C6 /* ConvexHull */,
 				DE16C526214ED93A0082BB34 /* Boids */,
 			);
 			path = KG;
@@ -880,21 +916,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8916D213215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */,
+				8916D217215DACC0007816C6 /* KGConvexHull.swift in Sources */,
 				DE16C548214EE4CA0082BB34 /* KGBoidProperties.swift in Sources */,
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
 				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
 				DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */,
+				8916D219215DACC4007816C6 /* KGLine.swift in Sources */,
 				DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */,
 				DE16C540214EE4B10082BB34 /* A736DView.swift in Sources */,
 				899F2BEC215086400095D5D3 /* KGBoidsController.swift in Sources */,
 				DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */,
+				8916D21B215DACC8007816C6 /* KGLineLayer.swift in Sources */,
 				899F2BDD215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
 				899F2BE0215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
+				8916D215215DACBC007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 				DE16C54A214EE4D00082BB34 /* KGBoidsSunScene.swift in Sources */,
 				DE16C54C214EE60F0082BB34 /* A586qView.swift in Sources */,
 				899F2BE4215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */,
+				8916D21D215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */,
 				DE16C541214EE4B30082BB34 /* A736DScene.swift in Sources */,
+				8916D211215DACB4007816C6 /* KGConvexHullView.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* PieceMetadata.swift in Sources */,
 				DE16C549214EE4CC0082BB34 /* KGBoidNode.swift in Sources */,
 				DE16C54B214EE4D20082BB34 /* KGBoidsSunView.swift in Sources */,
@@ -905,21 +948,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8916D212215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */,
+				8916D216215DACC0007816C6 /* KGConvexHull.swift in Sources */,
 				DE16C53A214ED93A0082BB34 /* KGBoidProperties.swift in Sources */,
 				DE16C533214ED93A0082BB34 /* A586qScene.swift in Sources */,
 				DE16C52D214ED93A0082BB34 /* A565zView.swift in Sources */,
 				DE16C53B214ED93A0082BB34 /* KGBoidNode.swift in Sources */,
+				8916D218215DACC4007816C6 /* KGLine.swift in Sources */,
 				DE16C531214ED93A0082BB34 /* A736DScene.swift in Sources */,
 				DE16C539214ED93A0082BB34 /* KGBoidsSunView.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
 				899F2BEB215086400095D5D3 /* KGBoidsController.swift in Sources */,
+				8916D21A215DACC8007816C6 /* KGLineLayer.swift in Sources */,
 				DE16C530214ED93A0082BB34 /* A736DView.swift in Sources */,
 				899F2BDC215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
+				8916D214215DACBB007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 				899F2BDF215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
 				DE16C536214ED93A0082BB34 /* A994tView.swift in Sources */,
 				899F2BE3215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
+				8916D21C215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */,
 				DE16C538214ED93A0082BB34 /* KGBoidsSunScene.swift in Sources */,
+				8916D210215DACB3007816C6 /* KGConvexHullView.swift in Sources */,
 				DE0B7FB120E3E352000B482F /* PieceMetadata.swift in Sources */,
 				DE16C534214ED93A0082BB34 /* A586qView.swift in Sources */,
 				DE16C537214ED93A0082BB34 /* KGBoidShapes.swift in Sources */,
@@ -1037,7 +1087,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				INFOPLIST_FILE = "Gallery tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.tvOS;
@@ -1060,7 +1110,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				INFOPLIST_FILE = "Gallery tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wvdk.Gallery.tvOS;
@@ -1081,7 +1131,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1108,7 +1158,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1135,7 +1185,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1162,7 +1212,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1301,7 +1351,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				INFOPLIST_FILE = "Gallery iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
@@ -1318,7 +1368,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				INFOPLIST_FILE = "Gallery iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
@@ -1336,7 +1386,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1361,7 +1411,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1387,7 +1437,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1414,7 +1464,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B2HHR6H4K6;
+				DEVELOPMENT_TEAM = PJ8U3CQ43A;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
