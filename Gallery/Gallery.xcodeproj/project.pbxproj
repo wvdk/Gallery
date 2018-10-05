@@ -89,8 +89,8 @@
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
 		89E295EA21473E3F0042F1CB /* LoopingLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E295E921473E3F0042F1CB /* LoopingLineView.swift */; };
 		89E295ED214740BE0042F1CB /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */; };
-		89E39B9621644D0D00960ADE /* KGLineGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E39B922164497600960ADE /* KGLineGridView.swift */; };
-		89E39B9721644D0E00960ADE /* KGLineGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E39B922164497600960ADE /* KGLineGridView.swift */; };
+		89E39B9621644D0D00960ADE /* KGMazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E39B922164497600960ADE /* KGMazeView.swift */; };
+		89E39B9721644D0E00960ADE /* KGMazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E39B922164497600960ADE /* KGMazeView.swift */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
 		DE0B7FAB20E3E337000B482F /* GalleryCore_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -265,7 +265,7 @@
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89E295E921473E3F0042F1CB /* LoopingLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingLineView.swift; sourceTree = "<group>"; };
 		89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
-		89E39B922164497600960ADE /* KGLineGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGLineGridView.swift; sourceTree = "<group>"; };
+		89E39B922164497600960ADE /* KGMazeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGMazeView.swift; sourceTree = "<group>"; };
 		DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_iOS.h; sourceTree = "<group>"; };
 		DE0B7FA620E3E337000B482F /* Info_iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_iOS.plist; sourceTree = "<group>"; };
@@ -435,12 +435,12 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
-		89E39B982164695200960ADE /* Grid */ = {
+		89E39B982164695200960ADE /* Maze */ = {
 			isa = PBXGroup;
 			children = (
-				89E39B922164497600960ADE /* KGLineGridView.swift */,
+				89E39B922164497600960ADE /* KGMazeView.swift */,
 			);
-			path = Grid;
+			path = Maze;
 			sourceTree = "<group>";
 		};
 		DE0B7FA420E3E337000B482F /* GalleryCore */ = {
@@ -509,7 +509,7 @@
 		DE16C525214ED93A0082BB34 /* KG */ = {
 			isa = PBXGroup;
 			children = (
-				89E39B982164695200960ADE /* Grid */,
+				89E39B982164695200960ADE /* Maze */,
 				8916D1FD215DA82B007816C6 /* ConvexHull */,
 				DE16C526214ED93A0082BB34 /* Boids */,
 			);
@@ -952,7 +952,7 @@
 				8916D211215DACB4007816C6 /* KGConvexHullView.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* PieceMetadata.swift in Sources */,
 				DE16C549214EE4CC0082BB34 /* KGBoidNode.swift in Sources */,
-				89E39B9621644D0D00960ADE /* KGLineGridView.swift in Sources */,
+				89E39B9621644D0D00960ADE /* KGMazeView.swift in Sources */,
 				DE16C54B214EE4D20082BB34 /* KGBoidsSunView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -985,7 +985,7 @@
 				8916D210215DACB3007816C6 /* KGConvexHullView.swift in Sources */,
 				DE0B7FB120E3E352000B482F /* PieceMetadata.swift in Sources */,
 				DE16C534214ED93A0082BB34 /* A586qView.swift in Sources */,
-				89E39B9721644D0E00960ADE /* KGLineGridView.swift in Sources */,
+				89E39B9721644D0E00960ADE /* KGMazeView.swift in Sources */,
 				DE16C537214ED93A0082BB34 /* KGBoidShapes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
