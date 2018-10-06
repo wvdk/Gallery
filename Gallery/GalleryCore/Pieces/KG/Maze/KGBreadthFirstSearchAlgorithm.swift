@@ -27,8 +27,7 @@ class KGBreadthFirstSearchAlgorithm {
     func search(in vertexList: [KGVertex], size: KGVertexListSize) -> [KGVertex] {
         self.size = size
         let index = KGVertex.startIndex(for: vertexList)
-//        return updateVertex(at: index, in: vertexList)
-        return searchMinimumSpanningTree(for: index, in: vertexList)
+        return Bool.random() ? updateVertex(at: index, in: vertexList) : searchMinimumSpanningTree(for: index, in: vertexList)
     }
     
     /// Udpdates vertex list based on specified verex position in vertex node system using Breadth-first search algorithm.
@@ -47,7 +46,7 @@ class KGBreadthFirstSearchAlgorithm {
         var queue = KGQueue<KGVertex>()
         queue.push(vertexList[index])
         
-        while !queue.isEmpty, roundCount < 50 {
+        while !queue.isEmpty, roundCount < 70 {
             let neighbourList = queue.first!.availableNeighbourVertexList(in: vertexList, with: size)
             
             neighbourList.forEach {
@@ -84,7 +83,7 @@ class KGBreadthFirstSearchAlgorithm {
         
         // Finds vertex in ever-shrinking set, whose distance is smallest.
         // Recomputes potential new paths to update allshortest paths.
-        while !queue.isEmpty, roundCount < 50  {
+        while !queue.isEmpty, roundCount < 70  {
             let smallestDistanceVertex = queue.smallest!
             smallestDistanceVertex.stateColor = .black
             queue.pop(vertex: smallestDistanceVertex)
