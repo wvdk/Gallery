@@ -38,11 +38,11 @@ class KGVertex {
     /// - Parameters:
     ///     - vertexList: Vertex list of specifeid vertex.
     static func startIndex(for vertexList: [KGVertex]) -> Int {
-        var startIndex = Int(CGFloat.random(in: 0...CGFloat(vertexList.count)))
+        var startIndex = Int.random(in: 0...(vertexList.count - 1))
 //        var startIndex = vertexList.count / 2
         
-        if vertexList[startIndex].isIgnored, let firstVertex = vertexList.first(where: { $0.isIgnored == false }) {
-            startIndex = firstVertex.index
+        while !vertexList[startIndex].isIgnored {
+            startIndex = Int.random(in: 0...(vertexList.count - 1))
         }
         
         return startIndex
