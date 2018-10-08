@@ -30,7 +30,6 @@ class KGMazeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
@@ -40,17 +39,21 @@ class KGMazeView: UIView {
     // MARK: - Art piece setup
     
     private func restartMaze() {
-        let hideDuration = 2.0
         mazeCount += 1
 
+        if self.mazeCount < 10 {
+            setupMaze()
+            return
+        }
+        
+        let hideDuration = 2.0
         DispatchQueue.main.asyncAfter(deadline: .now() + hideDuration) { [weak self] in
-             if let self = self, self.mazeCount > 10 {
-                self.mazeCount = 0
-                self.layer.sublayers?.forEach { $0.removeAllAnimations() }
-                self.layer.sublayers?.removeAll()
-            }
+            guard let self = self else { return }
             
-            self?.setupMaze()
+            self.mazeCount = 0
+            self.layer.sublayers?.forEach { $0.removeAllAnimations() }
+            self.layer.sublayers?.removeAll()
+            self.setupMaze()
         }
     }
     
