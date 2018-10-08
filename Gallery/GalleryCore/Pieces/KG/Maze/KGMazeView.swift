@@ -35,63 +35,9 @@ class KGMazeView: UIView {
         super.willMove(toSuperview: newSuperview)
         
         setupMaze()
-        
-//        for _ in 0...10 {
-//            lineAnimation()
-//        }
     }
     
     // MARK: - Art piece setup
-    
-    private func lineAnimation() {
-        let height = CGFloat.random(in: self.frame.height - 50...self.frame.height)
-        let width = CGFloat.random(in: self.frame.width - 50...self.frame.width)
-        
-        let rect = CGRect(x: self.frame.size.width / 2 - width / 2,
-                          y: self.frame.size.height / 2 - height / 2,
-                          width: width,
-                          height: height)
-        
-        let path = CGPath(rect: rect, transform: nil)
-        
-        let lineLayer = KGLineLayer(from: path, with: "Line layer in maze")
-        
-        lineLayer.fillColor = UIColor.clear.cgColor
-        lineLayer.opacity = 1
-        lineLayer.lineWidth = 1
-        lineLayer.strokeColor = UIColor(r: Int.random(in: 0...255), g: 0, b: Int.random(in: 0...255)).cgColor //UIColor.red.cgColor
-        lineLayer.shadowColor = lineLayer.strokeColor
-        lineLayer.shadowOffset = .zero
-        lineLayer.shadowRadius = 4
-        lineLayer.shadowOpacity = 1
-        lineLayer.masksToBounds = false
-        
-        self.layer.addSublayer(lineLayer)
-  
-        let duration = 10.0
-        
-        let startAnimation = CABasicAnimation(keyPath: "strokeStart")
-        startAnimation.fromValue = 1
-        startAnimation.toValue = 0
-        startAnimation.duration = duration
-        startAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        startAnimation.isRemovedOnCompletion = false
-        startAnimation.fillMode = CAMediaTimingFillMode.forwards
-        
-        let endAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        endAnimation.fromValue = 1
-        endAnimation.toValue = 0
-        endAnimation.duration = duration
-        endAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        endAnimation.beginTime = startAnimation.beginTime + 0.5
-        
-        let show = CAAnimationGroup()
-        show.animations = [startAnimation, endAnimation]
-        show.duration = duration + 0.5
-        show.repeatCount = .infinity
-        lineLayer.add(show, forKey: "show")
-        
-    }
     
     private func restartMaze() {
         let hideDuration = 2.0
