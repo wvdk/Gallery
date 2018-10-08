@@ -14,8 +14,25 @@ class KGMazeView: UIView {
 
     private let controller = KGMazeController()
     
-    private var mazeCount = 0
     private var lineDrawDuration = 0.1
+    private var isFullScreen = false
+    private var mazeCount = 0
+    
+    private var maxMazeCount: Int {
+        return isFullScreen ? 10 : 5
+    }
+
+    private var defaultMazeFrame: CGRect {
+        let height = self.frame.height * ( 1 - 300 / 1119)
+        let width = self.frame.width * ( 1 - 300 / 1920)
+        
+        let frame = CGRect(x: self.frame.size.width / 2 - width / 2,
+                           y: self.frame.size.height / 2 - height / 2,
+                           width: width,
+                           height: height)
+        
+        return frame
+    }
     
     // MARK: - Initialization
     
@@ -33,6 +50,10 @@ class KGMazeView: UIView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
+        if self.frame.size == UIScreen.main.bounds.size {
+            isFullScreen = true
+        }
+        
         setupMaze()
     }
     
@@ -41,7 +62,7 @@ class KGMazeView: UIView {
     private func restartMaze() {
         mazeCount += 1
 
-        if self.mazeCount < 10 {
+        if self.mazeCount < maxMazeCount {
             setupMaze()
             return
         }
@@ -59,28 +80,16 @@ class KGMazeView: UIView {
     
     // MARK: - Convex Hull Scan
     
-    private var defaultFrame: CGRect {
-        let height = self.frame.height * ( 1 - 300 / 1119)
-        let width = self.frame.width * ( 1 - 300 / 1920)
-        
-        let frame = CGRect(x: self.frame.size.width / 2 - width / 2,
-                           y: self.frame.size.height / 2 - height / 2,
-                           width: width,
-                           height: height)
-        
-        return frame
-    }
-    
     private func setupMaze() {
-        let cellSize = CGFloat.random(in: 5...40)
+        let cellSize = CGFloat.random(in: 10...40) * self.frame.height / 1119
 
-        controller.setup(size: KGVertexListSize(columns: Int(defaultFrame.width / cellSize), rows: Int(defaultFrame.height / cellSize)))
+        controller.setup(size: KGVertexListSize(columns: Int(defaultMazeFrame.width / cellSize), rows: Int(defaultMazeFrame.height / cellSize)))
         controller.compute()
         
         let actions = controller.mazeActions
-        perform(vertexDrawingActions: actions, in: defaultFrame, cellSize: cellSize)
+        perform(vertexDrawingActions: actions, in: defaultMazeFrame, cellSize: cellSize)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + Double(actions.count - 1) * lineDrawDuration) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(actions.count) * lineDrawDuration) { [weak self] in
             self?.restartMaze()
         }
     }
