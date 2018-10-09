@@ -78,7 +78,7 @@ class FocusingView: UIView {
         containerView.addSubview(artView)
         artView.constraint(edgesTo: containerView)
         
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.2) {
             artView.alpha = 1
         }
     }
@@ -88,11 +88,7 @@ class FocusingView: UIView {
         let artViews = containerView.subviews.filter({ $0.tag == artViewTag })
         
         artViews.forEach { view in
-            UIView.animate(withDuration: 0.2, animations: {
-                view.alpha = 0
-            }, completion: { _ in
-                view.removeFromSuperview()
-            })
+            view.removeFromSuperview()
         }
     }
     
@@ -107,7 +103,10 @@ class FocusingView: UIView {
                 
                 }, completion: { [weak self] in
                     self?.addParallaxMotionEffect()
-                    self?.showArtView()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
+                        self?.showArtView()
+                    })
             })
         }
         
