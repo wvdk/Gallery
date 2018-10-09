@@ -51,7 +51,8 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionViewCell.identifier, for: indexPath) as! ArtPieceCollectionViewCell
 
         cell.delegate = self
-        cell.contentViewEdgeInset = 90
+        cell.contentViewEdgeInset = CGSize(width: view.frame.size.width * 120 / 1920,
+                                           height: view.frame.size.height * 70 / 1119)
         cell.artPiece = MasterList.shared.activePieces[indexPath.item]
         
         return cell
@@ -63,13 +64,13 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegateFlow
     // MARK: - UICollectionViewDelegateFlowLayout implementation
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = view.frame.size.width * 1074 / 1920
-        let height = view.frame.size.height * 804 / 1119
+        let width = view.frame.size.width * 1201 / 1920
+        let height = view.frame.size.height * 700 / 1119
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let constant = (view.frame.size.width - (view.frame.size.width * 1074 / 1920)) / 2
+        let constant = (view.frame.size.width - (view.frame.size.width * 1200 / 1920)) / 2
         return UIEdgeInsets(top: 0, left: constant, bottom: 0, right: constant)
     }
 }

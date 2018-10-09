@@ -26,6 +26,7 @@ class FocusingView: UIView {
     var thumbnail: UIImage? = nil {
         didSet {
             thumbnailView.image = thumbnail ?? UIImage(named: "defaultThumbnail")
+            thumbnailView.contentMode = .scaleAspectFill
         }
     }
     
