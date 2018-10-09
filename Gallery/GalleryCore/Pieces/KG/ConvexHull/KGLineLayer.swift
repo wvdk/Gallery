@@ -28,14 +28,14 @@ class KGLineLayer: CAShapeLayer {
         self.init()
         self.path = path
                 
-        self.lineWidth = 3
+        self.lineWidth = 1
         self.fillColor = UIColor.clear.cgColor
-        self.strokeColor = UIColor.white.cgColor
+        self.strokeColor = UIColor(r: Int.random(in: 0...255), g: Int.random(in: 0...255), b: Int.random(in: 0...255)).cgColor
         
         if hasShadow {
             self.shadowColor = self.strokeColor
             self.shadowOffset = .zero
-            self.shadowRadius = 4
+            self.shadowRadius = 10
             self.shadowOpacity = 1
             self.masksToBounds = false
         }

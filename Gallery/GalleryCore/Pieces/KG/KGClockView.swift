@@ -13,6 +13,7 @@ class KGClockView: UIView {
     // MARK: - Properties
     
     private var timeLabel = UILabel()
+    private let contentView = UIView()
 
     // MARK: - Initialization
     
@@ -20,14 +21,15 @@ class KGClockView: UIView {
         super.init(frame: frame)
         
         backgroundColor = .black
-        layer.opacity = 0.9
+        layer.opacity = 0.8
         
-//        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(randomLine), userInfo: nil, repeats: true)
+//        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(randomLine), userInfo: nil, repeats: true)
         
-//        for _ in 0...3 {
-//            randomLine()
-//        }
+        contentView.alpha = 0.4
+        addSubview(contentView)
+        contentView.constraint(edgesTo: self)
         
+        loopingLines()
         setupTimeLabel()
     }
     
@@ -35,36 +37,19 @@ class KGClockView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
-        
-//        for _ in 0...3 {
-//            randomLine()
-//        }
-    }
-    
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        
-//        for _ in 0...3 {
-//            randomLine()
-//        }
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        for _ in 0...10 {
-            randomLine()
-        }
+        rotateLines()
     }
     
     // MARK - UI setup
     
     private func setupTimeLabel() {
-        let fontSize = 150 * frame.height / 1119
+        let fontSize = 130 * frame.height / 1119
         timeLabel.font = UIFont(name: "Courier", size: fontSize)
         timeLabel.textColor = .white
+        timeLabel.alpha = 0.9
         
         timeLabel.layer.shadowColor = UIColor.white.cgColor
         timeLabel.layer.shadowOffset = .zero
@@ -81,26 +66,41 @@ class KGClockView: UIView {
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
     
-    @objc private func randomLine() {
-        var randomInFrame: CGPoint {
-            return CGPoint(x: CGFloat.random(in: 0...self.frame.width), y: CGFloat.random(in: 0...self.frame.height))
-        }
+//    @objc private func randomLine() {
+//        var randomInFrame: CGPoint {
+//            return CGPoint(x: CGFloat.random(in: 0...self.frame.width), y: CGFloat.random(in: 0...self.frame.height))
+//        }
+//
+//        let bezierPath = UIBezierPath()
+//        let xPosition = CGFloat.random(in: 0...self.frame.width)
+//        bezierPath.move(to: CGPoint(x: xPosition, y: 0))
+//        bezierPath.addLine(to: CGPoint(x: xPosition, y: self.frame.height))
+//
+//        let lineLayer = KGLineLayer(path: bezierPath.cgPath, hasShadow: true)
+//        lineLayer.opacity = 0.8
+//        layer.addSublayer(lineLayer)
+//
+//        let duration = Double.random(in: 3...8)
+//        let delay = 0.5
+//        let repeatCount = Float.infinity
+//
+//        lineLayer.strokeAnimation(duration: duration, delay: delay, repeatCount: repeatCount)
+//    }
+    
+    private func loopingLines() {
+        let line = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 1, height: self.frame.height * 2)))
+        contentView.addSubview(line)
+
+        line.transform = CGAffineTransform(rotationAngle: -.pi / 4)
+        line.backgroundColor = UIColor(r: 255, g: 255, b: 255, alpha: 1)
+        line.alpha = 0.05
         
-        let bezierPath = UIBezierPath()
-        let xPosition = CGFloat.random(in: 0...self.frame.width)
-        bezierPath.move(to: CGPoint(x: xPosition, y: 0))
-        bezierPath.addLine(to: CGPoint(x: xPosition, y: self.frame.height))
-        
-        let lineLayer = KGLineLayer(path: bezierPath.cgPath, hasShadow: true)
-        lineLayer.opacity = 0.3
-        layer.addSublayer(lineLayer)
-        
-        let duration = Double.random(in: 3...8)
-        let delay = 0.5
-        let repeatCount = Float.infinity
-        
-        lineLayer.strokeAnimation(duration: duration, delay: delay, repeatCount: repeatCount)
-//        lineLayer.colorAnimation(duration: duration + delay, repeatCount: repeatCount)
+        line.loopInSuperview(duplicationCount: 60, with: [
+            .rotateByDegrees(-0.02),
+            .moveHorizontallyWithIncrement(50 * frame.width / 1920),
+            .updateOpacityRandomly
+            ]
+        )
     }
     
     // MARK - Time update
@@ -108,5 +108,19 @@ class KGClockView: UIView {
     @objc private func updateTime() {
         timeLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .medium)
     }
+    
+    // MARK - Rotation initialization
+    
+    private func rotateLines() {
+        for subview in contentView.subviews {
+            subview.rotate(duration: 220.0)
+        }
+    }
 }
 
+//extension CGPoint {
+//
+//    func add(constant: CGFloat) -> CGPoint {
+//        return CGPoint(x: self.x + constant, y: self.y + constant)
+//    }
+//}
