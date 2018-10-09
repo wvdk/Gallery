@@ -13,16 +13,21 @@ class KGClockView: UIView {
     // MARK: - Properties
     
     private var timeLabel = UILabel()
-    
+
     // MARK: - Initialization
     
     public required override init(frame: CGRect) {
         super.init(frame: frame)
         
         backgroundColor = .black
-        layer.opacity = 0.8
+        layer.opacity = 0.9
         
-//        setupBackgroundGradient()
+//        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(randomLine), userInfo: nil, repeats: true)
+        
+//        for _ in 0...3 {
+//            randomLine()
+//        }
+        
         setupTimeLabel()
     }
     
@@ -32,6 +37,26 @@ class KGClockView: UIView {
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
+        
+//        for _ in 0...3 {
+//            randomLine()
+//        }
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+//        for _ in 0...3 {
+//            randomLine()
+//        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        for _ in 0...10 {
+            randomLine()
+        }
     }
     
     // MARK - UI setup
@@ -40,6 +65,12 @@ class KGClockView: UIView {
         let fontSize = 150 * frame.height / 1119
         timeLabel.font = UIFont(name: "Courier", size: fontSize)
         timeLabel.textColor = .white
+        
+        timeLabel.layer.shadowColor = UIColor.white.cgColor
+        timeLabel.layer.shadowOffset = .zero
+        timeLabel.layer.shadowRadius = 4
+        timeLabel.layer.shadowOpacity = 1
+        timeLabel.layer.masksToBounds = false
         
         addSubview(timeLabel)
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -50,19 +81,26 @@ class KGClockView: UIView {
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
     
-    private func setupBackgroundGradient() {
-        let linearGradient = CAGradientLayer()
-        layer.addSublayer(linearGradient)
+    @objc private func randomLine() {
+        var randomInFrame: CGPoint {
+            return CGPoint(x: CGFloat.random(in: 0...self.frame.width), y: CGFloat.random(in: 0...self.frame.height))
+        }
         
-        linearGradient.frame = bounds
-        linearGradient.colors = [
-            UIColor(r: 184, g: 69, b: 69, alpha: 1).cgColor,
-            UIColor(r: 0, g: 0, b: 0, alpha: 1).cgColor,
-        ]
-//        linearGradient.locations = [
-//            NSNumber(value: 0.6),
-//            NSNumber(value: 0.6),
-//        ]
+        let bezierPath = UIBezierPath()
+        let xPosition = CGFloat.random(in: 0...self.frame.width)
+        bezierPath.move(to: CGPoint(x: xPosition, y: 0))
+        bezierPath.addLine(to: CGPoint(x: xPosition, y: self.frame.height))
+        
+        let lineLayer = KGLineLayer(path: bezierPath.cgPath, hasShadow: true)
+        lineLayer.opacity = 0.3
+        layer.addSublayer(lineLayer)
+        
+        let duration = Double.random(in: 3...8)
+        let delay = 0.5
+        let repeatCount = Float.infinity
+        
+        lineLayer.strokeAnimation(duration: duration, delay: delay, repeatCount: repeatCount)
+//        lineLayer.colorAnimation(duration: duration + delay, repeatCount: repeatCount)
     }
     
     // MARK - Time update
