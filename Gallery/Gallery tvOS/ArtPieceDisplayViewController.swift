@@ -107,7 +107,7 @@ class ArtPieceDisplayViewController: UIViewController {
         
         UIView.animate(withDuration: 0.2) { [weak self] in
             timeLabel.alpha = 0.4
-            self?.artContainerView.alpha = 0.2
+            self?.artContainerView.alpha = 0.4
         }
     }
     
