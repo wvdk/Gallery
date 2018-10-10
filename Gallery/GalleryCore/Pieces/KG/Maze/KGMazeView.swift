@@ -14,6 +14,11 @@ class KGMazeView: UIView {
 
     private let controller = KGMazeController()
     
+    private var timeLabel = UILabel()
+    
+    private var mazeContainerView = UIView()
+    private var timeContainerView = UIView()
+
     private var lineDrawDuration = 0.1
     private var isFullScreen = false
     private var mazeCount = 0
@@ -41,6 +46,12 @@ class KGMazeView: UIView {
  
         backgroundColor = .black
         layer.opacity = 0.9
+        
+        addSubview(mazeContainerView)
+        mazeContainerView.constraint(edgesTo: self)
+        
+        addSubview(timeContainerView)
+        timeContainerView.constraint(edgesTo: self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,7 +65,52 @@ class KGMazeView: UIView {
             isFullScreen = true
         }
         
+        setupTimeLabel()
         setupMaze()
+    }
+    
+    // MARK: - Clock setup
+    
+    private func setupTimeLabel() {
+        let fontSize = 130 * frame.height / 1119
+        timeLabel.font = UIFont(name: "Courier", size: fontSize)
+        timeLabel.textColor = .white
+        timeLabel.alpha = 0.8
+        
+        timeLabel.layer.shadowColor = UIColor.white.cgColor
+        timeLabel.layer.shadowOffset = .zero
+        timeLabel.layer.shadowRadius = 4
+        timeLabel.layer.shadowOpacity = 1
+        timeLabel.layer.masksToBounds = false
+        
+        timeContainerView.addSubview(timeLabel)
+        timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        timeLabel.centerXAnchor.constraint(equalTo: timeContainerView.centerXAnchor).isActive = true
+        timeLabel.centerYAnchor.constraint(equalTo: timeContainerView.centerYAnchor).isActive = true
+        
+        updateTime()
+        
+        timeContainerView.addSingleTapGestureRecognizer { [weak self] recognizer in
+            recognizer.allowedPressTypes = [
+                NSNumber(value: UIPress.PressType.playPause.rawValue),
+                NSNumber(value: UIPress.PressType.select.rawValue)
+            ]
+            
+            self?.showTimeLabel()
+        }
+        
+    }
+    
+    // MARK: - Clock appearance
+
+    private func showTimeLabel() {
+        timeLabel.alpha = 0.8
+        updateTime()
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func updateTime() {
+        timeLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .medium)
     }
     
     // MARK: - Art piece setup
@@ -72,8 +128,8 @@ class KGMazeView: UIView {
             guard let self = self else { return }
             
             self.mazeCount = 0
-            self.layer.sublayers?.forEach { $0.removeAllAnimations() }
-            self.layer.sublayers?.removeAll()
+            self.mazeContainerView.layer.sublayers?.forEach { $0.removeAllAnimations() }
+            self.mazeContainerView.layer.sublayers?.removeAll()
             self.setupMaze()
         }
     }
@@ -114,7 +170,7 @@ class KGMazeView: UIView {
         lineLayer.strokeColor = randomColor
         lineLayer.lineWidth = cellSize / 2
         
-        layer.addSublayer(lineLayer)
+        mazeContainerView.layer.addSublayer(lineLayer)
         
         let showAnimation = CABasicAnimation(keyPath: "opacity")
         showAnimation.fillMode = CAMediaTimingFillMode.forwards
