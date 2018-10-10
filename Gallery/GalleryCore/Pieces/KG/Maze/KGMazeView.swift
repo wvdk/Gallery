@@ -72,10 +72,11 @@ class KGMazeView: UIView {
     // MARK: - Clock setup
     
     private func setupTimeLabel() {
-        let fontSize = 130 * frame.height / 1119
-        timeLabel.font = UIFont(name: "Courier", size: fontSize)
+        let fontSize = 250 * frame.height / 1119
+        timeLabel.font = UIFont(name: "Menlo", size: fontSize)
         timeLabel.textColor = .white
-        timeLabel.alpha = 0.8
+        timeLabel.alpha = 0.4
+        mazeContainerView.alpha = 0.2
         
         timeLabel.layer.shadowColor = UIColor.white.cgColor
         timeLabel.layer.shadowOffset = .zero
@@ -90,27 +91,33 @@ class KGMazeView: UIView {
         
         updateTime()
         
-        timeContainerView.addSingleTapGestureRecognizer { [weak self] recognizer in
-            recognizer.allowedPressTypes = [
-                NSNumber(value: UIPress.PressType.playPause.rawValue),
-                NSNumber(value: UIPress.PressType.select.rawValue)
-            ]
-            
-            self?.showTimeLabel()
-        }
+//        timeContainerView.addSingleTapGestureRecognizer { [weak self] recognizer in
+//            recognizer.allowedPressTypes = [
+//                NSNumber(value: UIPress.PressType.upArrow.rawValue),
+//                NSNumber(value: UIPress.PressType.select.rawValue)
+//            ]
+//
+//            self?.showTimeLabel()
+//        }
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showTimeLabel))
+        tapGestureRecognizer.allowedPressTypes = [NSNumber(value: Int8(UIPress.PressType.playPause.rawValue))]
+        self.addGestureRecognizer(tapGestureRecognizer)
         
     }
     
     // MARK: - Clock appearance
 
-    private func showTimeLabel() {
+    @objc private func showTimeLabel() {
         timeLabel.alpha = 0.8
         updateTime()
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
     
     @objc private func updateTime() {
-        timeLabel.text = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .medium)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH mm ss"
+        timeLabel.text = formatter.string(from: Date())
     }
     
     // MARK: - Art piece setup
