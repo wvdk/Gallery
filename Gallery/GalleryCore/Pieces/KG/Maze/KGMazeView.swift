@@ -14,10 +14,7 @@ class KGMazeView: UIView {
 
     private let controller = KGMazeController()
     
-    private var timeLabel = UILabel()
-    
     private var mazeContainerView = UIView()
-    private var timeContainerView = UIView()
 
     private var lineDrawDuration = 0.1
     private var isFullScreen = false
@@ -49,9 +46,6 @@ class KGMazeView: UIView {
         
         addSubview(mazeContainerView)
         mazeContainerView.constraint(edgesTo: self)
-        
-        addSubview(timeContainerView)
-        timeContainerView.constraint(edgesTo: self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,61 +59,9 @@ class KGMazeView: UIView {
             isFullScreen = true
         }
         
-        setupTimeLabel()
         setupMaze()
     }
-    
-    // MARK: - Clock setup
-    
-    private func setupTimeLabel() {
-        let fontSize = 250 * frame.height / 1119
-        timeLabel.font = UIFont(name: "Menlo", size: fontSize)
-        timeLabel.textColor = .white
-        timeLabel.alpha = 0.4
-        mazeContainerView.alpha = 0.2
-        
-        timeLabel.layer.shadowColor = UIColor.white.cgColor
-        timeLabel.layer.shadowOffset = .zero
-        timeLabel.layer.shadowRadius = 4
-        timeLabel.layer.shadowOpacity = 1
-        timeLabel.layer.masksToBounds = false
-        
-        timeContainerView.addSubview(timeLabel)
-        timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        timeLabel.centerXAnchor.constraint(equalTo: timeContainerView.centerXAnchor).isActive = true
-        timeLabel.centerYAnchor.constraint(equalTo: timeContainerView.centerYAnchor).isActive = true
-        
-        updateTime()
-        
-//        timeContainerView.addSingleTapGestureRecognizer { [weak self] recognizer in
-//            recognizer.allowedPressTypes = [
-//                NSNumber(value: UIPress.PressType.upArrow.rawValue),
-//                NSNumber(value: UIPress.PressType.select.rawValue)
-//            ]
-//
-//            self?.showTimeLabel()
-//        }
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showTimeLabel))
-        tapGestureRecognizer.allowedPressTypes = [NSNumber(value: Int8(UIPress.PressType.playPause.rawValue))]
-        self.addGestureRecognizer(tapGestureRecognizer)
-        
-    }
-    
-    // MARK: - Clock appearance
 
-    @objc private func showTimeLabel() {
-        timeLabel.alpha = 0.8
-        updateTime()
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-    }
-    
-    @objc private func updateTime() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH mm ss"
-        timeLabel.text = formatter.string(from: Date())
-    }
-    
     // MARK: - Art piece setup
     
     private func restartMaze() {
