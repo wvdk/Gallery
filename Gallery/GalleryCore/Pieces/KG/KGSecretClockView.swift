@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SpriteKit
 
-class KGSecretClockView : UIView {
+class KGSecretClockView: UIView {
     
     // MARK: - Properties
     
@@ -20,8 +21,8 @@ class KGSecretClockView : UIView {
         super.init(frame: frame)
         
         backgroundColor = .black
-        layer.opacity = 0.9
-        
+        layer.opacity = 0.8
+
         setupTimeLabel()
     }
     
@@ -38,7 +39,7 @@ class KGSecretClockView : UIView {
     // MARK: - Clock setup
     
     private func setupTimeLabel() {
-        let fontSize = 250 * frame.height / 1119
+        let fontSize = 150 * frame.height / 1119
         timeLabel.font = UIFont(name: "Menlo", size: fontSize)
         timeLabel.textColor = .white
         timeLabel.alpha = 0.5
