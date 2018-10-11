@@ -29,6 +29,13 @@ class FocusingView: UIView {
         }
     }
     
+    var isSecret: Bool = false {
+        didSet {
+            guard isSecret, isSecret != oldValue else { return }
+            thumbnailView.alpha = 0
+        }
+    }
+    
     private var artPieceViewParralaxMotionEffect: UIMotionEffectGroup?
     
     private let containerView = UIView()
@@ -68,6 +75,14 @@ class FocusingView: UIView {
     
     /// Adds a specified `UIView` view to the end of the receiver’s list of subviews.
     func showArtView() {
+        if isSecret {
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                guard let self = self else { return }
+                self.thumbnailView.alpha = 1
+            }
+            return
+        }
+        
         guard let artViewType = self.artViewType else { return }
         
         let artView = artViewType.init(frame: bounds)
@@ -84,6 +99,14 @@ class FocusingView: UIView {
     
     /// Fades out and removes a `UIView` type views from the receiver’s list of subviews.
     func removeArtView() {
+        if isSecret {
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                guard let self = self else { return }
+                self.thumbnailView.alpha = 0
+            }
+            return
+        }
+        
         let artViews = containerView.subviews.filter({ $0.tag == artViewTag })
         
         artViews.forEach { view in
@@ -102,11 +125,13 @@ class FocusingView: UIView {
         // Animates view's appearance to be focused.
         if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
             coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
-                self?.setFocusedStyleShadow()
+                guard let self = self else { return }
+                self.setFocusedStyleShadow()
                 
                 }, completion: { [weak self] in
-                    self?.addParallaxMotionEffect()
-                    self?.showArtView()
+                    guard let self = self else { return }
+                    self.addParallaxMotionEffect()
+                    self.showArtView()
             })
         }
         
@@ -116,10 +141,11 @@ class FocusingView: UIView {
             removeArtView()
             
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
-                self?.setDefaultShadow()
+                guard let self = self else { return }
+                self.setDefaultShadow()
                 
                 UIView.animate(withDuration: animationContext.duration * 0.5, delay: 0, options: .curveEaseOut, animations: {
-                    self?.transformScale(to: 1)
+                    self.transformScale(to: 1)
                 })
                 
                 }, completion: nil)
