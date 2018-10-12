@@ -21,7 +21,7 @@ class KGSecretClockView: UIView {
         super.init(frame: frame)
         
         backgroundColor = .black
-        layer.opacity = 0.8
+        layer.opacity = 0.7
 
         setupTimeLabel()
     }
@@ -42,7 +42,7 @@ class KGSecretClockView: UIView {
         let fontSize = 150 * frame.height / 1119
         timeLabel.font = UIFont(name: "Menlo", size: fontSize)
         timeLabel.textColor = .white
-        timeLabel.alpha = 0.5
+        timeLabel.alpha = 0.6
         
         addSubview(timeLabel)
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
