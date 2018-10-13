@@ -70,7 +70,7 @@ extension UIView {
         case updateOpacityRandomly
         
         /// Changes the alpha value of the view from 0.1 to 1.0.
-        case updateOpacityIncreasingly
+        case updateOpacityIncreasingly        
     }
     
     /// Creates a copy of the UIView.
@@ -146,7 +146,7 @@ extension UIView {
             rotationAnimation.duration = duration
             rotationAnimation.repeatCount = repeatCount
             
-            self.layer.add(rotationAnimation, forKey: nil)
+            self.layer.add(rotationAnimation, forKey: kRotationAnimationKey)
         }
     }
 }

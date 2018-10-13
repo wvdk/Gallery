@@ -37,6 +37,9 @@ public struct PieceMetadata {
     /// Thumbnail image of the art piece.
     public var thumbnail: UIImage?
     
+    /// Thumbnail image of the art piece.
+    public var isSecret: Bool
+    
     /// A static `DateFormatter` used for converting "March 2018" style `string`s into and out of `Date` objects.
     public static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -54,7 +57,7 @@ public struct PieceMetadata {
     ///   - prettyPublishedDate: Formatted MMMM yyyy (e.g. June 2018)
     ///   - viewType: <#viewType description#>
     ///   - thumbnail: <#thumbnail description#>
-    public init(author: String, prettyPublishedDate: String, description: String? = nil, price: Double? = nil, viewType: UIView.Type, thumbnail: UIImage?) {
+    public init(author: String, prettyPublishedDate: String, description: String? = nil, price: Double? = nil, viewType: UIView.Type, thumbnail: UIImage?, isSecret: Bool = false) {
         self.author = author
         self.published = PieceMetadata.dateFormatter.date(from: prettyPublishedDate) ?? Date()
         self.description = description
@@ -62,5 +65,6 @@ public struct PieceMetadata {
 //        self.viewController = viewController
         self.viewType = viewType
         self.thumbnail = thumbnail
+        self.isSecret = isSecret
     }
 }
