@@ -26,6 +26,7 @@ class FocusingView: UIView {
     var thumbnail: UIImage? = nil {
         didSet {
             thumbnailView.image = thumbnail ?? UIImage(named: "defaultThumbnail")
+            thumbnailView.contentMode = .scaleAspectFill
         }
     }
     
@@ -92,7 +93,7 @@ class FocusingView: UIView {
         containerView.addSubview(artView)
         artView.constraint(edgesTo: containerView)
         
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.2) {
             artView.alpha = 1
         }
     }
@@ -110,11 +111,7 @@ class FocusingView: UIView {
         let artViews = containerView.subviews.filter({ $0.tag == artViewTag })
         
         artViews.forEach { view in
-            UIView.animate(withDuration: 0.2, animations: {
-                view.alpha = 0
-            }, completion: { _ in
-                view.removeFromSuperview()
-            })
+            view.removeFromSuperview()
         }
     }
     
@@ -129,9 +126,11 @@ class FocusingView: UIView {
                 self.setFocusedStyleShadow()
                 
                 }, completion: { [weak self] in
-                    guard let self = self else { return }
-                    self.addParallaxMotionEffect()
-                    self.showArtView()
+                    self?.addParallaxMotionEffect()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
+                        self?.showArtView()
+                    })
             })
         }
         

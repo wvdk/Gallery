@@ -41,9 +41,13 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     }
     
     /// Cell's content (art piece view) edge inset.
-    var contentViewEdgeInset: CGFloat = 0 {
+    var contentViewEdgeInset: CGSize = .zero {
         didSet {
-            focusingView.constraint(edgesTo: self, constant: contentViewEdgeInset)
+            focusingView.translatesAutoresizingMaskIntoConstraints = false
+            focusingView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: contentViewEdgeInset.width).isActive = true
+            focusingView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -contentViewEdgeInset.width).isActive = true
+            focusingView.topAnchor.constraint(equalTo: self.topAnchor, constant: contentViewEdgeInset.height).isActive = true
+            focusingView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -contentViewEdgeInset.height).isActive = true
         }
     }
     
