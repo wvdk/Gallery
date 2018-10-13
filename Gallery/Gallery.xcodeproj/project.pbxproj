@@ -55,8 +55,6 @@
 		892F534921067D1300AC8C45 /* ArtKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; };
 		892F534A21067D1300AC8C45 /* ArtKit_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE293FA720490E1100444EB8 /* ArtKit_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		892F534E2107A5E600AC8C45 /* SKSpriteNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */; };
-		8931F5EE216D0D0A00B779F0 /* KGClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931F5ED216D0D0A00B779F0 /* KGClockView.swift */; };
-		8931F5EF216D0D0A00B779F0 /* KGClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931F5ED216D0D0A00B779F0 /* KGClockView.swift */; };
 		8958AE88210672E20067286F /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8959050D20754B8200300B62 /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959050C20754B8200300B62 /* InfoBarView.swift */; };
 		8959454A20E9609900DF123D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
@@ -64,6 +62,8 @@
 		8970BCAD20E95D160006870D /* GalleryCore_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8970BCBB20E95F1D0006870D /* PieceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* PieceMetadata.swift */; };
 		8970BCBD20E95F220006870D /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
+		897321F8216FC93C00ED6144 /* KGSecretClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897321F7216FC93C00ED6144 /* KGSecretClockView.swift */; };
+		897321F9216FC93C00ED6144 /* KGSecretClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897321F7216FC93C00ED6144 /* KGSecretClockView.swift */; };
 		899F2BD321500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
 		899F2BD421500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
 		899F2BD6215010FB0095D5D3 /* SKTexture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */; };
@@ -80,6 +80,16 @@
 		899F2BE92150158C0095D5D3 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE5215015860095D5D3 /* CGRect+Extension.swift */; };
 		899F2BEB215086400095D5D3 /* KGBoidsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BEA215086400095D5D3 /* KGBoidsController.swift */; };
 		899F2BEC215086400095D5D3 /* KGBoidsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BEA215086400095D5D3 /* KGBoidsController.swift */; };
+		89BA9F592167EA6F004959B3 /* KGVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F582167EA6F004959B3 /* KGVertex.swift */; };
+		89BA9F5A2167EA6F004959B3 /* KGVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F582167EA6F004959B3 /* KGVertex.swift */; };
+		89BA9F5C2167EB4D004959B3 /* KGMazeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F5B2167EB4D004959B3 /* KGMazeController.swift */; };
+		89BA9F5D2167EB4D004959B3 /* KGMazeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F5B2167EB4D004959B3 /* KGMazeController.swift */; };
+		89BA9F5F2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F5E2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift */; };
+		89BA9F602167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F5E2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift */; };
+		89BA9F622167EBD6004959B3 /* KGQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F612167EBD6004959B3 /* KGQueue.swift */; };
+		89BA9F632167EBD6004959B3 /* KGQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F612167EBD6004959B3 /* KGQueue.swift */; };
+		89BA9F652167F1CF004959B3 /* KGVertexDrawingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F642167F1CF004959B3 /* KGVertexDrawingAction.swift */; };
+		89BA9F662167F1CF004959B3 /* KGVertexDrawingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F642167F1CF004959B3 /* KGVertexDrawingAction.swift */; };
 		89BB28232097097B004B33F0 /* ArtPieceDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */; };
 		89BB282C20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */; };
 		89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891CAA6C20EC0D3C00B69074 /* CustomOperators.swift */; };
@@ -91,6 +101,8 @@
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
 		89E295EA21473E3F0042F1CB /* LoopingLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E295E921473E3F0042F1CB /* LoopingLineView.swift */; };
 		89E295ED214740BE0042F1CB /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */; };
+		89E39B9621644D0D00960ADE /* KGMazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E39B922164497600960ADE /* KGMazeView.swift */; };
+		89E39B9721644D0E00960ADE /* KGMazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E39B922164497600960ADE /* KGMazeView.swift */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
 		DE0B7FAB20E3E337000B482F /* GalleryCore_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -244,12 +256,12 @@
 		89278ED0210FB33200CEEB3C /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		89278ED5211115F900CEEB3C /* FeaturedArtPieceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedArtPieceCollectionViewController.swift; sourceTree = "<group>"; };
 		892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+Extension.swift"; sourceTree = "<group>"; };
-		8931F5ED216D0D0A00B779F0 /* KGClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGClockView.swift; sourceTree = "<group>"; };
 		894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientLayer.swift; sourceTree = "<group>"; };
 		8959050C20754B8200300B62 /* InfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBarView.swift; sourceTree = "<group>"; };
 		8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_tvOS.h; sourceTree = "<group>"; };
 		8970BCAC20E95D160006870D /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
+		897321F7216FC93C00ED6144 /* KGSecretClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGSecretClockView.swift; sourceTree = "<group>"; };
 		899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKTexture+Extension.swift"; sourceTree = "<group>"; };
 		899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsFireScene.swift; sourceTree = "<group>"; };
@@ -257,6 +269,11 @@
 		899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGObstacleNode.swift; sourceTree = "<group>"; };
 		899F2BE5215015860095D5D3 /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		899F2BEA215086400095D5D3 /* KGBoidsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsController.swift; sourceTree = "<group>"; };
+		89BA9F582167EA6F004959B3 /* KGVertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGVertex.swift; sourceTree = "<group>"; };
+		89BA9F5B2167EB4D004959B3 /* KGMazeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGMazeController.swift; sourceTree = "<group>"; };
+		89BA9F5E2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBreadthFirstSearchAlgorithm.swift; sourceTree = "<group>"; };
+		89BA9F612167EBD6004959B3 /* KGQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGQueue.swift; sourceTree = "<group>"; };
+		89BA9F642167F1CF004959B3 /* KGVertexDrawingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGVertexDrawingAction.swift; sourceTree = "<group>"; };
 		89BB28222097097B004B33F0 /* ArtPieceDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentationController.swift; sourceTree = "<group>"; };
 		89BB282B20978242004B33F0 /* ArtPieceDetailPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailPresentAnimationController.swift; sourceTree = "<group>"; };
 		89CBB570205C3DA10022FBE2 /* CustomOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
@@ -266,6 +283,7 @@
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89E295E921473E3F0042F1CB /* LoopingLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingLineView.swift; sourceTree = "<group>"; };
 		89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
+		89E39B922164497600960ADE /* KGMazeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGMazeView.swift; sourceTree = "<group>"; };
 		DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_iOS.h; sourceTree = "<group>"; };
 		DE0B7FA620E3E337000B482F /* Info_iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_iOS.plist; sourceTree = "<group>"; };
@@ -435,6 +453,19 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
+		89E39B982164695200960ADE /* Maze */ = {
+			isa = PBXGroup;
+			children = (
+				89E39B922164497600960ADE /* KGMazeView.swift */,
+				89BA9F5B2167EB4D004959B3 /* KGMazeController.swift */,
+				89BA9F5E2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift */,
+				89BA9F582167EA6F004959B3 /* KGVertex.swift */,
+				89BA9F612167EBD6004959B3 /* KGQueue.swift */,
+				89BA9F642167F1CF004959B3 /* KGVertexDrawingAction.swift */,
+			);
+			path = Maze;
+			sourceTree = "<group>";
+		};
 		DE0B7FA420E3E337000B482F /* GalleryCore */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,9 +532,10 @@
 		DE16C525214ED93A0082BB34 /* KG */ = {
 			isa = PBXGroup;
 			children = (
-				8931F5ED216D0D0A00B779F0 /* KGClockView.swift */,
+				89E39B982164695200960ADE /* Maze */,
 				8916D1FD215DA82B007816C6 /* ConvexHull */,
 				DE16C526214ED93A0082BB34 /* Boids */,
+				897321F7216FC93C00ED6144 /* KGSecretClockView.swift */,
 			);
 			path = KG;
 			sourceTree = "<group>";
@@ -920,6 +952,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89BA9F602167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
+				89BA9F5D2167EB4D004959B3 /* KGMazeController.swift in Sources */,
 				8916D213215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */,
 				8916D217215DACC0007816C6 /* KGConvexHull.swift in Sources */,
 				DE16C548214EE4CA0082BB34 /* KGBoidProperties.swift in Sources */,
@@ -931,20 +965,24 @@
 				DE16C540214EE4B10082BB34 /* A736DView.swift in Sources */,
 				899F2BEC215086400095D5D3 /* KGBoidsController.swift in Sources */,
 				DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */,
+				89BA9F632167EBD6004959B3 /* KGQueue.swift in Sources */,
 				8916D21B215DACC8007816C6 /* KGLineLayer.swift in Sources */,
 				899F2BDD215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
 				899F2BE0215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
+				897321F9216FC93C00ED6144 /* KGSecretClockView.swift in Sources */,
 				8916D215215DACBC007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 				DE16C54A214EE4D00082BB34 /* KGBoidsSunScene.swift in Sources */,
 				DE16C54C214EE60F0082BB34 /* A586qView.swift in Sources */,
-				8931F5EF216D0D0A00B779F0 /* KGClockView.swift in Sources */,
 				899F2BE4215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */,
 				8916D21D215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */,
 				DE16C541214EE4B30082BB34 /* A736DScene.swift in Sources */,
 				8916D211215DACB4007816C6 /* KGConvexHullView.swift in Sources */,
 				8970BCBB20E95F1D0006870D /* PieceMetadata.swift in Sources */,
+				89BA9F5A2167EA6F004959B3 /* KGVertex.swift in Sources */,
 				DE16C549214EE4CC0082BB34 /* KGBoidNode.swift in Sources */,
+				89BA9F662167F1CF004959B3 /* KGVertexDrawingAction.swift in Sources */,
+				89E39B9621644D0D00960ADE /* KGMazeView.swift in Sources */,
 				DE16C54B214EE4D20082BB34 /* KGBoidsSunView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -953,6 +991,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89BA9F5F2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
+				89BA9F5C2167EB4D004959B3 /* KGMazeController.swift in Sources */,
 				8916D212215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */,
 				8916D216215DACC0007816C6 /* KGConvexHull.swift in Sources */,
 				DE16C53A214ED93A0082BB34 /* KGBoidProperties.swift in Sources */,
@@ -964,20 +1004,24 @@
 				DE16C539214ED93A0082BB34 /* KGBoidsSunView.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
 				899F2BEB215086400095D5D3 /* KGBoidsController.swift in Sources */,
+				89BA9F622167EBD6004959B3 /* KGQueue.swift in Sources */,
 				8916D21A215DACC8007816C6 /* KGLineLayer.swift in Sources */,
 				DE16C530214ED93A0082BB34 /* A736DView.swift in Sources */,
 				899F2BDC215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
+				897321F8216FC93C00ED6144 /* KGSecretClockView.swift in Sources */,
 				8916D214215DACBB007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 				899F2BDF215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
 				DE16C536214ED93A0082BB34 /* A994tView.swift in Sources */,
-				8931F5EE216D0D0A00B779F0 /* KGClockView.swift in Sources */,
 				899F2BE3215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
 				8916D21C215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */,
 				DE16C538214ED93A0082BB34 /* KGBoidsSunScene.swift in Sources */,
 				8916D210215DACB3007816C6 /* KGConvexHullView.swift in Sources */,
 				DE0B7FB120E3E352000B482F /* PieceMetadata.swift in Sources */,
+				89BA9F592167EA6F004959B3 /* KGVertex.swift in Sources */,
 				DE16C534214ED93A0082BB34 /* A586qView.swift in Sources */,
+				89BA9F652167F1CF004959B3 /* KGVertexDrawingAction.swift in Sources */,
+				89E39B9721644D0E00960ADE /* KGMazeView.swift in Sources */,
 				DE16C537214ED93A0082BB34 /* KGBoidShapes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

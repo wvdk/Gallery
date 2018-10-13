@@ -32,6 +32,7 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let piece = artPiece else { return }
             focusingView.thumbnail = piece.thumbnail
+            focusingView.isSecret = piece.isSecret
             
             if showsPreviewOnFocus {
                 focusingView.artViewType = piece.viewType

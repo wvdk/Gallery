@@ -20,11 +20,12 @@ public class MasterList {
     /// Also starts up the firebase observer.
     private init() {
         activePieces = [
-            PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGClockView.self, thumbnail: UIImage(named: "KGClockView")),
+            PieceMetadata(author: "KG", prettyPublishedDate: "October 2018", viewType: KGMazeView.self, thumbnail: UIImage(named: "KGMazeView")),
             PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGConvexHullView.self, thumbnail: UIImage(named: "ConvexHullView")),
             PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsSunView.self, thumbnail: UIImage(named: "BoidsSunView")),
             PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsFireView.self, thumbnail: UIImage(named: "BoidsFireView")),
-            PieceMetadata(author: "WVDK", prettyPublishedDate: "June 2018", viewType: A565zView.self, thumbnail: UIImage(named: "A565z"))
+            PieceMetadata(author: "WVDK", prettyPublishedDate: "June 2018", viewType: A565zView.self, thumbnail: UIImage(named: "A565z")),
+            PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGSecretClockView.self, thumbnail: UIImage(named: "KGSecretClockView"), isSecret: true)
         ]
     }
     

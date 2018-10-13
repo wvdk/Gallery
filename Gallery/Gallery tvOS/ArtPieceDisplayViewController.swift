@@ -15,22 +15,9 @@ class ArtPieceDisplayViewController: UIViewController {
     
     weak var delegate: ArtPieceDisplayViewControllerDelegate?
     
+    private let artContainerView = UIView()
+
     private var artPieceMetadata: PieceMetadata
-
-    // MARK: - Lifecycle functions
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let artView = artPieceMetadata.viewType.init(frame: view.bounds)
-        
-        view.addSubview(artView)
-        artView.constraint(edgesTo: view)
-        
-        let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeAction(_:)))
-        menuTapGestureRecognizer.allowedPressTypes = [NSNumber(value: Int8(UIPress.PressType.menu.rawValue))]
-        view.addGestureRecognizer(menuTapGestureRecognizer)
-    }
     
     // MARK: - Initalization
     
@@ -44,10 +31,31 @@ class ArtPieceDisplayViewController: UIViewController {
         self.artPieceMetadata = artMetadata
         
         super.init(nibName: nil, bundle: nil)
+        
+        view.backgroundColor = .black
+        view.alpha = 0.9
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Lifecycle functions
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let artView = artPieceMetadata.viewType.init(frame: view.bounds)
+        
+        view.addSubview(artContainerView)
+        artContainerView.constraint(edgesTo: view)
+        
+        artContainerView.addSubview(artView)
+        artView.constraint(edgesTo: artContainerView)
+        
+        let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeAction(_:)))
+        menuTapGestureRecognizer.allowedPressTypes = [NSNumber(value: Int8(UIPress.PressType.menu.rawValue))]
+        view.addGestureRecognizer(menuTapGestureRecognizer)
     }
     
     // MARK: - Actions
