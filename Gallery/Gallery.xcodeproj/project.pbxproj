@@ -103,6 +103,8 @@
 		89E295ED214740BE0042F1CB /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */; };
 		89E39B9621644D0D00960ADE /* KGMazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E39B922164497600960ADE /* KGMazeView.swift */; };
 		89E39B9721644D0E00960ADE /* KGMazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E39B922164497600960ADE /* KGMazeView.swift */; };
+		89E8C22E2180309900A6434A /* KGDeStijlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C22D2180309900A6434A /* KGDeStijlView.swift */; };
+		89E8C22F2180309900A6434A /* KGDeStijlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C22D2180309900A6434A /* KGDeStijlView.swift */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
 		DE0B7FAB20E3E337000B482F /* GalleryCore_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -284,6 +286,7 @@
 		89E295E921473E3F0042F1CB /* LoopingLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingLineView.swift; sourceTree = "<group>"; };
 		89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		89E39B922164497600960ADE /* KGMazeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGMazeView.swift; sourceTree = "<group>"; };
+		89E8C22D2180309900A6434A /* KGDeStijlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGDeStijlView.swift; sourceTree = "<group>"; };
 		DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_iOS.h; sourceTree = "<group>"; };
 		DE0B7FA620E3E337000B482F /* Info_iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_iOS.plist; sourceTree = "<group>"; };
@@ -466,6 +469,14 @@
 			path = Maze;
 			sourceTree = "<group>";
 		};
+		89E8C230218030B200A6434A /* DeStijl */ = {
+			isa = PBXGroup;
+			children = (
+				89E8C22D2180309900A6434A /* KGDeStijlView.swift */,
+			);
+			path = DeStijl;
+			sourceTree = "<group>";
+		};
 		DE0B7FA420E3E337000B482F /* GalleryCore */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +543,7 @@
 		DE16C525214ED93A0082BB34 /* KG */ = {
 			isa = PBXGroup;
 			children = (
+				89E8C230218030B200A6434A /* DeStijl */,
 				89E39B982164695200960ADE /* Maze */,
 				8916D1FD215DA82B007816C6 /* ConvexHull */,
 				DE16C526214ED93A0082BB34 /* Boids */,
@@ -962,6 +974,7 @@
 				DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */,
 				8916D219215DACC4007816C6 /* KGLine.swift in Sources */,
 				DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */,
+				89E8C22F2180309900A6434A /* KGDeStijlView.swift in Sources */,
 				DE16C540214EE4B10082BB34 /* A736DView.swift in Sources */,
 				899F2BEC215086400095D5D3 /* KGBoidsController.swift in Sources */,
 				DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */,
@@ -1001,6 +1014,7 @@
 				DE16C53B214ED93A0082BB34 /* KGBoidNode.swift in Sources */,
 				8916D218215DACC4007816C6 /* KGLine.swift in Sources */,
 				DE16C531214ED93A0082BB34 /* A736DScene.swift in Sources */,
+				89E8C22E2180309900A6434A /* KGDeStijlView.swift in Sources */,
 				DE16C539214ED93A0082BB34 /* KGBoidsSunView.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
 				899F2BEB215086400095D5D3 /* KGBoidsController.swift in Sources */,
