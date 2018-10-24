@@ -40,9 +40,14 @@ class KGMazeView: UIView {
     
     public required override init(frame: CGRect) {
         super.init(frame: frame)
- 
-        backgroundColor = .black
-        layer.opacity = 0.9
+
+        backgroundColor = .white
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .black
+        backgroundView.layer.opacity = 0.9
+        addSubview(backgroundView)
+        backgroundView.constraint(edgesTo: self)
         
         addSubview(mazeContainerView)
         mazeContainerView.constraint(edgesTo: self)
