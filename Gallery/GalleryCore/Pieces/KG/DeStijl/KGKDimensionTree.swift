@@ -12,11 +12,11 @@ class KGKDimensionTree {
     
     // MARK: - Properties
     
-    weak var delegate: KDTreeDelegate? = nil
-    
-    private(set) var root: KGKDimensionNode?
+    private var root: KGKDimensionNode?
     private var points: [CGPoint]!
     private var maxDimension: Int!
+    private(set) var actionBuffer = [KKGKDimensionTreeNodeAction]()
+    private var actionIndex = 0
     
     // MARK: - Initialization
     
@@ -29,9 +29,7 @@ class KGKDimensionTree {
         
         self.maxDimension = maxDimension
         self.points = points
-    }
-    
-    func generate() {
+        
         guard let rootNode = generateKDNode(dimension: 1, left: 0, right: points.count - 1) else {
             NSLog("No node available.")
             return
@@ -39,7 +37,7 @@ class KGKDimensionTree {
         
         self.root = rootNode
     }
-    
+
     // MARK: - KD node initialization
     
     /// KDNode recursive genration for the KDTree.
@@ -51,7 +49,7 @@ class KGKDimensionTree {
         
         if right == left {
             let node = KGKDimensionNode(dimension: dimension, point: points[left])
-            delegate?.kdTree(self, didAdd: node)
+            addNodeAction(for: node)
             return node
         }
         
@@ -64,7 +62,7 @@ class KGKDimensionTree {
         
         // Median point becomes the parent.
         let parentNode = KGKDimensionNode(dimension: dimension, point: points[left + medium - 1])
-        delegate?.kdTree(self, didAdd: parentNode)
+        addNodeAction(for: parentNode)
         
         // Update the next dimesnion or reset back to 1.
         
@@ -86,58 +84,9 @@ class KGKDimensionTree {
         return parentNode
     }
     
-    // MARK: - Nearest node finding
-    
-    private func parent(for point: CGPoint) -> KGKDimensionNode? {
-        guard let root = self.root else {
-            NSLog("No parent detected.")
-            return nil
-        }
-        
-        // Go through tree iteratively, varying from vertical to horizontal.
-        var parent: KGKDimensionNode? = root
-        
-        while true {
-            // If point is left node, search that branch.
-            if parent!.isLeft(point), let leftNode = parent?.left {
-                parent = leftNode
-                
-                // If point is right node, search that branch.
-            } else if parent!.isRight(point), let rightNode = parent?.right {
-                parent = rightNode
-                
-                // Last node, return parent.
-            } else {
-                return parent
-            }
-        }
+    private func addNodeAction(for node: KGKDimensionNode) {
+        let action = KKGKDimensionTreeNodeAction(node: node, index: actionIndex)
+        actionBuffer.append(action)
+        actionIndex += 1
     }
-    
-    func nearestNeighbor(for point: CGPoint) -> CGPoint? {
-        guard let root = root else {
-            NSLog("No neighbors detected.")
-            return nil
-        }
-        
-        var smallestDistance = CGFloat.infinity
-        var nearestNeighborPoint: CGPoint?
-        
-        // Find parent node to which neighbor would have been inserted. This is our best shot at locating the closest point. Compute best distance.
-        if let parentNodePoint = parent(for: point)?.point {
-            smallestDistance = point.distance(to: parentNodePoint)
-            nearestNeighborPoint = parentNodePoint
-        }
-        
-        // Check all rectangles that potentially overlap this smallest distance. If better is found, return it.
-        if let closerPoint = root.nearestPoint(to: point, closerThan: smallestDistance) {
-            nearestNeighborPoint = closerPoint
-        }
-        
-        return nearestNeighborPoint
-    }
-}
-
-protocol KDTreeDelegate: class {
-    
-    func kdTree(_ tree: KGKDimensionTree, didAdd node: KGKDimensionNode)
 }

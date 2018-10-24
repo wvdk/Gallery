@@ -105,6 +105,16 @@
 		89E39B9721644D0E00960ADE /* KGMazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E39B922164497600960ADE /* KGMazeView.swift */; };
 		89E8C22E2180309900A6434A /* KGDeStijlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C22D2180309900A6434A /* KGDeStijlView.swift */; };
 		89E8C22F2180309900A6434A /* KGDeStijlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C22D2180309900A6434A /* KGDeStijlView.swift */; };
+		89E8C2322180319900A6434A /* KGDeStijlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C2312180319900A6434A /* KGDeStijlController.swift */; };
+		89E8C2332180319900A6434A /* KGDeStijlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C2312180319900A6434A /* KGDeStijlController.swift */; };
+		89E8C23821803D0A00A6434A /* KGKDimensionTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C23721803D0A00A6434A /* KGKDimensionTree.swift */; };
+		89E8C23921803D0A00A6434A /* KGKDimensionTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C23721803D0A00A6434A /* KGKDimensionTree.swift */; };
+		89E8C23B21803D5700A6434A /* KGKDimensionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C23A21803D5700A6434A /* KGKDimensionNode.swift */; };
+		89E8C23C21803D5700A6434A /* KGKDimensionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C23A21803D5700A6434A /* KGKDimensionNode.swift */; };
+		89E8C23E21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C23D21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift */; };
+		89E8C23F21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C23D21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift */; };
+		89E8C2412180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C2402180E82100A6434A /* KKGKDimensionTreeNodeAction.swift */; };
+		89E8C2422180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C2402180E82100A6434A /* KKGKDimensionTreeNodeAction.swift */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
 		DE0B7FAB20E3E337000B482F /* GalleryCore_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -287,6 +297,11 @@
 		89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		89E39B922164497600960ADE /* KGMazeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGMazeView.swift; sourceTree = "<group>"; };
 		89E8C22D2180309900A6434A /* KGDeStijlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGDeStijlView.swift; sourceTree = "<group>"; };
+		89E8C2312180319900A6434A /* KGDeStijlController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGDeStijlController.swift; sourceTree = "<group>"; };
+		89E8C23721803D0A00A6434A /* KGKDimensionTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGKDimensionTree.swift; sourceTree = "<group>"; };
+		89E8C23A21803D5700A6434A /* KGKDimensionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGKDimensionNode.swift; sourceTree = "<group>"; };
+		89E8C23D21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGQuicksortSortingAlgorithm.swift; sourceTree = "<group>"; };
+		89E8C2402180E82100A6434A /* KKGKDimensionTreeNodeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKGKDimensionTreeNodeAction.swift; sourceTree = "<group>"; };
 		DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_iOS.h; sourceTree = "<group>"; };
 		DE0B7FA620E3E337000B482F /* Info_iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_iOS.plist; sourceTree = "<group>"; };
@@ -473,6 +488,11 @@
 			isa = PBXGroup;
 			children = (
 				89E8C22D2180309900A6434A /* KGDeStijlView.swift */,
+				89E8C2312180319900A6434A /* KGDeStijlController.swift */,
+				89E8C23721803D0A00A6434A /* KGKDimensionTree.swift */,
+				89E8C23A21803D5700A6434A /* KGKDimensionNode.swift */,
+				89E8C2402180E82100A6434A /* KKGKDimensionTreeNodeAction.swift */,
+				89E8C23D21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift */,
 			);
 			path = DeStijl;
 			sourceTree = "<group>";
@@ -964,11 +984,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89E8C23921803D0A00A6434A /* KGKDimensionTree.swift in Sources */,
 				89BA9F602167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
 				89BA9F5D2167EB4D004959B3 /* KGMazeController.swift in Sources */,
+				89E8C2422180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */,
 				8916D213215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */,
 				8916D217215DACC0007816C6 /* KGConvexHull.swift in Sources */,
 				DE16C548214EE4CA0082BB34 /* KGBoidProperties.swift in Sources */,
+				89E8C23F21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift in Sources */,
+				89E8C23C21803D5700A6434A /* KGKDimensionNode.swift in Sources */,
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
 				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
 				DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */,
@@ -981,6 +1005,7 @@
 				89BA9F632167EBD6004959B3 /* KGQueue.swift in Sources */,
 				8916D21B215DACC8007816C6 /* KGLineLayer.swift in Sources */,
 				899F2BDD215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
+				89E8C2332180319900A6434A /* KGDeStijlController.swift in Sources */,
 				899F2BE0215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
 				897321F9216FC93C00ED6144 /* KGSecretClockView.swift in Sources */,
 				8916D215215DACBC007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
@@ -1004,11 +1029,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89E8C23821803D0A00A6434A /* KGKDimensionTree.swift in Sources */,
 				89BA9F5F2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
 				89BA9F5C2167EB4D004959B3 /* KGMazeController.swift in Sources */,
+				89E8C2412180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */,
 				8916D212215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */,
 				8916D216215DACC0007816C6 /* KGConvexHull.swift in Sources */,
 				DE16C53A214ED93A0082BB34 /* KGBoidProperties.swift in Sources */,
+				89E8C23E21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift in Sources */,
+				89E8C23B21803D5700A6434A /* KGKDimensionNode.swift in Sources */,
 				DE16C533214ED93A0082BB34 /* A586qScene.swift in Sources */,
 				DE16C52D214ED93A0082BB34 /* A565zView.swift in Sources */,
 				DE16C53B214ED93A0082BB34 /* KGBoidNode.swift in Sources */,
@@ -1021,6 +1050,7 @@
 				89BA9F622167EBD6004959B3 /* KGQueue.swift in Sources */,
 				8916D21A215DACC8007816C6 /* KGLineLayer.swift in Sources */,
 				DE16C530214ED93A0082BB34 /* A736DView.swift in Sources */,
+				89E8C2322180319900A6434A /* KGDeStijlController.swift in Sources */,
 				899F2BDC215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
 				897321F8216FC93C00ED6144 /* KGSecretClockView.swift in Sources */,
 				8916D214215DACBB007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
