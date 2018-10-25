@@ -35,6 +35,8 @@ class KGDeStijlView: UIView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
+        animateBackground()
+
         setupDeStijl()
     }
     
@@ -69,5 +71,28 @@ class KGDeStijlView: UIView {
         showAnimation.duration = duration
         showAnimation.isRemovedOnCompletion = false
         lineLayer.add(showAnimation, forKey: "showLine")
+    }
+    
+    private func animateBackground() {
+        let initialRect = CGRect(x: 0, y: frame.size.height, width: frame.size.width, height: 0)
+        let finalRect = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
+        
+        let sublayer = CALayer()
+        sublayer.frame = initialRect
+        sublayer.anchorPoint = CGPoint(x: 0.5, y: 1)
+        sublayer.backgroundColor = UIColor.orange.cgColor
+        sublayer.opacity = 1
+
+        self.layer.addSublayer(sublayer)
+        
+        let boundsAnim = CABasicAnimation(keyPath: "bounds")
+        boundsAnim.toValue = NSValue(cgRect: finalRect)
+        
+        let anim = CAAnimationGroup()
+        anim.animations = [boundsAnim]
+        anim.isRemovedOnCompletion = false
+        anim.duration = 3
+        anim.fillMode = .forwards
+        sublayer.add(anim, forKey: nil)
     }
 }
