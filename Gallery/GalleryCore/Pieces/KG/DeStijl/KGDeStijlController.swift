@@ -20,7 +20,7 @@ class KGDeStijlController {
     
     // MARK: - Initialization
     
-    func setup(pointCount: Int, in rect: CGRect) -> [KGLineDrawingAction] {
+    @discardableResult func setup(pointCount: Int, in rect: CGRect) -> [KGLineDrawingAction] {
         frame = rect
         points = []
         
@@ -30,6 +30,7 @@ class KGDeStijlController {
         }
         
         let tree = KGKDimensionTree(maxDimension: 2, from: points)
+        
         let actions = tree.actionBuffer.map { return KGLineDrawingAction(line: $0.node.line(in: rect), type: .addition, index: $0.index) }
         return actions
     }

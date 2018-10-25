@@ -15,6 +15,7 @@ class KGKDimensionTree {
     private var root: KGKDimensionNode?
     private var points: [CGPoint]!
     private var maxDimension: Int!
+    
     private(set) var actionBuffer = [KKGKDimensionTreeNodeAction]()
     private var actionIndex = 0
     
@@ -49,7 +50,7 @@ class KGKDimensionTree {
         
         if right == left {
             let node = KGKDimensionNode(dimension: dimension, point: points[left])
-            addNodeAction(for: node)
+            nodeAdditionAction(for: node)
             return node
         }
         
@@ -62,7 +63,7 @@ class KGKDimensionTree {
         
         // Median point becomes the parent.
         let parentNode = KGKDimensionNode(dimension: dimension, point: points[left + medium - 1])
-        addNodeAction(for: parentNode)
+        nodeAdditionAction(for: parentNode)
         
         // Update the next dimesnion or reset back to 1.
         
@@ -84,7 +85,7 @@ class KGKDimensionTree {
         return parentNode
     }
     
-    private func addNodeAction(for node: KGKDimensionNode) {
+    private func nodeAdditionAction(for node: KGKDimensionNode) {
         let action = KKGKDimensionTreeNodeAction(node: node, index: actionIndex)
         actionBuffer.append(action)
         actionIndex += 1
