@@ -51,16 +51,26 @@ class ArtPieceContainerViewController: UIViewController {
     
     private func setupBackgroundLayer() {
         let background = GradientBackgroundView(frame: view.bounds)
+        background.layer.opacity = 0.6
+        
+        let blackView = UIView()
+        blackView.backgroundColor = .black
+        view.addSubview(blackView)
+        blackView.constraint(edgesTo: view)
+        
         view.addSubview(background)
     }
     
     private func setupHeaderView() {
+        loopingLinesView.alpha = 0.2
+        
         headerView.addSubview(loopingLinesView)
         loopingLinesView.translatesAutoresizingMaskIntoConstraints = false
         loopingLinesView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: view.frame.size.width * 300 / 1920).isActive = true
         loopingLinesView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
         
         let headerLabel = UILabel()
+        headerLabel.alpha = 0.5
         headerLabel.font = UIFont.systemFont(ofSize: 40)
         headerLabel.textColor = UIColor(r: 197, g: 218, b: 219, alpha: 1)
         headerLabel.shadowOffset = CGSize(width: 0, height: 1)
