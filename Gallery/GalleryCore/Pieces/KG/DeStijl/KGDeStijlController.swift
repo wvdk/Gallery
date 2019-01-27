@@ -10,15 +10,13 @@ import UIKit
 
 class KGDeStijlController {
     
-    // MARK: - Properties
-    
     // MARK: - Initialization
     
     @discardableResult func setup(pointCount: Int, in rect: CGRect) -> [KGLineDrawingAction] {
         var points = [CGPoint]()
         
         for _ in 1...pointCount {
-            let newPoint = CGPoint(x: CGFloat.random(in: rect.minX...rect.maxX), y: CGFloat.random(in: rect.minY...rect.maxY))
+            let newPoint = CGPoint(x: CGFloat.random(in: rect.minX...rect.maxX).rounded(), y: CGFloat.random(in: rect.minY...rect.maxY).rounded())
             points.append(newPoint)
         }
         
