@@ -25,7 +25,7 @@ class KGDeStijlView: UIView {
         backgroundColor = .white
         
         let backgroundView = UIView()
-        backgroundView.backgroundColor = .black
+        backgroundView.backgroundColor = .white
         backgroundView.layer.opacity = 0.9
         addSubview(backgroundView)
         backgroundView.constraint(edgesTo: self)
@@ -47,7 +47,7 @@ class KGDeStijlView: UIView {
     // MARK: - Art piece setup
  
     private func restartDeStijl() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in
             guard let self = self else { return }
             self.deStijlContainerView.layer.sublayers?.forEach { $0.removeAllAnimations() }
             self.deStijlContainerView.layer.sublayers?.removeAll()
@@ -79,6 +79,8 @@ class KGDeStijlView: UIView {
     
     private func addLine(with action: KGLineDrawingAction, beginTime: TimeInterval, duration: Double) {
         let lineLayer = KGLineLayer(from: action.line.cgPath, with: action.line.uuid)
+        lineLayer.strokeColor = UIColor.black.cgColor
+        lineLayer.lineWidth = 4
         deStijlContainerView.layer.addSublayer(lineLayer)
         
         let showAnimation = CABasicAnimation(keyPath: "opacity")
