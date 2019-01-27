@@ -16,7 +16,7 @@ class KGMazeView: UIView {
     
     private var mazeContainerView = UIView()
 
-    private var lineDrawDuration = 0.1
+    private let lineDrawDuration = 0.1
     private var isFullScreen = false
     private var mazeCount = 0
     
@@ -87,9 +87,7 @@ class KGMazeView: UIView {
             self.setupMaze()
         }
     }
-    
-    // MARK: - Convex Hull Scan
-    
+        
     private func setupMaze() {
         let cellSize = CGFloat.random(in: 10...40) * self.frame.height / 1119
 

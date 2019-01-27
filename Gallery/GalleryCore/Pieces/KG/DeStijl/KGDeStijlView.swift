@@ -12,8 +12,11 @@ class KGDeStijlView: UIView {
     
     // MARK: - Properties
     
-    var controller = KGDeStijlController()
-    
+    private var controller = KGDeStijlController()
+    private var deStijlContainerView = UIView()
+
+    private let lineDrawDuration = 0.1
+
     // MARK: - Initialization
     
     public required override init(frame: CGRect) {
@@ -26,6 +29,9 @@ class KGDeStijlView: UIView {
         backgroundView.layer.opacity = 0.9
         addSubview(backgroundView)
         backgroundView.constraint(edgesTo: self)
+        
+        self.addSubview(self.deStijlContainerView)
+        deStijlContainerView.constraint(edgesTo: self)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -35,34 +41,45 @@ class KGDeStijlView: UIView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        animateBackground()
-
         setupDeStijl()
     }
     
     // MARK: - Art piece setup
  
+    private func restartDeStijl() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+            guard let self = self else { return }
+            self.deStijlContainerView.layer.sublayers?.forEach { $0.removeAllAnimations() }
+            self.deStijlContainerView.layer.sublayers?.removeAll()
+            self.setupDeStijl()
+        }
+    }
+    
     private func setupDeStijl() {
         let actions = controller.setup(pointCount: 20, in: self.frame)
         perform(lineDrawingActions: actions)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(actions.count) * lineDrawDuration) { [weak self] in
+            guard let self = self else { return }
+            self.restartDeStijl()
+        }
     }
     
     // MARK: - Drawing actions
     
     private func perform(lineDrawingActions: [KGLineDrawingAction]) {
-        let duration = 0.1
         let initialTime = CACurrentMediaTime()
         
         for action in lineDrawingActions {
             if action.type == .addition {
-                addLine(with: action, beginTime: initialTime, duration: duration)
+                addLine(with: action, beginTime: initialTime, duration: lineDrawDuration)
             }
         }
     }
     
     private func addLine(with action: KGLineDrawingAction, beginTime: TimeInterval, duration: Double) {
         let lineLayer = KGLineLayer(from: action.line.cgPath, with: action.line.uuid)
-        layer.addSublayer(lineLayer)
+        deStijlContainerView.layer.addSublayer(lineLayer)
         
         let showAnimation = CABasicAnimation(keyPath: "opacity")
         showAnimation.fillMode = CAMediaTimingFillMode.forwards
@@ -71,28 +88,5 @@ class KGDeStijlView: UIView {
         showAnimation.duration = duration
         showAnimation.isRemovedOnCompletion = false
         lineLayer.add(showAnimation, forKey: "showLine")
-    }
-    
-    private func animateBackground() {
-        let initialRect = CGRect(x: 0, y: frame.size.height, width: frame.size.width, height: 0)
-        let finalRect = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
-        
-        let sublayer = CALayer()
-        sublayer.frame = initialRect
-        sublayer.anchorPoint = CGPoint(x: 0.5, y: 1)
-        sublayer.backgroundColor = UIColor.orange.cgColor
-        sublayer.opacity = 1
-
-        self.layer.addSublayer(sublayer)
-        
-        let boundsAnim = CABasicAnimation(keyPath: "bounds")
-        boundsAnim.toValue = NSValue(cgRect: finalRect)
-        
-        let anim = CAAnimationGroup()
-        anim.animations = [boundsAnim]
-        anim.isRemovedOnCompletion = false
-        anim.duration = 3
-        anim.fillMode = .forwards
-        sublayer.add(anim, forKey: nil)
     }
 }
