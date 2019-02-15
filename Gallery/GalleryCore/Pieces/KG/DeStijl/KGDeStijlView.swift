@@ -97,44 +97,52 @@ class KGDeStijlView: UIView {
     }
     
     private func setupFilling() {
-        for _ in 0...7 {
-            findRects()
-        }
-    }
-    
-    private func findRects() {
-        guard points.count > 0 else { return }
+        var rects = [CGRect]()
         
-        let random = Int.random(in: 0..<points.count)
-        let point = points[random]
-        
-        let sameYPoints = points.filter { $0.x != point.x && $0.y == point.y }
-        let sameYPoint = sameYPoints.min { a, b -> Bool in
-            return a.distance(to: point) < b.distance(to: point)
+        guard points.count > 0 else {
+            return
         }
         
-        guard sameYPoint != nil else { return }
-        let sameXPointsForYPoint = points.filter { $0.x == sameYPoint!.x && $0.y != sameYPoint!.y }
-        let sameXPointsForPoint = points.filter { $0.x == point.x && $0.y != point.y }
-        
-        var anotherYPoint: CGPoint? {
-            for pointA in sameXPointsForYPoint{
-                for pointB in sameXPointsForPoint {
-                    if pointA.y == pointB.y {
-                        return pointA
-                    }
-                }
+        points.forEach { point in
+            guard rects.count < 11 else {
+                return
             }
             
-            return nil
+            let sameYPoints = points.filter { $0.x != point.x && $0.y == point.y }
+            let sameYPoint = sameYPoints.min { a, b -> Bool in
+                return a.distance(to: point) < b.distance(to: point)
+            }
+            
+            guard sameYPoint != nil else { return }
+            let sameXPointsForYPoint = points.filter { $0.x == sameYPoint!.x && $0.y != sameYPoint!.y }
+            let sameXPointsForPoint = points.filter { $0.x == point.x && $0.y != point.y }
+            
+            var anotherYPoint: CGPoint? {
+                for pointA in sameXPointsForYPoint{
+                    for pointB in sameXPointsForPoint {
+                        if pointA.y == pointB.y {
+                            return pointA
+                        }
+                    }
+                }
+                
+                return nil
+            }
+            
+            guard anotherYPoint != nil else {
+                return
+            }
+            
+            let rect = CGRect.make(point, anotherYPoint!)
+            if rects.contains(rect) {
+                return
+            }
+            
+            rects.append(rect)
+            let view = UIView(frame: rect)
+            view.backgroundColor = color
+            colorContainerView.addSubview(view)
         }
-        
-        guard anotherYPoint != nil else { return }
-
-        let rect = CGRect.make(point, anotherYPoint!)
-        let view = UIView(frame: rect)
-        view.backgroundColor = color
-        colorContainerView.addSubview(view)
     }
     
     // MARK: - Drawing actions
