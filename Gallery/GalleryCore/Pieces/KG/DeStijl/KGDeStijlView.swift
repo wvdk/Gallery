@@ -16,14 +16,13 @@ class KGDeStijlView: UIView {
     private var colorContainerView = UIView()
 
     private let lineDrawDuration = 0.1
-
-    private var points = [CGPoint]()
     
-    var color: UIColor {
+    private var color: UIColor {
         let random = Int.random(in: 0...2)
+        
         switch random {
         case 0:
-            return .red
+            return UIColor(r: <#T##Int#>, g: <#T##Int#>, b: <#T##Int#>)
         case 1:
             return .blue
         default:
@@ -68,22 +67,15 @@ class KGDeStijlView: UIView {
         let initialTime = CACurrentMediaTime()
         actions.forEach { addLine(with: $0, beginTime: initialTime, duration: lineDrawDuration) }
         
-        points = []
-
-        for action in actions {
-            let line = action.line
-            points.append(contentsOf: [line.startPoint, line.endPoint])
-        }
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(actions.count) * lineDrawDuration) { [weak self] in
             guard let self = self else { return }
+            
+            self.setupFillRects(for: actions)
             self.restartDeStijl()
         }
     }
     
     private func restartDeStijl() {
-        setupFilling()
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in
             guard let self = self else { return }
             self.lineContainerView.layer.sublayers?.forEach { $0.removeAllAnimations() }
@@ -94,13 +86,11 @@ class KGDeStijlView: UIView {
         }
     }
     
-    private func setupFilling() {
+    private func setupFillRects(for actions: [KGLineDrawingAction]) {
+        var points = [CGPoint]()
+        actions.forEach { points.append(contentsOf: [$0.line.startPoint, $0.line.endPoint]) }
+        
         var rects = [CGRect]()
-        
-        guard points.count > 0 else {
-            return
-        }
-        
         points.forEach { point in
             guard rects.count < 15 else {
                 return
@@ -111,7 +101,10 @@ class KGDeStijlView: UIView {
                 return a.distance(to: point) < b.distance(to: point)
             }
             
-            guard sameYPoint != nil else { return }
+            guard sameYPoint != nil else {
+                return
+            }
+            
             let sameXPointsForYPoint = points.filter { $0.x == sameYPoint!.x && $0.y != sameYPoint!.y }
             let sameXPointsForPoint = points.filter { $0.x == point.x && $0.y != point.y }
             
@@ -137,6 +130,7 @@ class KGDeStijlView: UIView {
             }
             
             rects.append(rect)
+            
             let view = UIView(frame: rect)
             view.backgroundColor = color
             colorContainerView.addSubview(view)
