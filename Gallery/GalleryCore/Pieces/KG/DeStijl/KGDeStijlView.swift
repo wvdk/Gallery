@@ -12,7 +12,6 @@ class KGDeStijlView: UIView {
     
     // MARK: - Properties
     
-    private var controller = KGDeStijlController()
     private var lineContainerView = UIView()
     private var colorContainerView = UIView()
 
@@ -65,13 +64,12 @@ class KGDeStijlView: UIView {
     // MARK: - Art piece setup
     
     private func setupDeStijl() {
-        let actions = controller.setup(pointCount: 30, in: self.frame)
-        perform(lineDrawingActions: actions)
+        let actions = KGDeStijlController.actions(forPointCount: 30, in: self.bounds)
+        let initialTime = CACurrentMediaTime()
+        actions.forEach { addLine(with: $0, beginTime: initialTime, duration: lineDrawDuration) }
         
-        if points.count > 0 {
-            points = []
-        }
-        
+        points = []
+
         for action in actions {
             let line = action.line
             points.append(contentsOf: [line.startPoint, line.endPoint])
@@ -104,7 +102,7 @@ class KGDeStijlView: UIView {
         }
         
         points.forEach { point in
-            guard rects.count < 11 else {
+            guard rects.count < 15 else {
                 return
             }
             
@@ -143,32 +141,33 @@ class KGDeStijlView: UIView {
             view.backgroundColor = color
             colorContainerView.addSubview(view)
         }
+        
+        let maskView = UIView(frame: self.bounds)
+        maskView.backgroundColor = .white
+        colorContainerView.addSubview(maskView)
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            maskView.frame = CGRect(origin: self.bounds.origin, size: CGSize(width: self.bounds.size.width, height: 0))
+        })
     }
     
     // MARK: - Drawing actions
     
-    private func perform(lineDrawingActions: [KGLineDrawingAction]) {
-        let initialTime = CACurrentMediaTime()
-        
-        for action in lineDrawingActions {
-            if action.type == .addition {
-                addLine(with: action, beginTime: initialTime, duration: lineDrawDuration)
-            }
-        }
-    }
-    
     private func addLine(with action: KGLineDrawingAction, beginTime: TimeInterval, duration: Double) {
         let lineLayer = KGLineLayer(from: action.line.cgPath, with: action.line.uuid)
         lineLayer.strokeColor = UIColor.black.cgColor
-        lineLayer.lineWidth = 3
+        lineLayer.lineWidth = 2
         lineContainerView.layer.addSublayer(lineLayer)
         
         let showAnimation = CABasicAnimation(keyPath: "opacity")
         showAnimation.fillMode = CAMediaTimingFillMode.forwards
+        showAnimation.isRemovedOnCompletion = false
+        showAnimation.timingFunction = CAMediaTimingFunction(name: .easeIn)
+        
         showAnimation.toValue = 0.95
         showAnimation.beginTime = beginTime + duration * Double(action.index)
         showAnimation.duration = duration
-        showAnimation.isRemovedOnCompletion = false
+        
         lineLayer.add(showAnimation, forKey: "showLine")
     }
 }
