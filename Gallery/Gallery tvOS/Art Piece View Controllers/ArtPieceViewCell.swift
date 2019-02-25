@@ -1,5 +1,5 @@
 //
-//  ArtPieceCollectionViewCell.swift
+//  ArtPieceViewCell.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 7/25/18.
@@ -16,7 +16,7 @@ import GalleryCore_tvOS
 ///     - Date
 ///     - Description
 /// - Purchase button.
-class ArtPieceCollectionViewCell: UICollectionViewCell {
+class ArtPieceViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
@@ -66,8 +66,8 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
                 NSNumber(value: UIPress.PressType.select.rawValue)
             ]
             
-            if let strongSelf = self, let artPiece = self?.artPiece {
-                strongSelf.delegate?.collectionViewCell(strongSelf, didSelectOpenArtPiece: artPiece)
+            if let self = self, let artPiece = self.artPiece {
+                self.delegate?.collectionViewCell(self, didSelectOpenArtPiece: artPiece)
             }
         }
     }

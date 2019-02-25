@@ -1,41 +1,39 @@
 //
-//  FeaturedArtPieceCollectionViewController.swift
+//  GridArtPieceViewController.swift
 //  Gallery TV
 //
-//  Created by Kristina Gelzinyte on 7/31/18.
+//  Created by Kristina Gelzinyte on 8/1/18.
 //  Copyright © 2018 Gallery of Generative Art. All rights reserved.
 //
 
-import UIKit
+import GalleryCore_tvOS
 
-/// A subclass of `UIViewController` which contains a featured art piece collection view with a horizontal scrolling direction.
-class FeaturedArtPieceCollectionViewController: UIViewController {
-   
+/// A subclass of `UIViewController` which contains all art piece grid-like collection view with a vertical scrolling direction.
+class GridArtPieceViewController: UIViewController {
+
     // MARK: - Properties
-    
+
     /// The object that acts as the delegate of the `ArtPieceCollectionViewControllerDelegate`.
-    weak var delegate: ArtPieceCollectionViewControllerDelegate? = nil
+    weak var delegate: ArtPieceViewControllerDelegate?
     
-    /// Sets up `UICollectionView` with horizontal scrolling direction.
-    private var verticalFlowCollectionView: UICollectionView {
+    /// Sets up `UICollectionView` with vertical scrolling direction.
+    private var gridCollectionView: UICollectionView {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 0
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 15 * view.frame.width / 1920
         layout.minimumInteritemSpacing = 0
         
         let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         
-        collectionView.register(ArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: ArtPieceCollectionViewCell.identifier)
+        collectionView.register(ArtPieceViewCell.self, forCellWithReuseIdentifier: ArtPieceViewCell.identifier)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.normal
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.isScrollEnabled = false
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false
         
         collectionView.remembersLastFocusedIndexPath = true
-        collectionView.selectCell(at: collectionView.firstCellIndex)
         
         return collectionView
     }
@@ -44,8 +42,8 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        let collectionView = verticalFlowCollectionView
+        
+        let collectionView = gridCollectionView
         view.addSubview(collectionView)
         collectionView.constraint(edgesTo: view)
     }

@@ -13,9 +13,9 @@ extension ArtPieceContainerViewController: ArtPieceDisplayViewControllerDelegate
     // MARK: - ArtPieceDisplayViewControllerDelegate implementation
 
     func artPieceDisplayViewControllerDidSelectClose(_ viewController: ArtPieceDisplayViewController) {
-        guard let artPieceDetailController = self.artPieceDetailController else { return }
+        guard let artPieceDetailController = self.artPieceDisplayController else { return }
 
         artPieceDetailController.dismiss(animated: true, completion: nil)
-        self.artPieceDetailController = nil
+        self.artPieceDisplayController = nil
     }
 }

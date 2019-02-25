@@ -1,5 +1,5 @@
 //
-//  FeaturedArtPieceCollectionViewController+UICollectionViewDelegate.swift
+//  FeaturedArtPieceViewController+UICollectionViewDelegate.swift
 //  Gallery iOS
 //
 //  Created by Kristina Gelzinyte on 7/25/18.
@@ -8,7 +8,7 @@
 
 import GalleryCore_tvOS
 
-extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegate {
+extension FeaturedArtPieceViewController: UICollectionViewDelegate {
     
     // MARK: - UICollectionViewDelegate implementation
     
@@ -43,12 +43,12 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegate {
     }
 }
 
-extension FeaturedArtPieceCollectionViewController: UICollectionViewDataSource {
+extension FeaturedArtPieceViewController: UICollectionViewDataSource {
 
     // MARK: - UICollectionViewDataSource implementation
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionViewCell.identifier, for: indexPath) as! ArtPieceCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceViewCell.identifier, for: indexPath) as! ArtPieceViewCell
 
         cell.delegate = self
         cell.contentViewEdgeInset = CGSize(width: view.frame.size.width * 120 / 1920,
@@ -59,7 +59,7 @@ extension FeaturedArtPieceCollectionViewController: UICollectionViewDataSource {
     }
 }
 
-extension FeaturedArtPieceCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension FeaturedArtPieceViewController: UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegateFlowLayout implementation
     
