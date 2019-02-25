@@ -1,5 +1,5 @@
 //
-//  ArtPieceBaseViewController+ArtPieceDisplayViewControllerDelegate.swift
+//  ArtPieceBaseViewController+ArtPieceDisplay.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/16/18.

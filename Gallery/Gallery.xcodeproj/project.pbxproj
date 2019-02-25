@@ -10,7 +10,7 @@
 		890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */; };
 		89127CE52126284600208DCA /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
 		89127CE62126284600208DCA /* ArtKit_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		89127CEA2126353D00208DCA /* ArtPieceBaseViewController+ArtPieceDisplayViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89127CE92126353D00208DCA /* ArtPieceBaseViewController+ArtPieceDisplayViewControllerDelegate.swift */; };
+		89127CEA2126353D00208DCA /* ArtPieceBaseViewController+ArtPieceDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89127CE92126353D00208DCA /* ArtPieceBaseViewController+ArtPieceDisplay.swift */; };
 		89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89134E1520E80C1300772E7F /* AppDelegate.swift */; };
 		89134E1D20E80C1500772E7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89134E1C20E80C1500772E7F /* Assets.xcassets */; };
 		891549CC21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */; };
@@ -25,7 +25,7 @@
 		891549EF2114E8F50041FE8A /* ArtPieceThumbails.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */; };
 		891549F121150AF80041FE8A /* FeaturedArtPieceViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F021150AF80041FE8A /* FeaturedArtPieceViewController+Cell.swift */; };
 		891549F521150BE00041FE8A /* ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F421150BE00041FE8A /* ArtPieceViewControllerDelegate.swift */; };
-		891549F721150D4C0041FE8A /* ArtPieceBaseViewController+ArtPieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* ArtPieceBaseViewController+ArtPieceViewControllerDelegate.swift */; };
+		891549F721150D4C0041FE8A /* ArtPieceBaseViewController+ArtPieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* ArtPieceBaseViewController+ArtPieceViewController.swift */; };
 		891549F921150DD40041FE8A /* GridArtPieceViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F821150DD40041FE8A /* GridArtPieceViewController+Cell.swift */; };
 		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
 		8916D210215DACB3007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
@@ -238,7 +238,7 @@
 
 /* Begin PBXFileReference section */
 		890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailDismissAnimationController.swift; sourceTree = "<group>"; };
-		89127CE92126353D00208DCA /* ArtPieceBaseViewController+ArtPieceDisplayViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceBaseViewController+ArtPieceDisplayViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		89127CE92126353D00208DCA /* ArtPieceBaseViewController+ArtPieceDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceBaseViewController+ArtPieceDisplay.swift"; sourceTree = "<group>"; };
 		89134E1320E80C1300772E7F /* Gallery tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gallery tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89134E1520E80C1300772E7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89134E1C20E80C1500772E7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 		891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ArtPieceThumbails.xcassets; sourceTree = "<group>"; };
 		891549F021150AF80041FE8A /* FeaturedArtPieceViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedArtPieceViewController+Cell.swift"; sourceTree = "<group>"; };
 		891549F421150BE00041FE8A /* ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceViewControllerDelegate.swift; sourceTree = "<group>"; };
-		891549F621150D4C0041FE8A /* ArtPieceBaseViewController+ArtPieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceBaseViewController+ArtPieceViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		891549F621150D4C0041FE8A /* ArtPieceBaseViewController+ArtPieceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtPieceBaseViewController+ArtPieceViewController.swift"; sourceTree = "<group>"; };
 		891549F821150DD40041FE8A /* GridArtPieceViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GridArtPieceViewController+Cell.swift"; sourceTree = "<group>"; };
 		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
 		8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHullView.swift; sourceTree = "<group>"; };
@@ -402,8 +402,8 @@
 			children = (
 				89134E1520E80C1300772E7F /* AppDelegate.swift */,
 				891549CE2112652E0041FE8A /* ArtPieceBaseViewController.swift */,
-				891549F621150D4C0041FE8A /* ArtPieceBaseViewController+ArtPieceViewControllerDelegate.swift */,
-				89127CE92126353D00208DCA /* ArtPieceBaseViewController+ArtPieceDisplayViewControllerDelegate.swift */,
+				891549F621150D4C0041FE8A /* ArtPieceBaseViewController+ArtPieceViewController.swift */,
+				89127CE92126353D00208DCA /* ArtPieceBaseViewController+ArtPieceDisplay.swift */,
 				891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */,
 				891549E02113ADF20041FE8A /* Art Piece View Controllers */,
 				891549DF2113ADCD0041FE8A /* Helpers */,
@@ -963,7 +963,7 @@
 			files = (
 				89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */,
 				891549F521150BE00041FE8A /* ArtPieceViewControllerDelegate.swift in Sources */,
-				891549F721150D4C0041FE8A /* ArtPieceBaseViewController+ArtPieceViewControllerDelegate.swift in Sources */,
+				891549F721150D4C0041FE8A /* ArtPieceBaseViewController+ArtPieceViewController.swift in Sources */,
 				891549D3211267710041FE8A /* ArtPieceBaseViewController.swift in Sources */,
 				891549F921150DD40041FE8A /* GridArtPieceViewController+Cell.swift in Sources */,
 				891549F121150AF80041FE8A /* FeaturedArtPieceViewController+Cell.swift in Sources */,
@@ -972,7 +972,7 @@
 				89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */,
 				891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */,
 				89E295EA21473E3F0042F1CB /* LoopingLineView.swift in Sources */,
-				89127CEA2126353D00208DCA /* ArtPieceBaseViewController+ArtPieceDisplayViewControllerDelegate.swift in Sources */,
+				89127CEA2126353D00208DCA /* ArtPieceBaseViewController+ArtPieceDisplay.swift in Sources */,
 				891549D7211283250041FE8A /* GridArtPieceViewController+CollectionView.swift in Sources */,
 				89DEC6B6210933DB009858CC /* ArtPieceViewCell.swift in Sources */,
 				89E295ED214740BE0042F1CB /* GradientBackgroundView.swift in Sources */,
