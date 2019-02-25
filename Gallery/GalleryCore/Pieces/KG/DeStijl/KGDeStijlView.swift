@@ -49,7 +49,8 @@ class KGDeStijlView: UIView {
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
-        
+
+        guard newSuperview != nil else { return }
         setupDeStijl()
     }
     
@@ -63,9 +64,11 @@ class KGDeStijlView: UIView {
         actions.forEach { addLine(with: $0, beginTime: initialTime, duration: lineDrawDuration) }
         
         let delay = Double(actions.count) * lineDrawDuration
-
         let frames = KGDeStijlController.frames(for: actions)
-        self.fillFrames(frames, delay: delay)
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
+            self?.fillFrames(frames)
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + delay + 5.0) { [weak self] in
             self?.restartDeStijl()
@@ -100,7 +103,7 @@ class KGDeStijlView: UIView {
         lineLayer.add(showAnimation, forKey: "showLine")
     }
     
-    private func fillFrames(_ frames: [CGRect], delay: TimeInterval) {
+    private func fillFrames(_ frames: [CGRect]) {
         guard frames.count > 0 else {
             return
         }
@@ -115,7 +118,7 @@ class KGDeStijlView: UIView {
         maskView.backgroundColor = .white
         colorContainerView.addSubview(maskView)
         
-        UIView.animate(withDuration: 1.0, delay: delay, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseIn, animations: {
             maskView.frame = CGRect(origin: self.bounds.origin, size: CGSize(width: self.bounds.size.width, height: 0))
         }, completion: nil)
     }
