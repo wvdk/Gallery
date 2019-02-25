@@ -37,6 +37,7 @@ class KGBoidsFireView: UIView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
+        guard newSuperview != nil else { return }
         spriteKitView.presentScene(scene)
     }
 }

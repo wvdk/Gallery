@@ -45,7 +45,7 @@ extension GridArtPieceViewController: UICollectionViewDataSource {
         cell.delegate = self
         cell.contentViewEdgeInset = CGSize(width: view.frame.size.width * 30 / 1920,
                                            height: view.frame.size.height * 17 / 1119)
-        cell.showsPreviewOnFocus = false
+        cell.showPreviewOnFocus = false
         cell.artPiece = MasterList.shared.activePieces[indexPath.item]
         
         return cell

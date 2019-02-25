@@ -8,6 +8,21 @@
 
 import GalleryCore_tvOS
 
+/// The object that acts as the delegate of the art piece collection view cells.
+///
+/// The delegate must adopt the ArtPieceCollectionViewCellDelegate protocol.
+///
+/// The delegate object is responsible for managing selection behavior for cell subviews.
+protocol ArtPieceCollectionViewCellDelegate: class {
+    
+    /// Tells the delegate that an art piece was selected to be opened.
+    ///
+    /// - Parameters:
+    ///     - cell: An item informing the delegate about the selected art piece.
+    ///     - didSelectOpenArtPiece: A selected to open art piece metadata.
+    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: PieceMetadata)
+}
+
 /// A subclass of `UICollectionViewCell` which contains:
 /// - Art piece preview view.
 /// - Description info:
@@ -25,7 +40,7 @@ class ArtPieceViewCell: UICollectionViewCell {
     /// The object that acts as the delegate of the `CollectionViewCellDelegate`.
     weak var delegate: ArtPieceCollectionViewCellDelegate?
     
-    var showsPreviewOnFocus = true
+    var showPreviewOnFocus = true
     
     /// Metadata of art piece presented by cell.
     var artPiece: PieceMetadata? = nil {
@@ -34,7 +49,7 @@ class ArtPieceViewCell: UICollectionViewCell {
             focusingView.thumbnail = piece.thumbnail
             focusingView.isSecret = piece.isSecret
             
-            if showsPreviewOnFocus {
+            if showPreviewOnFocus {
                 focusingView.artViewType = piece.viewType
             }
         }
@@ -44,8 +59,10 @@ class ArtPieceViewCell: UICollectionViewCell {
     var contentViewEdgeInset: CGSize = .zero {
         didSet {
             focusingView.translatesAutoresizingMaskIntoConstraints = false
+            
             focusingView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: contentViewEdgeInset.width).isActive = true
             focusingView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -contentViewEdgeInset.width).isActive = true
+            
             focusingView.topAnchor.constraint(equalTo: self.topAnchor, constant: contentViewEdgeInset.height).isActive = true
             focusingView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -contentViewEdgeInset.height).isActive = true
         }
@@ -75,19 +92,4 @@ class ArtPieceViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-/// The object that acts as the delegate of the art piece collection view cells.
-///
-/// The delegate must adopt the ArtPieceCollectionViewCellDelegate protocol.
-///
-/// The delegate object is responsible for managing selection behavior for cell subviews.
-protocol ArtPieceCollectionViewCellDelegate: class {
-    
-    /// Tells the delegate that an art piece was selected to be opened.
-    ///
-    /// - Parameters:
-    ///     - cell: An item informing the delegate about the selected art piece.
-    ///     - didSelectOpenArtPiece: A selected to open art piece metadata.
-    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: PieceMetadata)
 }
