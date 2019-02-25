@@ -1,5 +1,5 @@
 //
-//  ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift
+//  ArtPieceBaseViewController+ArtPieceDisplayViewControllerDelegate.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/16/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension ArtPieceContainerViewController: ArtPieceDisplayViewControllerDelegate {
+extension ArtPieceBaseViewController: ArtPieceDisplayViewControllerDelegate {
 
     // MARK: - ArtPieceDisplayViewControllerDelegate implementation
 

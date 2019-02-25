@@ -1,5 +1,5 @@
 //
-//  ArtPieceContainerViewController.swift
+//  ArtPieceBaseViewController.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 8/1/18.
@@ -12,7 +12,7 @@ import UIKit
 ///
 /// 1. Premium art piece collection controller - `FeaturedArtPieceViewController`
 /// 2. Free art piece collection controller - `GridArtPieceViewController`
-class ArtPieceContainerViewController: UIViewController {
+class ArtPieceBaseViewController: UIViewController {
 
     // MARK: - Properties
     
