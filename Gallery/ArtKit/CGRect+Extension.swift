@@ -16,4 +16,12 @@ extension CGRect {
         let YPosition = CGFloat.random(in: origin.y...origin.y + size.height)
         return CGPoint(x: xPosition, y: YPosition)
     }
+    
+    /// Returns a rect generated from specified two point.
+    public static func make(_ point1: CGPoint, _ point2: CGPoint) -> CGRect {
+        return CGRect(x: min(point1.x, point2.x),
+                      y: min(point1.y, point2.y),
+                      width: abs(point1.x - point2.x),
+                      height: abs(point1.y - point2.y))
+    }
 }

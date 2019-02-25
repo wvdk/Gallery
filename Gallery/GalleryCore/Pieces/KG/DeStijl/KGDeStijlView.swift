@@ -19,14 +19,13 @@ class KGDeStijlView: UIView {
     
     private var color: UIColor {
         let random = Int.random(in: 0...2)
-        
         switch random {
         case 0:
-            return UIColor(r: <#T##Int#>, g: <#T##Int#>, b: <#T##Int#>)
+            return UIColor(r: 255, g: 224, b: 49)
         case 1:
-            return .blue
+            return UIColor(r: 207, g: 0, b: 25)
         default:
-            return .yellow
+            return UIColor(r: 0, g: 36, b: 225)
         }
     }
     
@@ -36,12 +35,6 @@ class KGDeStijlView: UIView {
         super.init(frame: frame)
         
         backgroundColor = .white
-        
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = .white
-        backgroundView.layer.opacity = 0.9
-        addSubview(backgroundView)
-        backgroundView.constraint(edgesTo: self)
         
         self.addSubview(colorContainerView)
         colorContainerView.constraint(edgesTo: self)
@@ -63,86 +56,28 @@ class KGDeStijlView: UIView {
     // MARK: - Art piece setup
     
     private func setupDeStijl() {
-        let actions = KGDeStijlController.actions(forPointCount: 30, in: self.bounds)
+        let pointCount = Int.random(in: 30...50)
+        let actions = KGDeStijlController.actions(forPointCount: pointCount, in: self.bounds)
+        
         let initialTime = CACurrentMediaTime()
         actions.forEach { addLine(with: $0, beginTime: initialTime, duration: lineDrawDuration) }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + Double(actions.count) * lineDrawDuration) { [weak self] in
-            guard let self = self else { return }
-            
-            self.setupFillRects(for: actions)
-            self.restartDeStijl()
+        let delay = Double(actions.count) * lineDrawDuration
+
+        let frames = KGDeStijlController.frames(for: actions)
+        self.fillFrames(frames, delay: delay)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay + 5.0) { [weak self] in
+            self?.restartDeStijl()
         }
     }
     
     private func restartDeStijl() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in
-            guard let self = self else { return }
-            self.lineContainerView.layer.sublayers?.forEach { $0.removeAllAnimations() }
-            self.lineContainerView.layer.sublayers?.removeAll()
-            self.colorContainerView.subviews.forEach { $0.removeFromSuperview() }
-
-            self.setupDeStijl()
-        }
-    }
-    
-    private func setupFillRects(for actions: [KGLineDrawingAction]) {
-        var points = [CGPoint]()
-        actions.forEach { points.append(contentsOf: [$0.line.startPoint, $0.line.endPoint]) }
+        self.lineContainerView.layer.sublayers?.forEach { $0.removeAllAnimations() }
+        self.lineContainerView.layer.sublayers?.removeAll()
+        self.colorContainerView.subviews.forEach { $0.removeFromSuperview() }
         
-        var rects = [CGRect]()
-        points.forEach { point in
-            guard rects.count < 15 else {
-                return
-            }
-            
-            let sameYPoints = points.filter { $0.x != point.x && $0.y == point.y }
-            let sameYPoint = sameYPoints.min { a, b -> Bool in
-                return a.distance(to: point) < b.distance(to: point)
-            }
-            
-            guard sameYPoint != nil else {
-                return
-            }
-            
-            let sameXPointsForYPoint = points.filter { $0.x == sameYPoint!.x && $0.y != sameYPoint!.y }
-            let sameXPointsForPoint = points.filter { $0.x == point.x && $0.y != point.y }
-            
-            var anotherYPoint: CGPoint? {
-                for pointA in sameXPointsForYPoint{
-                    for pointB in sameXPointsForPoint {
-                        if pointA.y == pointB.y {
-                            return pointA
-                        }
-                    }
-                }
-                
-                return nil
-            }
-            
-            guard anotherYPoint != nil else {
-                return
-            }
-            
-            let rect = CGRect.make(point, anotherYPoint!)
-            if rects.contains(rect) {
-                return
-            }
-            
-            rects.append(rect)
-            
-            let view = UIView(frame: rect)
-            view.backgroundColor = color
-            colorContainerView.addSubview(view)
-        }
-        
-        let maskView = UIView(frame: self.bounds)
-        maskView.backgroundColor = .white
-        colorContainerView.addSubview(maskView)
-        
-        UIView.animate(withDuration: 1.0, animations: {
-            maskView.frame = CGRect(origin: self.bounds.origin, size: CGSize(width: self.bounds.size.width, height: 0))
-        })
+        self.setupDeStijl()
     }
     
     // MARK: - Drawing actions
@@ -164,14 +99,24 @@ class KGDeStijlView: UIView {
         
         lineLayer.add(showAnimation, forKey: "showLine")
     }
-}
-
-extension CGRect {
     
-    static func make(_ point1: CGPoint, _ point2: CGPoint) -> CGRect {
-        return CGRect(x: min(point1.x, point2.x),
-                      y: min(point1.y, point2.y),
-                      width: abs(point1.x - point2.x),
-                      height: abs(point1.y - point2.y))
+    private func fillFrames(_ frames: [CGRect], delay: TimeInterval) {
+        guard frames.count > 0 else {
+            return
+        }
+        
+        frames.forEach { frame in
+            let view = UIView(frame: frame)
+            view.backgroundColor = color
+            colorContainerView.addSubview(view)
+        }
+        
+        let maskView = UIView(frame: self.bounds)
+        maskView.backgroundColor = .white
+        colorContainerView.addSubview(maskView)
+        
+        UIView.animate(withDuration: 1.0, delay: delay, options: .curveEaseIn, animations: {
+            maskView.frame = CGRect(origin: self.bounds.origin, size: CGSize(width: self.bounds.size.width, height: 0))
+        }, completion: nil)
     }
 }

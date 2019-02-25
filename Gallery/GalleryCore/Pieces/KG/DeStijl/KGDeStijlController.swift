@@ -22,4 +22,55 @@ class KGDeStijlController {
         let actions = tree.actionBuffer.map { return KGLineDrawingAction(line: $0.node.line(in: rect), type: .addition, index: $0.index) }
         return actions
     }
+    
+    static func frames(for actions: [KGLineDrawingAction]) -> [CGRect] {
+        var points = [CGPoint]()
+        actions.forEach { points.append(contentsOf: [$0.line.startPoint, $0.line.endPoint]) }
+        
+        var frames = [CGRect]()
+        let maxFrameCount = Int.random(in: 10...30)
+        
+        for point in points {
+            guard frames.count < maxFrameCount else {
+                return frames
+            }
+            
+            let sameYPoints = points.filter { $0.x != point.x && $0.y == point.y }
+            let sameYPoint = sameYPoints.min { a, b -> Bool in
+                return a.distance(to: point) < b.distance(to: point)
+            }
+            
+            guard sameYPoint != nil else {
+                continue
+            }
+            
+            let sameXPointsForYPoint = points.filter { $0.x == sameYPoint!.x && $0.y != sameYPoint!.y }
+            let sameXPointsForPoint = points.filter { $0.x == point.x && $0.y != point.y }
+            
+            var anotherYPoint: CGPoint? {
+                for pointA in sameXPointsForYPoint{
+                    for pointB in sameXPointsForPoint {
+                        if pointA.y == pointB.y {
+                            return pointA
+                        }
+                    }
+                }
+                
+                return nil
+            }
+            
+            guard anotherYPoint != nil else {
+                continue
+            }
+            
+            let rect = CGRect.make(point, anotherYPoint!)
+            if frames.contains(rect) {
+                continue
+            }
+            
+            frames.append(rect)
+        }
+        
+        return frames
+    }
 }
