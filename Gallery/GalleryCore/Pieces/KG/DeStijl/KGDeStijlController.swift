@@ -23,15 +23,14 @@ class KGDeStijlController {
         return actions
     }
     
-    static func frames(for actions: [KGLineDrawingAction]) -> [CGRect] {
+    static func frames(for actions: [KGLineDrawingAction], maxCount: Int) -> [CGRect] {
         var points = [CGPoint]()
         actions.forEach { points.append(contentsOf: [$0.line.startPoint, $0.line.endPoint]) }
         
         var frames = [CGRect]()
-        let maxFrameCount = Int.random(in: 10...30)
         
-        for point in points {
-            guard frames.count < maxFrameCount else {
+        for point in points.shuffled() {
+            guard frames.count < maxCount else {
                 return frames
             }
             
