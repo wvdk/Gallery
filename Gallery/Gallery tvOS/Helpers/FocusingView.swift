@@ -30,18 +30,10 @@ class FocusingView: UIView {
         }
     }
     
-    var isSecret: Bool = false {
-        didSet {
-            guard isSecret, isSecret != oldValue else { return }
-            thumbnailView.alpha = 0
-        }
-    }
-    
     private var artPieceViewParralaxMotionEffect: UIMotionEffectGroup?
     
     private let containerView = UIView()
     private let thumbnailView = UIImageView()
-    private var artViewTag = 502934
 
     // MARK: - UIView properties
     
@@ -55,15 +47,15 @@ class FocusingView: UIView {
         super.init(frame: frame)
         
         isUserInteractionEnabled = true
+        clipsToBounds = true
+        layer.masksToBounds = true
+        layer.cornerRadius = 8
         
+        addSubview(thumbnailView)
         addSubview(containerView)
-        containerView.constraint(edgesTo: self)
 
-        containerView.addSubview(thumbnailView)
-        thumbnailView.constraint(edgesTo: containerView)
-        
-        containerView.layer.masksToBounds = true
-        containerView.layer.cornerRadius = 8
+        containerView.constraint(edgesTo: self)
+        thumbnailView.constraint(edgesTo: self)
         
         setDefaultShadow()
     }
@@ -76,19 +68,10 @@ class FocusingView: UIView {
     
     /// Adds a specified `UIView` view to the end of the receiver’s list of subviews.
     func showArtView() {
-        if isSecret {
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                guard let self = self else { return }
-                self.thumbnailView.alpha = 1
-            }
-            return
-        }
-        
         guard let artViewType = self.artViewType else { return }
         
         let artView = artViewType.init(frame: bounds)
         artView.alpha = 0
-        artView.tag = artViewTag
         
         containerView.addSubview(artView)
         artView.constraint(edgesTo: containerView)
@@ -100,17 +83,7 @@ class FocusingView: UIView {
     
     /// Fades out and removes a `UIView` type views from the receiver’s list of subviews.
     func removeArtView() {
-        if isSecret {
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                guard let self = self else { return }
-                self.thumbnailView.alpha = 0
-            }
-            return
-        }
-        
-        let artViews = containerView.subviews.filter({ $0.tag == artViewTag })
-        
-        artViews.forEach { view in
+        containerView.subviews.forEach { view in
             view.removeFromSuperview()
         }
     }
