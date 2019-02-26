@@ -13,7 +13,8 @@ class KGConvexHullView: UIView {
     
     // MARK: - Properties
     
-    var controller = KGConvexHullScanController()
+    private var controller = KGConvexHullScanController()
+    private var containerLayer = CALayer()
     
     // MARK: - Initialization
     
@@ -25,8 +26,11 @@ class KGConvexHullView: UIView {
         let backgroundView = UIView()
         backgroundView.backgroundColor = .black
         backgroundView.layer.opacity = 0.9
+        
         addSubview(backgroundView)
         backgroundView.constraint(edgesTo: self)
+        
+        layer.addSublayer(containerLayer)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -45,20 +49,20 @@ class KGConvexHullView: UIView {
     fileprivate func restartConvexHull() {
         let hideDuration = 3.0
         
-        layer.sublayers!.forEach { sublayer in
-            let hideAnimation = CABasicAnimation(keyPath: "opacity")
-            hideAnimation.fillMode = CAMediaTimingFillMode.forwards
-            hideAnimation.toValue = 0
-            hideAnimation.beginTime = CACurrentMediaTime()
-            hideAnimation.duration = hideDuration
-            hideAnimation.isRemovedOnCompletion = false
-            sublayer.add(hideAnimation, forKey: "hideLayer")
-        }
+        let hideAnimation = CABasicAnimation(keyPath: "opacity")
+        hideAnimation.fillMode = CAMediaTimingFillMode.forwards
+        hideAnimation.toValue = 0
+        hideAnimation.beginTime = CACurrentMediaTime()
+        hideAnimation.duration = hideDuration
+        hideAnimation.isRemovedOnCompletion = false
+        containerLayer.add(hideAnimation, forKey: "hideLayer")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + hideDuration) { [weak self] in
-            self?.layer.sublayers?.forEach { $0.removeAllAnimations() }
-            self?.layer.sublayers?.removeAll()
+            self?.containerLayer.removeAllAnimations()
+            self?.containerLayer.sublayers?.forEach { $0.removeAllAnimations() }
+            self?.containerLayer.sublayers?.removeAll()
             self?.setupAndScanConvexHull()
+            self?.containerLayer.opacity = 1
         }
     }
     
@@ -103,7 +107,7 @@ class KGConvexHullView: UIView {
     
     private func addLine(with action: KGLineDrawingAction, beginTime: TimeInterval, duration: Double) {
         let lineLayer = KGLineLayer(from: action.line.cgPath, with: action.line.uuid)
-        layer.addSublayer(lineLayer)
+        containerLayer.addSublayer(lineLayer)
         
         let showAnimation = CABasicAnimation(keyPath: "opacity")
         showAnimation.fillMode = CAMediaTimingFillMode.forwards
@@ -115,7 +119,7 @@ class KGConvexHullView: UIView {
     }
     
     private func removeLine(with action: KGLineDrawingAction, beginTime: TimeInterval, duration: Double) {
-        let lineToRemove = layer.sublayers?.first { layer in
+        let lineToRemove = containerLayer.sublayers?.first { layer in
             if let lineLayer = layer as? KGLineLayer, lineLayer.uuid == action.line.uuid {
                 return true
             }
