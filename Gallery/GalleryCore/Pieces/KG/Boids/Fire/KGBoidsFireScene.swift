@@ -34,11 +34,10 @@ class KGBoidsFireScene: SKScene {
     
     private func setupBackgroundNode() {
         let startCenter = CGPoint(x: size.width / 2, y: size.height)
-        let locations: [CGFloat] = [0, 0.1, 0.6]
+        let locations: [CGFloat] = [0, 0.6]
         let colors = [
-            UIColor(r: 135, g: 101, b: 43).cgColor,
-            UIColor(r: 117, g: 83, b: 26).cgColor,
-            UIColor(r: 35, g: 0, b: 0).cgColor
+            UIColor(r: 22, g: 108, b: 189).cgColor,
+            UIColor(r: 37, g: 0, b: 0).cgColor
         ]
         let radiaGradient = RadialGradientLayer(startCenter: startCenter,
                                                 endCenter: startCenter,
