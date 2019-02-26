@@ -16,6 +16,7 @@ class KGDeStijlView: UIView {
     private var colorContainerView = UIView()
 
     private let lineDrawDuration = 0.1
+    private var isInFullScreen = false
     
     private var color: UIColor {
         let random = Int.random(in: 0...2)
@@ -51,20 +52,26 @@ class KGDeStijlView: UIView {
         super.willMove(toSuperview: newSuperview)
 
         guard newSuperview != nil else { return }
+        
+        if self.frame.size == UIScreen.main.bounds.size {
+            isInFullScreen = true
+        }
+        
         setupDeStijl()
     }
     
     // MARK: - Art piece setup
     
     private func setupDeStijl() {
-        let pointCount = Int.random(in: 30...50)
+        let pointCount = Int.random(in: 30...90)
         let actions = KGDeStijlController.actions(forPointCount: pointCount, in: self.bounds)
         
         let initialTime = CACurrentMediaTime()
         actions.forEach { addLine(with: $0, beginTime: initialTime, duration: lineDrawDuration) }
         
         let delay = Double(actions.count) * lineDrawDuration
-        let frames = KGDeStijlController.frames(for: actions)
+        let maxFrameCount = Int.random(in: 5...30)
+        let frames = KGDeStijlController.frames(for: actions, maxCount: maxFrameCount)
        
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
             self?.fillFrames(frames)
@@ -88,7 +95,7 @@ class KGDeStijlView: UIView {
     private func addLine(with action: KGLineDrawingAction, beginTime: TimeInterval, duration: Double) {
         let lineLayer = KGLineLayer(from: action.line.cgPath, with: action.line.uuid)
         lineLayer.strokeColor = UIColor.black.cgColor
-        lineLayer.lineWidth = 2
+        lineLayer.lineWidth = isInFullScreen ? 3 : 1.5
         lineContainerView.layer.addSublayer(lineLayer)
         
         let showAnimation = CABasicAnimation(keyPath: "opacity")
