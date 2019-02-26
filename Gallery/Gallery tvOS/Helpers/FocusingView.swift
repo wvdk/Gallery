@@ -67,8 +67,8 @@ class FocusingView: UIView {
     // MARK: - Subview management
     
     /// Adds a specified `UIView` view to the end of the receiver’s list of subviews.
-    func showArtView() {
-        guard let artViewType = self.artViewType else { return }
+    func showArtView() {        
+        guard isFocused, let artViewType = self.artViewType else { return }
         
         let artView = artViewType.init(frame: bounds)
         artView.alpha = 0
