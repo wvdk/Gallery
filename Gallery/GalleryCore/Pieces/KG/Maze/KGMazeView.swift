@@ -17,11 +17,11 @@ class KGMazeView: UIView {
     private var mazeContainerView = UIView()
 
     private let lineDrawDuration = 0.1
-    private var isFullScreen = false
+    private var isInFullScreen = false
     private var mazeCount = 0
     
     private var maxMazeCount: Int {
-        return isFullScreen ? 10 : 5
+        return isInFullScreen ? 10 : 5
     }
 
     private var defaultMazeFrame: CGRect {
@@ -63,7 +63,7 @@ class KGMazeView: UIView {
         guard newSuperview != nil else { return }
 
         if self.frame.size == UIScreen.main.bounds.size {
-            isFullScreen = true
+            isInFullScreen = true
         }
         
         setupMaze()

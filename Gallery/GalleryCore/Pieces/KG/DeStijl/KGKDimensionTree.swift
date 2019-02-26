@@ -44,7 +44,6 @@ class KGKDimensionTree {
     /// KDNode recursive genration for the KDTree.
     private func generateKDNode(dimension: Int, left: Int, right: Int) -> KGKDimensionNode? {
         guard right >= left else {
-            NSLog("Wrong range - right < left")
             return nil
         }
         
