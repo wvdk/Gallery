@@ -48,16 +48,22 @@ class FocusingView: UIView {
         
         isUserInteractionEnabled = true
         clipsToBounds = true
+        
         layer.masksToBounds = true
         layer.cornerRadius = 8
+        layer.borderWidth = 4
+        layer.borderColor = UIColor.white.withAlphaComponent(0.95).cgColor
+        
+        layer.shadowPath = UIBezierPath(roundedRect: frame, cornerRadius: 8).cgPath
+        layer.shadowOpacity = 0.26
+        layer.shadowRadius = 15
+        layer.shadowOffset = CGSize(width: 0, height: 0)
         
         addSubview(thumbnailView)
         addSubview(containerView)
 
         containerView.constraint(edgesTo: self)
         thumbnailView.constraint(edgesTo: self)
-        
-        setDefaultShadow()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -94,16 +100,14 @@ class FocusingView: UIView {
         
         // Animates view's appearance to be focused.
         if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
-            coordinator.addCoordinatedFocusingAnimations({ [weak self] (animationContext) in
-                guard let self = self else { return }
-                self.setFocusedStyleShadow()
+            coordinator.addCoordinatedFocusingAnimations({ (animationContext) in
+                // TODO: - Animate something
+            }, completion: { [weak self] in
+                self?.addParallaxMotionEffect()
                 
-                }, completion: { [weak self] in
-                    self?.addParallaxMotionEffect()
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
-                        self?.showArtView()
-                    })
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
+                    self?.showArtView()
+                })
             })
         }
         
@@ -113,14 +117,15 @@ class FocusingView: UIView {
             removeArtView()
             
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
-                guard let self = self else { return }
-                self.setDefaultShadow()
-                
+                guard let self = self else {
+                    return
+                }
+
                 UIView.animate(withDuration: animationContext.duration * 0.5, delay: 0, options: .curveEaseOut, animations: {
                     self.transformScale(to: 1)
                 })
                 
-                }, completion: nil)
+            }, completion: nil)
         }
     }
     
@@ -129,23 +134,6 @@ class FocusingView: UIView {
     /// Transforms scale to specified value.
     func transformScale(to value: CGFloat) {
         transform = CGAffineTransform(scaleX: value, y: value)
-    }
-    
-    /// Sets focus style to the view:
-    /// - Scales by 1.07.
-    /// - Adds significant drop down shadow to the view's layer.
-    private func setFocusedStyleShadow() {
-        layer.shadowRadius = 15
-        layer.shadowOffset = CGSize(width: 0, height: 25)
-    }
-    
-    /// Adds small drop down type shadow to the view's layer.
-    private func setDefaultShadow() {
-        layer.shadowColor = UIColor.black.cgColor
-
-        layer.shadowOpacity = 0.2
-        layer.shadowRadius = 4
-        layer.shadowOffset = CGSize(width: 0, height: 3)
     }
     
     /// Adds parallax motion effect to the `view`, which allows to pan and tilt it.
