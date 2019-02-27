@@ -20,55 +20,24 @@ class ArtPieceBaseViewController: UIViewController {
     
     private let featuredArtPieceViewController = FeaturedArtPieceViewController()
     private let gridArtPieceViewController = GridArtPieceViewController()
-    
+    private let headerView = UIView()
+    private var background = GradientBackgroundView()
+
     /// Focus guide to set preferred focus environment.
     ///
     /// It is set to featured art piece collection view selected cell during transition from `artPieceCollectionGridViewController` to `featuredArtPieceCollectionViewController`.
     private var gridArtPieceViewControllerFocusGuide = UIFocusGuide()
-    
-    private let loopingLinesView = LoopingLinesView()
-    private let headerView = UIView()
     
     // MARK: - Lifecycle functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBackgroundLayer()
-        setupHeaderView()
-        setupCollectionViewControllers()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(startLineAnimation), name: UIApplication.didBecomeActiveNotification, object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        startLineAnimation()
-    }
-    
-    // MARK: - Background setup
-    
-    private func setupBackgroundLayer() {
-        let background = GradientBackgroundView(frame: view.bounds)
-        background.layer.opacity = 0.6
-        
-        let blackView = UIView()
-        blackView.backgroundColor = .black
-        view.addSubview(blackView)
-        blackView.constraint(edgesTo: view)
+        background = GradientBackgroundView(frame: view.bounds)
         
         view.addSubview(background)
-    }
-    
-    private func setupHeaderView() {
-        loopingLinesView.alpha = 0.2
-        
-        headerView.addSubview(loopingLinesView)
-        loopingLinesView.translatesAutoresizingMaskIntoConstraints = false
-        loopingLinesView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: view.frame.size.width * 300 / 1920).isActive = true
-        loopingLinesView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
-        
+        view.addSubview(headerView)
+
         let headerLabel = UILabel()
         headerLabel.alpha = 0.5
         headerLabel.font = UIFont.systemFont(ofSize: 40)
@@ -82,26 +51,29 @@ class ArtPieceBaseViewController: UIViewController {
         headerLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
         headerLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
         
-        view.addSubview(headerView)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        headerView.heightAnchor.constraint(equalToConstant: 140).isActive = true
-    }
-    
-    private func setupCollectionViewControllers() {
         featuredArtPieceViewController.delegate = self
         gridArtPieceViewController.delegate = self
         
         addChild(featuredArtPieceViewController)
-        view.addSubview(featuredArtPieceViewController.view)
-        
         addChild(gridArtPieceViewController)
-        view.addSubview(gridArtPieceViewController.view)
         
+        view.addSubview(featuredArtPieceViewController.view)
+        view.addSubview(gridArtPieceViewController.view)
+      
+        makeConstraints()
+    }
+    
+    private func makeConstraints() {
+        headerView.translatesAutoresizingMaskIntoConstraints = false
         featuredArtPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
         gridArtPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
+
+        background.constraint(edgesTo: view)
+
+        headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 140).isActive = true
         
         featuredArtPieceViewController.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 140).isActive = true
         featuredArtPieceViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -125,10 +97,6 @@ class ArtPieceBaseViewController: UIViewController {
     }
     
     // MARK: - Animations
-    
-    @objc private func startLineAnimation() {
-        loopingLinesView.rotate()
-    }
     
     private func slideContentUp() {
         featuredArtPieceViewController.view.transform = CGAffineTransform.identity
