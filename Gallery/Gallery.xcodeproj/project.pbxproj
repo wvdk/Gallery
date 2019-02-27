@@ -100,7 +100,6 @@
 		89DEC6C0210BA210009858CC /* FocusingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DEC6B8210B9C10009858CC /* FocusingView.swift */; };
 		89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */; };
 		89E295EA21473E3F0042F1CB /* LoopingLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E295E921473E3F0042F1CB /* LoopingLineView.swift */; };
-		89E295ED214740BE0042F1CB /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */; };
 		89E39B9621644D0D00960ADE /* KGMazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E39B922164497600960ADE /* KGMazeView.swift */; };
 		89E39B9721644D0E00960ADE /* KGMazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E39B922164497600960ADE /* KGMazeView.swift */; };
 		89E8C22E2180309900A6434A /* KGDeStijlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C22D2180309900A6434A /* KGDeStijlView.swift */; };
@@ -294,7 +293,6 @@
 		89DEC6B8210B9C10009858CC /* FocusingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusingView.swift; sourceTree = "<group>"; };
 		89DFA0DC20B74A0B00689663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89E295E921473E3F0042F1CB /* LoopingLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingLineView.swift; sourceTree = "<group>"; };
-		89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		89E39B922164497600960ADE /* KGMazeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGMazeView.swift; sourceTree = "<group>"; };
 		89E8C22D2180309900A6434A /* KGDeStijlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGDeStijlView.swift; sourceTree = "<group>"; };
 		89E8C2312180319900A6434A /* KGDeStijlController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGDeStijlController.swift; sourceTree = "<group>"; };
@@ -418,7 +416,6 @@
 			children = (
 				89DEC6B8210B9C10009858CC /* FocusingView.swift */,
 				89E295E921473E3F0042F1CB /* LoopingLineView.swift */,
-				89E295EB214740BE0042F1CB /* GradientBackgroundView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -975,7 +972,6 @@
 				89127CEA2126353D00208DCA /* ArtPieceBaseViewController+ArtPieceDisplay.swift in Sources */,
 				891549D7211283250041FE8A /* GridArtPieceViewController+CollectionView.swift in Sources */,
 				89DEC6B6210933DB009858CC /* ArtPieceViewCell.swift in Sources */,
-				89E295ED214740BE0042F1CB /* GradientBackgroundView.swift in Sources */,
 				89DEC69621091C2B009858CC /* FeaturedArtPieceViewController+CollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

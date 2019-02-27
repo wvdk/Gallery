@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GalleryCore_tvOS
 
 /// A container type `UIViewController` with two controllers nested inside:
 ///
@@ -21,7 +22,6 @@ class ArtPieceBaseViewController: UIViewController {
     private let featuredArtPieceViewController = FeaturedArtPieceViewController()
     private let gridArtPieceViewController = GridArtPieceViewController()
     private let headerView = UIView()
-    private var background = GradientBackgroundView()
 
     /// Focus guide to set preferred focus environment.
     ///
@@ -33,19 +33,27 @@ class ArtPieceBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        background = GradientBackgroundView(frame: view.bounds)
+        view.backgroundColor = UIColor(r: 8, g: 127, b: 255)
         
-        view.addSubview(background)
-        view.addSubview(headerView)
-
+        let center = CGPoint(x: 0.84 * view.bounds.width, y: -0.03 * view.bounds.height)
+        let radius = sqrt(pow(view.bounds.size.height, 2) + pow(view.bounds.size.width, 2))
+        let colors = [UIColor(r: 0, g: 31, b: 65, alpha: 1).cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
+        let locations: [CGFloat] = [0, 0.6, 1]
+        
+        let gradientLayer = RadialGradientLayer(startCenter: center, endCenter: center, startRadius: 0, endRadius: radius, colors: colors, locations: locations)
+        gradientLayer.frame = view.bounds
+        gradientLayer.opacity = 0.7
+        
+        view.layer.addSublayer(gradientLayer)
+        
         let headerLabel = UILabel()
-        headerLabel.alpha = 0.5
         headerLabel.font = UIFont.systemFont(ofSize: 40)
-        headerLabel.textColor = UIColor(r: 197, g: 218, b: 219, alpha: 1)
+        headerLabel.textColor = UIColor.white
         headerLabel.shadowOffset = CGSize(width: 0, height: 1)
         headerLabel.shadowColor = UIColor(r: 0, g: 0, b: 0, alpha: 0.2)
         headerLabel.text = "Gallery of Generative Art"
         
+        view.addSubview(headerView)
         headerView.addSubview(headerLabel)
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         headerLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
@@ -67,8 +75,6 @@ class ArtPieceBaseViewController: UIViewController {
         headerView.translatesAutoresizingMaskIntoConstraints = false
         featuredArtPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
         gridArtPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
-
-        background.constraint(edgesTo: view)
 
         headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
