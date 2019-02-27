@@ -1,5 +1,5 @@
 //
-//  ArtPieceCollectionViewCell.swift
+//  ArtPieceViewCell.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 7/25/18.
@@ -7,6 +7,21 @@
 //
 
 import GalleryCore_tvOS
+
+/// The object that acts as the delegate of the art piece collection view cells.
+///
+/// The delegate must adopt the ArtPieceCollectionViewCellDelegate protocol.
+///
+/// The delegate object is responsible for managing selection behavior for cell subviews.
+protocol ArtPieceCollectionViewCellDelegate: class {
+    
+    /// Tells the delegate that an art piece was selected to be opened.
+    ///
+    /// - Parameters:
+    ///     - cell: An item informing the delegate about the selected art piece.
+    ///     - didSelectOpenArtPiece: A selected to open art piece metadata.
+    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: PieceMetadata)
+}
 
 /// A subclass of `UICollectionViewCell` which contains:
 /// - Art piece preview view.
@@ -16,7 +31,7 @@ import GalleryCore_tvOS
 ///     - Date
 ///     - Description
 /// - Purchase button.
-class ArtPieceCollectionViewCell: UICollectionViewCell {
+class ArtPieceViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
@@ -25,16 +40,15 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     /// The object that acts as the delegate of the `CollectionViewCellDelegate`.
     weak var delegate: ArtPieceCollectionViewCellDelegate?
     
-    var showsPreviewOnFocus = true
+    var showPreviewOnFocus = true
     
     /// Metadata of art piece presented by cell.
     var artPiece: PieceMetadata? = nil {
         didSet {
             guard let piece = artPiece else { return }
             focusingView.thumbnail = piece.thumbnail
-            focusingView.isSecret = piece.isSecret
             
-            if showsPreviewOnFocus {
+            if showPreviewOnFocus {
                 focusingView.artViewType = piece.viewType
             }
         }
@@ -44,8 +58,10 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     var contentViewEdgeInset: CGSize = .zero {
         didSet {
             focusingView.translatesAutoresizingMaskIntoConstraints = false
+            
             focusingView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: contentViewEdgeInset.width).isActive = true
             focusingView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -contentViewEdgeInset.width).isActive = true
+            
             focusingView.topAnchor.constraint(equalTo: self.topAnchor, constant: contentViewEdgeInset.height).isActive = true
             focusingView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -contentViewEdgeInset.height).isActive = true
         }
@@ -66,8 +82,8 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
                 NSNumber(value: UIPress.PressType.select.rawValue)
             ]
             
-            if let strongSelf = self, let artPiece = self?.artPiece {
-                strongSelf.delegate?.collectionViewCell(strongSelf, didSelectOpenArtPiece: artPiece)
+            if let self = self, let artPiece = self.artPiece {
+                self.delegate?.collectionViewCell(self, didSelectOpenArtPiece: artPiece)
             }
         }
     }
@@ -75,19 +91,4 @@ class ArtPieceCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-/// The object that acts as the delegate of the art piece collection view cells.
-///
-/// The delegate must adopt the ArtPieceCollectionViewCellDelegate protocol.
-///
-/// The delegate object is responsible for managing selection behavior for cell subviews.
-protocol ArtPieceCollectionViewCellDelegate: class {
-    
-    /// Tells the delegate that an art piece was selected to be opened.
-    ///
-    /// - Parameters:
-    ///     - cell: An item informing the delegate about the selected art piece.
-    ///     - didSelectOpenArtPiece: A selected to open art piece metadata.
-    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: PieceMetadata)
 }

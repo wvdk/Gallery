@@ -15,10 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Set the root controller to `ArtPieceContainerViewController`.
-        let allArtPiecesViewController = ArtPieceContainerViewController()
-        window?.rootViewController = allArtPiecesViewController
-        
+        // Set the root controller to `ArtPieceBaseViewController`.
+        let mainViewController = ArtPieceBaseViewController()
+        window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
         
         return true

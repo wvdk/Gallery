@@ -1,70 +1,76 @@
 //
-//  ArtPieceCollectionGridViewController+UICollectionViewDelegate.swift
-//  Gallery TV
+//  FeaturedArtPieceViewController+UICollectionViewDelegate.swift
+//  Gallery iOS
 //
-//  Created by Kristina Gelzinyte on 8/1/18.
+//  Created by Kristina Gelzinyte on 7/25/18.
 //  Copyright © 2018 Gallery of Generative Art. All rights reserved.
 //
 
 import GalleryCore_tvOS
 
-extension ArtPieceCollectionGridViewController: UICollectionViewDelegate {
+extension FeaturedArtPieceViewController: UICollectionViewDelegate {
     
     // MARK: - UICollectionViewDelegate implementation
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return MasterList.shared.activePieces.count
     }
-    
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
         return false
     }
     
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        
+        // Scroll manually to constrain cells in the center of the screen.
+        if let nextFocusedIndexPath = context.nextFocusedIndexPath {
+            collectionView.scrollToItem(at: nextFocusedIndexPath,
+                                        at: UICollectionView.ScrollPosition.centeredHorizontally,
+                                        animated: true)
+        }
+        
         // Animates selection of focused cells.
         // Doing it here because collection views use the same focused view but different scale coefficient.
         if let nextFocusedView = context.nextFocusedView as? FocusingView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                nextFocusedView.transformScale(to: 1.3)
+                nextFocusedView.transformScale(to: 1.25)
             }, completion: nil)
         }
     }
 }
 
-extension ArtPieceCollectionGridViewController: UICollectionViewDataSource {
-    
+extension FeaturedArtPieceViewController: UICollectionViewDataSource {
+
     // MARK: - UICollectionViewDataSource implementation
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceCollectionViewCell.identifier, for: indexPath) as! ArtPieceCollectionViewCell
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceViewCell.identifier, for: indexPath) as! ArtPieceViewCell
+
         cell.delegate = self
-        cell.contentViewEdgeInset = CGSize(width: view.frame.size.width * 30 / 1920,
-                                           height: view.frame.size.height * 17 / 1119)
-        cell.showsPreviewOnFocus = false
+        cell.contentViewEdgeInset = CGSize(width: view.frame.size.width * 120 / 1920,
+                                           height: view.frame.size.height * 70 / 1119)
         cell.artPiece = MasterList.shared.activePieces[indexPath.item]
         
         return cell
     }
 }
 
-extension ArtPieceCollectionGridViewController: UICollectionViewDelegateFlowLayout {
+extension FeaturedArtPieceViewController: UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegateFlowLayout implementation
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = view.frame.size.width * 440 / 1920
-        let height = view.frame.size.height * 256 / 1119
+        let width = view.frame.size.width * 1201 / 1920
+        let height = view.frame.size.height * 700 / 1119
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let left = view.frame.size.width * 58 / 1920
-        let right = view.frame.size.width * 58 / 1920
-        return UIEdgeInsets(top: 0, left: left, bottom: 0, right: right)
+        let constant = (view.frame.size.width - (view.frame.size.width * 1200 / 1920)) / 2
+        return UIEdgeInsets(top: 0, left: constant, bottom: 0, right: constant)
     }
 }

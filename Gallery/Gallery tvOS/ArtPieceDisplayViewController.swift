@@ -8,6 +8,20 @@
 
 import GalleryCore_tvOS
 
+/// The object that acts as the delegate of the art piece view display controller.
+///
+/// The delegate must adopt the ArtPieceDisplayViewControllerDelegate protocol.
+///
+/// The delegate object is responsible for managing view controller appearance.
+protocol ArtPieceDisplayViewControllerDelegate: class {
+    
+    /// Tells the delegate that an art piece view controller was selected to be closed.
+    ///
+    /// - Parameters:
+    ///     - viewController: An object informing the delegate about the closing.
+    func artPieceDisplayViewControllerDidSelectClose(_ viewController: ArtPieceDisplayViewController)
+}
+
 /// A subclass of `UIViewController`, which displays single art piece view `UIView` in full screen mode.
 class ArtPieceDisplayViewController: UIViewController {
     
@@ -16,7 +30,6 @@ class ArtPieceDisplayViewController: UIViewController {
     weak var delegate: ArtPieceDisplayViewControllerDelegate?
     
     private let artContainerView = UIView()
-
     private var artPieceMetadata: PieceMetadata
     
     // MARK: - Initalization
@@ -46,12 +59,8 @@ class ArtPieceDisplayViewController: UIViewController {
         super.viewDidLoad()
         
         let artView = artPieceMetadata.viewType.init(frame: view.bounds)
-        
-        view.addSubview(artContainerView)
-        artContainerView.constraint(edgesTo: view)
-        
-        artContainerView.addSubview(artView)
-        artView.constraint(edgesTo: artContainerView)
+        view.addSubview(artView)
+        artView.constraint(edgesTo: view)
         
         let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeAction(_:)))
         menuTapGestureRecognizer.allowedPressTypes = [NSNumber(value: Int8(UIPress.PressType.menu.rawValue))]
@@ -63,18 +72,4 @@ class ArtPieceDisplayViewController: UIViewController {
     @objc private func closeAction(_ sender: UIButton) {
         delegate?.artPieceDisplayViewControllerDidSelectClose(self)
     }
-}
-
-/// The object that acts as the delegate of the art piece view display controller.
-///
-/// The delegate must adopt the ArtPieceDisplayViewControllerDelegate protocol.
-///
-/// The delegate object is responsible for managing view controller appearance.
-protocol ArtPieceDisplayViewControllerDelegate: class {
-    
-    /// Tells the delegate that an art piece view controller was selected to be closed.
-    ///
-    /// - Parameters:
-    ///     - viewController: An object informing the delegate about the closing.
-    func artPieceDisplayViewControllerDidSelectClose(_ viewController: ArtPieceDisplayViewController)
 }

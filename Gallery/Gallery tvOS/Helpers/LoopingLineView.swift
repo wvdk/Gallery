@@ -20,9 +20,9 @@ class LoopingLinesView: UIView {
         line.backgroundColor = UIColor(r: 255, g: 255, b: 255, alpha: 1)
         line.alpha = 0.05
         
-        line.loopInSuperview(duplicationCount: 60, with: [
-            .rotateByDegrees(-0.06),
-            .moveHorizontallyWithIncrement(30),
+        line.loopInSuperview(duplicationCount: 600, with: [
+            .rotateByDegrees(-0.005),
+            .moveHorizontallyWithIncrement(5),
             .updateOpacityIncreasingly
             ]
         )
@@ -30,7 +30,7 @@ class LoopingLinesView: UIView {
     
     func rotate() {
         for subview in subviews {
-            subview.rotate(duration: 50.0)
+            subview.rotate(duration: 200.0)
         }
     }
 }

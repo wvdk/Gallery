@@ -16,12 +16,12 @@ class KGMazeView: UIView {
     
     private var mazeContainerView = UIView()
 
-    private var lineDrawDuration = 0.1
-    private var isFullScreen = false
+    private let lineDrawDuration = 0.1
+    private var isInFullScreen = false
     private var mazeCount = 0
     
     private var maxMazeCount: Int {
-        return isFullScreen ? 10 : 5
+        return isInFullScreen ? 10 : 5
     }
 
     private var defaultMazeFrame: CGRect {
@@ -40,9 +40,14 @@ class KGMazeView: UIView {
     
     public required override init(frame: CGRect) {
         super.init(frame: frame)
- 
-        backgroundColor = .black
-        layer.opacity = 0.9
+
+        backgroundColor = .white
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .black
+        backgroundView.layer.opacity = 0.9
+        addSubview(backgroundView)
+        backgroundView.constraint(edgesTo: self)
         
         addSubview(mazeContainerView)
         mazeContainerView.constraint(edgesTo: self)
@@ -55,8 +60,10 @@ class KGMazeView: UIView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
+        guard newSuperview != nil else { return }
+
         if self.frame.size == UIScreen.main.bounds.size {
-            isFullScreen = true
+            isInFullScreen = true
         }
         
         setupMaze()
@@ -82,9 +89,7 @@ class KGMazeView: UIView {
             self.setupMaze()
         }
     }
-    
-    // MARK: - Convex Hull Scan
-    
+        
     private func setupMaze() {
         let cellSize = CGFloat.random(in: 10...40) * self.frame.height / 1119
 

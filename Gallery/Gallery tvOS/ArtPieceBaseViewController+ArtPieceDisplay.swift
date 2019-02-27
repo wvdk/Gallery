@@ -1,5 +1,5 @@
 //
-//  ArtPieceContainerViewController+ArtPieceDisplayViewControllerDelegate.swift
+//  ArtPieceBaseViewController+ArtPieceDisplay.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/16/18.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-extension ArtPieceContainerViewController: ArtPieceDisplayViewControllerDelegate {
+extension ArtPieceBaseViewController: ArtPieceDisplayViewControllerDelegate {
 
     // MARK: - ArtPieceDisplayViewControllerDelegate implementation
 
     func artPieceDisplayViewControllerDidSelectClose(_ viewController: ArtPieceDisplayViewController) {
-        guard let artPieceDetailController = self.artPieceDetailController else { return }
+        guard let artPieceDetailController = self.artPieceDisplayController else { return }
 
         artPieceDetailController.dismiss(animated: true, completion: nil)
-        self.artPieceDetailController = nil
+        self.artPieceDisplayController = nil
     }
 }

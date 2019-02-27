@@ -1,5 +1,5 @@
 //
-//  FeaturedArtPieceCollectionViewController.swift
+//  FeaturedArtPieceViewController.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 7/31/18.
@@ -9,12 +9,12 @@
 import UIKit
 
 /// A subclass of `UIViewController` which contains a featured art piece collection view with a horizontal scrolling direction.
-class FeaturedArtPieceCollectionViewController: UIViewController {
+class FeaturedArtPieceViewController: UIViewController {
    
     // MARK: - Properties
     
     /// The object that acts as the delegate of the `ArtPieceCollectionViewControllerDelegate`.
-    weak var delegate: ArtPieceCollectionViewControllerDelegate? = nil
+    weak var delegate: ArtPieceViewControllerDelegate? = nil
     
     /// Sets up `UICollectionView` with horizontal scrolling direction.
     private var verticalFlowCollectionView: UICollectionView {
@@ -25,7 +25,7 @@ class FeaturedArtPieceCollectionViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         
-        collectionView.register(ArtPieceCollectionViewCell.self, forCellWithReuseIdentifier: ArtPieceCollectionViewCell.identifier)
+        collectionView.register(ArtPieceViewCell.self, forCellWithReuseIdentifier: ArtPieceViewCell.identifier)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.normal
         collectionView.delegate = self
         collectionView.dataSource = self
