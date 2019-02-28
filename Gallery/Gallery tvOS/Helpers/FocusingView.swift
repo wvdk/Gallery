@@ -104,6 +104,7 @@ class FocusingView: UIView {
     /// Fades out and removes a `UIView` type views from the receiver’s list of subviews.
     func removeArtView() {
         artView?.removeFromSuperview()
+        artView = nil
     }
     
     // MARK: - UIFocusEnvironment update
