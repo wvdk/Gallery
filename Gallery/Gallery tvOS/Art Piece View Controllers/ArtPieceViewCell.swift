@@ -67,7 +67,7 @@ class ArtPieceViewCell: UICollectionViewCell {
         }
     }
     
-    private var focusingView = FocusingView()
+    private let focusingView = FocusingView()
     
     // MARK: - Initialization
     

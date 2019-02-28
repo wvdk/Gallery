@@ -34,6 +34,7 @@ class FocusingView: UIView {
     
     private let containerView = UIView()
     private let thumbnailView = UIImageView()
+    private var artView: UIView?
 
     // MARK: - UIView properties
     
@@ -47,19 +48,17 @@ class FocusingView: UIView {
         super.init(frame: frame)
         
         isUserInteractionEnabled = true
-        clipsToBounds = true
         
-        layer.masksToBounds = true
         layer.cornerRadius = 8
         layer.borderWidth = 4
         layer.borderColor = UIColor.white.withAlphaComponent(0.95).cgColor
-        
-        layer.shadowPath = UIBezierPath(roundedRect: frame, cornerRadius: 8).cgPath
         layer.shadowOpacity = 0.26
         layer.shadowRadius = 15
         layer.shadowOffset = CGSize(width: 0, height: 0)
         
-        addSubview(thumbnailView)
+        containerView.clipsToBounds = true
+        
+        containerView.addSubview(thumbnailView)
         addSubview(containerView)
 
         containerView.constraint(edgesTo: self)
@@ -69,29 +68,42 @@ class FocusingView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
+        let path = UIBezierPath(roundedRect: bounds, cornerRadius: 8).cgPath
+        
+        layer.shadowPath = path
+
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path
+        
+        containerView.layer.mask = maskLayer
+    }
+    
     // MARK: - Subview management
     
     /// Adds a specified `UIView` view to the end of the receiver’s list of subviews.
     func showArtView() {        
         guard isFocused, let artViewType = self.artViewType else { return }
-        
+
         let artView = artViewType.init(frame: bounds)
         artView.alpha = 0
-        
+
         containerView.addSubview(artView)
         artView.constraint(edgesTo: containerView)
-        
+
         UIView.animate(withDuration: 0.2) {
             artView.alpha = 1
         }
+
+        self.artView = artView
     }
     
     /// Fades out and removes a `UIView` type views from the receiver’s list of subviews.
     func removeArtView() {
-        containerView.subviews.forEach { view in
-            view.removeFromSuperview()
-        }
+        artView?.removeFromSuperview()
     }
     
     // MARK: - UIFocusEnvironment update
