@@ -34,6 +34,7 @@ class FocusingView: UIView {
     
     private let containerView = UIView()
     private let thumbnailView = UIImageView()
+    private var innerShadowView: UIView?
     private var artView: UIView?
 
     // MARK: - UIView properties
@@ -51,15 +52,15 @@ class FocusingView: UIView {
         
         layer.cornerRadius = 8
         layer.borderWidth = 4
-        layer.borderColor = UIColor.white.withAlphaComponent(0.95).cgColor
+        layer.borderColor = UIColor.white.cgColor
         layer.shadowOpacity = 0.26
         layer.shadowRadius = 15
         layer.shadowOffset = CGSize(width: 0, height: 0)
         
         containerView.clipsToBounds = true
         
-        containerView.addSubview(thumbnailView)
         addSubview(containerView)
+        containerView.addSubview(thumbnailView)
 
         containerView.constraint(edgesTo: self)
         thumbnailView.constraint(edgesTo: self)
@@ -80,6 +81,12 @@ class FocusingView: UIView {
         maskLayer.path = path
         
         containerView.layer.mask = maskLayer
+        
+        if innerShadowView == nil {
+            innerShadowView = UIView(frame: bounds)
+            innerShadowView?.addInnerShadow(color: .black, opacity: 0.26, radius: 4)
+            containerView.addSubview(innerShadowView!)
+        }
     }
     
     // MARK: - Subview management
@@ -91,7 +98,11 @@ class FocusingView: UIView {
         let artView = artViewType.init(frame: bounds)
         artView.alpha = 0
 
-        containerView.addSubview(artView)
+        if let shadowView = innerShadowView {
+            containerView.insertSubview(artView, belowSubview: shadowView)
+        } else {
+            containerView.addSubview(artView)
+        }
         artView.constraint(edgesTo: containerView)
 
         UIView.animate(withDuration: 0.2) {
