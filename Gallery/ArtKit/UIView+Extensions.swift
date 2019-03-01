@@ -151,3 +151,35 @@ extension UIView {
     }
 }
 
+// MARK: - Layer shadow methods
+extension UIView {
+    
+    /// Adds an inner shadow to the view's layer.
+    ///
+    /// - Parameters:
+    ///   - color: Shadows color.
+    ///   - opacity: Shadows opacity.
+    ///   - radius: Shadows radius.
+    ///   - cornerRadius: Shadows path corner radius.
+    public func addInnerShadow(color: UIColor, opacity: Float, radius: CGFloat, cornerRadius: CGFloat = 0) {
+        let shadowLayer = CAShapeLayer()
+        shadowLayer.frame = bounds
+        shadowLayer.fillRule = CAShapeLayerFillRule.evenOdd
+        shadowLayer.shadowColor = color.cgColor
+        shadowLayer.shadowRadius = radius
+        shadowLayer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        shadowLayer.shadowOpacity = opacity
+        
+        let innerFrame = bounds.insetBy(dx: -radius * 2.0, dy: -radius * 2.0)
+        let outerFrame = bounds
+        let shadowPath = CGMutablePath()
+        
+        shadowPath.addRect(innerFrame)
+        shadowPath.addRect(outerFrame)
+        
+        shadowLayer.path = shadowPath
+        
+        layer.addSublayer(shadowLayer)
+    }
+}
+
