@@ -37,7 +37,8 @@ extension FeaturedPieceViewController: UICollectionViewDelegate, UICollectionVie
         // Doing it here because collection views use the same focused view but different scale coefficient.
         if let nextFocusedView = context.nextFocusedView as? ParralaxView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                nextFocusedView.transformScale(to: 1.25)
+                nextFocusedView.transformScale(to: CGSize(width: 1.22, height: 1.37))
+                nextFocusedView.transformTranslation(by: CGPoint(x: 0, y: -nextFocusedView.bounds.size.height * 0.185))
             }, completion: nil)
         }
     }
@@ -49,9 +50,10 @@ extension FeaturedPieceViewController: UICollectionViewDelegate, UICollectionVie
 
         cell.delegate = self
         
-        let horizontalInset = view.frame.size.width * 0.06
-        let verticalInset = view.frame.size.height * 0.06
-        cell.contentViewEdgeInset = UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
+        let horizontalInset = view.frame.size.width * 0.08
+        let topInset = view.frame.size.height * 0.29
+        let bottomInset = view.frame.size.height * 0.14
+        cell.contentViewEdgeInset = UIEdgeInsets(top: topInset, left: horizontalInset, bottom: bottomInset, right: horizontalInset)
         
         cell.pieceMetadata = MasterList.shared.activePieces[indexPath.item]
         
@@ -61,7 +63,7 @@ extension FeaturedPieceViewController: UICollectionViewDelegate, UICollectionVie
     // MARK: - UICollectionViewDelegateFlowLayout implementation
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.size.width * 0.63, height: view.frame.size.height * 0.63)
+        return CGSize(width: view.frame.size.width * 0.63, height: view.frame.size.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

@@ -164,7 +164,7 @@ class ParralaxView: UIView {
                 }
 
                 UIView.animate(withDuration: animationContext.duration * 0.5, delay: 0, options: .curveEaseOut, animations: {
-                    self.transformScale(to: 1)
+                    self.transform = CGAffineTransform.identity
                 })
                 
             }, completion: nil)
@@ -174,8 +174,13 @@ class ParralaxView: UIView {
     // MARK: - Focus appearance
     
     /// Transforms scale to specified value.
-    func transformScale(to value: CGFloat) {
-        transform = CGAffineTransform(scaleX: value, y: value)
+    func transformScale(to value: CGSize) {
+        transform = CGAffineTransform(scaleX: value.width, y: value.height)
+    }
+    
+    /// Transforms translation by specified value.
+    func transformTranslation(by value: CGPoint) {
+        transform = transform.concatenating(CGAffineTransform(translationX: value.x, y: value.y))
     }
     
     /// Adds parallax motion effect to the `view`, which allows to pan and tilt it.

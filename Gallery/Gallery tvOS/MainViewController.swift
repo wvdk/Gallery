@@ -76,15 +76,17 @@ class MainViewController: UIViewController {
         featuredPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
         pieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
+        let verticalEdgeInset = 0.13 * view.frame.size.height
+        
         headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        headerView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: verticalEdgeInset).isActive = true
         
-        featuredPieceViewController.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 140).isActive = true
+        featuredPieceViewController.view.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
         featuredPieceViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         featuredPieceViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        featuredPieceViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -140).isActive = true
+        featuredPieceViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -verticalEdgeInset).isActive = true
         
         pieceViewController.view.topAnchor.constraint(equalTo: featuredPieceViewController.view.bottomAnchor).isActive = true
         pieceViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -99,7 +101,7 @@ class MainViewController: UIViewController {
         pieceViewControllerFocusGuide.topAnchor.constraint(equalTo: pieceViewController.view.topAnchor).isActive = true
         pieceViewControllerFocusGuide.leadingAnchor.constraint(equalTo: pieceViewController.view.leadingAnchor).isActive = true
         pieceViewControllerFocusGuide.trailingAnchor.constraint(equalTo: pieceViewController.view.trailingAnchor).isActive = true
-        pieceViewControllerFocusGuide.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        pieceViewControllerFocusGuide.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
     
     // MARK: - Animations
@@ -111,7 +113,7 @@ class MainViewController: UIViewController {
     }
     
     private func slideContentDown() {
-        let translationY = featuredPieceViewController.view.bounds.size.height + 140
+        let translationY = featuredPieceViewController.view.bounds.size.height + 0.13 * view.frame.size.height
         featuredPieceViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
         pieceViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
         headerView.transform = CGAffineTransform(translationX: 0, y: -translationY)

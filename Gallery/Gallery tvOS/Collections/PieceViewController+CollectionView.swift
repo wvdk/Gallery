@@ -29,7 +29,7 @@ extension PieceViewController: UICollectionViewDelegate, UICollectionViewDataSou
         // Doing it here because collection views use the same focused view but different scale coefficient.
         if let nextFocusedView = context.nextFocusedView as? ParralaxView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                nextFocusedView.transformScale(to: 1.3)
+                nextFocusedView.transformScale(to: CGSize(width: 1.3, height: 1.3))
             }, completion: nil)
         }
     }
