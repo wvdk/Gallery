@@ -1,5 +1,5 @@
 //
-//  ArtPieceBaseViewController+ArtPieceViewController.swift
+//  MainViewController+ArtPieceViewController.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/3/18.
@@ -8,7 +8,7 @@
 
 import GalleryCore_tvOS
 
-extension ArtPieceBaseViewController: ArtPieceViewControllerDelegate {
+extension MainViewController: PieceViewControllerDelegate {
     
     // MARK: - ArtPieceViewControllerDelegate implementation
     

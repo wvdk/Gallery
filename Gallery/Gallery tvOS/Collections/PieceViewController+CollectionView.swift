@@ -1,5 +1,5 @@
 //
-//  GridArtPieceViewController+UICollectionViewDelegate.swift
+//  PieceViewController+UICollectionViewDelegate.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/1/18.
@@ -8,7 +8,7 @@
 
 import GalleryCore_tvOS
 
-extension GridArtPieceViewController: UICollectionViewDelegate {
+extension PieceViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegate implementation
     
@@ -27,44 +27,38 @@ extension GridArtPieceViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         // Animates selection of focused cells.
         // Doing it here because collection views use the same focused view but different scale coefficient.
-        if let nextFocusedView = context.nextFocusedView as? FocusingView {
+        if let nextFocusedView = context.nextFocusedView as? ParralaxView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
                 nextFocusedView.transformScale(to: 1.3)
             }, completion: nil)
         }
     }
-}
-
-extension GridArtPieceViewController: UICollectionViewDataSource {
     
     // MARK: - UICollectionViewDataSource implementation
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceViewCell.identifier, for: indexPath) as! ArtPieceViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PieceViewCell.identifier, for: indexPath) as! PieceViewCell
         
         cell.delegate = self
-        cell.contentViewEdgeInset = CGSize(width: view.frame.size.width * 30 / 1920,
-                                           height: view.frame.size.height * 17 / 1119)
+        
+        let horizontalInset = view.frame.size.width * 0.016
+        let verticalInset = view.frame.size.height * 0.015
+        cell.contentViewEdgeInset = UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
+        
         cell.showPreviewOnFocus = false
         cell.artPiece = MasterList.shared.activePieces[indexPath.item]
         
         return cell
     }
-}
-
-extension GridArtPieceViewController: UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegateFlowLayout implementation
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = view.frame.size.width * 440 / 1920
-        let height = view.frame.size.height * 256 / 1119
-        return CGSize(width: width, height: height)
+        return CGSize(width: view.frame.size.width * 0.23, height: view.frame.size.height * 0.23)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let left = view.frame.size.width * 58 / 1920
-        let right = view.frame.size.width * 58 / 1920
-        return UIEdgeInsets(top: 0, left: left, bottom: 0, right: right)
+        let constant = view.frame.size.width * 0.03
+        return UIEdgeInsets(top: 0, left: constant, bottom: 0, right: constant)
     }
 }

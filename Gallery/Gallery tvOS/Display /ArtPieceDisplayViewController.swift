@@ -29,7 +29,6 @@ class ArtPieceDisplayViewController: UIViewController {
     
     weak var delegate: ArtPieceDisplayViewControllerDelegate?
     
-    private let artContainerView = UIView()
     private var artPieceMetadata: PieceMetadata
     
     // MARK: - Initalization

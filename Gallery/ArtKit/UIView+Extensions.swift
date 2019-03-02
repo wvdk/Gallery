@@ -29,6 +29,20 @@ extension UIView {
         NSLayoutConstraint.activate(constraints)        
     }
     
+    /// Sets constraints to the `view`, by default `constant` is 0.
+    public func constraint(edgesTo view: UIView, edgeInset: UIEdgeInsets) {
+        var constraints = [NSLayoutConstraint]()
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        constraints.append(self.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: edgeInset.left))
+        constraints.append(self.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -edgeInset.right))
+        constraints.append(self.topAnchor.constraint(equalTo: view.topAnchor, constant: edgeInset.top))
+        constraints.append(self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -edgeInset.bottom))
+        
+        NSLayoutConstraint.activate(constraints)
+    }
+    
     /// Configure a UIView to completely fill its parent, minus any edge insets
     ///
     /// - Parameters:

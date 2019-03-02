@@ -1,5 +1,5 @@
 //
-//  ArtPieceBaseViewController.swift
+//  MainViewController.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 8/1/18.
@@ -11,16 +11,16 @@ import GalleryCore_tvOS
 
 /// A container type `UIViewController` with two controllers nested inside:
 ///
-/// 1. Premium art piece collection controller - `FeaturedArtPieceViewController`
-/// 2. Free art piece collection controller - `GridArtPieceViewController`
-class ArtPieceBaseViewController: UIViewController {
+/// 1. Premium art piece collection controller - `FeaturedPieceViewController`
+/// 2. Free art piece collection controller - `PieceViewController`
+class MainViewController: UIViewController {
 
     // MARK: - Properties
     
     var artPieceDisplayController: ArtPieceDisplayViewController?
     
-    private let featuredArtPieceViewController = FeaturedArtPieceViewController()
-    private let gridArtPieceViewController = GridArtPieceViewController()
+    private let featuredPieceViewController = FeaturedPieceViewController()
+    private let gridArtPieceViewController = PieceViewController()
     private let headerView = UIView()
 
     /// Focus guide to set preferred focus environment.
@@ -59,13 +59,13 @@ class ArtPieceBaseViewController: UIViewController {
         headerLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
         headerLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
         
-        featuredArtPieceViewController.delegate = self
+        featuredPieceViewController.delegate = self
         gridArtPieceViewController.delegate = self
         
-        addChild(featuredArtPieceViewController)
+        addChild(featuredPieceViewController)
         addChild(gridArtPieceViewController)
         
-        view.addSubview(featuredArtPieceViewController.view)
+        view.addSubview(featuredPieceViewController.view)
         view.addSubview(gridArtPieceViewController.view)
       
         makeConstraints()
@@ -73,7 +73,7 @@ class ArtPieceBaseViewController: UIViewController {
     
     private func makeConstraints() {
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        featuredArtPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        featuredPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
         gridArtPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
         headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -81,17 +81,17 @@ class ArtPieceBaseViewController: UIViewController {
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         headerView.heightAnchor.constraint(equalToConstant: 140).isActive = true
         
-        featuredArtPieceViewController.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 140).isActive = true
-        featuredArtPieceViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        featuredArtPieceViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        featuredArtPieceViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -140).isActive = true
+        featuredPieceViewController.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 140).isActive = true
+        featuredPieceViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        featuredPieceViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        featuredPieceViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -140).isActive = true
         
-        gridArtPieceViewController.view.topAnchor.constraint(equalTo: featuredArtPieceViewController.view.bottomAnchor).isActive = true
+        gridArtPieceViewController.view.topAnchor.constraint(equalTo: featuredPieceViewController.view.bottomAnchor).isActive = true
         gridArtPieceViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         gridArtPieceViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         gridArtPieceViewController.view.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         
-        featuredArtPieceViewController.didMove(toParent: self)
+        featuredPieceViewController.didMove(toParent: self)
         gridArtPieceViewController.didMove(toParent: self)
         
         gridArtPieceViewController.view.addLayoutGuide(gridArtPieceViewControllerFocusGuide)
@@ -105,14 +105,14 @@ class ArtPieceBaseViewController: UIViewController {
     // MARK: - Animations
     
     private func slideContentUp() {
-        featuredArtPieceViewController.view.transform = CGAffineTransform.identity
+        featuredPieceViewController.view.transform = CGAffineTransform.identity
         gridArtPieceViewController.view.transform = CGAffineTransform.identity
         headerView.transform = CGAffineTransform.identity
     }
     
     private func slideContentDown() {
-        let translationY = featuredArtPieceViewController.view.bounds.size.height + 140
-        featuredArtPieceViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
+        let translationY = featuredPieceViewController.view.bounds.size.height + 140
+        featuredPieceViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
         gridArtPieceViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
         headerView.transform = CGAffineTransform(translationX: 0, y: -translationY)
     }
@@ -123,7 +123,7 @@ class ArtPieceBaseViewController: UIViewController {
         guard let nextFocusedView = context.nextFocusedView, let previouslyFocusedView = context.previouslyFocusedView else { return }
         
         // Returns if previous and next focused views are in the same featuredArtPiecesViewController.
-        if featuredArtPieceViewController.contains(previouslyFocusedView), featuredArtPieceViewController.contains(nextFocusedView) {
+        if featuredPieceViewController.contains(previouslyFocusedView), featuredPieceViewController.contains(nextFocusedView) {
             return
         }
         
@@ -145,7 +145,7 @@ class ArtPieceBaseViewController: UIViewController {
         }
         
         // Animates translation transform between view controllers.
-        if featuredArtPieceViewController.contains(previouslyFocusedView), gridArtPieceViewController.contains(nextFocusedView) {
+        if featuredPieceViewController.contains(previouslyFocusedView), gridArtPieceViewController.contains(nextFocusedView) {
             // Sets preferred focus guide to `previouslyFocusedView`, so coming back to controller would focus last selected item.
             gridArtPieceViewControllerFocusGuide.preferredFocusEnvironments = [previouslyFocusedView]
             

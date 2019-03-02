@@ -1,5 +1,5 @@
 //
-//  ArtPieceViewCell.swift
+//  PieceViewCell.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 7/25/18.
@@ -10,10 +10,10 @@ import GalleryCore_tvOS
 
 /// The object that acts as the delegate of the art piece collection view cells.
 ///
-/// The delegate must adopt the ArtPieceCollectionViewCellDelegate protocol.
+/// The delegate must adopt the PieceCollectionViewCellDelegate protocol.
 ///
 /// The delegate object is responsible for managing selection behavior for cell subviews.
-protocol ArtPieceCollectionViewCellDelegate: class {
+protocol PieceCollectionViewCellDelegate: class {
     
     /// Tells the delegate that an art piece was selected to be opened.
     ///
@@ -31,14 +31,14 @@ protocol ArtPieceCollectionViewCellDelegate: class {
 ///     - Date
 ///     - Description
 /// - Purchase button.
-class ArtPieceViewCell: UICollectionViewCell {
+class PieceViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
     static let identifier = "FeaturedArtPieceCollectionViewCellIdentifier"
     
     /// The object that acts as the delegate of the `CollectionViewCellDelegate`.
-    weak var delegate: ArtPieceCollectionViewCellDelegate?
+    weak var delegate: PieceCollectionViewCellDelegate?
     
     var showPreviewOnFocus = true
     
@@ -55,19 +55,13 @@ class ArtPieceViewCell: UICollectionViewCell {
     }
     
     /// Cell's content (art piece view) edge inset.
-    var contentViewEdgeInset: CGSize = .zero {
+    var contentViewEdgeInset: UIEdgeInsets = .zero {
         didSet {
-            focusingView.translatesAutoresizingMaskIntoConstraints = false
-            
-            focusingView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: contentViewEdgeInset.width).isActive = true
-            focusingView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -contentViewEdgeInset.width).isActive = true
-            
-            focusingView.topAnchor.constraint(equalTo: self.topAnchor, constant: contentViewEdgeInset.height).isActive = true
-            focusingView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -contentViewEdgeInset.height).isActive = true
+            focusingView.constraint(edgesTo: self, edgeInset: self.contentViewEdgeInset)
         }
     }
     
-    private let focusingView = FocusingView()
+    private let focusingView = ParralaxView()
     
     // MARK: - Initialization
     

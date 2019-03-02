@@ -1,5 +1,5 @@
 //
-//  FocusingView.swift
+//  ParralaxView.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 7/27/18.
@@ -15,7 +15,7 @@ import GalleryCore_tvOS
 /// Should set `thumbnail` image.
 ///
 /// Can add subview to this view which can be animated.
-class FocusingView: UIView {
+class ParralaxView: UIView {
     
     // MARK: - Properties
     
@@ -112,7 +112,7 @@ class FocusingView: UIView {
     // MARK: - Subview management
     
     /// Adds a specified `UIView` view to the end of the receiver’s list of subviews.
-    func showArtView() {        
+    func showArtPiece() {        
         guard isFocused, let artViewType = self.artViewType else { return }
 
         let artView = artViewType.init(frame: bounds)
@@ -129,7 +129,7 @@ class FocusingView: UIView {
     }
     
     /// Fades out and removes a `UIView` type views from the receiver’s list of subviews.
-    func removeArtView() {
+    func removeArtPiece() {
         artView?.removeFromSuperview()
         artView = nil
     }
@@ -139,22 +139,22 @@ class FocusingView: UIView {
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
         // Animates view's appearance to be focused.
-        if let nextFocusedView = context.nextFocusedView as? FocusingView, nextFocusedView == self {
+        if let nextFocusedView = context.nextFocusedView as? ParralaxView, nextFocusedView == self {
             coordinator.addCoordinatedFocusingAnimations({ (animationContext) in
                 // TODO: - Animate something
             }, completion: { [weak self] in
                 self?.addParallaxMotionEffect()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
-                    self?.showArtView()
+                    self?.showArtPiece()
                 })
             })
         }
         
         // Animates view's appearance to be not focused.
-        if let previouslyFocusedView = context.previouslyFocusedView as? FocusingView, previouslyFocusedView == self {
+        if let previouslyFocusedView = context.previouslyFocusedView as? ParralaxView, previouslyFocusedView == self {
             removeParallaxMotionEffect()
-            removeArtView()
+            removeArtPiece()
             
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animationContext) in
                 guard let self = self else {

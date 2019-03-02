@@ -1,5 +1,5 @@
 //
-//  FeaturedArtPieceViewController+UICollectionViewDelegate.swift
+//  FeaturedPieceViewController+UICollectionViewDelegate.swift
 //  Gallery iOS
 //
 //  Created by Kristina Gelzinyte on 7/25/18.
@@ -8,7 +8,7 @@
 
 import GalleryCore_tvOS
 
-extension FeaturedArtPieceViewController: UICollectionViewDelegate {
+extension FeaturedPieceViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegate implementation
     
@@ -35,42 +35,37 @@ extension FeaturedArtPieceViewController: UICollectionViewDelegate {
         
         // Animates selection of focused cells.
         // Doing it here because collection views use the same focused view but different scale coefficient.
-        if let nextFocusedView = context.nextFocusedView as? FocusingView {
+        if let nextFocusedView = context.nextFocusedView as? ParralaxView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
                 nextFocusedView.transformScale(to: 1.25)
             }, completion: nil)
         }
     }
-}
-
-extension FeaturedArtPieceViewController: UICollectionViewDataSource {
-
+    
     // MARK: - UICollectionViewDataSource implementation
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceViewCell.identifier, for: indexPath) as! ArtPieceViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PieceViewCell.identifier, for: indexPath) as! PieceViewCell
 
         cell.delegate = self
-        cell.contentViewEdgeInset = CGSize(width: view.frame.size.width * 120 / 1920,
-                                           height: view.frame.size.height * 70 / 1119)
+        
+        let horizontalInset = view.frame.size.width * 0.06
+        let verticalInset = view.frame.size.height * 0.06
+        cell.contentViewEdgeInset = UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
+        
         cell.artPiece = MasterList.shared.activePieces[indexPath.item]
         
         return cell
     }
-}
-
-extension FeaturedArtPieceViewController: UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegateFlowLayout implementation
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = view.frame.size.width * 1201 / 1920
-        let height = view.frame.size.height * 700 / 1119
-        return CGSize(width: width, height: height)
+        return CGSize(width: view.frame.size.width * 0.63, height: view.frame.size.height * 0.63)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let constant = (view.frame.size.width - (view.frame.size.width * 1200 / 1920)) / 2
+        let constant = view.frame.size.width * 0.19
         return UIEdgeInsets(top: 0, left: constant, bottom: 0, right: constant)
     }
 }

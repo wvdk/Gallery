@@ -1,5 +1,5 @@
 //
-//  ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift
+//  FeaturedPieceViewController+CollectionViewCellDelegate.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/3/18.
@@ -8,7 +8,7 @@
 
 import GalleryCore_tvOS
 
-extension GridArtPieceViewController: ArtPieceCollectionViewCellDelegate {
+extension FeaturedPieceViewController: PieceCollectionViewCellDelegate {
     
     // MARK: - CollectionViewCellDelegate implementation
     
