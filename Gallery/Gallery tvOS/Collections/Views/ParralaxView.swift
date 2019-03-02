@@ -30,7 +30,7 @@ class ParralaxView: UIView {
         }
     }
     
-    private var artPieceViewParralaxMotionEffect: UIMotionEffectGroup?
+    private var parralaxMotionEffect: UIMotionEffectGroup?
     
     private let containerView: UIView
     private let thumbnailView: UIImageView
@@ -197,11 +197,11 @@ class ParralaxView: UIView {
         yPan.minimumRelativeValue = -panValue
         yPan.maximumRelativeValue = panValue
         
-        if artPieceViewParralaxMotionEffect == nil {
-            artPieceViewParralaxMotionEffect = UIMotionEffectGroup()
+        if parralaxMotionEffect == nil {
+            parralaxMotionEffect = UIMotionEffectGroup()
         }
         
-        guard let parralaxMotionEffect = artPieceViewParralaxMotionEffect else { return }
+        guard let parralaxMotionEffect = parralaxMotionEffect else { return }
         parralaxMotionEffect.motionEffects = [xTilt, yTilt, xPan, yPan]
         
         addMotionEffect(parralaxMotionEffect)
@@ -209,9 +209,9 @@ class ParralaxView: UIView {
     
     /// Removes parallax motion effect from the `view`.
     private func removeParallaxMotionEffect() {
-        guard let artPieceViewParralaxMotionEffect = self.artPieceViewParralaxMotionEffect else { return }
-        removeMotionEffect(artPieceViewParralaxMotionEffect)
+        guard let parralaxMotionEffect = self.parralaxMotionEffect else { return }
+        removeMotionEffect(parralaxMotionEffect)
         
-        self.artPieceViewParralaxMotionEffect = nil
+        self.parralaxMotionEffect = nil
     }
 }

@@ -17,16 +17,16 @@ class MainViewController: UIViewController {
 
     // MARK: - Properties
     
-    var artPieceDisplayController: ArtPieceDisplayViewController?
+    var pieceDisplayController: PieceDisplayViewController?
     
     private let featuredPieceViewController = FeaturedPieceViewController()
-    private let gridArtPieceViewController = PieceViewController()
+    private let pieceViewController = PieceViewController()
     private let headerView = UIView()
 
     /// Focus guide to set preferred focus environment.
     ///
-    /// It is set to featured art piece collection view selected cell during transition from `artPieceCollectionGridViewController` to `featuredArtPieceCollectionViewController`.
-    private var gridArtPieceViewControllerFocusGuide = UIFocusGuide()
+    /// It is set to featured art piece collection view selected cell during transition from `pieceViewController` to `featuredPieceViewController`.
+    private var pieceViewControllerFocusGuide = UIFocusGuide()
     
     // MARK: - Lifecycle functions
 
@@ -60,13 +60,13 @@ class MainViewController: UIViewController {
         headerLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
         
         featuredPieceViewController.delegate = self
-        gridArtPieceViewController.delegate = self
+        pieceViewController.delegate = self
         
         addChild(featuredPieceViewController)
-        addChild(gridArtPieceViewController)
+        addChild(pieceViewController)
         
         view.addSubview(featuredPieceViewController.view)
-        view.addSubview(gridArtPieceViewController.view)
+        view.addSubview(pieceViewController.view)
       
         makeConstraints()
     }
@@ -74,7 +74,7 @@ class MainViewController: UIViewController {
     private func makeConstraints() {
         headerView.translatesAutoresizingMaskIntoConstraints = false
         featuredPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        gridArtPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        pieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
         headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -86,34 +86,34 @@ class MainViewController: UIViewController {
         featuredPieceViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         featuredPieceViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -140).isActive = true
         
-        gridArtPieceViewController.view.topAnchor.constraint(equalTo: featuredPieceViewController.view.bottomAnchor).isActive = true
-        gridArtPieceViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        gridArtPieceViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        gridArtPieceViewController.view.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        pieceViewController.view.topAnchor.constraint(equalTo: featuredPieceViewController.view.bottomAnchor).isActive = true
+        pieceViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        pieceViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        pieceViewController.view.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         
         featuredPieceViewController.didMove(toParent: self)
-        gridArtPieceViewController.didMove(toParent: self)
+        pieceViewController.didMove(toParent: self)
         
-        gridArtPieceViewController.view.addLayoutGuide(gridArtPieceViewControllerFocusGuide)
+        pieceViewController.view.addLayoutGuide(pieceViewControllerFocusGuide)
         
-        gridArtPieceViewControllerFocusGuide.topAnchor.constraint(equalTo: gridArtPieceViewController.view.topAnchor).isActive = true
-        gridArtPieceViewControllerFocusGuide.leadingAnchor.constraint(equalTo: gridArtPieceViewController.view.leadingAnchor).isActive = true
-        gridArtPieceViewControllerFocusGuide.trailingAnchor.constraint(equalTo: gridArtPieceViewController.view.trailingAnchor).isActive = true
-        gridArtPieceViewControllerFocusGuide.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        pieceViewControllerFocusGuide.topAnchor.constraint(equalTo: pieceViewController.view.topAnchor).isActive = true
+        pieceViewControllerFocusGuide.leadingAnchor.constraint(equalTo: pieceViewController.view.leadingAnchor).isActive = true
+        pieceViewControllerFocusGuide.trailingAnchor.constraint(equalTo: pieceViewController.view.trailingAnchor).isActive = true
+        pieceViewControllerFocusGuide.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     // MARK: - Animations
     
     private func slideContentUp() {
         featuredPieceViewController.view.transform = CGAffineTransform.identity
-        gridArtPieceViewController.view.transform = CGAffineTransform.identity
+        pieceViewController.view.transform = CGAffineTransform.identity
         headerView.transform = CGAffineTransform.identity
     }
     
     private func slideContentDown() {
         let translationY = featuredPieceViewController.view.bounds.size.height + 140
         featuredPieceViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
-        gridArtPieceViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
+        pieceViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
         headerView.transform = CGAffineTransform(translationX: 0, y: -translationY)
     }
     
@@ -122,20 +122,20 @@ class MainViewController: UIViewController {
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let nextFocusedView = context.nextFocusedView, let previouslyFocusedView = context.previouslyFocusedView else { return }
         
-        // Returns if previous and next focused views are in the same featuredArtPiecesViewController.
+        // Returns if previous and next focused views are in the same featuredPieceViewController.
         if featuredPieceViewController.contains(previouslyFocusedView), featuredPieceViewController.contains(nextFocusedView) {
             return
         }
         
-        // Returns if previous and next focused views are in the same notFeaturedArtPiecesViewController.
-        if gridArtPieceViewController.contains(previouslyFocusedView), gridArtPieceViewController.contains(nextFocusedView) {
+        // Returns if previous and next focused views are in the same pieceViewController.
+        if pieceViewController.contains(previouslyFocusedView), pieceViewController.contains(nextFocusedView) {
             return
         }
         
         // Animates translation transform between view controllers.
-        if gridArtPieceViewController.contains(previouslyFocusedView) {
+        if pieceViewController.contains(previouslyFocusedView) {
             // Sets preferred focus guide to default.
-            gridArtPieceViewControllerFocusGuide.preferredFocusEnvironments = []
+            pieceViewControllerFocusGuide.preferredFocusEnvironments = []
             
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
                 self?.slideContentUp()
@@ -145,9 +145,9 @@ class MainViewController: UIViewController {
         }
         
         // Animates translation transform between view controllers.
-        if featuredPieceViewController.contains(previouslyFocusedView), gridArtPieceViewController.contains(nextFocusedView) {
+        if featuredPieceViewController.contains(previouslyFocusedView), pieceViewController.contains(nextFocusedView) {
             // Sets preferred focus guide to `previouslyFocusedView`, so coming back to controller would focus last selected item.
-            gridArtPieceViewControllerFocusGuide.preferredFocusEnvironments = [previouslyFocusedView]
+            pieceViewControllerFocusGuide.preferredFocusEnvironments = [previouslyFocusedView]
             
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
                 self?.slideContentDown()

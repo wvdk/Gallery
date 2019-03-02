@@ -1,5 +1,5 @@
 //
-//  ArtPieceCollectionGridViewController+CollectionViewCellDelegate.swift
+//  PieceViewController+Cell.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/3/18.
@@ -12,7 +12,7 @@ extension PieceViewController: PieceCollectionViewCellDelegate {
     
     // MARK: - CollectionViewCellDelegate implementation
     
-    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: PieceMetadata) {
-        delegate?.artPieceViewControllerDelegate(self, didSelectOpenArtPiece: didSelectOpenArtPiece)
+    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenPiece: PieceMetadata) {
+        delegate?.pieceViewControllerDelegate(self, didSelectOpenPiece: didSelectOpenPiece)
     }
 }

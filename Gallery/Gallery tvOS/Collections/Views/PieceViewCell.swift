@@ -19,8 +19,8 @@ protocol PieceCollectionViewCellDelegate: class {
     ///
     /// - Parameters:
     ///     - cell: An item informing the delegate about the selected art piece.
-    ///     - didSelectOpenArtPiece: A selected to open art piece metadata.
-    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenArtPiece: PieceMetadata)
+    ///     - didSelectOpenPiece: A selected to open art piece metadata.
+    func collectionViewCell(_ cell: UICollectionViewCell, didSelectOpenPiece: PieceMetadata)
 }
 
 /// A subclass of `UICollectionViewCell` which contains:
@@ -35,7 +35,7 @@ class PieceViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    static let identifier = "FeaturedArtPieceCollectionViewCellIdentifier"
+    static let identifier = "FeaturedPieceCellIdentifier"
     
     /// The object that acts as the delegate of the `CollectionViewCellDelegate`.
     weak var delegate: PieceCollectionViewCellDelegate?
@@ -43,9 +43,9 @@ class PieceViewCell: UICollectionViewCell {
     var showPreviewOnFocus = true
     
     /// Metadata of art piece presented by cell.
-    var artPiece: PieceMetadata? = nil {
+    var pieceMetadata: PieceMetadata? = nil {
         didSet {
-            guard let piece = artPiece else { return }
+            guard let piece = pieceMetadata else { return }
             focusingView.thumbnail = piece.thumbnail
             
             if showPreviewOnFocus {
@@ -76,8 +76,8 @@ class PieceViewCell: UICollectionViewCell {
                 NSNumber(value: UIPress.PressType.select.rawValue)
             ]
             
-            if let self = self, let artPiece = self.artPiece {
-                self.delegate?.collectionViewCell(self, didSelectOpenArtPiece: artPiece)
+            if let self = self, let metadata = self.pieceMetadata {
+                self.delegate?.collectionViewCell(self, didSelectOpenPiece: metadata)
             }
         }
     }

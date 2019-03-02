@@ -53,7 +53,7 @@ extension FeaturedPieceViewController: UICollectionViewDelegate, UICollectionVie
         let verticalInset = view.frame.size.height * 0.06
         cell.contentViewEdgeInset = UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
         
-        cell.artPiece = MasterList.shared.activePieces[indexPath.item]
+        cell.pieceMetadata = MasterList.shared.activePieces[indexPath.item]
         
         return cell
     }

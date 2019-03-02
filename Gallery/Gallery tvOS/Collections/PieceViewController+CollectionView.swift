@@ -46,7 +46,7 @@ extension PieceViewController: UICollectionViewDelegate, UICollectionViewDataSou
         cell.contentViewEdgeInset = UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
         
         cell.showPreviewOnFocus = false
-        cell.artPiece = MasterList.shared.activePieces[indexPath.item]
+        cell.pieceMetadata = MasterList.shared.activePieces[indexPath.item]
         
         return cell
     }

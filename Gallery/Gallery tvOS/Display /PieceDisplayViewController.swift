@@ -1,5 +1,5 @@
 //
-//  ArtPieceDisplayViewController.swift
+//  PieceDisplayViewController.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/3/18.
@@ -10,26 +10,26 @@ import GalleryCore_tvOS
 
 /// The object that acts as the delegate of the art piece view display controller.
 ///
-/// The delegate must adopt the ArtPieceDisplayViewControllerDelegate protocol.
+/// The delegate must adopt the PieceDisplayViewControllerDelegate protocol.
 ///
 /// The delegate object is responsible for managing view controller appearance.
-protocol ArtPieceDisplayViewControllerDelegate: class {
+protocol PieceDisplayViewControllerDelegate: class {
     
     /// Tells the delegate that an art piece view controller was selected to be closed.
     ///
     /// - Parameters:
     ///     - viewController: An object informing the delegate about the closing.
-    func artPieceDisplayViewControllerDidSelectClose(_ viewController: ArtPieceDisplayViewController)
+    func pieceDisplayViewControllerDidSelectClose(_ viewController: PieceDisplayViewController)
 }
 
 /// A subclass of `UIViewController`, which displays single art piece view `UIView` in full screen mode.
-class ArtPieceDisplayViewController: UIViewController {
+class PieceDisplayViewController: UIViewController {
     
     // MARK: - Properties
     
-    weak var delegate: ArtPieceDisplayViewControllerDelegate?
+    weak var delegate: PieceDisplayViewControllerDelegate?
     
-    private var artPieceMetadata: PieceMetadata
+    private var pieceMetadata: PieceMetadata
     
     // MARK: - Initalization
     
@@ -40,7 +40,7 @@ class ArtPieceDisplayViewController: UIViewController {
     ///
     /// - Returns: `UIViewController` with child view of art piece.
     init(artMetadata: PieceMetadata) {
-        self.artPieceMetadata = artMetadata
+        self.pieceMetadata = artMetadata
         
         super.init(nibName: nil, bundle: nil)
         
@@ -57,7 +57,7 @@ class ArtPieceDisplayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let artView = artPieceMetadata.viewType.init(frame: view.bounds)
+        let artView = pieceMetadata.viewType.init(frame: view.bounds)
         view.addSubview(artView)
         artView.constraint(edgesTo: view)
         
@@ -69,6 +69,6 @@ class ArtPieceDisplayViewController: UIViewController {
     // MARK: - Actions
 
     @objc private func closeAction(_ sender: UIButton) {
-        delegate?.artPieceDisplayViewControllerDidSelectClose(self)
+        delegate?.pieceDisplayViewControllerDidSelectClose(self)
     }
 }

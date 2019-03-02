@@ -10,7 +10,7 @@
 		890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */; };
 		89127CE52126284600208DCA /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
 		89127CE62126284600208DCA /* ArtKit_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		89127CEA2126353D00208DCA /* MainViewController+ArtPieceDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89127CE92126353D00208DCA /* MainViewController+ArtPieceDisplay.swift */; };
+		89127CEA2126353D00208DCA /* MainViewController+PieceDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89127CE92126353D00208DCA /* MainViewController+PieceDisplay.swift */; };
 		89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89134E1520E80C1300772E7F /* AppDelegate.swift */; };
 		89134E1D20E80C1500772E7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89134E1C20E80C1500772E7F /* Assets.xcassets */; };
 		891549CC21121CFC0041FE8A /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549CB21121CFC0041FE8A /* UICollectionView+Extension.swift */; };
@@ -25,9 +25,9 @@
 		891549EF2114E8F50041FE8A /* ArtPieceThumbails.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */; };
 		891549F121150AF80041FE8A /* FeaturedPieceViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F021150AF80041FE8A /* FeaturedPieceViewController+Cell.swift */; };
 		891549F521150BE00041FE8A /* PieceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F421150BE00041FE8A /* PieceViewControllerDelegate.swift */; };
-		891549F721150D4C0041FE8A /* MainViewController+ArtPieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* MainViewController+ArtPieceViewController.swift */; };
+		891549F721150D4C0041FE8A /* MainViewController+PieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F621150D4C0041FE8A /* MainViewController+PieceViewController.swift */; };
 		891549F921150DD40041FE8A /* PieceViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549F821150DD40041FE8A /* PieceViewController+Cell.swift */; };
-		891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */; };
+		891549FC211513CF0041FE8A /* PieceDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891549FB211513CF0041FE8A /* PieceDisplayViewController.swift */; };
 		8916D210215DACB3007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
 		8916D211215DACB4007816C6 /* KGConvexHullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */; };
 		8916D212215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */; };
@@ -236,7 +236,7 @@
 
 /* Begin PBXFileReference section */
 		890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailDismissAnimationController.swift; sourceTree = "<group>"; };
-		89127CE92126353D00208DCA /* MainViewController+ArtPieceDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+ArtPieceDisplay.swift"; sourceTree = "<group>"; };
+		89127CE92126353D00208DCA /* MainViewController+PieceDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+PieceDisplay.swift"; sourceTree = "<group>"; };
 		89134E1320E80C1300772E7F /* Gallery tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gallery tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89134E1520E80C1300772E7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89134E1C20E80C1500772E7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -248,9 +248,9 @@
 		891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ArtPieceThumbails.xcassets; sourceTree = "<group>"; };
 		891549F021150AF80041FE8A /* FeaturedPieceViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedPieceViewController+Cell.swift"; sourceTree = "<group>"; };
 		891549F421150BE00041FE8A /* PieceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceViewControllerDelegate.swift; sourceTree = "<group>"; };
-		891549F621150D4C0041FE8A /* MainViewController+ArtPieceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+ArtPieceViewController.swift"; sourceTree = "<group>"; };
+		891549F621150D4C0041FE8A /* MainViewController+PieceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+PieceViewController.swift"; sourceTree = "<group>"; };
 		891549F821150DD40041FE8A /* PieceViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PieceViewController+Cell.swift"; sourceTree = "<group>"; };
-		891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDisplayViewController.swift; sourceTree = "<group>"; };
+		891549FB211513CF0041FE8A /* PieceDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceDisplayViewController.swift; sourceTree = "<group>"; };
 		8916D1F7215DA7CE007816C6 /* KGConvexHullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHullView.swift; sourceTree = "<group>"; };
 		8916D1FE215DA8DC007816C6 /* KGConvexHullScanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHullScanController.swift; sourceTree = "<group>"; };
 		8916D201215DA96C007816C6 /* KGConvexHullScanAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGConvexHullScanAlgorithm.swift; sourceTree = "<group>"; };
@@ -398,8 +398,8 @@
 			children = (
 				89134E1520E80C1300772E7F /* AppDelegate.swift */,
 				891549CE2112652E0041FE8A /* MainViewController.swift */,
-				891549F621150D4C0041FE8A /* MainViewController+ArtPieceViewController.swift */,
-				89127CE92126353D00208DCA /* MainViewController+ArtPieceDisplay.swift */,
+				891549F621150D4C0041FE8A /* MainViewController+PieceViewController.swift */,
+				89127CE92126353D00208DCA /* MainViewController+PieceDisplay.swift */,
 				899791A8222A8D3F00631BF9 /* Display  */,
 				891549E02113ADF20041FE8A /* Collections */,
 				89134E1C20E80C1500772E7F /* Assets.xcassets */,
@@ -440,7 +440,7 @@
 		899791A8222A8D3F00631BF9 /* Display  */ = {
 			isa = PBXGroup;
 			children = (
-				891549FB211513CF0041FE8A /* ArtPieceDisplayViewController.swift */,
+				891549FB211513CF0041FE8A /* PieceDisplayViewController.swift */,
 			);
 			path = "Display ";
 			sourceTree = "<group>";
@@ -965,15 +965,15 @@
 			files = (
 				89134E1620E80C1300772E7F /* AppDelegate.swift in Sources */,
 				891549F521150BE00041FE8A /* PieceViewControllerDelegate.swift in Sources */,
-				891549F721150D4C0041FE8A /* MainViewController+ArtPieceViewController.swift in Sources */,
+				891549F721150D4C0041FE8A /* MainViewController+PieceViewController.swift in Sources */,
 				891549D3211267710041FE8A /* MainViewController.swift in Sources */,
 				891549F921150DD40041FE8A /* PieceViewController+Cell.swift in Sources */,
 				891549F121150AF80041FE8A /* FeaturedPieceViewController+Cell.swift in Sources */,
 				891549D2211267690041FE8A /* FeaturedPieceViewController.swift in Sources */,
 				891549D5211276820041FE8A /* PieceViewController.swift in Sources */,
 				89DEC6C0210BA210009858CC /* ParralaxView.swift in Sources */,
-				891549FC211513CF0041FE8A /* ArtPieceDisplayViewController.swift in Sources */,
-				89127CEA2126353D00208DCA /* MainViewController+ArtPieceDisplay.swift in Sources */,
+				891549FC211513CF0041FE8A /* PieceDisplayViewController.swift in Sources */,
+				89127CEA2126353D00208DCA /* MainViewController+PieceDisplay.swift in Sources */,
 				891549D7211283250041FE8A /* PieceViewController+CollectionView.swift in Sources */,
 				89DEC6B6210933DB009858CC /* PieceViewCell.swift in Sources */,
 				89DEC69621091C2B009858CC /* FeaturedPieceViewController+CollectionView.swift in Sources */,
