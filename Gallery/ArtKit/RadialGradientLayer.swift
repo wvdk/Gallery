@@ -55,7 +55,9 @@ public class RadialGradientLayer: CALayer {
     override public func draw(in ctx: CGContext) {
         ctx.saveGState()
         
-        guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: locations) else { return }
+        guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: locations) else {
+            return
+        }
         
         ctx.drawRadialGradient(gradient,
                                startCenter: startCenter,

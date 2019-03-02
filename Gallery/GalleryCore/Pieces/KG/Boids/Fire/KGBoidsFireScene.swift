@@ -105,7 +105,9 @@ class KGBoidsFireScene: SKScene {
     }
     
     private func updateBoidsPositionIfOutOfConfinementFrame(for node: KGBoidNode) {
-        guard node.canUpdatePosition, !node.isNodeInConfinementFrame, let confinementFrame = node.confinementFrame else { return }
+        guard node.canUpdatePosition, !node.isNodeInConfinementFrame, let confinementFrame = node.confinementFrame else {
+            return
+        }
         
         let min = confinementFrame.origin.x + confinementFrame.size.width / 2 - confinementFrame.size.width * 100 / 1920
         let max = confinementFrame.origin.x + confinementFrame.size.width / 2 + confinementFrame.size.width * 100 / 1920

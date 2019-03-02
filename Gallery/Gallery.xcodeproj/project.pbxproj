@@ -411,13 +411,13 @@
 		891549E02113ADF20041FE8A /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				891549F421150BE00041FE8A /* PieceViewControllerDelegate.swift */,
 				89278ED5211115F900CEEB3C /* FeaturedPieceViewController.swift */,
 				89DEC69421091C25009858CC /* FeaturedPieceViewController+CollectionView.swift */,
 				891549F021150AF80041FE8A /* FeaturedPieceViewController+Cell.swift */,
 				891549D4211276820041FE8A /* PieceViewController.swift */,
 				891549D6211283250041FE8A /* PieceViewController+CollectionView.swift */,
 				891549F821150DD40041FE8A /* PieceViewController+Cell.swift */,
-				891549F421150BE00041FE8A /* PieceViewControllerDelegate.swift */,
 				899791A9222A8D6200631BF9 /* Views */,
 			);
 			path = Collections;

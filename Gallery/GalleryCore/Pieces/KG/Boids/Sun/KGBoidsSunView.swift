@@ -39,7 +39,10 @@ class KGBoidsSunView: UIView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        guard newSuperview != nil else { return }
+        guard newSuperview != nil else {
+            return
+        }
+        
         spriteKitView.presentScene(scene)
     }
 }

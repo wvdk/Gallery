@@ -113,7 +113,9 @@ class ParralaxView: UIView {
     
     /// Adds a specified `UIView` view to the end of the receiver’s list of subviews.
     func showArtPiece() {        
-        guard isFocused, let artViewType = self.artViewType else { return }
+        guard isFocused, let artViewType = self.artViewType else {
+            return
+        }
 
         let artView = artViewType.init(frame: bounds)
         artView.alpha = 0
@@ -201,7 +203,10 @@ class ParralaxView: UIView {
             parralaxMotionEffect = UIMotionEffectGroup()
         }
         
-        guard let parralaxMotionEffect = parralaxMotionEffect else { return }
+        guard let parralaxMotionEffect = parralaxMotionEffect else {
+            return
+        }
+        
         parralaxMotionEffect.motionEffects = [xTilt, yTilt, xPan, yPan]
         
         addMotionEffect(parralaxMotionEffect)
@@ -209,7 +214,10 @@ class ParralaxView: UIView {
     
     /// Removes parallax motion effect from the `view`.
     private func removeParallaxMotionEffect() {
-        guard let parralaxMotionEffect = self.parralaxMotionEffect else { return }
+        guard let parralaxMotionEffect = self.parralaxMotionEffect else {
+            return
+        }
+        
         removeMotionEffect(parralaxMotionEffect)
         
         self.parralaxMotionEffect = nil

@@ -45,7 +45,10 @@ class PieceViewCell: UICollectionViewCell {
     /// Metadata of art piece presented by cell.
     var pieceMetadata: PieceMetadata? = nil {
         didSet {
-            guard let piece = pieceMetadata else { return }
+            guard let piece = pieceMetadata else {
+                return
+            }
+            
             focusingView.thumbnail = piece.thumbnail
             
             if showPreviewOnFocus {

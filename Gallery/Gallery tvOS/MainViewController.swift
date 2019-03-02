@@ -120,7 +120,9 @@ class MainViewController: UIViewController {
     // MARK: - UIFocusEnvironment update
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        guard let nextFocusedView = context.nextFocusedView, let previouslyFocusedView = context.previouslyFocusedView else { return }
+        guard let nextFocusedView = context.nextFocusedView, let previouslyFocusedView = context.previouslyFocusedView else {
+            return
+        }
         
         // Returns if previous and next focused views are in the same featuredPieceViewController.
         if featuredPieceViewController.contains(previouslyFocusedView), featuredPieceViewController.contains(nextFocusedView) {

@@ -19,7 +19,10 @@ extension MainViewController: PieceViewControllerDelegate {
             pieceDisplayController = PieceDisplayViewController(artMetadata: didSelectOpenPiece)
         }
         
-        guard let pieceDisplayController = self.pieceDisplayController else { return }
+        guard let pieceDisplayController = self.pieceDisplayController else {
+            return
+        }
+        
         pieceDisplayController.delegate = self
         present(pieceDisplayController, animated: true, completion: nil)
     }

@@ -73,7 +73,10 @@ class KGBoidNode: SKShapeNode {
     
     private var neighbourhoodBoidCount = 0 {
         didSet {
-            guard neighbourhoodBoidCount > 0, neighbourhoodBoidCount != oldValue else { return }
+            guard neighbourhoodBoidCount > 0, neighbourhoodBoidCount != oldValue else {
+                return
+            }
+            
             setPropertyAlpha(for: neighbourhoodBoidCount)
         }
     }
