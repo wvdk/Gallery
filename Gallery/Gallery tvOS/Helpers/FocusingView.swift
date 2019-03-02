@@ -32,9 +32,11 @@ class FocusingView: UIView {
     
     private var artPieceViewParralaxMotionEffect: UIMotionEffectGroup?
     
-    private let containerView = UIView()
-    private let thumbnailView = UIImageView()
-    private var innerShadowView: UIView?
+    private let containerView: UIView
+    private let thumbnailView: UIImageView
+    private let innerShadowView: UIView
+    private let shadowLayer: CAShapeLayer
+
     private var artView: UIView?
 
     // MARK: - UIView properties
@@ -46,6 +48,11 @@ class FocusingView: UIView {
     // MARK: - Initialization
     
     override init(frame: CGRect) {
+        containerView = UIView()
+        thumbnailView = UIImageView()
+        innerShadowView = UIView()
+        shadowLayer = CAShapeLayer()
+        
         super.init(frame: frame)
         
         isUserInteractionEnabled = true
@@ -59,8 +66,17 @@ class FocusingView: UIView {
         
         containerView.clipsToBounds = true
         
+        shadowLayer.fillRule = CAShapeLayerFillRule.evenOdd
+        shadowLayer.shadowColor = UIColor.black.cgColor
+        shadowLayer.shadowRadius = 4
+        shadowLayer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        shadowLayer.shadowOpacity = 0.26
+        
+        innerShadowView.layer.addSublayer(shadowLayer)
+        
         addSubview(containerView)
         containerView.addSubview(thumbnailView)
+        containerView.addSubview(innerShadowView)
 
         containerView.constraint(edgesTo: self)
         thumbnailView.constraint(edgesTo: self)
@@ -81,12 +97,16 @@ class FocusingView: UIView {
         maskLayer.path = path
         
         containerView.layer.mask = maskLayer
+
+        let innerFrame = bounds.insetBy(dx: -4 * 2.0, dy: -4 * 2.0)
+        let outerFrame = bounds
+        let shadowPath = CGMutablePath()
         
-        if innerShadowView == nil {
-            innerShadowView = UIView(frame: bounds)
-            innerShadowView?.addInnerShadow(color: .black, opacity: 0.26, radius: 4)
-            containerView.addSubview(innerShadowView!)
-        }
+        shadowPath.addRect(innerFrame)
+        shadowPath.addRect(outerFrame)
+        
+        shadowLayer.frame = bounds
+        shadowLayer.path = shadowPath
     }
     
     // MARK: - Subview management
@@ -98,11 +118,7 @@ class FocusingView: UIView {
         let artView = artViewType.init(frame: bounds)
         artView.alpha = 0
 
-        if let shadowView = innerShadowView {
-            containerView.insertSubview(artView, belowSubview: shadowView)
-        } else {
-            containerView.addSubview(artView)
-        }
+        containerView.insertSubview(artView, belowSubview: innerShadowView)
         artView.constraint(edgesTo: containerView)
 
         UIView.animate(withDuration: 0.2) {
