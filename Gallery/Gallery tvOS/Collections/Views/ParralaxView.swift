@@ -39,6 +39,10 @@ class ParralaxView: UIView {
 
     private var artView: UIView?
 
+    private var borderColor: CGColor {
+        return isFocused ? UIColor.white.cgColor : UIColor.white.withAlphaComponent(0.6).cgColor
+    }
+    
     // MARK: - UIView properties
     
     override var canBecomeFocused: Bool {
@@ -59,7 +63,7 @@ class ParralaxView: UIView {
         
         layer.cornerRadius = 8
         layer.borderWidth = 4
-        layer.borderColor = UIColor.white.cgColor
+        layer.borderColor = borderColor
         layer.shadowOpacity = 0.26
         layer.shadowRadius = 15
         layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -145,10 +149,15 @@ class ParralaxView: UIView {
             coordinator.addCoordinatedFocusingAnimations({ (animationContext) in
                 // TODO: - Animate something
             }, completion: { [weak self] in
-                self?.addParallaxMotionEffect()
+                guard let self = self else {
+                    return
+                }
                 
+                self.addParallaxMotionEffect()
+                self.layer.borderColor = self.borderColor
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
-                    self?.showArtPiece()
+                    self.showArtPiece()
                 })
             })
         }
@@ -165,6 +174,7 @@ class ParralaxView: UIView {
 
                 UIView.animate(withDuration: animationContext.duration * 0.5, delay: 0, options: .curveEaseOut, animations: {
                     self.transform = CGAffineTransform.identity
+                    self.layer.borderColor = self.borderColor
                 })
                 
             }, completion: nil)
