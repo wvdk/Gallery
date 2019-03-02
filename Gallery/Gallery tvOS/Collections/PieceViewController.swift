@@ -20,7 +20,7 @@ class PieceViewController: UIViewController {
     private var gridCollectionView: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = view.frame.size.width * 0.0188
         layout.minimumInteritemSpacing = 0
         
         let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)

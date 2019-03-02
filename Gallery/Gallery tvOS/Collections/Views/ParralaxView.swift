@@ -40,7 +40,7 @@ class ParralaxView: UIView {
     private var artView: UIView?
 
     private var borderColor: CGColor {
-        return isFocused ? UIColor.white.cgColor : UIColor.white.withAlphaComponent(0.6).cgColor
+        return isFocused ? UIColor.white.cgColor : UIColor.white.withAlphaComponent(0.7).cgColor
     }
     
     // MARK: - UIView properties
