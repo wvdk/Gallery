@@ -43,6 +43,14 @@ class ParralaxView: UIView {
         return isFocused ? UIColor.white.cgColor : UIColor.white.withAlphaComponent(0.7).cgColor
     }
     
+    private var shadowOpacity: Float {
+        return isFocused ? 0.5 : 0.25
+    }
+    
+    private var shadowOffset: CGSize {
+        return isFocused ? CGSize(width: 0, height: 10) : CGSize(width: 0, height: 0)
+    }
+    
     // MARK: - UIView properties
     
     override var canBecomeFocused: Bool {
@@ -63,10 +71,7 @@ class ParralaxView: UIView {
         
         layer.cornerRadius = 8
         layer.borderWidth = 4
-        layer.borderColor = borderColor
-        layer.shadowOpacity = 0.26
         layer.shadowRadius = 15
-        layer.shadowOffset = CGSize(width: 0, height: 0)
         
         containerView.clipsToBounds = true
         
@@ -84,6 +89,8 @@ class ParralaxView: UIView {
 
         containerView.constraint(edgesTo: self)
         thumbnailView.constraint(edgesTo: self)
+        
+        updateUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -113,10 +120,18 @@ class ParralaxView: UIView {
         shadowLayer.path = shadowPath
     }
     
+    // MARK: - Appearance
+    
+    private func updateUI() {
+        self.layer.borderColor = self.borderColor
+        self.layer.shadowOpacity = self.shadowOpacity
+        self.layer.shadowOffset = self.shadowOffset
+    }
+    
     // MARK: - Subview management
     
     /// Adds a specified `UIView` view to the end of the receiver’s list of subviews.
-    func showArtPiece() {        
+    private func showArtPiece() {
         guard isFocused, let artViewType = self.artViewType else {
             return
         }
@@ -135,7 +150,7 @@ class ParralaxView: UIView {
     }
     
     /// Fades out and removes a `UIView` type views from the receiver’s list of subviews.
-    func removeArtPiece() {
+    private func removeArtPiece() {
         artView?.removeFromSuperview()
         artView = nil
     }
@@ -154,7 +169,7 @@ class ParralaxView: UIView {
                 }
                 
                 self.addParallaxMotionEffect()
-                self.layer.borderColor = self.borderColor
+                self.updateUI()
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
                     self.showArtPiece()
@@ -174,7 +189,7 @@ class ParralaxView: UIView {
 
                 UIView.animate(withDuration: animationContext.duration * 0.5, delay: 0, options: .curveEaseOut, animations: {
                     self.transform = CGAffineTransform.identity
-                    self.layer.borderColor = self.borderColor
+                    self.updateUI()
                 })
                 
             }, completion: nil)
@@ -223,7 +238,6 @@ class ParralaxView: UIView {
         }
         
         parralaxMotionEffect.motionEffects = [xTilt, yTilt, xPan, yPan]
-        
         addMotionEffect(parralaxMotionEffect)
     }
     
@@ -234,7 +248,6 @@ class ParralaxView: UIView {
         }
         
         removeMotionEffect(parralaxMotionEffect)
-        
         self.parralaxMotionEffect = nil
     }
 }
