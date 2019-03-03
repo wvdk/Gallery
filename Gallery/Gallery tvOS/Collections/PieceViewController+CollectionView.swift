@@ -60,6 +60,6 @@ extension PieceViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let constant = view.frame.size.width * 0.03
-        return UIEdgeInsets(top: 0, left: constant, bottom: 0, right: constant)
+        return UIEdgeInsets(top: -view.frame.size.width * 0.02, left: constant, bottom: 0, right: constant)
     }
 }

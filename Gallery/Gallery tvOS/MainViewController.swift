@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
     private let pieceViewController = PieceViewController()
     private let headerView = UIView()
     private let backgroundView = UIView()
+    private let bottomBackgroundView = UIView()
 
     /// Focus guide to set preferred focus environment.
     ///
@@ -47,6 +48,9 @@ class MainViewController: UIViewController {
         
         backgroundView.layer.addSublayer(topLayer)
         
+        bottomBackgroundView.layer.cornerRadius = 10
+        bottomBackgroundView.layer.backgroundColor = UIColor.white.withAlphaComponent(0.25).cgColor
+        
         let headerLabel = UILabel()
         headerLabel.font = UIFont.systemFont(ofSize: 40)
         headerLabel.textColor = UIColor.white
@@ -56,6 +60,8 @@ class MainViewController: UIViewController {
         
         view.addSubview(backgroundView)
         view.addSubview(headerView)
+        
+        backgroundView.addSubview(bottomBackgroundView)
         headerView.addSubview(headerLabel)
         
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -76,6 +82,7 @@ class MainViewController: UIViewController {
     
     private func makeConstraints() {
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        bottomBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         headerView.translatesAutoresizingMaskIntoConstraints = false
         featuredPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
         pieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -101,6 +108,8 @@ class MainViewController: UIViewController {
         pieceViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         pieceViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         pieceViewController.view.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        
+        bottomBackgroundView.constraint(edgesTo: pieceViewController.view, constant: 0.019 * view.frame.size.width)
         
         featuredPieceViewController.didMove(toParent: self)
         pieceViewController.didMove(toParent: self)
@@ -154,7 +163,12 @@ class MainViewController: UIViewController {
             
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
                 self?.slideContentUp()
-                }, completion: nil)
+                
+                UIView.animate(withDuration: animator.duration / 4, animations: {
+                    self?.bottomBackgroundView.transform = .identity
+                    self?.bottomBackgroundView.alpha = 1
+                })
+            }, completion: nil)
             
             return
         }
@@ -166,7 +180,12 @@ class MainViewController: UIViewController {
             
             coordinator.addCoordinatedUnfocusingAnimations({ [weak self] (animator) in
                 self?.slideContentDown()
-                }, completion: nil)
+                
+                UIView.animate(withDuration: animator.duration / 8, animations: {
+                    self?.bottomBackgroundView.transform = CGAffineTransform(scaleX: 1, y: 0)
+                    self?.bottomBackgroundView.alpha = 0
+                })
+            }, completion: nil)
             
             return
         }
