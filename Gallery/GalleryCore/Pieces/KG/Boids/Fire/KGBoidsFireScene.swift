@@ -57,14 +57,14 @@ class KGBoidsFireScene: SKScene {
     
     func setupBoids() {
         let confinementFrame = CGRect(origin: .zero, size: size)
-        let boidsLength = size.width * 10 / 1920
+        let boidsLength = size.width * 0.005
         let lineBoidPath = KGBoidShapes.line.cgPathRepresentative(length: boidsLength)
         let properties: [KGBoidProperties] = [.leavesTranceBoidAtDistance(boidsLength), .fillColor(.white), .confinementFrame(confinementFrame), .upDirection]
         
         let boidNode = KGBoidNode(from: lineBoidPath, properties: properties)
         boidNode.zPosition = 10
-        let initialWidth = 800 / 1920 * size.width
-        let initialHeight = 400 / 1080 * size.width
+        let initialWidth = 0.417 * size.width
+        let initialHeight = 0.37 * size.width
         let initialConfinementFrame = CGRect(x: size.width / 2 - initialWidth / 2, y: 0, width: initialWidth, height: initialHeight)
         
         for _ in 0...60 {
@@ -109,8 +109,8 @@ class KGBoidsFireScene: SKScene {
             return
         }
         
-        let min = confinementFrame.origin.x + confinementFrame.size.width / 2 - confinementFrame.size.width * 100 / 1920
-        let max = confinementFrame.origin.x + confinementFrame.size.width / 2 + confinementFrame.size.width * 100 / 1920
+        let min = confinementFrame.origin.x + confinementFrame.size.width / 2 - confinementFrame.size.width * 0.052
+        let max = confinementFrame.origin.x + confinementFrame.size.width / 2 + confinementFrame.size.width * 0.052
         let newPosition = CGPoint(x: CGFloat.random(in: min...max), y: confinementFrame.origin.y + 5)
         
         node.setProperty(position: newPosition)

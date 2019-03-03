@@ -23,9 +23,9 @@ class KGBoidsSunScene: SKScene {
         self.size = view.superview?.frame.size ?? UIScreen.main.nativeBounds.size
         self.backgroundColor = UIColor(r: 93, g: 0, b: 0)
         
-        let boidsLength = size.width * 7 / 1920
-        let sizeWidth = size.height / 2
-        let sizeHeight = size.height / 2
+        let boidsLength = size.width * 0.0036
+        let sizeWidth = size.height * 0.5
+        let sizeHeight = size.height * 0.5
         let confinementFrame = CGRect(origin: CGPoint(x: size.width / 2 - sizeWidth / 2, y: size.height / 2 - sizeHeight / 2),
                                       size: CGSize(width: sizeWidth, height: sizeHeight))
         
@@ -129,7 +129,7 @@ class KGBoidsSunScene: SKScene {
     }
     
     private func setupRectangularObstacleNodes(for frame: CGRect) {
-        let frameThinkness: CGFloat = size.width * 40 / 1920
+        let frameThinkness: CGFloat = size.width * 0.021
         
         let leftFrame = CGRect(x: frame.origin.x,
                                y: frame.origin.y,
