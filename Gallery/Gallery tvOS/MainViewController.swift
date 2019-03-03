@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
     private let featuredPieceViewController = FeaturedPieceViewController()
     private let pieceViewController = PieceViewController()
     private let headerView = UIView()
+    private let backgroundView = UIView()
 
     /// Focus guide to set preferred focus environment.
     ///
@@ -36,15 +37,15 @@ class MainViewController: UIViewController {
         view.backgroundColor = UIColor(r: 8, g: 127, b: 255)
         
         let center = CGPoint(x: 0.84 * view.bounds.width, y: -0.03 * view.bounds.height)
-        let radius = sqrt(pow(view.bounds.size.height, 2) + pow(view.bounds.size.width, 2))
+        let radius = sqrt(pow(view.bounds.size.height * 2, 2) + pow(view.bounds.size.width, 2))
         let colors = [UIColor(r: 0, g: 31, b: 65, alpha: 1).cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
-        let locations: [CGFloat] = [0, 0.6, 1]
+        let locations: [CGFloat] = [0, 0.3, 1]
         
-        let gradientLayer = RadialGradientLayer(startCenter: center, endCenter: center, startRadius: 0, endRadius: radius, colors: colors, locations: locations)
-        gradientLayer.frame = view.bounds
-        gradientLayer.opacity = 0.7
+        let topLayer = RadialGradientLayer(startCenter: center, endCenter: center, startRadius: 0, endRadius: radius, colors: colors, locations: locations)
+        topLayer.frame = CGRect(origin: view.frame.origin, size: CGSize(width: view.bounds.size.width, height: view.bounds.size.height * 2))
+        topLayer.opacity = 0.7
         
-        view.layer.addSublayer(gradientLayer)
+        backgroundView.layer.addSublayer(topLayer)
         
         let headerLabel = UILabel()
         headerLabel.font = UIFont.systemFont(ofSize: 40)
@@ -53,11 +54,13 @@ class MainViewController: UIViewController {
         headerLabel.shadowColor = UIColor(r: 0, g: 0, b: 0, alpha: 0.2)
         headerLabel.text = "Gallery of Generative Art"
         
+        view.addSubview(backgroundView)
         view.addSubview(headerView)
         headerView.addSubview(headerLabel)
+        
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         headerLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
-        headerLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -view.frame.size.height * 50 / 1119).isActive = true
+        headerLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -view.frame.size.height * 0.045).isActive = true
         
         featuredPieceViewController.delegate = self
         pieceViewController.delegate = self
@@ -72,10 +75,11 @@ class MainViewController: UIViewController {
     }
     
     private func makeConstraints() {
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
         headerView.translatesAutoresizingMaskIntoConstraints = false
         featuredPieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
         pieceViewController.view.translatesAutoresizingMaskIntoConstraints = false
-
+        
         let verticalEdgeInset = 0.13 * view.frame.size.height
         
         headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -88,6 +92,11 @@ class MainViewController: UIViewController {
         featuredPieceViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         featuredPieceViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -verticalEdgeInset).isActive = true
         
+        backgroundView.topAnchor.constraint(equalTo: headerView.topAnchor).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: pieceViewController.view.bottomAnchor).isActive = true
+        backgroundView.leadingAnchor.constraint(equalTo: featuredPieceViewController.view.leadingAnchor).isActive = true
+        backgroundView.trailingAnchor.constraint(equalTo: featuredPieceViewController.view.trailingAnchor).isActive = true
+
         pieceViewController.view.topAnchor.constraint(equalTo: featuredPieceViewController.view.bottomAnchor).isActive = true
         pieceViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         pieceViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -107,9 +116,10 @@ class MainViewController: UIViewController {
     // MARK: - Animations
     
     private func slideContentUp() {
-        featuredPieceViewController.view.transform = CGAffineTransform.identity
-        pieceViewController.view.transform = CGAffineTransform.identity
-        headerView.transform = CGAffineTransform.identity
+        featuredPieceViewController.view.transform = .identity
+        pieceViewController.view.transform = .identity
+        headerView.transform = .identity
+        backgroundView.transform = .identity
     }
     
     private func slideContentDown() {
@@ -117,6 +127,7 @@ class MainViewController: UIViewController {
         featuredPieceViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
         pieceViewController.view.transform = CGAffineTransform(translationX: 0, y: -translationY)
         headerView.transform = CGAffineTransform(translationX: 0, y: -translationY)
+        backgroundView.transform = CGAffineTransform(translationX: 0, y: -translationY)
     }
     
     // MARK: - UIFocusEnvironment update
