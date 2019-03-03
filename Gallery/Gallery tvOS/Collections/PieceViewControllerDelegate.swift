@@ -1,5 +1,5 @@
 //
-//  ArtPieceViewControllerDelegate.swift
+//  PieceViewControllerDelegate.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/3/18.
@@ -10,15 +10,15 @@ import GalleryCore_tvOS
 
 /// The object that acts as the delegate of the art piece collection view controllers.
 ///
-/// The delegate must adopt the ArtPieceViewControllerDelegate protocol.
+/// The delegate must adopt the PieceViewControllerDelegate protocol.
 ///
 /// The delegate object is responsible for managing selection behavior for view controller subview.
-protocol ArtPieceViewControllerDelegate: class {
+protocol PieceViewControllerDelegate: class {
     
     /// Tells the delegate that an art piece was selected to be opened.
     ///
     /// - Parameters:
     ///     - viewController: A view controller object informing the delegate about the selected art piece.
-    ///     - didSelectOpenArtPiece: A selected to open art piece metadata.
-    func artPieceViewControllerDelegate(_ viewController: UIViewController, didSelectOpenArtPiece: PieceMetadata)
+    ///     - didSelectOpenPiece: A selected to open art piece metadata.
+    func pieceViewControllerDelegate(_ viewController: UIViewController, didSelectOpenPiece: PieceMetadata)
 }

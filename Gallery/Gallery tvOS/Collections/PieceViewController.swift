@@ -1,5 +1,5 @@
 //
-//  GridArtPieceViewController.swift
+//  PieceViewController.swift
 //  Gallery TV
 //
 //  Created by Kristina Gelzinyte on 8/1/18.
@@ -9,23 +9,23 @@
 import GalleryCore_tvOS
 
 /// A subclass of `UIViewController` which contains all art piece grid-like collection view with a vertical scrolling direction.
-class GridArtPieceViewController: UIViewController {
+class PieceViewController: UIViewController {
 
     // MARK: - Properties
 
-    /// The object that acts as the delegate of the `ArtPieceCollectionViewControllerDelegate`.
-    weak var delegate: ArtPieceViewControllerDelegate?
+    /// The object that acts as the delegate of the `PieceViewControllerDelegate`.
+    weak var delegate: PieceViewControllerDelegate?
     
     /// Sets up `UICollectionView` with vertical scrolling direction.
     private var gridCollectionView: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 15 * view.frame.width / 1920
+        layout.minimumLineSpacing = view.frame.size.width * 0.0188
         layout.minimumInteritemSpacing = 0
         
         let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         
-        collectionView.register(ArtPieceViewCell.self, forCellWithReuseIdentifier: ArtPieceViewCell.identifier)
+        collectionView.register(PieceViewCell.self, forCellWithReuseIdentifier: PieceViewCell.identifier)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.normal
         collectionView.delegate = self
         collectionView.dataSource = self

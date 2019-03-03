@@ -51,7 +51,9 @@ class KGDeStijlView: UIView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
 
-        guard newSuperview != nil else { return }
+        guard newSuperview != nil else {
+            return
+        }
         
         if self.frame.size == UIScreen.main.bounds.size {
             isInFullScreen = true

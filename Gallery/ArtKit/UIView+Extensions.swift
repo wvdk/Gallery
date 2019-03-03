@@ -29,6 +29,20 @@ extension UIView {
         NSLayoutConstraint.activate(constraints)        
     }
     
+    /// Sets constraints to the `view`, by default `constant` is 0.
+    public func constraint(edgesTo view: UIView, edgeInset: UIEdgeInsets) {
+        var constraints = [NSLayoutConstraint]()
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        constraints.append(self.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: edgeInset.left))
+        constraints.append(self.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -edgeInset.right))
+        constraints.append(self.topAnchor.constraint(equalTo: view.topAnchor, constant: edgeInset.top))
+        constraints.append(self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -edgeInset.bottom))
+        
+        NSLayoutConstraint.activate(constraints)
+    }
+    
     /// Configure a UIView to completely fill its parent, minus any edge insets
     ///
     /// - Parameters:
@@ -126,28 +140,3 @@ extension UIView {
         }
     }
 }
-
-// MARK: - Animation methods
-extension UIView {
-    
-    /// Adds a rotation transform to the view's layer.
-    ///
-    /// - Parameters:
-    ///   - byValue: Defines the angle the receiver uses to perform the rotation. By default equals to PI.
-    ///   - duration: Specifies the basic duration of the animation, in seconds. By default equals to 20.
-    ///   - repeatCount: Determines the number of times the animation will repeat. By default equals to infinity.
-    public func rotate(byValue: Float = .pi, duration: Double = 20, repeatCount: Float = .infinity) {
-        let kRotationAnimationKey = "com.Gallery.rotationanimationkey"
-        
-        if self.layer.animation(forKey: kRotationAnimationKey) == nil {
-            let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
-            
-            rotationAnimation.byValue = byValue
-            rotationAnimation.duration = duration
-            rotationAnimation.repeatCount = repeatCount
-            
-            self.layer.add(rotationAnimation, forKey: kRotationAnimationKey)
-        }
-    }
-}
-

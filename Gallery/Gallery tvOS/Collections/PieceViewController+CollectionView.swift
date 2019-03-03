@@ -1,76 +1,65 @@
 //
-//  FeaturedArtPieceViewController+UICollectionViewDelegate.swift
-//  Gallery iOS
+//  PieceViewController+UICollectionViewDelegate.swift
+//  Gallery TV
 //
-//  Created by Kristina Gelzinyte on 7/25/18.
+//  Created by Kristina Gelzinyte on 8/1/18.
 //  Copyright © 2018 Gallery of Generative Art. All rights reserved.
 //
 
 import GalleryCore_tvOS
 
-extension FeaturedArtPieceViewController: UICollectionViewDelegate {
+extension PieceViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegate implementation
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return MasterList.shared.activePieces.count
     }
-
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
         return false
     }
     
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        
-        // Scroll manually to constrain cells in the center of the screen.
-        if let nextFocusedIndexPath = context.nextFocusedIndexPath {
-            collectionView.scrollToItem(at: nextFocusedIndexPath,
-                                        at: UICollectionView.ScrollPosition.centeredHorizontally,
-                                        animated: true)
-        }
-        
         // Animates selection of focused cells.
         // Doing it here because collection views use the same focused view but different scale coefficient.
-        if let nextFocusedView = context.nextFocusedView as? FocusingView {
+        if let nextFocusedView = context.nextFocusedView as? ParralaxView {
             coordinator.addCoordinatedUnfocusingAnimations({ (animationContext) in
-                nextFocusedView.transformScale(to: 1.25)
+                nextFocusedView.transformScale(to: CGSize(width: 1.2, height: 1.2))
+                nextFocusedView.transformTranslation(by: CGPoint(x: 0, y: -nextFocusedView.bounds.size.height * 0.1))
             }, completion: nil)
         }
     }
-}
-
-extension FeaturedArtPieceViewController: UICollectionViewDataSource {
-
+    
     // MARK: - UICollectionViewDataSource implementation
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtPieceViewCell.identifier, for: indexPath) as! ArtPieceViewCell
-
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PieceViewCell.identifier, for: indexPath) as! PieceViewCell
+        
         cell.delegate = self
-        cell.contentViewEdgeInset = CGSize(width: view.frame.size.width * 120 / 1920,
-                                           height: view.frame.size.height * 70 / 1119)
-        cell.artPiece = MasterList.shared.activePieces[indexPath.item]
+        
+        let horizontalInset = view.frame.size.width * 0.0235
+        let topInset = view.frame.size.width * 0.0282
+        cell.contentViewEdgeInset = UIEdgeInsets(top: topInset, left: horizontalInset, bottom: 0, right: horizontalInset)
+        
+        cell.showPreviewOnFocus = false
+        cell.pieceMetadata = MasterList.shared.activePieces[indexPath.item]
         
         return cell
     }
-}
-
-extension FeaturedArtPieceViewController: UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegateFlowLayout implementation
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = view.frame.size.width * 1201 / 1920
-        let height = view.frame.size.height * 700 / 1119
-        return CGSize(width: width, height: height)
+        return CGSize(width: view.frame.size.width * 0.235, height: view.frame.size.width * 0.141)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let constant = (view.frame.size.width - (view.frame.size.width * 1200 / 1920)) / 2
-        return UIEdgeInsets(top: 0, left: constant, bottom: 0, right: constant)
+        let constant = view.frame.size.width * 0.03
+        return UIEdgeInsets(top: -view.frame.size.width * 0.02, left: constant, bottom: 0, right: constant)
     }
 }

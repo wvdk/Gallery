@@ -36,7 +36,10 @@ class KGBreadthFirstSearchAlgorithm {
     ///     - index: Index of specified vertex.
     ///     - vertexList: Vertex list to be searched.
     private func updateVertex(at index: Int, in vertexList: [KGVertex]) -> [KGVertex] {
-        guard vertexList[index].stateColor != .black else { return vertexList }
+        guard vertexList[index].stateColor != .black else {
+            return vertexList
+        }
+        
         var roundCount = 0
 
         if vertexList[index].stateColor == .white {

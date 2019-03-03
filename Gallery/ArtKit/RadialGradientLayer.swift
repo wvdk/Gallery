@@ -31,7 +31,7 @@ public class RadialGradientLayer: CALayer {
     ///   - endRadius: The radius of the ending circle.
     ///   - colors: The colors array for rendering the gradient.
     ///   - locations: The location array for each color provided in colors; each location must be a CGFloat value in the range of 0 to 1, inclusive.
-    public required init(startCenter: CGPoint, endCenter: CGPoint, startRadius: CGFloat, endRadius: CGFloat, colors: [CGColor], locations: [CGFloat] = [0.0, 1.0]) {
+    public required init(startCenter: CGPoint, endCenter: CGPoint, startRadius: CGFloat, endRadius: CGFloat, colors: [CGColor], locations: [CGFloat]) {
         self.startCenter = startCenter
         self.endCenter = endCenter
         self.startRadius = startRadius
@@ -55,7 +55,9 @@ public class RadialGradientLayer: CALayer {
     override public func draw(in ctx: CGContext) {
         ctx.saveGState()
         
-        guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: locations) else { return }
+        guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: locations) else {
+            return
+        }
         
         ctx.drawRadialGradient(gradient,
                                startCenter: startCenter,

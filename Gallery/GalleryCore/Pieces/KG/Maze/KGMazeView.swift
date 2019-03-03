@@ -60,7 +60,9 @@ class KGMazeView: UIView {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        guard newSuperview != nil else { return }
+        guard newSuperview != nil else {
+            return
+        }
 
         if self.frame.size == UIScreen.main.bounds.size {
             isInFullScreen = true
@@ -81,7 +83,9 @@ class KGMazeView: UIView {
         
         let hideDuration = 2.0
         DispatchQueue.main.asyncAfter(deadline: .now() + hideDuration) { [weak self] in
-            guard let self = self else { return }
+            guard let self = self else {
+                return
+            }
             
             self.mazeCount = 0
             self.mazeContainerView.layer.sublayers?.forEach { $0.removeAllAnimations() }

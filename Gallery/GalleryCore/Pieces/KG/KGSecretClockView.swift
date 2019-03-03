@@ -39,7 +39,7 @@ class KGSecretClockView: UIView {
     // MARK: - Clock setup
     
     private func setupTimeLabel() {
-        let fontSize = 150 * frame.height / 1119
+        let fontSize = 0.134 * frame.height
         timeLabel.font = UIFont(name: "Menlo", size: fontSize)
         timeLabel.textColor = .white
         timeLabel.alpha = 0.6
