@@ -1,5 +1,5 @@
 //
-//  KGSecretClockView.swift
+//  KGClockView.swift
 //  Gallery
 //
 //  Created by Kristina Gelzinyte on 10/11/18.
@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class KGSecretClockView: UIView {
+class KGClockView: UIView {
     
     // MARK: - Properties
     
