@@ -162,6 +162,8 @@
 		DE332B7A205B852600C40727 /* SKNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B79205B852600C40727 /* SKNode+Extensions.swift */; };
 		DE332B7E205B856800C40727 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7D205B856800C40727 /* GlobalFunctions.swift */; };
 		DE332B80205B857900C40727 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B7F205B857900C40727 /* ArrayExtensions.swift */; };
+		DE36AF62222D86F30030049C /* RotatingLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE36AF60222D86B80030049C /* RotatingLinesView.swift */; };
+		DE36AF63222D86F40030049C /* RotatingLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE36AF60222D86B80030049C /* RotatingLinesView.swift */; };
 		DE3BD6432055F2BA00FD3298 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */; };
 		DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */; };
 		DEDB687720E946D900D102EB /* ArtKit_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DEDB687520E946D900D102EB /* ArtKit_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -333,6 +335,7 @@
 		DE332B79205B852600C40727 /* SKNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Extensions.swift"; sourceTree = "<group>"; };
 		DE332B7D205B856800C40727 /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		DE332B7F205B857900C40727 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		DE36AF60222D86B80030049C /* RotatingLinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingLinesView.swift; sourceTree = "<group>"; };
 		DE39D70420B321960087788C /* PieceMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceMetadata.swift; sourceTree = "<group>"; };
 		DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFMono-Light.otf"; sourceTree = "<group>"; };
@@ -600,6 +603,7 @@
 		DE16C53C214ED9D40082BB34 /* WV */ = {
 			isa = PBXGroup;
 			children = (
+				DE36AF5F222D86A40030049C /* Rotating lines */,
 				DE16C523214ED93A0082BB34 /* Untitled 1 */,
 				DE16C51F214ED93A0082BB34 /* Untitled 2 */,
 				DE16C51B214ED93A0082BB34 /* Untitled 3 */,
@@ -677,6 +681,14 @@
 				DEDB687620E946D900D102EB /* Info_tvOS.plist */,
 			);
 			path = ArtKit;
+			sourceTree = "<group>";
+		};
+		DE36AF5F222D86A40030049C /* Rotating lines */ = {
+			isa = PBXGroup;
+			children = (
+				DE36AF60222D86B80030049C /* RotatingLinesView.swift */,
+			);
+			path = "Rotating lines";
 			sourceTree = "<group>";
 		};
 		DE3BD6442055FBC200FD3298 /* Fonts */ = {
@@ -988,6 +1000,7 @@
 				89BA9F602167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
 				89BA9F5D2167EB4D004959B3 /* KGMazeController.swift in Sources */,
 				89E8C2422180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */,
+				DE36AF63222D86F40030049C /* RotatingLinesView.swift in Sources */,
 				8916D213215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */,
 				8916D217215DACC0007816C6 /* KGConvexHull.swift in Sources */,
 				DE16C548214EE4CA0082BB34 /* KGBoidProperties.swift in Sources */,
@@ -1033,6 +1046,7 @@
 				89BA9F5F2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
 				89BA9F5C2167EB4D004959B3 /* KGMazeController.swift in Sources */,
 				89E8C2412180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */,
+				DE36AF62222D86F30030049C /* RotatingLinesView.swift in Sources */,
 				8916D212215DACB7007816C6 /* KGConvexHullScanController.swift in Sources */,
 				8916D216215DACC0007816C6 /* KGConvexHull.swift in Sources */,
 				DE16C53A214ED93A0082BB34 /* KGBoidProperties.swift in Sources */,
