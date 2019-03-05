@@ -9,7 +9,7 @@
 import UIKit
 import SceneKit
 
-class RotatingLinesView: UIView {
+class WVRotatingLinesView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
