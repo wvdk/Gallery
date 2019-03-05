@@ -38,7 +38,7 @@ class KGClockView: UIView {
     }
     
     private var hourAngle: CGFloat {
-        return .pi * hour / 6 + minuteAngle / 60 + secondAngle / 3600
+        return .pi * hour / 6 + minuteAngle / 12
     }
     
     // MARK: - Initialization
@@ -63,12 +63,12 @@ class KGClockView: UIView {
         hoursLayer.anchorPoint = CGPoint(x: 0.5, y: 1 - 13 / (w / 2))
 
         secondsLayer.frame = CGRect(x: 0, y: 0, width: 4, height: 20 + w / 2)
-        minutesLayer.frame = CGRect(x: 0, y: 0, width: 26, height: w / 2)
-        hoursLayer.frame = CGRect(x: 0, y: 0, width: 26, height: w / 3)
+        minutesLayer.frame = CGRect(x: 0, y: 0, width: 20, height: w / 2)
+        hoursLayer.frame = CGRect(x: 0, y: 0, width: 20, height: w / 3)
         
         secondsLayer.cornerRadius = 2
-        minutesLayer.cornerRadius = 13
-        hoursLayer.cornerRadius = 13
+        minutesLayer.cornerRadius = 10
+        hoursLayer.cornerRadius = 10
         
         secondsLayer.shadowOffset = .zero
         minutesLayer.shadowOffset = .zero
@@ -89,7 +89,7 @@ class KGClockView: UIView {
         
         let pinLayer = CALayer()
         pinLayer.backgroundColor = UIColor(r: 57, g: 54, b: 54).cgColor
-        pinLayer.frame = CGRect(x: 0, y: 0, width: 14, height: 14)
+        pinLayer.frame = CGRect(x: 0, y: 0, width: 11, height: 11)
         pinLayer.position = centerPoint
         pinLayer.cornerRadius = 7
         
