@@ -47,7 +47,7 @@ class KGClockView: UIView {
     
     // MARK: - Initialization
     
-    public required override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         secondsLayer = CALayer()
         minutesLayer = CALayer()
         hoursLayer = CALayer()
@@ -103,6 +103,10 @@ class KGClockView: UIView {
         self.layer.addSublayer(pinLayer)
         
         updateTime()
+        
+        let numbers = KGClockNumberView(frame: frame)
+        self.addSubview(numbers)
+        numbers.constraint(edgesTo: numbers)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -121,7 +125,7 @@ class KGClockView: UIView {
     
     // MARK: - Time update
 
-    @objc private func updateTime() {        
+    @objc private func updateTime() {
         CATransaction.begin()
         CATransaction.setAnimationDuration(1)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: .linear))
@@ -129,5 +133,38 @@ class KGClockView: UIView {
         minutesLayer.transform = CATransform3DMakeRotation(minuteAngle, 0, 0, 1)
         hoursLayer.transform = CATransform3DMakeRotation(hourAngle, 0, 0, 1)
         CATransaction.commit()
+    }
+}
+
+class KGClockNumberView: UIView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupNumbers(in: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupNumbers(in frame: CGRect) {
+        for index in 1...12 {
+            let number = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+            number.textColor = UIColor.white.withAlphaComponent(0.3)
+            number.text = "\(index)"
+            number.sizeToFit()
+            
+            let w = (frame.size.width + frame.size.height) * 0.14
+            let x = frame.size.width / 2 +  w * sin(angle(for: CGFloat(index)))
+            let y = frame.size.height / 2 - w * cos(angle(for: CGFloat(index)))
+            number.center = CGPoint(x: x, y: y)
+            
+            self.addSubview(number)
+        }
+    }
+    
+    private func angle(for hour: CGFloat) -> CGFloat {
+        return .pi * hour / 6
     }
 }
