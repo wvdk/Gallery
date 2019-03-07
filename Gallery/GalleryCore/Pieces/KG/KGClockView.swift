@@ -17,6 +17,10 @@ class KGClockView: UIView {
     private let minutesLayer: CALayer
     private let hoursLayer: CALayer
     
+    private lazy var timer = {
+        return Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+    }()
+    
     private var second: CGFloat {
         return CGFloat(Calendar.current.component(.second, from: Date()))
     }
@@ -30,7 +34,7 @@ class KGClockView: UIView {
     }
     
     private var secondAngle: CGFloat {
-        return .pi * second / 30
+        return .pi * (second + 1) / 30
     }
     
     private var minuteAngle: CGFloat {
@@ -47,7 +51,7 @@ class KGClockView: UIView {
         secondsLayer = CALayer()
         minutesLayer = CALayer()
         hoursLayer = CALayer()
-
+        
         super.init(frame: frame)
         
         backgroundColor = UIColor(r: 74, g: 68, b: 68)
@@ -97,7 +101,7 @@ class KGClockView: UIView {
         self.layer.addSublayer(minutesLayer)
         self.layer.addSublayer(secondsLayer)
         self.layer.addSublayer(pinLayer)
-
+        
         updateTime()
     }
     
@@ -107,13 +111,17 @@ class KGClockView: UIView {
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
-
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        
+        if newSuperview == nil {
+            timer.invalidate()
+        } else {
+            timer.fire()
+        }
     }
     
     // MARK: - Time update
 
-    @objc private func updateTime() {
+    @objc private func updateTime() {        
         CATransaction.begin()
         CATransaction.setAnimationDuration(1)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: .linear))
