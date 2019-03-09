@@ -57,8 +57,8 @@ class KGClockView: UIView {
         let isInFullScreen = frame.size == UIScreen.main.bounds.size
 
         configureBackground(frame: frame, isInFullScreen: isInFullScreen)
-        configureArrows(frame: frame, isInFullScreen: isInFullScreen)
         configureNumbers(frame: frame, isInFullScreen: isInFullScreen)
+        configureArrows(frame: frame, isInFullScreen: isInFullScreen)
         
         updateTime()
     }
