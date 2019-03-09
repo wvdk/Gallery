@@ -127,9 +127,9 @@ class KGClockView: UIView {
         
         let pinLayer = CALayer()
         pinLayer.backgroundColor = UIColor(r: 196, g: 93, b: 105).cgColor
-        pinLayer.frame = CGRect(x: 0, y: 0, width: isInFullScreen ? 10 : 5, height: 10)
+        pinLayer.frame = CGRect(x: 0, y: 0, width: isInFullScreen ? 10 : 6, height: isInFullScreen ? 10 : 6)
         pinLayer.position = centerPoint
-        pinLayer.cornerRadius = 5
+        pinLayer.cornerRadius = isInFullScreen ? 5 : 3
         
         let view = UIView()
         self.addSubview(view)
