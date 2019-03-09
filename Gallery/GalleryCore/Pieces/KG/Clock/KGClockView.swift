@@ -54,9 +54,11 @@ class KGClockView: UIView {
         
         super.init(frame: frame)
         
-        configureBackground(frame: frame)
-        configureArrows(frame: frame)
-        configureNumbers(frame: frame)
+        let isInFullScreen = frame.size == UIScreen.main.bounds.size
+
+        configureBackground(frame: frame, isInFullScreen: isInFullScreen)
+        configureArrows(frame: frame, isInFullScreen: isInFullScreen)
+        configureNumbers(frame: frame, isInFullScreen: isInFullScreen)
         
         updateTime()
     }
@@ -77,7 +79,7 @@ class KGClockView: UIView {
     
     // MARK: - View
     
-    private func configureBackground(frame: CGRect) {
+    private func configureBackground(frame: CGRect, isInFullScreen: Bool) {
         let background = UIView()
         background.backgroundColor = UIColor(r: 74, g: 74, b: 74)
         
@@ -89,9 +91,9 @@ class KGClockView: UIView {
         
         let bottomPinLayer = CALayer()
         bottomPinLayer.backgroundColor = UIColor(r: 74, g: 74, b: 74).cgColor
-        bottomPinLayer.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        bottomPinLayer.frame = CGRect(x: 0, y: 0, width: isInFullScreen ? 24 : 12, height: isInFullScreen ? 24 : 12)
         bottomPinLayer.position = CGPoint(x: frame.origin.x + frame.size.width / 2, y: frame.origin.y + frame.size.height / 2)
-        bottomPinLayer.cornerRadius = 12
+        bottomPinLayer.cornerRadius = isInFullScreen ? 12 : 6
         
         background.layer.addSublayer(circle)
         background.layer.addSublayer(bottomPinLayer)
@@ -100,7 +102,7 @@ class KGClockView: UIView {
         background.constraint(edgesTo: self)
     }
     
-    private func configureArrows(frame: CGRect) {
+    private func configureArrows(frame: CGRect, isInFullScreen: Bool) {
         secondsLayer.backgroundColor = UIColor(r: 196, g: 93, b: 105).cgColor
         minutesLayer.backgroundColor = UIColor(r: 74, g: 74, b: 74).cgColor
         hoursLayer.backgroundColor = UIColor(r: 74, g: 74, b: 74).cgColor
@@ -110,26 +112,14 @@ class KGClockView: UIView {
         hoursLayer.anchorPoint = CGPoint(x: 0.5, y: 1)
         
         let w = frame.width * 0.356
-        secondsLayer.frame = CGRect(x: 0, y: 0, width: 4, height: w * 0.55)
-        minutesLayer.frame = CGRect(x: 0, y: 0, width: 12, height: w * 0.5)
-        hoursLayer.frame = CGRect(x: 0, y: 0, width: 12, height: w * 0.33)
+        secondsLayer.frame = CGRect(x: 0, y: 0, width: isInFullScreen ? 4 : 2, height: w * 0.55)
+        minutesLayer.frame = CGRect(x: 0, y: 0, width: isInFullScreen ? 12 : 6, height: w * 0.5)
+        hoursLayer.frame = CGRect(x: 0, y: 0, width: isInFullScreen ? 12 : 6, height: w * 0.33)
         
-        secondsLayer.cornerRadius = 2
-        minutesLayer.cornerRadius = 10
-        hoursLayer.cornerRadius = 10
-        
-        secondsLayer.shadowOffset = .zero
-        minutesLayer.shadowOffset = .zero
-        hoursLayer.shadowOffset = .zero
-        
-        secondsLayer.shadowRadius = 1
-        minutesLayer.shadowRadius = 1
-        hoursLayer.shadowRadius = 1
-        
-        secondsLayer.shadowOpacity = 0.15
-        minutesLayer.shadowOpacity = 0.15
-        hoursLayer.shadowOpacity = 0.15
-        
+        secondsLayer.cornerRadius = isInFullScreen ? 2 : 1
+        minutesLayer.cornerRadius = isInFullScreen ? 10 : 5
+        hoursLayer.cornerRadius = isInFullScreen ? 10 : 5
+
         let centerPoint = CGPoint(x: frame.origin.x + frame.size.width / 2, y: frame.origin.y + frame.size.height / 2)
         secondsLayer.position = centerPoint
         minutesLayer.position = centerPoint
@@ -137,7 +127,7 @@ class KGClockView: UIView {
         
         let pinLayer = CALayer()
         pinLayer.backgroundColor = UIColor(r: 196, g: 93, b: 105).cgColor
-        pinLayer.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+        pinLayer.frame = CGRect(x: 0, y: 0, width: isInFullScreen ? 10 : 5, height: 10)
         pinLayer.position = centerPoint
         pinLayer.cornerRadius = 5
         
@@ -151,7 +141,7 @@ class KGClockView: UIView {
         view.layer.addSublayer(pinLayer)
     }
     
-    private func configureNumbers(frame: CGRect) {
+    private func configureNumbers(frame: CGRect, isInFullScreen: Bool) {
         let view = UIView()
         self.addSubview(view)
         view.constraint(edgesTo: self)
@@ -163,7 +153,7 @@ class KGClockView: UIView {
         for index in 1...12 {
             let number = UILabel()
             number.textColor = UIColor(r: 74, g: 74, b: 74)
-            number.font = UIFont.systemFont(ofSize: 50, weight: .bold)
+            number.font = UIFont.systemFont(ofSize: isInFullScreen ? 50 : 25, weight: .bold)
             number.text = "\(index)"
             number.sizeToFit()
             
