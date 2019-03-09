@@ -437,6 +437,14 @@
 			path = ConvexHull;
 			sourceTree = "<group>";
 		};
+		891741F1223411A300ADA568 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				897321F7216FC93C00ED6144 /* KGClockView.swift */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
 		899791A8222A8D3F00631BF9 /* Display  */ = {
 			isa = PBXGroup;
 			children = (
@@ -569,7 +577,7 @@
 				89E39B982164695200960ADE /* Maze */,
 				8916D1FD215DA82B007816C6 /* ConvexHull */,
 				DE16C526214ED93A0082BB34 /* Boids */,
-				897321F7216FC93C00ED6144 /* KGClockView.swift */,
+				891741F1223411A300ADA568 /* Clock */,
 			);
 			path = KG;
 			sourceTree = "<group>";
