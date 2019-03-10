@@ -62,8 +62,8 @@
 		8970BCAD20E95D160006870D /* GalleryCore_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8970BCBB20E95F1D0006870D /* PieceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* PieceMetadata.swift */; };
 		8970BCBD20E95F220006870D /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
-		897321F8216FC93C00ED6144 /* KGSecretClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897321F7216FC93C00ED6144 /* KGSecretClockView.swift */; };
-		897321F9216FC93C00ED6144 /* KGSecretClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897321F7216FC93C00ED6144 /* KGSecretClockView.swift */; };
+		897321F8216FC93C00ED6144 /* KGClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897321F7216FC93C00ED6144 /* KGClockView.swift */; };
+		897321F9216FC93C00ED6144 /* KGClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897321F7216FC93C00ED6144 /* KGClockView.swift */; };
 		899F2BD321500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
 		899F2BD421500F5C0095D5D3 /* RadialGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */; };
 		899F2BD6215010FB0095D5D3 /* SKTexture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */; };
@@ -273,7 +273,7 @@
 		8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_tvOS.h; sourceTree = "<group>"; };
 		8970BCAC20E95D160006870D /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
-		897321F7216FC93C00ED6144 /* KGSecretClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGSecretClockView.swift; sourceTree = "<group>"; };
+		897321F7216FC93C00ED6144 /* KGClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGClockView.swift; sourceTree = "<group>"; };
 		899F2BD5215010FB0095D5D3 /* SKTexture+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKTexture+Extension.swift"; sourceTree = "<group>"; };
 		899F2BD82150111F0095D5D3 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		899F2BDB215011800095D5D3 /* KGBoidsFireScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsFireScene.swift; sourceTree = "<group>"; };
@@ -440,6 +440,14 @@
 			path = ConvexHull;
 			sourceTree = "<group>";
 		};
+		891741F1223411A300ADA568 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				897321F7216FC93C00ED6144 /* KGClockView.swift */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
 		899791A8222A8D3F00631BF9 /* Display  */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,7 +580,7 @@
 				89E39B982164695200960ADE /* Maze */,
 				8916D1FD215DA82B007816C6 /* ConvexHull */,
 				DE16C526214ED93A0082BB34 /* Boids */,
-				897321F7216FC93C00ED6144 /* KGSecretClockView.swift */,
+				891741F1223411A300ADA568 /* Clock */,
 			);
 			path = KG;
 			sourceTree = "<group>";
@@ -1020,7 +1028,7 @@
 				899F2BDD215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
 				89E8C2332180319900A6434A /* KGDeStijlController.swift in Sources */,
 				899F2BE0215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
-				897321F9216FC93C00ED6144 /* KGSecretClockView.swift in Sources */,
+				897321F9216FC93C00ED6144 /* KGClockView.swift in Sources */,
 				8916D215215DACBC007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 				DE16C54A214EE4D00082BB34 /* KGBoidsSunScene.swift in Sources */,
 				DE16C54C214EE60F0082BB34 /* A586qView.swift in Sources */,
@@ -1066,7 +1074,7 @@
 				DE16C530214ED93A0082BB34 /* A736DView.swift in Sources */,
 				89E8C2322180319900A6434A /* KGDeStijlController.swift in Sources */,
 				899F2BDC215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
-				897321F8216FC93C00ED6144 /* KGSecretClockView.swift in Sources */,
+				897321F8216FC93C00ED6144 /* KGClockView.swift in Sources */,
 				8916D214215DACBB007816C6 /* KGConvexHullScanAlgorithm.swift in Sources */,
 				899F2BDF215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
 				DE16C536214ED93A0082BB34 /* A994tView.swift in Sources */,
