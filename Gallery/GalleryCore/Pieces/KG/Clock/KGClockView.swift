@@ -140,7 +140,7 @@ class KGClockView: UIView {
         hoursLayer.position = centerPoint
         
         let pinLayer = CALayer()
-        pinLayer.backgroundColor = UIColor(r: 196, g: 93, b: 105).cgColor
+        pinLayer.backgroundColor = UIColor(r: 231, g: 120, b: 0).cgColor
         pinLayer.frame = CGRect(x: 0, y: 0, width: isInFullScreen ? 10 : 6, height: isInFullScreen ? 10 : 6)
         pinLayer.position = centerPoint
         pinLayer.cornerRadius = isInFullScreen ? 5 : 3
