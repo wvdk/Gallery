@@ -21,6 +21,14 @@ class KGClockView: UIView {
         return Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
     }()
     
+    private lazy var secondsTimer = {
+        return Timer.scheduledTimer(timeInterval: 0.125, target: self, selector: #selector(self.updateSeconds), userInfo: nil, repeats: true)
+    }()
+    
+    private var miliseconds: CGFloat {
+        return CGFloat(roundf(Float(Calendar.current.component(.nanosecond, from: Date())) / 125000000.0))
+    }
+    
     private var seconds: CGFloat {
         return CGFloat(Calendar.current.component(.second, from: Date()))
     }
@@ -33,8 +41,12 @@ class KGClockView: UIView {
         return CGFloat(Calendar.current.component(.hour, from: Date()))
     }
     
+    private var milisecondsAngle: CGFloat {
+        return .pi * (miliseconds + 1) / 240
+    }
+    
     private var secondsAngle: CGFloat {
-        return .pi * (seconds + 1) / 30
+        return .pi * (seconds + 1) / 30 + milisecondsAngle
     }
     
     private var minutesAngle: CGFloat {
@@ -72,8 +84,10 @@ class KGClockView: UIView {
         
         if newSuperview == nil {
             timer.invalidate()
+            secondsTimer.invalidate()
         } else {
             timer.fire()
+            secondsTimer.fire()
         }
     }
     
@@ -172,9 +186,12 @@ class KGClockView: UIView {
         CATransaction.begin()
         CATransaction.setAnimationDuration(1)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: .linear))
-        secondsLayer.transform = CATransform3DMakeRotation(secondsAngle, 0, 0, 1)
         minutesLayer.transform = CATransform3DMakeRotation(minutesAngle, 0, 0, 1)
         hoursLayer.transform = CATransform3DMakeRotation(hoursAngle, 0, 0, 1)
         CATransaction.commit()
+    }
+    
+    @objc private func updateSeconds() {
+        secondsLayer.transform = CATransform3DMakeRotation(secondsAngle, 0, 0, 1)
     }
 }
