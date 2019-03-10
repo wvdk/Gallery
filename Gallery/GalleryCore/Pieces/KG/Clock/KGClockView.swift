@@ -81,7 +81,7 @@ class KGClockView: UIView {
     
     private func configureBackground(frame: CGRect, isInFullScreen: Bool) {
         let background = UIView()
-        background.backgroundColor = UIColor(r: 74, g: 74, b: 74)
+        background.backgroundColor = .black
         
         let circle = CAShapeLayer()
         let length = 0.375 * frame.width
@@ -90,7 +90,7 @@ class KGClockView: UIView {
         circle.fillColor = UIColor.white.cgColor
         
         let bottomPinLayer = CALayer()
-        bottomPinLayer.backgroundColor = UIColor(r: 74, g: 74, b: 74).cgColor
+        bottomPinLayer.backgroundColor = UIColor.black.cgColor
         bottomPinLayer.frame = CGRect(x: 0, y: 0, width: isInFullScreen ? 24 : 12, height: isInFullScreen ? 24 : 12)
         bottomPinLayer.position = CGPoint(x: frame.origin.x + frame.size.width / 2, y: frame.origin.y + frame.size.height / 2)
         bottomPinLayer.cornerRadius = isInFullScreen ? 12 : 6
@@ -103,9 +103,9 @@ class KGClockView: UIView {
     }
     
     private func configureArrows(frame: CGRect, isInFullScreen: Bool) {
-        secondsLayer.backgroundColor = UIColor(r: 196, g: 93, b: 105).cgColor
-        minutesLayer.backgroundColor = UIColor(r: 74, g: 74, b: 74).cgColor
-        hoursLayer.backgroundColor = UIColor(r: 74, g: 74, b: 74).cgColor
+        secondsLayer.backgroundColor = UIColor(r: 231, g: 120, b: 0).cgColor
+        minutesLayer.backgroundColor = UIColor.black.cgColor
+        hoursLayer.backgroundColor = UIColor.black.cgColor
         
         secondsLayer.anchorPoint = CGPoint(x: 0.5, y: 0.9)
         minutesLayer.anchorPoint = CGPoint(x: 0.5, y: 1)
@@ -152,7 +152,7 @@ class KGClockView: UIView {
         
         for index in 1...12 {
             let number = UILabel()
-            number.textColor = UIColor(r: 74, g: 74, b: 74)
+            number.textColor = .black
             number.font = UIFont.systemFont(ofSize: isInFullScreen ? 50 : 25, weight: .bold)
             number.text = "\(index)"
             number.sizeToFit()
