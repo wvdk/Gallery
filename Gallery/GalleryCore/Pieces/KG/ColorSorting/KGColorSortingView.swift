@@ -16,9 +16,22 @@ class KGColorSortingView: UIView {
     
     private var reverse = false
     private var actions = [[SortingAction]]()
+    private var boxes = [[ActionLayer]]()
     
     private var duration: Double {
         return reverse ? 0.07 : 0.05
+    }
+    
+    private var maxActionCount: Int {
+        let maximum = actions.max { i, j -> Bool in
+            i.count < j.count
+        }
+        
+        guard maximum != nil else {
+            return 0
+        }
+        
+        return maximum!.count
     }
     
     private var deadline: Double {
@@ -34,7 +47,7 @@ class KGColorSortingView: UIView {
     }
     
     override init(frame: CGRect) {
-        pixelSize = 30.0
+        pixelSize = 10.0
         columns = Int(frame.width / pixelSize)
         rows = Int(frame.height / pixelSize)
         
@@ -58,28 +71,32 @@ class KGColorSortingView: UIView {
     private func setupGraph(for unsortedArray: [[Int]]) {
         var deltaOriginX: CGFloat = 0.0
         
-        for (columnIndex, columnActions) in unsortedArray.enumerated() {
+        unsortedArray.forEach { columnActions in
+            var rowBoxes = [ActionLayer]()
             for (rowIndex, rowActions) in columnActions.enumerated() {
                 let box = ActionLayer()
                 box.frame = CGRect(x: deltaOriginX, y: 0.0, width: pixelSize, height: pixelSize)
                 box.position.y += CGFloat(rowIndex) * pixelSize
                 box.backgroundColor = gradientColor(for: CGFloat(rowActions) / CGFloat(rows)).cgColor
-                box.name = "\(columnIndex)+\(rowIndex)"
+                box.name = "\(rowIndex)"
                 layer.addSublayer(box)
+                
+                rowBoxes.append(box)
             }
             
+            boxes.append(rowBoxes)
             deltaOriginX += pixelSize
         }
     }
     
     private func performSorting() {
-        for (columnIndex, columnActions) in actions.enumerated() {
-            let sortingActions = reverse ? columnActions.reversed() : columnActions
-            let totalNumberOfAction = columnActions.count + 1
-            
-            sortingActions.forEach {
-                let index = reverse ? totalNumberOfAction - $0.index : $0.index
-                swapElements($0.start, $0.end, at: columnIndex, actionIndex: index)
+        for rowIndex in 0..<maxActionCount {
+            for columnIndex in 0..<actions.count {
+                
+                if actions[columnIndex].count > rowIndex {
+                    let action = actions[columnIndex][rowIndex]
+                    swapElements(action.start, action.end, at: columnIndex, actionIndex: action.index)
+                }
             }
         }
         
@@ -97,12 +114,12 @@ class KGColorSortingView: UIView {
     }
     
     private func swapElements(_ i: Int, _ j: Int, at column: Int, actionIndex: Int) {
-        guard let iElement = subview(name: "\(column)+\(i)"), let jElement = subview(name: "\(column)+\(j)") else {
+        guard let iElement = layer(with: "\(i)", at: column), let jElement = layer(with: "\(j)", at: column) else {
             return
         }
         
-        iElement.name = "\(column)+\(j)"
-        jElement.name = "\(column)+\(i)"
+        iElement.name = "\(j)"
+        jElement.name = "\(i)"
         
         let delta = i.distance(to: j)
         let iTranslation = pixelSize * CGFloat(delta)
@@ -112,18 +129,8 @@ class KGColorSortingView: UIView {
         jElement.moveAction(by: jTranslation, duration: duration, actionIndex: actionIndex)
     }
     
-    private func subview(name: String) -> ActionLayer? {
-        guard let sublayers = layer.sublayers else {
-            return nil
-        }
-        
-        for layer in sublayers {
-            if let actionLayer = layer as? ActionLayer, actionLayer.name == name {
-                return actionLayer
-            }
-        }
-        
-        return nil
+    private func layer(with name: String, at column: Int) -> ActionLayer? {
+        return boxes[column].first { $0.name == name }
     }
     
     public struct MatrixSize {
@@ -162,5 +169,4 @@ class KGColorSortingView: UIView {
             }
         }
     }
-
 }

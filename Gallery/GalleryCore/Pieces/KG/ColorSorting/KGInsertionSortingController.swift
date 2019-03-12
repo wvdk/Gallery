@@ -23,9 +23,9 @@ public class SortingController {
             let unsorted = self.generateUnsortedArray(of: sortingMatrixSize.rows)
             let sortingResult = InsertionSortingAlgorithm.sort(unsorted)
             
-            self.unsortedArray.append(unsorted)
-            self.sortedArray.append(sortingResult.sortedArray)
-            self.sortingActions.append(sortingResult.sortingActions)
+            unsortedArray.append(unsorted)
+            sortedArray.append(sortingResult.sortedArray)
+            sortingActions.append(sortingResult.sortingActions)
         }
     }
     
