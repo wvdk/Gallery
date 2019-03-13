@@ -18,6 +18,8 @@ class KGColorSortingView: UIView {
     private var actions = [[KGSortingAction]]()
     private var boxes = [[ActionLayer]]()
     
+    private var actionCount = 0
+    
     private var duration: Double {
         return reverse ? 0.07 : 0.05
     }
@@ -35,13 +37,23 @@ class KGColorSortingView: UIView {
         let sortingController = KGInsertionSortingController(sortingMatrixSize: size)
         
         actions = sortingController.sortingActions
-        
+        actionCount = sortingController.maximumActionCount
+
         setupGraph(for: sortingController.unsortedArray)
-        performSorting(actionCount: sortingController.maximumActionCount)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("Could not load")
+    }
+    
+    override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        
+        guard newSuperview != nil else {
+            return
+        }
+        
+        performSorting()
     }
     
     private func setupGraph(for unsortedArray: [[Int]]) {
@@ -65,7 +77,7 @@ class KGColorSortingView: UIView {
         }
     }
     
-    private func performSorting(actionCount: Int) {
+    private func performSorting() {
         for rowIndex in 0..<actionCount {
             for columnIndex in 0..<actions.count {
                 
@@ -77,7 +89,7 @@ class KGColorSortingView: UIView {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(actionCount) * duration + 0.4) {
-            self.performSorting(actionCount: actionCount)
+            self.performSorting()
         }
         
         reverse = !reverse
