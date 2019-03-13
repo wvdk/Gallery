@@ -13,12 +13,14 @@ public class KGInsertionSortingController {
     private(set) var unsortedArray = [[Int]]()
     private(set) var sortedArray = [[Int]]()
     private(set) var sortingActions = [[KGSortingAction]]()
-    
+    private(set) var maximumActionCount = 0
+
     init(sortingMatrixSize: KGColorSortingView.MatrixSize) {
-        self.unsortedArray = []
-        self.sortedArray = []
-        self.sortingActions = []
+        unsortedArray = []
+        sortedArray = []
+        sortingActions = []
         
+        maximumActionCount = 0
         for _ in 0...sortingMatrixSize.columns {
             let unsorted = self.generateUnsortedArray(of: sortingMatrixSize.rows)
             let sortingResult = KGInsertionSortingAlgorithm.sort(unsorted)
@@ -26,6 +28,10 @@ public class KGInsertionSortingController {
             unsortedArray.append(unsorted)
             sortedArray.append(sortingResult.sortedArray)
             sortingActions.append(sortingResult.sortingActions)
+            
+            if sortingResult.sortingActions.count > maximumActionCount {
+                maximumActionCount = sortingResult.sortingActions.count
+            }
         }
     }
     

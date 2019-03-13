@@ -22,30 +22,6 @@ class KGColorSortingView: UIView {
         return reverse ? 0.07 : 0.05
     }
     
-    private var maxActionCount: Int {
-        let maximum = actions.max { i, j -> Bool in
-            i.count < j.count
-        }
-        
-        guard maximum != nil else {
-            return 0
-        }
-        
-        return maximum!.count
-    }
-    
-    private var deadline: Double {
-        let maximum = actions.max { i, j -> Bool in
-            i.count < j.count
-        }
-        
-        guard maximum != nil else {
-            return 0
-        }
-        
-        return Double(maximum!.count) * duration + 0.4
-    }
-    
     override init(frame: CGRect) {
         pixelSize = 10.0
         columns = Int(frame.width / pixelSize)
@@ -61,7 +37,7 @@ class KGColorSortingView: UIView {
         actions = sortingController.sortingActions
         
         setupGraph(for: sortingController.unsortedArray)
-        performSorting()
+        performSorting(actionCount: sortingController.maximumActionCount)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -89,8 +65,8 @@ class KGColorSortingView: UIView {
         }
     }
     
-    private func performSorting() {
-        for rowIndex in 0..<maxActionCount {
+    private func performSorting(actionCount: Int) {
+        for rowIndex in 0..<actionCount {
             for columnIndex in 0..<actions.count {
                 
                 if actions[columnIndex].count > rowIndex {
@@ -100,8 +76,8 @@ class KGColorSortingView: UIView {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + deadline) {
-            self.performSorting()
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(actionCount) * duration + 0.4) {
+            self.performSorting(actionCount: actionCount)
         }
         
         reverse = !reverse
