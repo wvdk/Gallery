@@ -6,7 +6,7 @@
 //  Copyright © 2019 Gallery of Generative Art. All rights reserved.
 //
 
-public struct SortingAction {
+public struct KGSortingAction {
     
     let index: Int
     let start: Int

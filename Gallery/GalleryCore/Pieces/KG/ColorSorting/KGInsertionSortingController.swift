@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class SortingController {
+public class KGInsertionSortingController {
     
     private(set) var unsortedArray = [[Int]]()
     private(set) var sortedArray = [[Int]]()
-    private(set) var sortingActions = [[SortingAction]]()
+    private(set) var sortingActions = [[KGSortingAction]]()
     
     init(sortingMatrixSize: KGColorSortingView.MatrixSize) {
         self.unsortedArray = []
@@ -21,7 +21,7 @@ public class SortingController {
         
         for _ in 0...sortingMatrixSize.columns {
             let unsorted = self.generateUnsortedArray(of: sortingMatrixSize.rows)
-            let sortingResult = InsertionSortingAlgorithm.sort(unsorted)
+            let sortingResult = KGInsertionSortingAlgorithm.sort(unsorted)
             
             unsortedArray.append(unsorted)
             sortedArray.append(sortingResult.sortedArray)

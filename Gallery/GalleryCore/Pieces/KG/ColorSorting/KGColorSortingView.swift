@@ -15,7 +15,7 @@ class KGColorSortingView: UIView {
     private let rows: Int
     
     private var reverse = false
-    private var actions = [[SortingAction]]()
+    private var actions = [[KGSortingAction]]()
     private var boxes = [[ActionLayer]]()
     
     private var duration: Double {
@@ -56,7 +56,7 @@ class KGColorSortingView: UIView {
         backgroundColor = .black
         
         let size = MatrixSize(columns: columns, rows: rows)
-        let sortingController = SortingController(sortingMatrixSize: size)
+        let sortingController = KGInsertionSortingController(sortingMatrixSize: size)
         
         actions = sortingController.sortingActions
         

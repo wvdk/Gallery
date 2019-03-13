@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		89016DEC2236D72D00AEF8F1 /* KGInsertionSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89016DEB2236D72D00AEF8F1 /* KGInsertionSorting.swift */; };
-		89016DED2236D72D00AEF8F1 /* KGInsertionSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89016DEB2236D72D00AEF8F1 /* KGInsertionSorting.swift */; };
+		89016DEC2236D72D00AEF8F1 /* KGInsertionSortingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89016DEB2236D72D00AEF8F1 /* KGInsertionSortingAlgorithm.swift */; };
+		89016DED2236D72D00AEF8F1 /* KGInsertionSortingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89016DEB2236D72D00AEF8F1 /* KGInsertionSortingAlgorithm.swift */; };
 		89016DEF2236D78300AEF8F1 /* KGSortingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89016DEE2236D78200AEF8F1 /* KGSortingAction.swift */; };
 		89016DF02236D78300AEF8F1 /* KGSortingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89016DEE2236D78200AEF8F1 /* KGSortingAction.swift */; };
 		89016DF22236D7B600AEF8F1 /* KGInsertionSortingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89016DF12236D7B600AEF8F1 /* KGInsertionSortingController.swift */; };
@@ -245,7 +245,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		89016DEB2236D72D00AEF8F1 /* KGInsertionSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGInsertionSorting.swift; sourceTree = "<group>"; };
+		89016DEB2236D72D00AEF8F1 /* KGInsertionSortingAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGInsertionSortingAlgorithm.swift; sourceTree = "<group>"; };
 		89016DEE2236D78200AEF8F1 /* KGSortingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGSortingAction.swift; sourceTree = "<group>"; };
 		89016DF12236D7B600AEF8F1 /* KGInsertionSortingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGInsertionSortingController.swift; sourceTree = "<group>"; };
 		89016DF42236D83100AEF8F1 /* KGColorSortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGColorSortingView.swift; sourceTree = "<group>"; };
@@ -412,7 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				89016DF42236D83100AEF8F1 /* KGColorSortingView.swift */,
-				89016DEB2236D72D00AEF8F1 /* KGInsertionSorting.swift */,
+				89016DEB2236D72D00AEF8F1 /* KGInsertionSortingAlgorithm.swift */,
 				89016DEE2236D78200AEF8F1 /* KGSortingAction.swift */,
 				89016DF12236D7B600AEF8F1 /* KGInsertionSortingController.swift */,
 			);
@@ -1061,7 +1061,7 @@
 				DE16C54C214EE60F0082BB34 /* A586qView.swift in Sources */,
 				899F2BE4215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE16C547214EE4C70082BB34 /* KGBoidShapes.swift in Sources */,
-				89016DED2236D72D00AEF8F1 /* KGInsertionSorting.swift in Sources */,
+				89016DED2236D72D00AEF8F1 /* KGInsertionSortingAlgorithm.swift in Sources */,
 				8916D21D215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */,
 				DE16C541214EE4B30082BB34 /* A736DScene.swift in Sources */,
 				8916D211215DACB4007816C6 /* KGConvexHullView.swift in Sources */,
@@ -1111,7 +1111,7 @@
 				DE16C536214ED93A0082BB34 /* A994tView.swift in Sources */,
 				899F2BE3215012C90095D5D3 /* KGObstacleNode.swift in Sources */,
 				DE0B7FAF20E3E34C000B482F /* MasterList.swift in Sources */,
-				89016DEC2236D72D00AEF8F1 /* KGInsertionSorting.swift in Sources */,
+				89016DEC2236D72D00AEF8F1 /* KGInsertionSortingAlgorithm.swift in Sources */,
 				8916D21C215DACCC007816C6 /* KGLineDrawingAction.swift in Sources */,
 				DE16C538214ED93A0082BB34 /* KGBoidsSunScene.swift in Sources */,
 				8916D210215DACB3007816C6 /* KGConvexHullView.swift in Sources */,
