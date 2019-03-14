@@ -21,7 +21,7 @@ class KGColorSortingView: UIView {
     private var actionCount = 0
     
     private var duration: Double {
-        return reverse ? 0.07 : 0.05
+        return reverse ? 0.1 : 0.08
     }
     
     override init(frame: CGRect) {
@@ -79,11 +79,16 @@ class KGColorSortingView: UIView {
     
     private func performSorting() {
         for rowIndex in 0..<actionCount {
-            for columnIndex in 0..<actions.count {
-                
-                if actions[columnIndex].count > rowIndex {
-                    let action = actions[columnIndex][rowIndex]
-                    swapElements(action.start, action.end, at: columnIndex, actionIndex: action.index)
+            Timer.scheduledTimer(withTimeInterval: Double(rowIndex) * duration, repeats: false) { [weak self] _ in
+                guard let self = self else { return }
+
+                for columnIndex in 0..<self.actions.count {
+                    
+                    if self.actions[columnIndex].count > rowIndex {
+                        let action = self.actions[columnIndex][rowIndex]
+                        self.swapElements(action.start, action.end, at: columnIndex, actionIndex: action.index)
+                        
+                    }
                 }
             }
         }
@@ -151,10 +156,7 @@ class KGColorSortingView: UIView {
     class ActionLayer: CALayer {
         
         func moveAction(by translationLength: CGFloat, duration: Double, actionIndex: Int) {
-            Timer.scheduledTimer(withTimeInterval: Double(actionIndex) * duration, repeats: false) { [weak self] _ in
-                guard let self = self else { return }
-                self.position.y += translationLength
-            }
+            self.position.y += translationLength
         }
     }
 }
