@@ -26,7 +26,7 @@ class KGColorSortingView: UIView {
     }
     
     override init(frame: CGRect) {
-        pixelSize = 30.0
+        pixelSize = 20.0
         columns = Int(frame.width / pixelSize)
         rows = Int(frame.height / pixelSize)
         
@@ -89,14 +89,17 @@ class KGColorSortingView: UIView {
     private func performSorting() {
         for rowIndex in 0..<maxRowActionCount {
             Timer.scheduledTimer(withTimeInterval: Double(rowIndex) * duration, repeats: false) { [weak self] _ in
-                guard let self = self else { return }
+                guard let self = self else {
+                    return
+                }
 
                 for columnIndex in 0..<self.columnActionCount {
                     guard self.actions[columnIndex].count > rowIndex else {
                         continue
                     }
                     
-                    let action = self.actions[columnIndex][rowIndex]
+                    let columnActions = self.reverse ? self.actions[columnIndex] : self.actions[columnIndex].reversed()
+                    let action = columnActions[rowIndex]
                     self.swapElements(action.start, action.end, at: columnIndex)
                 }
             }
