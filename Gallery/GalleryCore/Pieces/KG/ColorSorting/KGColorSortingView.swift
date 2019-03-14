@@ -80,6 +80,12 @@ class KGColorSortingView: UIView {
         }
     }
     
+    private func gradientColor(for index: CGFloat) -> UIColor {
+        let color1 = Color(r: 255, g: 0, b: 0)
+        let color2 = Color(r: 0, g: 0, b: 255)
+        return Color.gradientColor(color1, color2, percentage: index)
+    }
+    
     private func performSorting() {
         for rowIndex in 0..<maxRowActionCount {
             Timer.scheduledTimer(withTimeInterval: Double(rowIndex) * duration, repeats: false) { [weak self] _ in
@@ -91,8 +97,7 @@ class KGColorSortingView: UIView {
                     }
                     
                     let action = self.actions[columnIndex][rowIndex]
-                    let index = self.reverse ? self.maxRowActionCount - action.index : action.index
-                    self.swapElements(action.start, action.end, at: columnIndex, actionIndex: index)
+                    self.swapElements(action.start, action.end, at: columnIndex)
                 }
             }
         }
@@ -103,14 +108,8 @@ class KGColorSortingView: UIView {
         
         reverse = !reverse
     }
-    
-    private func gradientColor(for index: CGFloat) -> UIColor {
-        let color1 = Color(r: 255, g: 0, b: 0)
-        let color2 = Color(r: 0, g: 0, b: 255)
-        return Color.gradientColor(color1, color2, percentage: index)
-    }
-    
-    private func swapElements(_ i: Int, _ j: Int, at column: Int, actionIndex: Int) {
+
+    private func swapElements(_ i: Int, _ j: Int, at column: Int) {
         guard let iElement = boxes[column].first(where: { $0.name == "\(i)" }),
                 let jElement = boxes[column].first(where: { $0.name == "\(j)" }) else {
             return
