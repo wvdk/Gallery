@@ -18,14 +18,15 @@ class KGColorSortingView: UIView {
     private var actions = [[KGSortingAction]]()
     private var boxes = [[CALayer]]()
     
-    private var actionCount = 0
-    
+    private var maxRowActionCount = 0
+    private var columnActionCount = 0
+
     private var duration: Double {
         return reverse ? 0.1 : 0.08
     }
     
     override init(frame: CGRect) {
-        pixelSize = 10.0
+        pixelSize = 30.0
         columns = Int(frame.width / pixelSize)
         rows = Int(frame.height / pixelSize)
         
@@ -37,8 +38,9 @@ class KGColorSortingView: UIView {
         let sortingController = KGInsertionSortingController(sortingMatrixSize: size)
         
         actions = sortingController.sortingActions
-        actionCount = sortingController.maximumActionCount
-
+        columnActionCount = actions.count
+        maxRowActionCount = sortingController.maximumActionCount
+        
         setupGraph(for: sortingController.unsortedArray)
     }
     
@@ -61,6 +63,7 @@ class KGColorSortingView: UIView {
         
         unsortedArray.forEach { columnActions in
             var rowBoxes = [CALayer]()
+            
             for (rowIndex, rowActions) in columnActions.enumerated() {
                 let box = CALayer()
                 box.frame = CGRect(x: deltaOriginX, y: 0.0, width: pixelSize, height: pixelSize)
@@ -78,22 +81,23 @@ class KGColorSortingView: UIView {
     }
     
     private func performSorting() {
-        for rowIndex in 0..<actionCount {
+        for rowIndex in 0..<maxRowActionCount {
             Timer.scheduledTimer(withTimeInterval: Double(rowIndex) * duration, repeats: false) { [weak self] _ in
                 guard let self = self else { return }
 
-                for columnIndex in 0..<self.actions.count {
-                    
-                    if self.actions[columnIndex].count > rowIndex {
-                        let action = self.actions[columnIndex][rowIndex]
-                        self.swapElements(action.start, action.end, at: columnIndex, actionIndex: action.index)
-                        
+                for columnIndex in 0..<self.columnActionCount {
+                    guard self.actions[columnIndex].count > rowIndex else {
+                        continue
                     }
+                    
+                    let action = self.actions[columnIndex][rowIndex]
+                    let index = self.reverse ? self.maxRowActionCount - action.index : action.index
+                    self.swapElements(action.start, action.end, at: columnIndex, actionIndex: index)
                 }
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + Double(actionCount) * duration + 0.4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(maxRowActionCount) * duration + 0.4) {
             self.performSorting()
         }
         
@@ -124,13 +128,11 @@ class KGColorSortingView: UIView {
     }
     
     public struct MatrixSize {
-        
         let columns: Int
         let rows: Int
     }
     
     struct Color {
-        
         let r: CGFloat
         let g: CGFloat
         let b: CGFloat
