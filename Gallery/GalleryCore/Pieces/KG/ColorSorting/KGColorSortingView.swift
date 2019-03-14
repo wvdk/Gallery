@@ -16,7 +16,7 @@ class KGColorSortingView: UIView {
     
     private var reverse = false
     private var actions = [[KGSortingAction]]()
-    private var boxes = [[ActionLayer]]()
+    private var boxes = [[CALayer]]()
     
     private var actionCount = 0
     
@@ -60,9 +60,9 @@ class KGColorSortingView: UIView {
         var deltaOriginX: CGFloat = 0.0
         
         unsortedArray.forEach { columnActions in
-            var rowBoxes = [ActionLayer]()
+            var rowBoxes = [CALayer]()
             for (rowIndex, rowActions) in columnActions.enumerated() {
-                let box = ActionLayer()
+                let box = CALayer()
                 box.frame = CGRect(x: deltaOriginX, y: 0.0, width: pixelSize, height: pixelSize)
                 box.position.y += CGFloat(rowIndex) * pixelSize
                 box.backgroundColor = gradientColor(for: CGFloat(rowActions) / CGFloat(rows)).cgColor
@@ -107,7 +107,8 @@ class KGColorSortingView: UIView {
     }
     
     private func swapElements(_ i: Int, _ j: Int, at column: Int, actionIndex: Int) {
-        guard let iElement = layer(with: "\(i)", at: column), let jElement = layer(with: "\(j)", at: column) else {
+        guard let iElement = boxes[column].first(where: { $0.name == "\(i)" }),
+                let jElement = boxes[column].first(where: { $0.name == "\(j)" }) else {
             return
         }
         
@@ -118,12 +119,8 @@ class KGColorSortingView: UIView {
         let iTranslation = pixelSize * CGFloat(delta)
         let jTranslation = -pixelSize * CGFloat(delta)
         
-        iElement.moveAction(by: iTranslation, duration: duration, actionIndex: actionIndex)
-        jElement.moveAction(by: jTranslation, duration: duration, actionIndex: actionIndex)
-    }
-    
-    private func layer(with name: String, at column: Int) -> ActionLayer? {
-        return boxes[column].first { $0.name == name }
+        iElement.position.y += iTranslation
+        jElement.position.y += jTranslation
     }
     
     public struct MatrixSize {
@@ -150,13 +147,6 @@ class KGColorSortingView: UIView {
             let blue = color1.b + (color2.b - color1.b) * percentage
             
             return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        }
-    }
-
-    class ActionLayer: CALayer {
-        
-        func moveAction(by translationLength: CGFloat, duration: Double, actionIndex: Int) {
-            self.position.y += translationLength
         }
     }
 }
