@@ -87,8 +87,10 @@ class KGColorSortingView: UIView {
     }
     
     private func performSorting() {
+        let timeConstant = reverse ? 0.3 : 0
+        
         for rowIndex in 0..<maxRowActionCount {
-            Timer.scheduledTimer(withTimeInterval: Double(rowIndex) * duration, repeats: false) { [weak self] _ in
+            Timer.scheduledTimer(withTimeInterval: Double(rowIndex) * duration + timeConstant, repeats: false) { [weak self] _ in
                 guard let self = self else {
                     return
                 }
@@ -105,8 +107,8 @@ class KGColorSortingView: UIView {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + Double(maxRowActionCount) * duration + 0.4) {
-            self.performSorting()
+        Timer.scheduledTimer(withTimeInterval: Double(maxRowActionCount) * duration, repeats: false) { [weak self] _ in
+            self?.performSorting()
         }
         
         reverse = !reverse
