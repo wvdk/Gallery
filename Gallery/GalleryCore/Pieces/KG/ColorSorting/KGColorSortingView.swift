@@ -113,9 +113,10 @@ class KGColorSortingView: UIView {
     }
 
     private func swapElements(_ i: Int, _ j: Int, at column: Int) {
-        guard let iElement = boxes[column].first(where: { $0.name == "\(i)" }),
-                let jElement = boxes[column].first(where: { $0.name == "\(j)" }) else {
-            return
+        let elements = boxes[column].filter { $0.name == "\(i)" || $0.name == "\(j)" }
+        
+        guard let iElement = elements.first(where: { $0.name == "\(i)" }), let jElement = elements.first(where: { $0.name == "\(j)" }) else {
+                return
         }
         
         iElement.name = "\(j)"
