@@ -20,7 +20,7 @@ public class MasterList {
     /// Also starts up the firebase observer.
     private init() {
         activePieces = [
-            PieceMetadata(author: "KG", prettyPublishedDate: "March 2019", viewType: KGColorSortingView.self, thumbnail: nil),
+            PieceMetadata(author: "KG", prettyPublishedDate: "March 2019", viewType: KGColorSortingView.self, thumbnail: UIImage(named: "KGColorSortingView")),
             PieceMetadata(author: "KG", prettyPublishedDate: "October 2018", viewType: KGDeStijlView.self, thumbnail: UIImage(named: "KGDeStijlView")),
             PieceMetadata(author: "KG", prettyPublishedDate: "October 2018", viewType: KGMazeView.self, thumbnail: UIImage(named: "KGMazeView")),
             PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGConvexHullView.self, thumbnail: UIImage(named: "ConvexHullView")),
