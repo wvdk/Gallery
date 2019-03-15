@@ -22,11 +22,11 @@ class KGColorSortingView: UIView {
     private var columnActionCount = 0
 
     private var duration: Double {
-        return reverse ? 0.1 : 0.08
+        return reverse ? 0.16 : 0.13
     }
     
     override init(frame: CGRect) {
-        pixelSize = 20.0
+        pixelSize = frame.size == UIScreen.main.bounds.size ? 15.0 : 10.0
         columns = Int(frame.width / pixelSize)
         rows = Int(frame.height / pixelSize)
         
@@ -81,8 +81,8 @@ class KGColorSortingView: UIView {
     }
     
     private func gradientColor(for index: CGFloat) -> UIColor {
-        let color1 = Color(r: 255, g: 0, b: 0)
-        let color2 = Color(r: 0, g: 0, b: 255)
+        let color1 = Color(r: 0, g: 168, b: 255)
+        let color2 = Color(r: 0, g: 0, b: 0)
         return Color.gradientColor(color1, color2, percentage: index)
     }
     
