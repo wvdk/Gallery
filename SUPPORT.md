@@ -1,6 +1,6 @@
 # Support
 
-Thanks for using Gallery! If you have any problems or questions please get in touch through one of the following ways:
+Thanks for using Gallery! If you have any problems or questions please get in touch in one of the following ways:
 
 - Email me directly at wes.vdk@icloud.com
 - Submit an issue to this Github project (https://github.com/wvdk/Gallery/issues/new)
