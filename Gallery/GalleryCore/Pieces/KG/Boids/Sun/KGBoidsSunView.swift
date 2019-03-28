@@ -28,8 +28,8 @@ class KGBoidsSunView: UIView {
         spriteKitView.constraint(edgesTo: self)
         
         spriteKitView.ignoresSiblingOrder = true
-        spriteKitView.showsFPS = true
-        spriteKitView.showsNodeCount = true
+//        spriteKitView.showsFPS = true
+//        spriteKitView.showsNodeCount = true
     }
     
     public required init?(coder aDecoder: NSCoder) {

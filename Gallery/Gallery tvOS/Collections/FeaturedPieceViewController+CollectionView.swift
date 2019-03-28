@@ -13,7 +13,7 @@ extension FeaturedPieceViewController: UICollectionViewDelegate, UICollectionVie
     // MARK: - UICollectionViewDelegate implementation
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MasterList.shared.activePieces.count
+        return MasterList.shared.featuredPieces.count
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -55,7 +55,7 @@ extension FeaturedPieceViewController: UICollectionViewDelegate, UICollectionVie
         let bottomInset = view.frame.size.height * 0.14
         cell.contentViewEdgeInset = UIEdgeInsets(top: topInset, left: horizontalInset, bottom: bottomInset, right: horizontalInset)
         
-        cell.pieceMetadata = MasterList.shared.activePieces[indexPath.item]
+        cell.pieceMetadata = MasterList.shared.featuredPieces[indexPath.item]
         
         return cell
     }
