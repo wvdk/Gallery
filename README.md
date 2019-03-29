@@ -1,3 +1,3 @@
-A platform for graphics programmers to create and publish weird generative art. We're starting with a tvOS app because it seems like fun. The hope is to build frameworks and tools for creation as well. This is just an exploration - we don’t really know what it's going to turn into.
+Gallery is a collection of art pieces which were written in code and are rendered live on your device. We hope they provide a more compelling state for your TV screen while not in use.
 
 ![readme image](./readme_image.png)
