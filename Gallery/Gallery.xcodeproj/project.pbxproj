@@ -67,6 +67,10 @@
 		8959050D20754B8200300B62 /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959050C20754B8200300B62 /* InfoBarView.swift */; };
 		8959454A20E9609900DF123D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
 		8959454B20E9609900DF123D /* GalleryCore_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		896DA127224FC00000AEF86D /* KGAquariumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896DA125224FBC2400AEF86D /* KGAquariumView.swift */; };
+		896DA128224FC00000AEF86D /* KGAquariumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896DA125224FBC2400AEF86D /* KGAquariumView.swift */; };
+		896DA129224FC00600AEF86D /* KGAquariumScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896DA123224FBBA400AEF86D /* KGAquariumScene.swift */; };
+		896DA12A224FC00700AEF86D /* KGAquariumScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896DA123224FBBA400AEF86D /* KGAquariumScene.swift */; };
 		8970BCAD20E95D160006870D /* GalleryCore_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8970BCBB20E95F1D0006870D /* PieceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* PieceMetadata.swift */; };
 		8970BCBD20E95F220006870D /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
@@ -282,6 +286,8 @@
 		892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+Extension.swift"; sourceTree = "<group>"; };
 		894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientLayer.swift; sourceTree = "<group>"; };
 		8959050C20754B8200300B62 /* InfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBarView.swift; sourceTree = "<group>"; };
+		896DA123224FBBA400AEF86D /* KGAquariumScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGAquariumScene.swift; sourceTree = "<group>"; };
+		896DA125224FBC2400AEF86D /* KGAquariumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGAquariumView.swift; sourceTree = "<group>"; };
 		8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_tvOS.h; sourceTree = "<group>"; };
 		8970BCAC20E95D160006870D /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
@@ -554,6 +560,8 @@
 			children = (
 				DE16C53C214ED9D40082BB34 /* WV */,
 				DE16C525214ED93A0082BB34 /* KG */,
+				896DA123224FBBA400AEF86D /* KGAquariumScene.swift */,
+				896DA125224FBC2400AEF86D /* KGAquariumView.swift */,
 			);
 			path = Pieces;
 			sourceTree = "<group>";
@@ -1030,6 +1038,7 @@
 			files = (
 				89E8C23921803D0A00A6434A /* KGKDimensionTree.swift in Sources */,
 				89BA9F602167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
+				896DA12A224FC00700AEF86D /* KGAquariumScene.swift in Sources */,
 				89BA9F5D2167EB4D004959B3 /* KGMazeController.swift in Sources */,
 				89E8C2422180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */,
 				DE36AF63222D86F40030049C /* WVRotatingLinesView.swift in Sources */,
@@ -1045,6 +1054,7 @@
 				DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */,
 				89E8C22F2180309900A6434A /* KGDeStijlView.swift in Sources */,
 				DE16C540214EE4B10082BB34 /* A736DView.swift in Sources */,
+				896DA128224FC00000AEF86D /* KGAquariumView.swift in Sources */,
 				899F2BEC215086400095D5D3 /* KGBoidsController.swift in Sources */,
 				DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */,
 				89016DF02236D78300AEF8F1 /* KGSortingAction.swift in Sources */,
@@ -1080,6 +1090,7 @@
 			files = (
 				89E8C23821803D0A00A6434A /* KGKDimensionTree.swift in Sources */,
 				89BA9F5F2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
+				896DA129224FC00600AEF86D /* KGAquariumScene.swift in Sources */,
 				89BA9F5C2167EB4D004959B3 /* KGMazeController.swift in Sources */,
 				89E8C2412180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */,
 				DE36AF62222D86F30030049C /* WVRotatingLinesView.swift in Sources */,
@@ -1095,6 +1106,7 @@
 				DE16C531214ED93A0082BB34 /* A736DScene.swift in Sources */,
 				89E8C22E2180309900A6434A /* KGDeStijlView.swift in Sources */,
 				DE16C539214ED93A0082BB34 /* KGBoidsSunView.swift in Sources */,
+				896DA127224FC00000AEF86D /* KGAquariumView.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
 				899F2BEB215086400095D5D3 /* KGBoidsController.swift in Sources */,
 				89016DEF2236D78300AEF8F1 /* KGSortingAction.swift in Sources */,
