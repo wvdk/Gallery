@@ -62,21 +62,24 @@ class KGAquariumScene: SKScene {
         lightTwo.position = center
         lightThree.position = center
 
-        let forwardOne = SKAction.moveBy(x: 50, y: 0, duration: 1)
-        let backwardsOne = SKAction.moveBy(x: -50, y: 0, duration: 1)
+        let forwardOne = SKAction.moveBy(x: 20, y: 0, duration: 10)
+        forwardOne.timingMode = .easeInEaseOut
+        let backwardsOne = forwardOne.reversed()
         
         let moveOne = SKAction.repeatForever(SKAction.sequence([forwardOne, backwardsOne]))
         lightOne.run(moveOne)
         
-        let forwardTwo = SKAction.moveBy(x: -30, y: 0, duration: 1.5)
-        let backwardsTwo = SKAction.moveBy(x: 30, y: 0, duration: 1.5)
-        
+        let forwardTwo = SKAction.moveBy(x: -30, y: 0, duration: 10)
+        forwardTwo.timingMode = .easeInEaseOut
+        let backwardsTwo = forwardTwo.reversed()
+
         let moveTwo = SKAction.repeatForever(SKAction.sequence([forwardTwo, backwardsTwo]))
         lightTwo.run(moveTwo)
-        
-        let forwardThree = SKAction.moveBy(x: 400, y: 0, duration: 0.5)
-        let backwardsThree = SKAction.moveBy(x: -400, y: 0, duration: 0.5)
-        
+
+        let forwardThree = SKAction.moveBy(x: 35, y: 0, duration: 10)
+        forwardThree.timingMode = .easeInEaseOut
+        let backwardsThree = forwardThree.reversed()
+
         let moveThree = SKAction.repeatForever(SKAction.sequence([forwardThree, backwardsThree]))
         lightThree.run(moveThree)
 
@@ -112,8 +115,8 @@ class KGAquariumScene: SKScene {
     }
     
     // Called before each frame is rendered
-    override func update(_ currentTime: TimeInterval) {
-    }
+//    override func update(_ currentTime: TimeInterval) {
+//    }
     
     /// Creates a new fish
 //    private func spawnFish(){
