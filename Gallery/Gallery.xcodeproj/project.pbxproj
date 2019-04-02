@@ -16,10 +16,10 @@
 		89016DF52236D83100AEF8F1 /* KGColorSortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89016DF42236D83100AEF8F1 /* KGColorSortingView.swift */; };
 		89016DF62236D83100AEF8F1 /* KGColorSortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89016DF42236D83100AEF8F1 /* KGColorSortingView.swift */; };
 		890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */; };
-		890C5AF92253D3340022D991 /* ArtPieceResources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 890C5AF82253D3340022D991 /* ArtPieceResources.xcassets */; };
-		890C5AFA2253D3340022D991 /* ArtPieceResources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 890C5AF82253D3340022D991 /* ArtPieceResources.xcassets */; };
-		890C5AFC2253D3D70022D991 /* KGBubbleParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 890C5AFB2253D3D70022D991 /* KGBubbleParticles.sks */; };
-		890C5AFD2253D3D70022D991 /* KGBubbleParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 890C5AFB2253D3D70022D991 /* KGBubbleParticles.sks */; };
+		890C5B082253DDAF0022D991 /* KGBubbleParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */; };
+		890C5B092253DDB00022D991 /* KGBubbleParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */; };
+		890C5B142253E0FB0022D991 /* KGBubbleParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */; };
+		890C5B152253E0FB0022D991 /* KGBubbleParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */; };
 		89127CE52126284600208DCA /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
 		89127CE62126284600208DCA /* ArtKit_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89127CEA2126353D00208DCA /* MainViewController+PieceDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89127CE92126353D00208DCA /* MainViewController+PieceDisplay.swift */; };
@@ -258,8 +258,7 @@
 		89016DF12236D7B600AEF8F1 /* KGInsertionSortingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGInsertionSortingController.swift; sourceTree = "<group>"; };
 		89016DF42236D83100AEF8F1 /* KGColorSortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGColorSortingView.swift; sourceTree = "<group>"; };
 		890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailDismissAnimationController.swift; sourceTree = "<group>"; };
-		890C5AF82253D3340022D991 /* ArtPieceResources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ArtPieceResources.xcassets; sourceTree = "<group>"; };
-		890C5AFB2253D3D70022D991 /* KGBubbleParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = KGBubbleParticles.sks; path = ../../../../../../../Desktop/KGBubbleParticles.sks; sourceTree = "<group>"; };
+		890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = KGBubbleParticles.sks; sourceTree = "<group>"; };
 		89127CE92126353D00208DCA /* MainViewController+PieceDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+PieceDisplay.swift"; sourceTree = "<group>"; };
 		89134E1320E80C1300772E7F /* Gallery tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gallery tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89134E1520E80C1300772E7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -436,7 +435,7 @@
 			children = (
 				896DA123224FBBA400AEF86D /* KGAquariumScene.swift */,
 				896DA125224FBC2400AEF86D /* KGAquariumView.swift */,
-				890C5AFB2253D3D70022D991 /* KGBubbleParticles.sks */,
+				890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */,
 			);
 			path = Aquarium;
 			sourceTree = "<group>";
@@ -563,7 +562,6 @@
 				DE39D70420B321960087788C /* PieceMetadata.swift */,
 				DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */,
 				891549EB2114ADB10041FE8A /* ArtPieceThumbails.xcassets */,
-				890C5AF82253D3340022D991 /* ArtPieceResources.xcassets */,
 				DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */,
 				8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */,
 				DE0B7FA620E3E337000B482F /* Info_iOS.plist */,
@@ -969,6 +967,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890C5B152253E0FB0022D991 /* KGBubbleParticles.sks in Resources */,
 				891549EE2114E8F40041FE8A /* ArtPieceThumbails.xcassets in Resources */,
 				89134E1D20E80C1500772E7F /* Assets.xcassets in Resources */,
 			);
@@ -981,10 +980,9 @@
 				DE16C53F214EE49C0082BB34 /* A565zActions.sks in Resources */,
 				DE16C542214EE4B50082BB34 /* A736DActions.sks in Resources */,
 				DE16C53E214EE49A0082BB34 /* A565zScene.sks in Resources */,
-				890C5AFD2253D3D70022D991 /* KGBubbleParticles.sks in Resources */,
 				DE16C545214EE4BE0082BB34 /* A586qActions.sks in Resources */,
-				890C5AFA2253D3340022D991 /* ArtPieceResources.xcassets in Resources */,
 				891549ED2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */,
+				890C5B092253DDB00022D991 /* KGBubbleParticles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -995,10 +993,9 @@
 				891549EC2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */,
 				DE16C52E214ED93A0082BB34 /* A565zScene.sks in Resources */,
 				DE16C535214ED93A0082BB34 /* A586qActions.sks in Resources */,
-				890C5AFC2253D3D70022D991 /* KGBubbleParticles.sks in Resources */,
 				DE16C52F214ED93A0082BB34 /* A565zActions.sks in Resources */,
-				890C5AF92253D3340022D991 /* ArtPieceResources.xcassets in Resources */,
 				DE16C532214ED93A0082BB34 /* A736DActions.sks in Resources */,
+				890C5B082253DDAF0022D991 /* KGBubbleParticles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1011,6 +1008,7 @@
 				DE293F962048F30300444EB8 /* Assets.xcassets in Resources */,
 				89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */,
 				DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */,
+				890C5B142253E0FB0022D991 /* KGBubbleParticles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

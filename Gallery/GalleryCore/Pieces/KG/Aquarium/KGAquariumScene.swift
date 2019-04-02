@@ -13,12 +13,15 @@ class KGAquariumScene: SKScene {
 //    private var allFish = [FishNode]()
 //    private var fishFoodNode = FoodNode()
 //    private var fishIndex: UInt32 = 0
-//    private let emitter = SKEmitterNode(fileNamed: "BubbleParticles.sks")
     
-    let water = SKSpriteNode(imageNamed: "KGAquarium/Water")
-    let lightOne = SKSpriteNode(imageNamed: "KGAquarium/Light1")
-    let lightTwo = SKSpriteNode(imageNamed: "KGAquarium/Light2")
-    let lightThree = SKSpriteNode(imageNamed: "KGAquarium/Light3")
+    private let water = SKSpriteNode(imageNamed: "KGAquarium/Water")
+    private let lightOne = SKSpriteNode(imageNamed: "KGAquarium/Light1")
+    private let lightTwo = SKSpriteNode(imageNamed: "KGAquarium/Light2")
+    private let lightThree = SKSpriteNode(imageNamed: "KGAquarium/Light3")
+    
+    private let waterZ: CGFloat = 0
+    private let bubbleZ: CGFloat = 12
+    private let lightZ: CGFloat = 10
 
     override init(size: CGSize) {
         super.init(size: size)
@@ -28,11 +31,11 @@ class KGAquariumScene: SKScene {
         addChild(lightTwo)
         addChild(lightThree)
         
-        water.zPosition = 0
+        water.zPosition = waterZ
 
-        lightOne.zPosition = 1
-        lightTwo.zPosition = 1
-        lightThree.zPosition = 1
+        lightOne.zPosition = lightZ
+        lightTwo.zPosition = lightZ
+        lightThree.zPosition = lightZ
 
         lightOne.alpha = 0.04
         lightTwo.alpha = 0.03
@@ -49,7 +52,7 @@ class KGAquariumScene: SKScene {
         self.size = view.superview?.frame.size ?? UIScreen.main.nativeBounds.size
 
         water.size = size
-        
+
         lightOne.size = size
         lightTwo.size = size
         lightThree.size = size
@@ -57,7 +60,7 @@ class KGAquariumScene: SKScene {
         let center = CGPoint(x: size.width / 2, y: size.height / 2)
 
         water.position = center
-        
+
         lightOne.position = center
         lightTwo.position = center
         lightThree.position = center
@@ -76,7 +79,7 @@ class KGAquariumScene: SKScene {
         let moveTwo = SKAction.repeatForever(SKAction.sequence([forwardTwo, backwardsTwo]))
         lightTwo.run(moveTwo)
 
-        let forwardThree = SKAction.moveBy(x: 35, y: 0, duration: 10)
+        let forwardThree = SKAction.moveBy(x: 25, y: 0, duration: 10)
         forwardThree.timingMode = .easeInEaseOut
         let backwardsThree = forwardThree.reversed()
 
@@ -88,16 +91,15 @@ class KGAquariumScene: SKScene {
 //            spawnFish()
 //        }
         
-        // Adds bubbles to the background.
-//        if let emitter = emitter {
-//            emitter.position = CGPoint(x: self.size.width / 2, y: 0)
-//            emitter.particlePositionRange.dx = self.size.width / 2
-//            emitter.zPosition = zPositionFish - 1
-//            emitter.alpha = 0.6
-//            emitter.particleLifetime = 10.0
-//            emitter.particleBirthRate = 0.3
-//            addChild(emitter)
-//        }
+        if let bubbles = SKEmitterNode(fileNamed: "KGBubbleParticles") {
+            bubbles.position = CGPoint(x: size.width / 2, y: 0)
+            bubbles.particlePositionRange.dx = size.width / 2
+            bubbles.zPosition = bubbleZ
+            bubbles.alpha = 0.2
+            bubbles.particleLifetime = 10.0
+            bubbles.particleBirthRate = 0.3
+            addChild(bubbles)
+        }
         
         // Adds water grass to the scene.
 //        let waterGrass = SKSpriteNode(texture: SKTexture(imageNamed: "KGAquarium/Grass"))
@@ -137,14 +139,6 @@ class KGAquariumScene: SKScene {
 //        allFish.append(fish)
 //
 //        addChild(fish)
-//    }
-    
-    /// Finds closest food node for fish to seek.
-//    private func closestFishFoodNode(for fish: FishNode) -> FoodNode {
-//        let foodArray = self["fishFood"]
-//        let sorted = foodArray.sorted {abs($0.position.x - fish.position.x) < abs($1.position.x - fish.position.x)}
-//        let food = sorted[0] as! FoodNode
-//        return food
 //    }
     
     /// Removes fish move actions before it starts to seek food.
