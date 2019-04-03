@@ -10,29 +10,30 @@ import SpriteKit
 
 class KGAquariumScene: SKScene {
 
-//    private var allFish = [FishNode]()
+    private var allFish = [KGFishNode]()
 //    private var fishFoodNode = FoodNode()
-//    private var fishIndex: UInt32 = 0
     
     private let water = SKSpriteNode(imageNamed: "KGAquarium/Water")
+    private let darkness = SKSpriteNode(imageNamed: "KGAquarium/Darkness")
     private let lightOne = SKSpriteNode(imageNamed: "KGAquarium/Light1")
     private let lightTwo = SKSpriteNode(imageNamed: "KGAquarium/Light2")
     private let lightThree = SKSpriteNode(imageNamed: "KGAquarium/Light3")
     
     private let waterZ: CGFloat = 0
     private let bubbleZ: CGFloat = 12
-    private let lightZ: CGFloat = 10
+    private let lightZ: CGFloat = 100
 
     override init(size: CGSize) {
         super.init(size: size)
         
         addChild(water)
+        addChild(darkness)
         addChild(lightOne)
         addChild(lightTwo)
         addChild(lightThree)
         
         water.zPosition = waterZ
-
+        darkness.zPosition = lightZ - 1
         lightOne.zPosition = lightZ
         lightTwo.zPosition = lightZ
         lightThree.zPosition = lightZ
@@ -52,7 +53,7 @@ class KGAquariumScene: SKScene {
         self.size = view.superview?.frame.size ?? UIScreen.main.nativeBounds.size
 
         water.size = size
-
+        darkness.size = size
         lightOne.size = size
         lightTwo.size = size
         lightThree.size = size
@@ -60,7 +61,7 @@ class KGAquariumScene: SKScene {
         let center = CGPoint(x: size.width / 2, y: size.height / 2)
 
         water.position = center
-
+        darkness.position = center
         lightOne.position = center
         lightTwo.position = center
         lightThree.position = center
@@ -86,10 +87,9 @@ class KGAquariumScene: SKScene {
         let moveThree = SKAction.repeatForever(SKAction.sequence([forwardThree, backwardsThree]))
         lightThree.run(moveThree)
 
-        // Loop to create 3 fish initially in the scene.
-//        for _ in 0...5 {
-//            spawnFish()
-//        }
+        for _ in 0...5 {
+            spawnFish()
+        }
         
         if let bubbles = SKEmitterNode(fileNamed: "KGBubbleParticles") {
             bubbles.position = CGPoint(x: size.width / 2, y: 0)
@@ -120,26 +120,23 @@ class KGAquariumScene: SKScene {
 //    override func update(_ currentTime: TimeInterval) {
 //    }
     
-    /// Creates a new fish
-//    private func spawnFish(){
-//
-//        fishIndex = arc4random_uniform(2) + 1
-//        let fish = FishNode().newInstance(size: size, randFishNumber: fishIndex)
-//        fish.size.height /= 1.5
-//        fish.size.width *= 3/1.5
-//        fish.zPosition += CGFloat(drand48())
-//
-//        let margin = size.height / 10
-//        fish.position = CGPoint(x: CGFloat(arc4random_uniform(UInt32( size.width))),
-//                                y: margin + CGFloat(arc4random_uniform( UInt32( 8 * size.height / 10))))
-//
-//        fish.swim(randFishNumber: fishIndex)
-//        fish.moveAround(in: size)
+    private func spawnFish(){
+        let fish = KGFishNode()
+        let scaleConstant = CGFloat.random(in: 0.25...0.4)
+        fish.size.height *= scaleConstant
+        fish.size.width *= scaleConstant
+
+        let margin = size.height / 10
+        fish.position = CGPoint(x: CGFloat(arc4random_uniform(UInt32( size.width))),
+                                y: margin + CGFloat(arc4random_uniform( UInt32( 8 * size.height / 10))))
+
+        fish.swim()
+        fish.moveAround(in: size)
 //        fish.addPhysicsBody()
-//        allFish.append(fish)
-//
-//        addChild(fish)
-//    }
+        allFish.append(fish)
+
+        addChild(fish)
+    }
     
     /// Removes fish move actions before it starts to seek food.
 //    private func removeFishMoveAction(for fish: FishNode){

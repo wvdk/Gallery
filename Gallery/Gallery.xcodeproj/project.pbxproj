@@ -75,6 +75,8 @@
 		896DA128224FC00000AEF86D /* KGAquariumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896DA125224FBC2400AEF86D /* KGAquariumView.swift */; };
 		896DA129224FC00600AEF86D /* KGAquariumScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896DA123224FBBA400AEF86D /* KGAquariumScene.swift */; };
 		896DA12A224FC00700AEF86D /* KGAquariumScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896DA123224FBBA400AEF86D /* KGAquariumScene.swift */; };
+		896F0EF222552DF6006B2F25 /* KGFishNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F0EF122552DF6006B2F25 /* KGFishNode.swift */; };
+		896F0EF322552DF6006B2F25 /* KGFishNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F0EF122552DF6006B2F25 /* KGFishNode.swift */; };
 		8970BCAD20E95D160006870D /* GalleryCore_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8970BCBB20E95F1D0006870D /* PieceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* PieceMetadata.swift */; };
 		8970BCBD20E95F220006870D /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
@@ -293,6 +295,7 @@
 		8959050C20754B8200300B62 /* InfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBarView.swift; sourceTree = "<group>"; };
 		896DA123224FBBA400AEF86D /* KGAquariumScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGAquariumScene.swift; sourceTree = "<group>"; };
 		896DA125224FBC2400AEF86D /* KGAquariumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGAquariumView.swift; sourceTree = "<group>"; };
+		896F0EF122552DF6006B2F25 /* KGFishNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGFishNode.swift; sourceTree = "<group>"; };
 		8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_tvOS.h; sourceTree = "<group>"; };
 		8970BCAC20E95D160006870D /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
@@ -436,6 +439,7 @@
 				896DA123224FBBA400AEF86D /* KGAquariumScene.swift */,
 				896DA125224FBC2400AEF86D /* KGAquariumView.swift */,
 				890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */,
+				896F0EF122552DF6006B2F25 /* KGFishNode.swift */,
 			);
 			path = Aquarium;
 			sourceTree = "<group>";
@@ -1065,6 +1069,7 @@
 				DE16C548214EE4CA0082BB34 /* KGBoidProperties.swift in Sources */,
 				89E8C23F21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift in Sources */,
 				89E8C23C21803D5700A6434A /* KGKDimensionNode.swift in Sources */,
+				896F0EF322552DF6006B2F25 /* KGFishNode.swift in Sources */,
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
 				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
 				DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */,
@@ -1117,6 +1122,7 @@
 				DE16C53A214ED93A0082BB34 /* KGBoidProperties.swift in Sources */,
 				89E8C23E21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift in Sources */,
 				89E8C23B21803D5700A6434A /* KGKDimensionNode.swift in Sources */,
+				896F0EF222552DF6006B2F25 /* KGFishNode.swift in Sources */,
 				DE16C533214ED93A0082BB34 /* A586qScene.swift in Sources */,
 				DE16C52D214ED93A0082BB34 /* A565zView.swift in Sources */,
 				DE16C53B214ED93A0082BB34 /* KGBoidNode.swift in Sources */,
