@@ -16,19 +16,15 @@ class KGFishNode: SKSpriteNode {
         case none
     }
 
-    var swing1 = [
+    var swingTextures = [
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1"),
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing2"),
-        SKTexture(imageNamed: "KGAquarium/Fish/First/Swing3")
+        SKTexture(imageNamed: "KGAquarium/Fish/First/Swing3"),
+        SKTexture(imageNamed: "KGAquarium/Fish/First/Swing4"),
+        SKTexture(imageNamed: "KGAquarium/Fish/First/Swing5"),
+        SKTexture(imageNamed: "KGAquarium/Fish/First/Swing6")
     ]
     
-    var swing2 = [
-        SKTexture(imageNamed: "KGAquarium/Fish/Second/Swing1"),
-        SKTexture(imageNamed: "KGAquarium/Fish/Second/Swing2"),
-        SKTexture(imageNamed: "KGAquarium/Fish/Second/Swing3")
-    ]
-    
-    public var isSeekingFishFood = false
 //    public let emitter = SKEmitterNode(fileNamed: "BubbleParticles.sks")
     public var fishSpeed: CGFloat = 0
     private var direction: Direction = .left
@@ -41,30 +37,12 @@ class KGFishNode: SKSpriteNode {
 //    private var id = 0
     
     convenience init() {
-        let id = Int.random(in: 1...2)
         let firstFishTexture = SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1")
-        let secondFishTexture = SKTexture(imageNamed: "KGAquarium/Fish/Second/Swing1")
-        let texture = id == 1 ? firstFishTexture : secondFishTexture
-
-        self.init(texture: texture)
-        
-        self.zPosition = 10.0 + fishScaleConstant
+        self.init(texture: firstFishTexture)
     }
-    
-//    public func addPhysicsBody(){
-//        physicsBody = SKPhysicsBody.init(texture: SKTexture(imageNamed: "fishPB"), size: size)
-//
-//        physicsBody?.categoryBitMask = FishCategory
-//        physicsBody?.contactTestBitMask = WorldCategory | FishFoodCategory
-//        physicsBody?.isDynamic = false
-//        physicsBody?.allowsRotation = false
-//        physicsBody?.restitution = 1.0
-//        physicsBody?.affectedByGravity = false
-//    }
-    
+
     public func swim(){
-        let textures = Bool.random() ? swing1 : swing2
-        let swing = SKAction.animate(with: textures, timePerFrame: Double(0.1 * (1 + 2 * fishScaleConstant)))
+        let swing = SKAction.animate(with: swingTextures, timePerFrame: Double(0.1 * (1 + 2 * fishScaleConstant)))
         let swimAction = SKAction.repeatForever(swing)
         run(swimAction)
         
@@ -144,24 +122,6 @@ class KGFishNode: SKSpriteNode {
         
         run(SKAction.repeatForever(sequenceOfAnimations), withKey: "fishMoveAroundActionKey")
     }
-    
-    /// Adds food following action to the fish.
-//    public func seekFood(node: FoodNode){
-//
-//        if node.position.x > self.position.x {
-//            self.xScale = -1.0
-//        } else {
-//            self.xScale = 1.0
-//        }
-//
-//        self.zRotation = atan((node.position.y - self.position.y) / (node.position.x - self.position.x))
-//
-//        let distance = sqrt(pow((node.position.y - self.position.y), 2) + pow((node.position.x - self.position.x), 2))
-//        let time = Double(distance) / 70
-//
-//        let seekAction = SKAction.move(to: node.position, duration: time)
-//        self.run(seekAction, withKey: "fishSeekFoodActionKey")
-//    }
     
     public func moveToNewDestination(in size: CGSize){
         let marginY = size.height / 3
