@@ -183,6 +183,10 @@
 		DEDB688420E946EE00D102EB /* UITapGestureRecognizerWithClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE332B73205B7E8500C40727 /* UITapGestureRecognizerWithClosure.swift */; };
 		DEDB688520E946EE00D102EB /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE293FA020490D7700444EB8 /* NSObject+Extensions.swift */; };
 		DEDB688620E946EE00D102EB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3BD6422055F2BA00FD3298 /* UIColor+Extensions.swift */; };
+		DEFEBBDB2255BD1F00853F1F /* WVGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFEBBD82255BAAB00853F1F /* WVGridView.swift */; };
+		DEFEBBDC2255BD2000853F1F /* WVGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFEBBD82255BAAB00853F1F /* WVGridView.swift */; };
+		DEFEBBDF2255BF0B00853F1F /* WVBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFEBBDD2255BE9600853F1F /* WVBoxCell.swift */; };
+		DEFEBBE02255BF0B00853F1F /* WVBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFEBBDD2255BE9600853F1F /* WVBoxCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +358,8 @@
 		DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArtKit_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDB687520E946D900D102EB /* ArtKit_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtKit_tvOS.h; sourceTree = "<group>"; };
 		DEDB687620E946D900D102EB /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
+		DEFEBBD82255BAAB00853F1F /* WVGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVGridView.swift; sourceTree = "<group>"; };
+		DEFEBBDD2255BE9600853F1F /* WVBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVBoxCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -635,6 +641,7 @@
 		DE16C53C214ED9D40082BB34 /* WV */ = {
 			isa = PBXGroup;
 			children = (
+				DEFEBBDA2255BAB200853F1F /* Grid */,
 				DE36AF5F222D86A40030049C /* Rotating lines */,
 				DE16C523214ED93A0082BB34 /* Untitled 1 */,
 				DE16C51F214ED93A0082BB34 /* Untitled 2 */,
@@ -729,6 +736,15 @@
 				DE3BD64D2055FBD000FD3298 /* SFMono-Light.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DEFEBBDA2255BAB200853F1F /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				DEFEBBD82255BAAB00853F1F /* WVGridView.swift */,
+				DEFEBBDD2255BE9600853F1F /* WVBoxCell.swift */,
+			);
+			path = Grid;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1029,6 +1045,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E8C23921803D0A00A6434A /* KGKDimensionTree.swift in Sources */,
+				DEFEBBDC2255BD2000853F1F /* WVGridView.swift in Sources */,
 				89BA9F602167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
 				89BA9F5D2167EB4D004959B3 /* KGMazeController.swift in Sources */,
 				89E8C2422180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */,
@@ -1040,6 +1057,7 @@
 				89E8C23C21803D5700A6434A /* KGKDimensionNode.swift in Sources */,
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
 				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
+				DEFEBBE02255BF0B00853F1F /* WVBoxCell.swift in Sources */,
 				DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */,
 				8916D219215DACC4007816C6 /* KGLine.swift in Sources */,
 				DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */,
@@ -1079,6 +1097,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E8C23821803D0A00A6434A /* KGKDimensionTree.swift in Sources */,
+				DEFEBBDB2255BD1F00853F1F /* WVGridView.swift in Sources */,
 				89BA9F5F2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
 				89BA9F5C2167EB4D004959B3 /* KGMazeController.swift in Sources */,
 				89E8C2412180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */,
@@ -1090,6 +1109,7 @@
 				89E8C23B21803D5700A6434A /* KGKDimensionNode.swift in Sources */,
 				DE16C533214ED93A0082BB34 /* A586qScene.swift in Sources */,
 				DE16C52D214ED93A0082BB34 /* A565zView.swift in Sources */,
+				DEFEBBDF2255BF0B00853F1F /* WVBoxCell.swift in Sources */,
 				DE16C53B214ED93A0082BB34 /* KGBoidNode.swift in Sources */,
 				8916D218215DACC4007816C6 /* KGLine.swift in Sources */,
 				DE16C531214ED93A0082BB34 /* A736DScene.swift in Sources */,
