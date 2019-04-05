@@ -9,12 +9,9 @@
 import SpriteKit
 
 class KGAquariumScene: SKScene {
-
-    private var allFish = [KGFishNode]()
-//    private var fishFoodNode = FoodNode()
     
     private let water = SKSpriteNode(imageNamed: "KGAquarium/Water")
-    private let darkness = SKSpriteNode(imageNamed: "KGAquarium/Darkness")
+    private let grass = SKSpriteNode(imageNamed: "KGAquarium/Grass")
     
     private let waterZ: CGFloat = 0
     private let bubbleZ: CGFloat = 12
@@ -24,10 +21,10 @@ class KGAquariumScene: SKScene {
         super.init(size: size)
         
         addChild(water)
-        addChild(darkness)
+        addChild(grass)
         
         water.zPosition = waterZ
-        darkness.zPosition = fishZ + 10
+        grass.zPosition = fishZ + 10
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,40 +37,27 @@ class KGAquariumScene: SKScene {
         self.size = view.superview?.frame.size ?? UIScreen.main.nativeBounds.size
 
         water.size = size
-        darkness.size = size
+        grass.size = size
 
         let center = CGPoint(x: size.width / 2, y: size.height / 2)
 
         water.position = center
-        darkness.position = center
+        grass.position = center
+
+        configureGrassSwing()
 
         for _ in 0...5 {
-            spawnFish()
+            configureFish()
         }
         
-        if let bubbles = SKEmitterNode(fileNamed: "KGBubbleParticles") {
-            bubbles.position = CGPoint(x: size.width / 2, y: 0)
-            bubbles.particlePositionRange.dx = size.width / 2
-            bubbles.zPosition = bubbleZ
-            bubbles.alpha = 0.2
-            bubbles.particleLifetime = 10.0
-            bubbles.particleBirthRate = 0.3
-            addChild(bubbles)
-        }
-        
-        // Adds water grass to the scene.
-//        let waterGrass = SKSpriteNode(texture: SKTexture(imageNamed: "KGAquarium/Grass"))
-//        waterGrass.size = size
-//        waterGrass.position = CGPoint(x: size.width / 2, y: size.height / 2)
-//        waterGrass.zPosition = 4
-//        addChild(waterGrass)
+       configureBubbles()
     }
     
     // Called before each frame is rendered
 //    override func update(_ currentTime: TimeInterval) {
 //    }
     
-    private func spawnFish(){
+    private func configureFish(){
         let fish = KGFishNode()
         fish.zPosition = fishZ + CGFloat.random(in: 0...1)
 
@@ -89,7 +73,79 @@ class KGAquariumScene: SKScene {
 
         fish.swim()
         fish.moveAround(in: size)
-        allFish.append(fish)
+    }
+    
+    private func configureBubbles(){
+        guard let bubbles = SKEmitterNode(fileNamed: "KGBubbleParticles") else {
+            return
+        }
+        
+        bubbles.position = CGPoint(x: size.width / 2, y: 0)
+        bubbles.particlePositionRange.dx = size.width / 2
+        bubbles.zPosition = bubbleZ
+        bubbles.alpha = 0.2
+        bubbles.particleLifetime = 10.0
+        bubbles.particleBirthRate = 1
+        
+        addChild(bubbles)
+    }
+    
+    private func configureGrassSwing(){
+        let sourcePositions: [float2] = [
+            float2(0, 1),       float2(0.5, 1),     float2(1, 1),
+//            float2(0, 0.8),     float2(0.5, 0.8),   float2(1, 0.8),
+            float2(0, 0.6),     float2(0.5, 0.6),   float2(1, 0.6),
+//            float2(0, 0.4),     float2(0.5, 0.4),   float2(1, 0.4),
+//            float2(0, 0.2),     float2(0.5, 0.2),   float2(1, 0.2),
+            float2(0, 0),       float2(0.5, 0),     float2(1, 0)
+        ]
+        
+        let destinationPositions1: [float2] = [
+            float2(0.05, 0.99),   float2(0.55, 0.98),  float2(1.05, 0.96),
+//            float2(0.03, 0.79),   float2(0.53, 0.78),  float2(1.03, 0.76),
+            float2(0.01, 0.59),  float2(0.51, 0.58),  float2(1.01, 0.56),
+            
+//            float2(0, 0.4),      float2(0.5, 0.4),  float2(1, 0.4),
+//
+//            float2(0, 0.2),      float2(0.5, 0.2),  float2(1, 0.2),
+            float2(0, 0),        float2(0.5, 0),    float2(1, 0)
+        ]
+        
+        let destinationPositions2: [float2] = [
+            float2(0.1, 0.98),   float2(0.6, 0.96),  float2(1.1, 0.92),
+//            float2(0.06, 0.78),   float2(0.56, 0.76),  float2(1.06, 0.72),
+            float2(0.02, 0.58),      float2(0.52, 0.56),  float2(1.02, 0.52),
+            
+//            float2(0.01, 0.4),      float2(0.51, 0.39),  float2(1.01, 0.38),
+//
+//            float2(0, 0.2),      float2(0.5, 0.2),  float2(1, 0.2),
+            float2(0, 0),        float2(0.5, 0),    float2(1, 0)
+        ]
+        
+        let destinationPositions3: [float2] = [
+            float2(-0.04, 1),       float2(0.46, 1),     float2(0.97, 1),
+//            float2(-0.02, 0.8),     float2(0.47, 0.8),   float2(0.98, 0.8),
+            
+            float2(0, 0.6),     float2(0.5, 0.6),   float2(1, 0.6),
+//            float2(0, 0.4),     float2(0.5, 0.4),   float2(1, 0.4),
+//            float2(0, 0.2),     float2(0.5, 0.2),   float2(1, 0.2),
+            float2(0, 0),       float2(0.5, 0),     float2(1, 0)
+        ]
+        
+        let warpGeometryGrid1 = SKWarpGeometryGrid(columns: 2, rows: 2,
+                                                   sourcePositions: sourcePositions,
+                                                   destinationPositions: destinationPositions1)
+        let warpGeometryGrid2 = SKWarpGeometryGrid(columns: 2, rows: 2,
+                                                   sourcePositions: sourcePositions,
+                                                   destinationPositions: destinationPositions2)
+        let warpGeometryGrid3 = SKWarpGeometryGrid(columns: 2, rows: 2,
+                                                   sourcePositions: sourcePositions,
+                                                   destinationPositions: destinationPositions3)
+        
+        let time = drand48() + 1.0
+        let swingAction = SKAction.animate(withWarps:[warpGeometryGrid1, warpGeometryGrid2, warpGeometryGrid3],
+                                           times: [NSNumber(value: time), NSNumber(value: time * 2), NSNumber(value: time * 3)])
+        let warpAction = SKAction.repeatForever(swingAction!)
+        grass.run(warpAction)
     }
 }
-
