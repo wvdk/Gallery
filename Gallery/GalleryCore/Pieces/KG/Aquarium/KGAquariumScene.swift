@@ -108,9 +108,11 @@ class KGAquariumScene: SKScene {
             return
         }
         
-        let min = frame.origin.x + frame.size.width / 2 - frame.size.width * 0.052
-        let max = frame.origin.x + frame.size.width / 2 + frame.size.width * 0.052
-        let newPosition = CGPoint(x: CGFloat.random(in: min...max), y: frame.origin.y + 5)
+        let minX = frame.minY - node.size.width
+        let maxY = frame.maxX + node.size.width
+        let x = Bool.random() ? CGFloat.random(in: minX...frame.minY) : CGFloat.random(in: frame.maxX...maxY)
+        let y = CGFloat.random(in: frame.minY...frame.maxY)
+        let newPosition = CGPoint(x: x, y: y)
         
         node.position = newPosition
         
