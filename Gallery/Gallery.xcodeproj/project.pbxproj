@@ -441,9 +441,9 @@
 			children = (
 				896DA123224FBBA400AEF86D /* KGAquariumScene.swift */,
 				896DA125224FBC2400AEF86D /* KGAquariumView.swift */,
-				890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */,
 				896F0EF122552DF6006B2F25 /* KGFishNode.swift */,
 				899FBE8B225887F3006AFDEC /* KGWaterGrassNode.swift */,
+				890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */,
 			);
 			path = Aquarium;
 			sourceTree = "<group>";

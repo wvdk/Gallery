@@ -40,10 +40,7 @@ class KGAquariumScene: SKScene {
 
         waterGrass.configure(withSize: size)
 
-        for _ in 0...5 {
-            configureFish()
-        }
-        
+        configureFish()
         configureBubbles()
     }
     
@@ -52,21 +49,22 @@ class KGAquariumScene: SKScene {
 //    }
     
     private func configureFish(){
-        let fish = KGFishNode()
-        fish.zPosition = KGAquariumScene.fishZ + CGFloat.random(in: 0...1)
+        for _ in 0...5 {
 
-        let scaleConstant = CGFloat.random(in: 0.25...0.4)
-        fish.size.height *= scaleConstant
-        fish.size.width *= scaleConstant
-        
-        let margin = size.height / 10
-        fish.position = CGPoint(x: CGFloat(arc4random_uniform(UInt32( size.width))),
-                                y: margin + CGFloat(arc4random_uniform( UInt32( 8 * size.height / 10))))
-
-        addChild(fish)
-
-        fish.swim()
-        fish.moveAround(in: size)
+            let fish = KGFishNode()
+            addChild(fish)
+            
+            let isInFullScreen = size == UIScreen.main.bounds.size
+            
+            let scaleConstant = isInFullScreen ? CGFloat.random(in: 0.35...0.6) : CGFloat.random(in: 0.15...0.4)
+            fish.size.height *= scaleConstant
+            fish.size.width *= scaleConstant
+            
+            fish.position = CGPoint(x: CGFloat.random(in: 0...size.width),
+                                    y: size.height / 10 + CGFloat.random(in: 0...0.8 * size.height))
+            
+            fish.animateSwimming(inSize: size)
+        }
     }
     
     private func configureBubbles(){
@@ -83,5 +81,4 @@ class KGAquariumScene: SKScene {
         
         addChild(bubbles)
     }
-    
 }

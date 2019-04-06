@@ -16,7 +16,7 @@ class KGFishNode: SKSpriteNode {
         case none
     }
 
-    var swingTextures = [
+    private let swingTextures = [
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1"),
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing2"),
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing3"),
@@ -25,7 +25,6 @@ class KGFishNode: SKSpriteNode {
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing6")
     ]
     
-//    public let emitter = SKEmitterNode(fileNamed: "BubbleParticles.sks")
     public var fishSpeed: CGFloat = 0
     private var direction: Direction = .left
     private var currentTime: TimeInterval = 0.0
@@ -34,70 +33,24 @@ class KGFishNode: SKSpriteNode {
         return CGFloat(drand48())
     }
     
-//    private var id = 0
-    
     convenience init() {
-        let firstFishTexture = SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1")
-        self.init(texture: firstFishTexture)
+        self.init(texture: SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1"))
+        
+        self.zPosition = KGAquariumScene.fishZ + CGFloat.random(in: 0...1)
     }
 
-    public func swim(){
-        let swing = SKAction.animate(with: swingTextures, timePerFrame: Double(0.1 * (1 + 2 * fishScaleConstant)))
-        let swimAction = SKAction.repeatForever(swing)
-        run(swimAction)
-        
-//        if let emitter = emitter {
-//            emitter.position.x = 15.0 - self.size.width / 2
-//            emitter.particleScale = 0.04
-//            emitter.particleScaleSpeed = 0.01
-//            emitter.zPosition = zPositionFish - 10
-//            addChild(emitter)
-//        }
+    func animateSwimming(inSize size: CGSize) {
+        swing()
+        moveAround(in: size)
     }
     
-    /// Adds swim-move action to the fish. For GAME SCENE.
-    public func move(deltaTime: TimeInterval, in frameSize: CGSize){
-        // Changes fish "swing" - y position.
-        currentTime += deltaTime
-        
-        if currentTime > 2 {
-            currentTime = 0
-        }
-        
-        if currentTime >= 0 && currentTime <= 1 {
-            position.y -= 0.1
-        } else if currentTime > 1 && currentTime <= 2 {
-            position.y += 0.1
-        }
-        
-        var newFishSpeed = fishSpeed
-        
-        /// Value which shows how much x is changed every `deltaTime`.
-        let deltaX: CGFloat = newFishSpeed * CGFloat(deltaTime)
-        
-        switch direction {
-        case .left:
-            position.x -= deltaX
-            if position.x < -size.width / 2 {
-                direction = .right
-                xScale = -1
-            }
-            
-        case .right:
-            position.x += deltaX * 2
-            
-            if position.x > frameSize.width + size.width / 2 {
-                direction = .left
-                xScale = 1
-            }
-            
-        case .none:
-            break
-        }
+    private func swing() {
+        let frequency = 0.1 * (1 + Double.random(in: 0...2))
+        let swing = SKAction.animate(with: swingTextures, timePerFrame: frequency)
+        run(SKAction.repeatForever(swing))
     }
-    
-    public func moveAround(in size: CGSize){
-        
+
+    private func moveAround(in size: CGSize) {
         let deltaX = size.width / 4
         let duration = 3.0 + Double(arc4random_uniform(6))
         
@@ -121,29 +74,5 @@ class KGFishNode: SKSpriteNode {
                                                       flipAnimation])
         
         run(SKAction.repeatForever(sequenceOfAnimations), withKey: "fishMoveAroundActionKey")
-    }
-    
-    public func moveToNewDestination(in size: CGSize){
-        let marginY = size.height / 3
-        let destination = CGPoint(x: CGFloat(arc4random_uniform(UInt32( size.width))),
-                                  y: CGFloat(arc4random_uniform(UInt32( size.height - 2 * marginY))) + marginY)
-        
-        if destination.x > self.position.x {
-            self.xScale = -1.0
-        } else {
-            self.xScale = 1.0
-        }
-        
-        self.zRotation = atan((destination.y - self.position.y) / (destination.x - self.position.x)) / 2
-        
-        let moveAction = SKAction.move(to: destination, duration: 10 * (1 + Double(drand48())))
-        
-        let moveAroundAction = SKAction.run { [weak self] in
-            self?.zRotation = 0
-            self?.moveAround(in: size)
-        }
-        
-        let moveSequence = SKAction.sequence([moveAction, moveAroundAction])
-        run(moveSequence, withKey: "fishMoveToNewDestinationActionKey")
     }
 }
