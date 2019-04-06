@@ -21,10 +21,10 @@ class KGFishNode: SKSpriteNode {
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing6")
     ]
     
-    private let separationCoefficient: CGFloat = 1
-    private let alignmentCoefficient: CGFloat = 0.1
-    private let cohesionCoefficient: CGFloat = -1
-    private let speedCoefficient: CGFloat = 0.1
+    private let separationCoefficient: CGFloat = 0.4
+    private let alignmentCoefficient: CGFloat = 0.7
+    private let cohesionCoefficient: CGFloat = -0.5
+    private var speedCoefficient: CGFloat = 0.1 * (1 + CGFloat.random(in: 0...2))
 
     private var direction = CGVector.random(min: -10, max: 10)
     private var recentDirections = [CGVector]()
@@ -40,8 +40,7 @@ class KGFishNode: SKSpriteNode {
     }
     
     private func swing() {
-        let frequency = 0.1 * (1 + Double.random(in: 0...2))
-        let swing = SKAction.animate(with: swingTextures, timePerFrame: frequency)
+        let swing = SKAction.animate(with: swingTextures, timePerFrame: Double(speedCoefficient))
         run(SKAction.repeatForever(swing))
     }
     
@@ -90,7 +89,7 @@ class KGFishNode: SKSpriteNode {
             return
         }
         
-        guard let averageDirection = recentDirections.average?.multiply(by: speedCoefficient) else {
+        guard let averageDirection = recentDirections.average?.multiply(by: speedCoefficient * 0.8) else { // 10
             return
         }
         
