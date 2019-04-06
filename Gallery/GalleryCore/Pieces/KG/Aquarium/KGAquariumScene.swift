@@ -18,6 +18,8 @@ class KGAquariumScene: SKScene {
     private let water = SKSpriteNode(imageNamed: "KGAquarium/Water")
     private let waterGrass = KGWaterGrassNode()
     
+    private var allFishes = [KGFishNode]()
+        
     override init(size: CGSize) {
         super.init(size: size)
         
@@ -44,18 +46,18 @@ class KGAquariumScene: SKScene {
         configureBubbles()
     }
     
-    // Called before each frame is rendered
-//    override func update(_ currentTime: TimeInterval) {
-//    }
+    override func update(_ currentTime: TimeInterval) {
+        updateFishPositions()
+    }
     
     private func configureFish(){
         for _ in 0...5 {
 
             let fish = KGFishNode()
             addChild(fish)
-            
+            allFishes.append(fish)
+
             let isInFullScreen = size == UIScreen.main.bounds.size
-            
             let scaleConstant = isInFullScreen ? CGFloat.random(in: 0.35...0.6) : CGFloat.random(in: 0.15...0.4)
             fish.size.height *= scaleConstant
             fish.size.width *= scaleConstant
@@ -63,7 +65,7 @@ class KGAquariumScene: SKScene {
             fish.position = CGPoint(x: CGFloat.random(in: 0...size.width),
                                     y: size.height / 10 + CGFloat.random(in: 0...0.8 * size.height))
             
-            fish.animateSwimming(inSize: size)
+            fish.animateSwimming()
         }
     }
     
@@ -80,5 +82,41 @@ class KGAquariumScene: SKScene {
         bubbles.particleBirthRate = 2
         
         addChild(bubbles)
+    }
+    
+    private func updateFishPositions() {
+        allFishes.forEach { fish in
+            let neighbourhood = allFishes.filter { possiblyNeighbourFish in
+                guard fish != possiblyNeighbourFish else {
+                    return false
+                }
+                
+                if fish.position.distance(to: possiblyNeighbourFish.position) < fish.size.width {
+                    return true
+                }
+                
+                return false
+            }
+            
+            fish.move(in: neighbourhood)
+            updateFishPositionIfOutOfConfinementFrame(for: fish)
+        }
+    }
+    
+    private func updateFishPositionIfOutOfConfinementFrame(for node: KGFishNode) {
+        guard node.canUpdatePosition, !frame.contains(node.position) else {
+            return
+        }
+        
+        let min = frame.origin.x + frame.size.width / 2 - frame.size.width * 0.052
+        let max = frame.origin.x + frame.size.width / 2 + frame.size.width * 0.052
+        let newPosition = CGPoint(x: CGFloat.random(in: min...max), y: frame.origin.y + 5)
+        
+        node.position = newPosition
+        
+        node.canUpdatePosition = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            node.canUpdatePosition = true
+        }
     }
 }

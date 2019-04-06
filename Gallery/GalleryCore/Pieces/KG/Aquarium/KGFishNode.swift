@@ -10,11 +10,7 @@ import SpriteKit
 
 class KGFishNode: SKSpriteNode {
     
-    enum Direction {
-        case left
-        case right
-        case none
-    }
+    var canUpdatePosition = true
 
     private let swingTextures = [
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1"),
@@ -25,13 +21,13 @@ class KGFishNode: SKSpriteNode {
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing6")
     ]
     
-    public var fishSpeed: CGFloat = 0
-    private var direction: Direction = .left
-    private var currentTime: TimeInterval = 0.0
-    
-    private var fishScaleConstant: CGFloat {
-        return CGFloat(drand48())
-    }
+    private let separationCoefficient: CGFloat = 1
+    private let alignmentCoefficient: CGFloat = 0.1
+    private let cohesionCoefficient: CGFloat = -1
+    private let speedCoefficient: CGFloat = 0.1
+
+    private var direction = CGVector.random(min: -10, max: 10)
+    private var recentDirections = [CGVector]()
     
     convenience init() {
         self.init(texture: SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1"))
@@ -39,9 +35,8 @@ class KGFishNode: SKSpriteNode {
         self.zPosition = KGAquariumScene.fishZ + CGFloat.random(in: 0...1)
     }
 
-    func animateSwimming(inSize size: CGSize) {
+    func animateSwimming() {
         swing()
-        moveAround(in: size)
     }
     
     private func swing() {
@@ -49,30 +44,78 @@ class KGFishNode: SKSpriteNode {
         let swing = SKAction.animate(with: swingTextures, timePerFrame: frequency)
         run(SKAction.repeatForever(swing))
     }
+    
+    // Boids behaviour
+    
+    func move(in neighbourhood: [KGFishNode] = []) {
+        if neighbourhood.count > 1 {
+            let arragement = arrangement(in: neighbourhood)
+            
+            let aligment = arragement.alignmentVector.normalized.multiply(by: alignmentCoefficient)
+            let cohesion = arragement.cohesionVector.normalized.multiply(by: cohesionCoefficient)
+            let separation = arragement.separationVector.normalized.multiply(by: separationCoefficient)
+            
+            direction = aligment.add(cohesion).add(separation).multiply(by: 10)
+        }
+        
+        recentDirections.append(direction)
+        recentDirections = Array(recentDirections.suffix(5))
+        
+        updatePosition()
+        updateRotation()
+    }
+    
+    private func arrangement(in neighbourhood: [KGFishNode]) -> (alignmentVector: CGVector, cohesionVector: CGVector, separationVector: CGVector) {
+        var directions = [CGVector]()
+        var positions = [CGPoint]()
+        var distances = [CGVector]()
+        
+        for neighbour in neighbourhood {
+            directions.append(neighbour.direction)
+            positions.append(neighbour.position)
+            distances.append(position.vector(to: neighbour.position))
+        }
+        
+        guard let averageDirection = directions.average, let averagaPosition = positions.average, let averageDistance = distances.average else {
+            return (.zero, .zero, .zero)
+        }
+        
+        let vectorToAveragePosition = position.vector(to: averagaPosition)
+        let distance = averageDistance.length > size.width ? averageDistance : CGVector(dx: -size.width * 0.5, dy: -size.width * 0.5)
+        return (averageDirection, vectorToAveragePosition, distance)
+    }
+    
+    private func updatePosition() {
+        guard recentDirections.count > 0 else {
+            return
+        }
+        
+        guard let averageDirection = recentDirections.average?.multiply(by: speedCoefficient) else {
+            return
+        }
+        
+        position.x += averageDirection.dx
+        position.y += averageDirection.dy
+    }
+    
+    private func updateRotation() {
+        guard let averageDirection = recentDirections.average else {
+            return
+        }
+        
+        zRotation = averageDirection.normalized.angleToNormal
+    }
+}
 
-    private func moveAround(in size: CGSize) {
-        let deltaX = size.width / 4
-        let duration = 3.0 + Double(arc4random_uniform(6))
+extension CGVector {
+
+    fileprivate var normalized: CGVector {
+        let maxComponent = max(abs(dx), abs(dy))
         
-        if xScale < 1 {
-            xScale = 1
+        if maxComponent == 0 {
+            return .zero
         }
         
-        let moveToPointAnimation = SKAction.move(to: CGPoint(x: self.position.x - deltaX, y: self.position.y + CGFloat(drand48())),
-                                                 duration: duration)
-        
-        let flipAnimation = SKAction.run { [weak self] in
-            self?.xScale *= -1
-        }
-        
-        let moveBackToPointAnimation = SKAction.move(to: CGPoint(x: self.position.x + deltaX, y: self.position.y + CGFloat(drand48())),
-                                                     duration: duration)
-        
-        let sequenceOfAnimations = SKAction.sequence([moveToPointAnimation,
-                                                      flipAnimation,
-                                                      moveBackToPointAnimation,
-                                                      flipAnimation])
-        
-        run(SKAction.repeatForever(sequenceOfAnimations), withKey: "fishMoveAroundActionKey")
+        return self.divide(by: maxComponent)
     }
 }
