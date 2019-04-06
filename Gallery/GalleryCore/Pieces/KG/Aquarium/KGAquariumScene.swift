@@ -77,7 +77,7 @@ class KGAquariumScene: SKScene {
         bubbles.zPosition = KGAquariumScene.bubbleZ
         bubbles.alpha = 0.2
         bubbles.particleLifetime = 10.0
-        bubbles.particleBirthRate = 1
+        bubbles.particleBirthRate = 2
         
         addChild(bubbles)
     }
