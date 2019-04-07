@@ -101,7 +101,7 @@ class KGFishNode: SKSpriteNode {
             return
         }
         
-        guard let averageDirection = recentDirections.average?.multiply(by: speedCoefficient * (shouldBoostSpeed ? 15 : 0.8)) else {
+        guard let averageDirection = recentDirections.average?.multiply(by: speedCoefficient * (shouldBoostSpeed ? 10 : 0.8)) else {
             return
         }
         
