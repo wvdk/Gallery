@@ -17,6 +17,8 @@ class KGFishNode: SKSpriteNode {
             }
         }
     }
+    
+    var shouldBoostSpeed = false
 
     private let swingTextures = [
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1"),
@@ -100,7 +102,7 @@ class KGFishNode: SKSpriteNode {
             return
         }
         
-        guard let averageDirection = recentDirections.average?.multiply(by: speedCoefficient * 0.8) else { // 10
+        guard let averageDirection = recentDirections.average?.multiply(by: speedCoefficient * (shouldBoostSpeed ? 15 : 0.8)) else {
             return
         }
         
