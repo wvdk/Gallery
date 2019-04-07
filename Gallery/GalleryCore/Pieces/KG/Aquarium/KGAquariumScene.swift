@@ -61,6 +61,11 @@ class KGAquariumScene: SKScene {
             allFishes.append(fish)
 
             let scaleConstant = isInFullScreen ? CGFloat.random(in: 0.3...0.55) : CGFloat.random(in: 0.15...0.3)
+            
+            fish.zPosition = KGAquariumScene.fishZ + scaleConstant
+            
+            fish.alpha = isInFullScreen ? scaleConstant / 0.55 : scaleConstant / 0.3
+            
             fish.size.height *= scaleConstant
             fish.size.width *= scaleConstant
             

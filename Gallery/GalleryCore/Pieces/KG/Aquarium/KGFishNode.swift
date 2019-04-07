@@ -40,7 +40,6 @@ class KGFishNode: SKSpriteNode {
     convenience init() {
         self.init(texture: SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1"))
         
-        self.zPosition = KGAquariumScene.fishZ + CGFloat.random(in: 0...1)
         self.xScale = -1
 
         Timer.scheduledTimer(withTimeInterval: Double.random(in: 2...6), repeats: true) { [weak self] _ in
