@@ -51,7 +51,7 @@ class KGAquariumScene: SKScene {
     }
     
     private func configureFish(){
-        for _ in 0...5 {
+        for _ in 0...8 {
 
             let fish = KGFishNode()
             addChild(fish)
@@ -91,7 +91,7 @@ class KGAquariumScene: SKScene {
                     return false
                 }
                 
-                if fish.position.distance(to: possiblyNeighbourFish.position) < fish.size.width {
+                if fish.position.distance(to: possiblyNeighbourFish.position) < fish.size.width * 1.5 {
                     return true
                 }
                 

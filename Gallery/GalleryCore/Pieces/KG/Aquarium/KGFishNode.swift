@@ -10,7 +10,13 @@ import SpriteKit
 
 class KGFishNode: SKSpriteNode {
     
-    var canUpdatePosition = true
+    var canUpdatePosition = true {
+        didSet {
+            if !canUpdatePosition {
+                recentDirections = []
+            }
+        }
+    }
 
     private let swingTextures = [
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1"),
@@ -21,18 +27,23 @@ class KGFishNode: SKSpriteNode {
         SKTexture(imageNamed: "KGAquarium/Fish/First/Swing6")
     ]
     
-    private let separationCoefficient: CGFloat = 0.4
-    private let alignmentCoefficient: CGFloat = 0.7
+    private let separationCoefficient: CGFloat = 1
+    private let alignmentCoefficient: CGFloat = 0.2
     private let cohesionCoefficient: CGFloat = -0.5
     private var speedCoefficient: CGFloat = 0.1 * (1 + CGFloat.random(in: 0...2))
 
-    private var direction = CGVector.random(min: -10, max: 10)
+    private var direction = CGVector(dx: Double.random(in: -10...10), dy: 0)
     private var recentDirections = [CGVector]()
     
     convenience init() {
         self.init(texture: SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1"))
         
         self.zPosition = KGAquariumScene.fishZ + CGFloat.random(in: 0...1)
+        self.xScale = -1
+
+        Timer.scheduledTimer(withTimeInterval: Double.random(in: 2...6), repeats: true) { [weak self] _ in
+            self?.direction = CGVector(dx: Double.random(in: -10...10), dy: 0)
+        }
     }
 
     func animateSwimming() {
@@ -58,7 +69,7 @@ class KGFishNode: SKSpriteNode {
         }
         
         recentDirections.append(direction)
-        recentDirections = Array(recentDirections.suffix(5))
+        recentDirections = Array(recentDirections.suffix(15))
         
         updatePosition()
         updateRotation()
@@ -102,7 +113,8 @@ class KGFishNode: SKSpriteNode {
             return
         }
         
-        zRotation = averageDirection.normalized.angleToNormal
+        self.yScale = averageDirection.normalized.dx > 0 ? 1 : -1
+        self.zRotation = averageDirection.normalized.angleToNormal
     }
 }
 
