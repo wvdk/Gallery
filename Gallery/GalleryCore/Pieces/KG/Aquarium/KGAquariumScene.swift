@@ -15,7 +15,7 @@ class KGAquariumScene: SKScene {
     static let fishZ: CGFloat = 12
     static let waterGrassZ: CGFloat = 22
     
-    private let water = SKSpriteNode(imageNamed: "KGAquarium/Water")
+    private let water = SKSpriteNode(imageNamed: "KGAquarium.xcassets/Water")
     private let waterGrass = KGWaterGrassNode()
     
     private var allFishes = [KGFishNode]()

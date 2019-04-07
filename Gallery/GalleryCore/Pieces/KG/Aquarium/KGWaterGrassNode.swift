@@ -10,7 +10,7 @@ import SpriteKit
 
 class KGWaterGrassNode: SKSpriteNode {
     
-    private let grass = SKSpriteNode(imageNamed: "KGAquarium/WaterGrass")
+    private let grass = SKSpriteNode(imageNamed: "KGAquarium.xcassets/WaterGrass")
     
     func configure(withSize size: CGSize) {
         addChild(grass)

@@ -21,12 +21,12 @@ class KGFishNode: SKSpriteNode {
     var shouldBoostSpeed = false
 
     private let swingTextures = [
-        SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1"),
-        SKTexture(imageNamed: "KGAquarium/Fish/First/Swing2"),
-        SKTexture(imageNamed: "KGAquarium/Fish/First/Swing3"),
-        SKTexture(imageNamed: "KGAquarium/Fish/First/Swing4"),
-        SKTexture(imageNamed: "KGAquarium/Fish/First/Swing5"),
-        SKTexture(imageNamed: "KGAquarium/Fish/First/Swing6")
+        SKTexture(imageNamed: "KGAquarium.xcassets/Fish/Swing1"),
+        SKTexture(imageNamed: "KGAquarium.xcassets/Fish/Swing2"),
+        SKTexture(imageNamed: "KGAquarium.xcassets/Fish/Swing3"),
+        SKTexture(imageNamed: "KGAquarium.xcassets/Fish/Swing4"),
+        SKTexture(imageNamed: "KGAquarium.xcassets/Fish/Swing5"),
+        SKTexture(imageNamed: "KGAquarium.xcassets/Fish/Swing6")
     ]
     
     private let separationCoefficient: CGFloat = 1
@@ -38,7 +38,7 @@ class KGFishNode: SKSpriteNode {
     private var recentDirections = [CGVector]()
     
     convenience init() {
-        self.init(texture: SKTexture(imageNamed: "KGAquarium/Fish/First/Swing1"))
+        self.init(texture: SKTexture(imageNamed: "KGAquarium.xcassets/Fish/Swing1"))
         
         self.xScale = -1
 

@@ -133,6 +133,10 @@
 		89E8C23F21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C23D21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift */; };
 		89E8C2412180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C2402180E82100A6434A /* KKGKDimensionTreeNodeAction.swift */; };
 		89E8C2422180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C2402180E82100A6434A /* KKGKDimensionTreeNodeAction.swift */; };
+		89FF4453225A193E00EC1266 /* KGAquarium.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FF4452225A193D00EC1266 /* KGAquarium.xcassets */; };
+		89FF4454225A194200EC1266 /* KGAquarium.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FF4452225A193D00EC1266 /* KGAquarium.xcassets */; };
+		89FF4455225A194300EC1266 /* KGAquarium.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FF4452225A193D00EC1266 /* KGAquarium.xcassets */; };
+		89FF4456225A194300EC1266 /* KGAquarium.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FF4452225A193D00EC1266 /* KGAquarium.xcassets */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
 		DE0B7FAB20E3E337000B482F /* GalleryCore_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -329,6 +333,7 @@
 		89E8C23A21803D5700A6434A /* KGKDimensionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGKDimensionNode.swift; sourceTree = "<group>"; };
 		89E8C23D21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGQuicksortSortingAlgorithm.swift; sourceTree = "<group>"; };
 		89E8C2402180E82100A6434A /* KKGKDimensionTreeNodeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKGKDimensionTreeNodeAction.swift; sourceTree = "<group>"; };
+		89FF4452225A193D00EC1266 /* KGAquarium.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = KGAquarium.xcassets; sourceTree = "<group>"; };
 		DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_iOS.h; sourceTree = "<group>"; };
 		DE0B7FA620E3E337000B482F /* Info_iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_iOS.plist; sourceTree = "<group>"; };
@@ -444,6 +449,7 @@
 				896F0EF122552DF6006B2F25 /* KGFishNode.swift */,
 				899FBE8B225887F3006AFDEC /* KGWaterGrassNode.swift */,
 				890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */,
+				89FF4452225A193D00EC1266 /* KGAquarium.xcassets */,
 			);
 			path = Aquarium;
 			sourceTree = "<group>";
@@ -977,6 +983,7 @@
 			files = (
 				890C5B152253E0FB0022D991 /* KGBubbleParticles.sks in Resources */,
 				891549EE2114E8F40041FE8A /* ArtPieceThumbails.xcassets in Resources */,
+				89FF4454225A194200EC1266 /* KGAquarium.xcassets in Resources */,
 				89134E1D20E80C1500772E7F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -990,6 +997,7 @@
 				DE16C53E214EE49A0082BB34 /* A565zScene.sks in Resources */,
 				DE16C545214EE4BE0082BB34 /* A586qActions.sks in Resources */,
 				891549ED2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */,
+				89FF4456225A194300EC1266 /* KGAquarium.xcassets in Resources */,
 				890C5B092253DDB00022D991 /* KGBubbleParticles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1003,6 +1011,7 @@
 				DE16C535214ED93A0082BB34 /* A586qActions.sks in Resources */,
 				DE16C52F214ED93A0082BB34 /* A565zActions.sks in Resources */,
 				DE16C532214ED93A0082BB34 /* A736DActions.sks in Resources */,
+				89FF4455225A194300EC1266 /* KGAquarium.xcassets in Resources */,
 				890C5B082253DDAF0022D991 /* KGBubbleParticles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1016,6 +1025,7 @@
 				DE293F962048F30300444EB8 /* Assets.xcassets in Resources */,
 				89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */,
 				DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */,
+				89FF4453225A193E00EC1266 /* KGAquarium.xcassets in Resources */,
 				890C5B142253E0FB0022D991 /* KGBubbleParticles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
