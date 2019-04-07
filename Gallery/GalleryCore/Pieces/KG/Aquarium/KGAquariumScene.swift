@@ -58,7 +58,7 @@ class KGAquariumScene: SKScene {
             allFishes.append(fish)
 
             let isInFullScreen = size == UIScreen.main.bounds.size
-            let scaleConstant = isInFullScreen ? CGFloat.random(in: 0.35...0.6) : CGFloat.random(in: 0.15...0.4)
+            let scaleConstant = isInFullScreen ? CGFloat.random(in: 0.3...0.55) : CGFloat.random(in: 0.15...0.3)
             fish.size.height *= scaleConstant
             fish.size.width *= scaleConstant
             
