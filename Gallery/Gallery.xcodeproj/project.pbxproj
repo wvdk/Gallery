@@ -16,6 +16,10 @@
 		89016DF52236D83100AEF8F1 /* KGColorSortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89016DF42236D83100AEF8F1 /* KGColorSortingView.swift */; };
 		89016DF62236D83100AEF8F1 /* KGColorSortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89016DF42236D83100AEF8F1 /* KGColorSortingView.swift */; };
 		890B43B0208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */; };
+		890C5B082253DDAF0022D991 /* KGBubbleParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */; };
+		890C5B092253DDB00022D991 /* KGBubbleParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */; };
+		890C5B142253E0FB0022D991 /* KGBubbleParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */; };
+		890C5B152253E0FB0022D991 /* KGBubbleParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */; };
 		89127CE52126284600208DCA /* ArtKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; };
 		89127CE62126284600208DCA /* ArtKit_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEDB687320E946D900D102EB /* ArtKit_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89127CEA2126353D00208DCA /* MainViewController+PieceDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89127CE92126353D00208DCA /* MainViewController+PieceDisplay.swift */; };
@@ -67,6 +71,12 @@
 		8959050D20754B8200300B62 /* InfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959050C20754B8200300B62 /* InfoBarView.swift */; };
 		8959454A20E9609900DF123D /* GalleryCore_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; };
 		8959454B20E9609900DF123D /* GalleryCore_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		896DA127224FC00000AEF86D /* KGAquariumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896DA125224FBC2400AEF86D /* KGAquariumView.swift */; };
+		896DA128224FC00000AEF86D /* KGAquariumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896DA125224FBC2400AEF86D /* KGAquariumView.swift */; };
+		896DA129224FC00600AEF86D /* KGAquariumScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896DA123224FBBA400AEF86D /* KGAquariumScene.swift */; };
+		896DA12A224FC00700AEF86D /* KGAquariumScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896DA123224FBBA400AEF86D /* KGAquariumScene.swift */; };
+		896F0EF222552DF6006B2F25 /* KGFishNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F0EF122552DF6006B2F25 /* KGFishNode.swift */; };
+		896F0EF322552DF6006B2F25 /* KGFishNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F0EF122552DF6006B2F25 /* KGFishNode.swift */; };
 		8970BCAD20E95D160006870D /* GalleryCore_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8970BCBB20E95F1D0006870D /* PieceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39D70420B321960087788C /* PieceMetadata.swift */; };
 		8970BCBD20E95F220006870D /* MasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2AEFB1204B1AB700C65CA4 /* MasterList.swift */; };
@@ -88,6 +98,8 @@
 		899F2BE92150158C0095D5D3 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BE5215015860095D5D3 /* CGRect+Extension.swift */; };
 		899F2BEB215086400095D5D3 /* KGBoidsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BEA215086400095D5D3 /* KGBoidsController.swift */; };
 		899F2BEC215086400095D5D3 /* KGBoidsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2BEA215086400095D5D3 /* KGBoidsController.swift */; };
+		899FBE8C225887F3006AFDEC /* KGWaterGrassNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899FBE8B225887F3006AFDEC /* KGWaterGrassNode.swift */; };
+		899FBE8D225887F3006AFDEC /* KGWaterGrassNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899FBE8B225887F3006AFDEC /* KGWaterGrassNode.swift */; };
 		89BA9F592167EA6F004959B3 /* KGVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F582167EA6F004959B3 /* KGVertex.swift */; };
 		89BA9F5A2167EA6F004959B3 /* KGVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F582167EA6F004959B3 /* KGVertex.swift */; };
 		89BA9F5C2167EB4D004959B3 /* KGMazeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA9F5B2167EB4D004959B3 /* KGMazeController.swift */; };
@@ -121,6 +133,10 @@
 		89E8C23F21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C23D21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift */; };
 		89E8C2412180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C2402180E82100A6434A /* KKGKDimensionTreeNodeAction.swift */; };
 		89E8C2422180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8C2402180E82100A6434A /* KKGKDimensionTreeNodeAction.swift */; };
+		89FF4453225A193E00EC1266 /* KGAquarium.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FF4452225A193D00EC1266 /* KGAquarium.xcassets */; };
+		89FF4454225A194200EC1266 /* KGAquarium.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FF4452225A193D00EC1266 /* KGAquarium.xcassets */; };
+		89FF4455225A194300EC1266 /* KGAquarium.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FF4452225A193D00EC1266 /* KGAquarium.xcassets */; };
+		89FF4456225A194300EC1266 /* KGAquarium.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FF4452225A193D00EC1266 /* KGAquarium.xcassets */; };
 		DE0B7FA720E3E337000B482F /* GalleryCore_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE0B7FAA20E3E337000B482F /* GalleryCore_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; };
 		DE0B7FAB20E3E337000B482F /* GalleryCore_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -250,6 +266,7 @@
 		89016DF12236D7B600AEF8F1 /* KGInsertionSortingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGInsertionSortingController.swift; sourceTree = "<group>"; };
 		89016DF42236D83100AEF8F1 /* KGColorSortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGColorSortingView.swift; sourceTree = "<group>"; };
 		890B43AF208E47F30001BAB7 /* ArtPieceDetailDismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtPieceDetailDismissAnimationController.swift; sourceTree = "<group>"; };
+		890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = KGBubbleParticles.sks; sourceTree = "<group>"; };
 		89127CE92126353D00208DCA /* MainViewController+PieceDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+PieceDisplay.swift"; sourceTree = "<group>"; };
 		89134E1320E80C1300772E7F /* Gallery tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gallery tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89134E1520E80C1300772E7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -282,6 +299,9 @@
 		892F534D2107A5E600AC8C45 /* SKSpriteNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+Extension.swift"; sourceTree = "<group>"; };
 		894C2C622141F20F001CAE52 /* RadialGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientLayer.swift; sourceTree = "<group>"; };
 		8959050C20754B8200300B62 /* InfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBarView.swift; sourceTree = "<group>"; };
+		896DA123224FBBA400AEF86D /* KGAquariumScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGAquariumScene.swift; sourceTree = "<group>"; };
+		896DA125224FBC2400AEF86D /* KGAquariumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGAquariumView.swift; sourceTree = "<group>"; };
+		896F0EF122552DF6006B2F25 /* KGFishNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGFishNode.swift; sourceTree = "<group>"; };
 		8970BCA920E95D160006870D /* GalleryCore_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8970BCAB20E95D160006870D /* GalleryCore_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_tvOS.h; sourceTree = "<group>"; };
 		8970BCAC20E95D160006870D /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
@@ -293,6 +313,7 @@
 		899F2BE2215012C90095D5D3 /* KGObstacleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGObstacleNode.swift; sourceTree = "<group>"; };
 		899F2BE5215015860095D5D3 /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		899F2BEA215086400095D5D3 /* KGBoidsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBoidsController.swift; sourceTree = "<group>"; };
+		899FBE8B225887F3006AFDEC /* KGWaterGrassNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGWaterGrassNode.swift; sourceTree = "<group>"; };
 		89BA9F582167EA6F004959B3 /* KGVertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGVertex.swift; sourceTree = "<group>"; };
 		89BA9F5B2167EB4D004959B3 /* KGMazeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGMazeController.swift; sourceTree = "<group>"; };
 		89BA9F5E2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGBreadthFirstSearchAlgorithm.swift; sourceTree = "<group>"; };
@@ -312,6 +333,7 @@
 		89E8C23A21803D5700A6434A /* KGKDimensionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGKDimensionNode.swift; sourceTree = "<group>"; };
 		89E8C23D21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGQuicksortSortingAlgorithm.swift; sourceTree = "<group>"; };
 		89E8C2402180E82100A6434A /* KKGKDimensionTreeNodeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKGKDimensionTreeNodeAction.swift; sourceTree = "<group>"; };
+		89FF4452225A193D00EC1266 /* KGAquarium.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = KGAquarium.xcassets; sourceTree = "<group>"; };
 		DE0B7FA320E3E337000B482F /* GalleryCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalleryCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0B7FA520E3E337000B482F /* GalleryCore_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryCore_iOS.h; sourceTree = "<group>"; };
 		DE0B7FA620E3E337000B482F /* Info_iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_iOS.plist; sourceTree = "<group>"; };
@@ -417,6 +439,19 @@
 				89016DF12236D7B600AEF8F1 /* KGInsertionSortingController.swift */,
 			);
 			path = ColorSorting;
+			sourceTree = "<group>";
+		};
+		890C5AF62253D2A80022D991 /* Aquarium */ = {
+			isa = PBXGroup;
+			children = (
+				896DA125224FBC2400AEF86D /* KGAquariumView.swift */,
+				896DA123224FBBA400AEF86D /* KGAquariumScene.swift */,
+				896F0EF122552DF6006B2F25 /* KGFishNode.swift */,
+				899FBE8B225887F3006AFDEC /* KGWaterGrassNode.swift */,
+				890C5B002253DAEC0022D991 /* KGBubbleParticles.sks */,
+				89FF4452225A193D00EC1266 /* KGAquarium.xcassets */,
+			);
+			path = Aquarium;
 			sourceTree = "<group>";
 		};
 		89134E1420E80C1300772E7F /* Gallery tvOS */ = {
@@ -605,6 +640,7 @@
 				DE16C526214ED93A0082BB34 /* Boids */,
 				891741F1223411A300ADA568 /* Clock */,
 				89016DF72236D89E00AEF8F1 /* ColorSorting */,
+				890C5AF62253D2A80022D991 /* Aquarium */,
 			);
 			path = KG;
 			sourceTree = "<group>";
@@ -945,7 +981,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890C5B152253E0FB0022D991 /* KGBubbleParticles.sks in Resources */,
 				891549EE2114E8F40041FE8A /* ArtPieceThumbails.xcassets in Resources */,
+				89FF4454225A194200EC1266 /* KGAquarium.xcassets in Resources */,
 				89134E1D20E80C1500772E7F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -959,6 +997,8 @@
 				DE16C53E214EE49A0082BB34 /* A565zScene.sks in Resources */,
 				DE16C545214EE4BE0082BB34 /* A586qActions.sks in Resources */,
 				891549ED2114ADB20041FE8A /* ArtPieceThumbails.xcassets in Resources */,
+				89FF4456225A194300EC1266 /* KGAquarium.xcassets in Resources */,
+				890C5B092253DDB00022D991 /* KGBubbleParticles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -971,6 +1011,8 @@
 				DE16C535214ED93A0082BB34 /* A586qActions.sks in Resources */,
 				DE16C52F214ED93A0082BB34 /* A565zActions.sks in Resources */,
 				DE16C532214ED93A0082BB34 /* A736DActions.sks in Resources */,
+				89FF4455225A194300EC1266 /* KGAquarium.xcassets in Resources */,
+				890C5B082253DDAF0022D991 /* KGBubbleParticles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -983,6 +1025,8 @@
 				DE293F962048F30300444EB8 /* Assets.xcassets in Resources */,
 				89DFA0DD20B74A0B00689663 /* GoogleService-Info.plist in Resources */,
 				DE3BD6592055FBD000FD3298 /* SFMono-Light.otf in Resources */,
+				89FF4453225A193E00EC1266 /* KGAquarium.xcassets in Resources */,
+				890C5B142253E0FB0022D991 /* KGBubbleParticles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1030,6 +1074,7 @@
 			files = (
 				89E8C23921803D0A00A6434A /* KGKDimensionTree.swift in Sources */,
 				89BA9F602167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
+				896DA12A224FC00700AEF86D /* KGAquariumScene.swift in Sources */,
 				89BA9F5D2167EB4D004959B3 /* KGMazeController.swift in Sources */,
 				89E8C2422180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */,
 				DE36AF63222D86F40030049C /* WVRotatingLinesView.swift in Sources */,
@@ -1038,6 +1083,7 @@
 				DE16C548214EE4CA0082BB34 /* KGBoidProperties.swift in Sources */,
 				89E8C23F21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift in Sources */,
 				89E8C23C21803D5700A6434A /* KGKDimensionNode.swift in Sources */,
+				896F0EF322552DF6006B2F25 /* KGFishNode.swift in Sources */,
 				8970BCBD20E95F220006870D /* MasterList.swift in Sources */,
 				89C3866A20F49839004BF43F /* CustomOperators.swift in Sources */,
 				DE16C543214EE4BA0082BB34 /* A586qScene.swift in Sources */,
@@ -1045,6 +1091,7 @@
 				DE16C546214EE4C20082BB34 /* A994tView.swift in Sources */,
 				89E8C22F2180309900A6434A /* KGDeStijlView.swift in Sources */,
 				DE16C540214EE4B10082BB34 /* A736DView.swift in Sources */,
+				896DA128224FC00000AEF86D /* KGAquariumView.swift in Sources */,
 				899F2BEC215086400095D5D3 /* KGBoidsController.swift in Sources */,
 				DE16C53D214EE4980082BB34 /* A565zView.swift in Sources */,
 				89016DF02236D78300AEF8F1 /* KGSortingAction.swift in Sources */,
@@ -1052,6 +1099,7 @@
 				89016DF62236D83100AEF8F1 /* KGColorSortingView.swift in Sources */,
 				8916D21B215DACC8007816C6 /* KGLineLayer.swift in Sources */,
 				89016DF32236D7B600AEF8F1 /* KGInsertionSortingController.swift in Sources */,
+				899FBE8D225887F3006AFDEC /* KGWaterGrassNode.swift in Sources */,
 				899F2BDD215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
 				89E8C2332180319900A6434A /* KGDeStijlController.swift in Sources */,
 				899F2BE0215011C40095D5D3 /* KGBoidsFireView.swift in Sources */,
@@ -1080,6 +1128,7 @@
 			files = (
 				89E8C23821803D0A00A6434A /* KGKDimensionTree.swift in Sources */,
 				89BA9F5F2167EB89004959B3 /* KGBreadthFirstSearchAlgorithm.swift in Sources */,
+				896DA129224FC00600AEF86D /* KGAquariumScene.swift in Sources */,
 				89BA9F5C2167EB4D004959B3 /* KGMazeController.swift in Sources */,
 				89E8C2412180E82100A6434A /* KKGKDimensionTreeNodeAction.swift in Sources */,
 				DE36AF62222D86F30030049C /* WVRotatingLinesView.swift in Sources */,
@@ -1088,6 +1137,7 @@
 				DE16C53A214ED93A0082BB34 /* KGBoidProperties.swift in Sources */,
 				89E8C23E21803E4000A6434A /* KGQuicksortSortingAlgorithm.swift in Sources */,
 				89E8C23B21803D5700A6434A /* KGKDimensionNode.swift in Sources */,
+				896F0EF222552DF6006B2F25 /* KGFishNode.swift in Sources */,
 				DE16C533214ED93A0082BB34 /* A586qScene.swift in Sources */,
 				DE16C52D214ED93A0082BB34 /* A565zView.swift in Sources */,
 				DE16C53B214ED93A0082BB34 /* KGBoidNode.swift in Sources */,
@@ -1095,6 +1145,7 @@
 				DE16C531214ED93A0082BB34 /* A736DScene.swift in Sources */,
 				89E8C22E2180309900A6434A /* KGDeStijlView.swift in Sources */,
 				DE16C539214ED93A0082BB34 /* KGBoidsSunView.swift in Sources */,
+				896DA127224FC00000AEF86D /* KGAquariumView.swift in Sources */,
 				891CAA6D20EC0D3C00B69074 /* CustomOperators.swift in Sources */,
 				899F2BEB215086400095D5D3 /* KGBoidsController.swift in Sources */,
 				89016DEF2236D78300AEF8F1 /* KGSortingAction.swift in Sources */,
@@ -1102,6 +1153,7 @@
 				89016DF52236D83100AEF8F1 /* KGColorSortingView.swift in Sources */,
 				8916D21A215DACC8007816C6 /* KGLineLayer.swift in Sources */,
 				89016DF22236D7B600AEF8F1 /* KGInsertionSortingController.swift in Sources */,
+				899FBE8C225887F3006AFDEC /* KGWaterGrassNode.swift in Sources */,
 				DE16C530214ED93A0082BB34 /* A736DView.swift in Sources */,
 				89E8C2322180319900A6434A /* KGDeStijlController.swift in Sources */,
 				899F2BDC215011800095D5D3 /* KGBoidsFireScene.swift in Sources */,
@@ -1291,6 +1343,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

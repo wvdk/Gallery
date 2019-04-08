@@ -82,6 +82,7 @@ class KGBoidsFireScene: SKScene {
         self.addChild(cloneBoid)
         allBoids.append(cloneBoid)
     }
+    
     // MARK: - Node control
     
     private func updateBoidPositions() {

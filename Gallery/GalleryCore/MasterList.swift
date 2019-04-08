@@ -26,6 +26,7 @@ public class MasterList {
         ]
         
         activePieces = [
+            PieceMetadata(author: "KG", prettyPublishedDate: "April 2019", viewType: KGAquariumView.self, thumbnail: UIImage(named: "KGAquariumView")),
             PieceMetadata(author: "KG", prettyPublishedDate: "October 2018", viewType: KGMazeView.self, thumbnail: UIImage(named: "KGMazeView")),
             PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsSunView.self, thumbnail: UIImage(named: "BoidsSunView")),
             PieceMetadata(author: "KG", prettyPublishedDate: "September 2018", viewType: KGBoidsFireView.self, thumbnail: UIImage(named: "BoidsFireView")),
