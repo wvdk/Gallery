@@ -26,7 +26,7 @@ public class A565zView: UIView {
             fatalError()
         }
         
-        return NSKeyedUnarchiver.unarchiveObject(with: gameSceneData) as? SKScene
+        return try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(gameSceneData) as? SKScene
     }()
 
     public required override init(frame: CGRect) {

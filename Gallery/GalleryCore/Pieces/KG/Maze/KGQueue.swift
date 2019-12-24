@@ -74,7 +74,7 @@ public struct KGQueue<T> {
     /// - Parameters:
     ///     - vertex: An object of a type `Vertex` to be removed from the queue list.
     mutating func pop(vertex: KGVertex) {
-        if !isEmpty, let vertexArray = array as? [KGVertex], let index = vertexArray.index(where: { $0 == vertex }) {
+        if !isEmpty, let vertexArray = array as? [KGVertex], let index = vertexArray.firstIndex(where: { $0 == vertex }) {
             array.remove(at: index)
         }
     }
