@@ -92,6 +92,7 @@ extension UIView {
     /// Note: Might cause some issues with your subclasses of UIView if they don't handle being archived with NSKeyedArchiver.
     private func copyView<T: UIView>() -> T {
         let data = try! NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false)
+        return try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! T
     }
     
     /// Creates a bunch of copies of the view, additively applying a transformation to them based on the `options` provided.
