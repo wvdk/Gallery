@@ -23,7 +23,7 @@ class FeaturedPieceViewController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         
-        let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collectionView.register(PieceViewCell.self, forCellWithReuseIdentifier: PieceViewCell.identifier)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.normal

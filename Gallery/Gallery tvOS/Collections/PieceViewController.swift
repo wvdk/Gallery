@@ -23,7 +23,7 @@ class PieceViewController: UIViewController {
         layout.minimumLineSpacing = view.frame.size.width * 0.0188
         layout.minimumInteritemSpacing = 0
         
-        let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collectionView.register(PieceViewCell.self, forCellWithReuseIdentifier: PieceViewCell.identifier)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.normal
