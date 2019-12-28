@@ -120,11 +120,7 @@ class A736DScene: SKScene {
         var rectHeight = 100
         var rectWidth = 20
         
-        if false {
-            // iPhone SE
-            rectHeight = 60
-            rectWidth = 20
-        } else if true {
+        if true {
             // iPad Normal size
             rectHeight = 50
             rectWidth = 30

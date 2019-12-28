@@ -23,20 +23,20 @@ class KGWaterGrassNode: SKSpriteNode {
     }
     
     private func configureGrassSwing(){
-        let position1: [float2] = [
-            float2(0, 1),           float2(0.5, 1),      float2(1, 1),
-            float2(0.02, 0.75),     float2(0.52, 0.75),  float2(1.02, 0.75),
-            float2(0, 0.5),         float2(0.5, 0.5),    float2(1, 0.5),
-            float2(-0.02, 0.25),    float2(0.48, 0.25),  float2(0.98, 0.25),
-            float2(0, 0),           float2(0.5, 0),      float2(1, 0)
+        let position1: [SIMD2<Float>] = [
+            SIMD2<Float>(0, 1),           SIMD2<Float>(0.5, 1),      SIMD2<Float>(1, 1),
+            SIMD2<Float>(0.02, 0.75),     SIMD2<Float>(0.52, 0.75),  SIMD2<Float>(1.02, 0.75),
+            SIMD2<Float>(0, 0.5),         SIMD2<Float>(0.5, 0.5),    SIMD2<Float>(1, 0.5),
+            SIMD2<Float>(-0.02, 0.25),    SIMD2<Float>(0.48, 0.25),  SIMD2<Float>(0.98, 0.25),
+            SIMD2<Float>(0, 0),           SIMD2<Float>(0.5, 0),      SIMD2<Float>(1, 0)
         ]
         
-        let position2: [float2] = [
-            float2(0, 1),           float2(0.5, 1),       float2(1, 1),
-            float2(-0.02, 0.75),    float2(0.48, 0.75),   float2(0.98, 0.75),
-            float2(0, 0.5),         float2(0.5, 0.5),     float2(1, 0.5),
-            float2(0.02, 0.25),     float2(0.52, 0.25),   float2(1.02, 0.25),
-            float2(0, 0),           float2(0.5, 0),       float2(1, 0)
+        let position2: [SIMD2<Float>] = [
+            SIMD2<Float>(0, 1),           SIMD2<Float>(0.5, 1),       SIMD2<Float>(1, 1),
+            SIMD2<Float>(-0.02, 0.75),    SIMD2<Float>(0.48, 0.75),   SIMD2<Float>(0.98, 0.75),
+            SIMD2<Float>(0, 0.5),         SIMD2<Float>(0.5, 0.5),     SIMD2<Float>(1, 0.5),
+            SIMD2<Float>(0.02, 0.25),     SIMD2<Float>(0.52, 0.25),   SIMD2<Float>(1.02, 0.25),
+            SIMD2<Float>(0, 0),           SIMD2<Float>(0.5, 0),       SIMD2<Float>(1, 0)
         ]
         
         let warp1 = SKWarpGeometryGrid(columns: 2,
